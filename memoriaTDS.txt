@@ -1,0 +1,6 @@
+- Para guardar la lista de interpetes en la base datos, la hemos codificado como un string donde los interpretes están separados por comas y los espacios para los nombres compuestos los hemos sustituido por _
+Ejemplo:
+Si nuestra lista es Bad Bunny, Paco en la Base de datos internamente sería un string "Bad_Bunny,Paco". Luego lo decodificamos para recuperar la lista de interpretes en formato original. Métodos creados en el AdaptadorCancionTDS.java
+Se ha creado el método para restringir el registro en base de datos de canciones con el mismo titulo y el mismo conjunto de artistas. Para ello se ha pasado la lista de interpretes a Set y se comprueba si coincide con la cancion
+nueva que queremos registrar además de comprobar si coincide el título también
+
