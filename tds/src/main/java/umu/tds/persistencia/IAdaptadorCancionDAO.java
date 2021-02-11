@@ -12,6 +12,7 @@ public interface IAdaptadorCancionDAO {
 	public void modificarCancion(Cancion cancion);
 	public Cancion recuperarCancion(int codigo);
 	public List<Cancion> recuperarTodasCanciones();
+	public boolean comprobarAutorTitulo(String Titulo, List<String> Autores);
 	
 
 	

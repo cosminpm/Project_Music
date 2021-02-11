@@ -180,7 +180,6 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 			return null;
 		}
 		
-		
 		List<Usuario> listaUsuarios = recuperarTodosUsuarios();
 		for (Usuario usuario1 : listaUsuarios) {
 			System.out.println(usuario1.toString());

@@ -1,10 +1,7 @@
 package umu.tds.persistencia;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import beans.Entidad;
 import beans.Propiedad;
@@ -31,7 +28,7 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 	
 	
 	public void registrarCancion(Cancion cancion) {
-		Entidad eCancion;
+		Entidad eCancion = null;
 		boolean existe = true; 
 		
 		// Si la entidad está registrada no la registra de nuevo
@@ -40,32 +37,45 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		} catch (NullPointerException e) {
 			existe = false;
 		}
-		if (existe) return;
+		
+		if (eCancion == null) {
+			existe = false;
+		}
+	
+		
+		if (existe) {
+			System.out.println("ESTA REGISTRADA");
+			return;
+		}
 
 	
 		// crear entidad Cancion
 		
 		
-		//Pasar la lista de interpretes a un solo string para meterlo en el servidor de persistencia
-		String listString = "";
+		//Pasar la lista de interpretes a un solo string para meterlo en el servidor de persistencia"
+		String listaInterpretes = "";
 		for (String s : cancion.getListaInterpretes())
 		{
-		    listString += s + "\t";
+			s.replace(" ", "_");
+		    listaInterpretes += s + ",";
 		}
+		
 		
 		eCancion = new Entidad();
 		eCancion.setNombre("cancion");
 		eCancion.setPropiedades(new ArrayList<Propiedad>(
 				Arrays.asList(new Propiedad("titulo", cancion.getTitulo()), new Propiedad("rutafichero", cancion.getRutaFichero()),
 						new Propiedad("numreproducciones", String.valueOf(cancion.getNumReproducciones())), new Propiedad("estiloMusical", cancion.getEstiloMusical()), 
-				        new Propiedad("listaInterpretes", listString))));
+				        new Propiedad("listaInterpretes", listaInterpretes))));
 		
 	
 		// registrar entidad cancion
 		eCancion = servPersistencia.registrarEntidad(eCancion);
 		// asignar identificador unico
 		// Se aprovecha el que genera el servicio de persistencia
+		System.err.println("Idetnficicador de eCancion:"+eCancion.getId());
 		cancion.setCodigo(eCancion.getId()); 
+		System.err.println("Identificador de Cancion:"+cancion.getCodigo());
 	}
 	
 	
@@ -85,7 +95,8 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 				String listaInterpretes = "";
 				for (String s : cancion.getListaInterpretes())
 				{
-				    listaInterpretes += s + "\t";
+					s.replace(" ", "_");
+				    listaInterpretes += s + ",";
 				}
 				
 		servPersistencia.eliminarPropiedadEntidad(eCancion, "titulo");
@@ -138,7 +149,10 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		
 		//Sacamos los interpretes como un string, lo pasamos a un array y luego a una lista de strings
 		listaInterpretes1 = servPersistencia.recuperarPropiedadEntidad(eCancion,"listaInterpretes");
-		listaInterpretes2 = listaInterpretes1.split(" ");
+		listaInterpretes2 = listaInterpretes1.split(",");
+		for (String aux : listaInterpretes2) {
+			aux.replace("_", " ");
+		}
 		listaInterpretes = Arrays.asList(listaInterpretes2);
 		
 
@@ -149,8 +163,6 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		// adaptadores
 		PoolDAO.getUnicaInstancia().addObjeto(codigo, cancion);
 
-		
-		
 		return cancion;
 	}
 	
@@ -162,11 +174,34 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		for (Entidad eCancion : eCanciones) {
 			canciones.add(recuperarCancion(eCancion.getId()));
 		}
+		
+		System.out.println(canciones.size());
+		
 		return canciones;
 	}
 	
+	public boolean comprobarAutorTitulo(String Titulo, List<String> Autores) {	
+		List<Entidad> eCanciones = servPersistencia.recuperarEntidades("cancion");
+		String aux;
+		Set<String> auxAutores = null;
+		String stringDeAutores = null;
+		Set<String> autoresToSet = new HashSet<String>(Autores);
+		
+		for (Entidad eCancion : eCanciones) {
+					
+			stringDeAutores = servPersistencia.recuperarPropiedadEntidad(eCancion, "listaInterpretes");	
+			// Variables que contienen las propiedades de la base de datos
+			auxAutores = genSetFromString(stringDeAutores);
+			aux = servPersistencia.recuperarPropiedadEntidad(eCancion, "titulo");	
+			if (auxAutores.equals(autoresToSet) && aux.equals(Titulo))
+				return true;
+		}
+		return false;
+	}
 	
-	
+	public Set<String> genSetFromString(String conjuntoAutores){
+		return new HashSet<String>(Arrays.asList(conjuntoAutores.split(",")));
+	}
 	
 	
 }

@@ -32,9 +32,6 @@ public class AppMusicControlador implements CancionesListener {
 	private CatalogoListaCanciones catalogoListaCanciones;
 	private CargadorCanciones cargadorCanciones = new CargadorCanciones();
 
-
-		
-	
 	private AppMusicControlador() {
 		inicializarAdaptadores(); // debe ser la primera linea para evitar error
 		  // de sincronización
@@ -48,12 +45,9 @@ public class AppMusicControlador implements CancionesListener {
 		}
 		
 		return unicaInstancia;
-		
-		
 	}
 	
 	public void registrarComoOyente() {
-		
 		
 		cargadorCanciones.addOyente(unicaInstancia);
 		
@@ -159,10 +153,8 @@ public class AppMusicControlador implements CancionesListener {
 		List<umu.tds.modelo.Cancion> listaCancionesModelo = ListaCanciones.listaCancionesComponenteToListaCancionesModelo(cargadorCanciones.getArchivoCanciones());
 		
 		for (umu.tds.modelo.Cancion cancion2 : listaCancionesModelo) {
-			
-			adaptadorCancion.registrarCancion(cancion2);
-			
-			
+			if (!adaptadorCancion.comprobarAutorTitulo(cancion2.getTitulo(), cancion2.getListaInterpretes()))
+				adaptadorCancion.registrarCancion(cancion2);
 		}
 	}
 	
@@ -171,9 +163,8 @@ public class AppMusicControlador implements CancionesListener {
 		
 		List<Cancion> lista = adaptadorCancion.recuperarTodasCanciones();
 		for (Cancion cancion : lista) {
-			
 			System.out.println("Cancion con ruta "+ cancion.getRutaFichero() + "Nombre"+ cancion.getTitulo());
-			
+			System.out.println(cancion.getListaInterpretes());
 			
 		}
 	}

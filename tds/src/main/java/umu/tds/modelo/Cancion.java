@@ -15,6 +15,7 @@ public class Cancion {
 	private List<String> listaInterpretes;
 	
 	public Cancion(String titulo, String rutaFichero,String estiloMusical, List<String> listaInterpretes) {
+		this.codigo = 0;
 		this.titulo = titulo;
 		this.rutaFichero = rutaFichero;
 		this.numReproducciones = 0;
