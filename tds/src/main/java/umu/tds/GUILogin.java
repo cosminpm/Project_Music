@@ -28,7 +28,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class GUILogin {
-
+	
 	private JFrame frame;
 	private JTextField textUsuario;
 	private JPasswordField textContrasenia;
@@ -60,6 +60,7 @@ public class GUILogin {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		System.out.println("HOOOOLA CARA ALMENDRA");
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
