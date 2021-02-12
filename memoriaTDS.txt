@@ -3,4 +3,12 @@ Ejemplo:
 Si nuestra lista es Bad Bunny, Paco en la Base de datos internamente sería un string "Bad_Bunny,Paco". Luego lo decodificamos para recuperar la lista de interpretes en formato original. Métodos creados en el AdaptadorCancionTDS.java
 Se ha creado el método para restringir el registro en base de datos de canciones con el mismo titulo y el mismo conjunto de artistas. Para ello se ha pasado la lista de interpretes a Set y se comprueba si coincide con la cancion
 nueva que queremos registrar además de comprobar si coincide el título también
+-Hemos añadido en el boton buscar, que saque el contenido de los textField correspondientes al interprete, titulo y el contenido del ComboBox del estilo, llamamos al método del controlador filtrar canciones que,
+llama a su vez al método del adaptador que recupera la lista de todas las canciones, una vez tenemos esta lista utilizamos streams de Java 8 para que, con el método filter vaya filtrando la lista por estilo, interprete etc...
+- Una vez tenemos la lista de canciones filtradas correctamente, con esa lista vamos rellenando la tabla de la ventana Explorar, utilizando este código que va añadiendo una fila con sus respectivas columna interprete y titulo por cada cancion
+for (Cancion cancion : canciones) {
+                    ((DefaultTableModel) tablaCanciones.getModel()).addRow(new Object[] {
+                            cancion.getListaInterpretes().toString(), cancion.getTitulo()});
+                }
+
 

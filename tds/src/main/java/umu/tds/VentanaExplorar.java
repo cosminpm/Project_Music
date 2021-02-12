@@ -313,19 +313,31 @@ public class VentanaExplorar extends JDialog {
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelBuscar.setVisible(true);
+				
 				String interprete = textInterprete.getText();
+				if(textInterprete.getText().isEmpty()) {
+					interprete = null;
+					
+				}
 				String titulo = textTitulo.getText();
+				if(textTitulo.getText().isEmpty()) {
+				
+					titulo = null;
+				}
+				
+				
+				
 				String estilo = comboBoxEstilo.getSelectedItem().toString();
 				
 				// TODO BORRAR
 				estilo = null;
 							
 				List<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo, estilo);
-				System.err.println(canciones.toString());
+				//System.err.println(canciones.toString());
 				String aux;
 				for (Cancion cancion : canciones) {
-					interprete = AppMusicControlador.getInstancia().comprobarCadenasExplorar(interprete);
-					titulo = AppMusicControlador.getInstancia().comprobarCadenasExplorar(titulo);
+					//ESTO DEBERIA ESTAR EN LA LINEA 334, PUEDES BORRAR LA FUNCION COMPROBAR interprete = AppMusicControlador.getInstancia().comprobarCadenasExplorar(interprete);
+					//ESTO DEBERIA ESTAR EN LA LINEA 334, PUEDES BORRAR LA FUNCION COMPROBAR titulo = AppMusicControlador.getInstancia().comprobarCadenasExplorar(titulo);
 					
 					aux = AppMusicControlador.getInstancia().printAutoresNice(cancion.getListaInterpretes());
 					((DefaultTableModel) tablaCanciones.getModel()).addRow(new Object[] {
