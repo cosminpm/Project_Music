@@ -19,15 +19,17 @@ import javax.swing.table.DefaultTableModel;
 
 import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Usuario;
-
+import umu.tds.modelo.Cancion;
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
+import java.util.*;
+
 
 public class VentanaExplorar extends JDialog {
 	
-	private JTextField textFieldTitulo;
-	private JTable table;
-	private JTextField textField;
+	private JTextField textTitulo;
+	private JTable tablaCanciones;
+	private JTextField textInterprete;
 
 	/**
 	 * Launch the application.
@@ -156,12 +158,9 @@ public class VentanaExplorar extends JDialog {
 		JButton btnReciente = new JButton("");
 		btnReciente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				VentanaRecientes ventanaRecientes = new VentanaRecientes();
 				ventanaRecientes.setVisible(true);
 				dispose();
-				
-				
 			}
 		});
 		btnReciente.setBorderPainted(false);
@@ -184,12 +183,9 @@ public class VentanaExplorar extends JDialog {
 		JButton btnMisListas = new JButton("");
 		btnMisListas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				VentanaMisListas ventanaMisListas = new VentanaMisListas();
 				ventanaMisListas.setVisible(true);
 				dispose();
-				
-				
 			}
 		});
 		btnMisListas.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/ListIcon.jpg")));
@@ -209,32 +205,32 @@ public class VentanaExplorar extends JDialog {
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
 		
-		textField = new JTextField();
-		textField.setText("INT\u00C9RPRETE");
-		textField.setForeground(Color.WHITE);
-		textField.setColumns(10);
-		textField.setBorder(null);
-		textField.setBackground(Color.GRAY);
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.gridwidth = 4;
-		gbc_textField.insets = new Insets(0, 0, 5, 5);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 4;
-		gbc_textField.gridy = 3;
-		getContentPane().add(textField, gbc_textField);
+		textInterprete = new JTextField();
+		textInterprete.setText("INT\u00C9RPRETE");
+		textInterprete.setForeground(Color.WHITE);
+		textInterprete.setColumns(10);
+		textInterprete.setBorder(null);
+		textInterprete.setBackground(Color.GRAY);
+		GridBagConstraints gbc_textInterprete = new GridBagConstraints();
+		gbc_textInterprete.gridwidth = 4;
+		gbc_textInterprete.insets = new Insets(0, 0, 5, 5);
+		gbc_textInterprete.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textInterprete.gridx = 4;
+		gbc_textInterprete.gridy = 3;
+		getContentPane().add(textInterprete, gbc_textInterprete);
 		
-		textFieldTitulo = new JTextField();
-		textFieldTitulo.setBorder(null);
-		textFieldTitulo.setForeground(Color.WHITE);
-		textFieldTitulo.setBackground(Color.GRAY);
-		textFieldTitulo.setText("T\u00CDTULO");
-		GridBagConstraints gbc_textFieldTitulo = new GridBagConstraints();
-		gbc_textFieldTitulo.insets = new Insets(0, 0, 5, 5);
-		gbc_textFieldTitulo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textFieldTitulo.gridx = 8;
-		gbc_textFieldTitulo.gridy = 3;
-		getContentPane().add(textFieldTitulo, gbc_textFieldTitulo);
-		textFieldTitulo.setColumns(10);
+		textTitulo = new JTextField();
+		textTitulo.setBorder(null);
+		textTitulo.setForeground(Color.WHITE);
+		textTitulo.setBackground(Color.GRAY);
+		textTitulo.setText("T\u00CDTULO");
+		GridBagConstraints gbc_textTitulo = new GridBagConstraints();
+		gbc_textTitulo.insets = new Insets(0, 0, 5, 5);
+		gbc_textTitulo.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textTitulo.gridx = 8;
+		gbc_textTitulo.gridy = 3;
+		getContentPane().add(textTitulo, gbc_textTitulo);
+		textTitulo.setColumns(10);
 		
 		JComboBox comboBoxEstilo = new JComboBox();
 		comboBoxEstilo.setBorder(null);
@@ -261,11 +257,7 @@ public class VentanaExplorar extends JDialog {
 		final JPanel panelBuscar = new JPanel();
 		panelBuscar.setVisible(false);
 		
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				panelBuscar.setVisible(true);
-			}
-		});
+
 		
 		JButton btnCancelar = new JButton("CANCELAR");
 		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
@@ -304,9 +296,9 @@ public class VentanaExplorar extends JDialog {
 		gbc_scrollPane.gridy = 1;
 		panelBuscar.add(scrollPane, gbc_scrollPane);
 		
-		table = new JTable();
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new DefaultTableModel(
+		tablaCanciones = new JTable();
+		tablaCanciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tablaCanciones.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"", null},
 				{"", null},
@@ -328,7 +320,28 @@ public class VentanaExplorar extends JDialog {
 				"T\u00CDTULO", "ARTISTA"
 			}
 		));
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(tablaCanciones);
+		
+		
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				panelBuscar.setVisible(true);
+				String interprete = textInterprete.getText();
+				String titulo = textTitulo.getText();
+				String estilo = comboBoxEstilo.getSelectedItem().toString();
+				// TODO BORRAR
+				estilo = null;
+				
+				LinkedList<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo, estilo);
+				
+				for (Cancion cancion : canciones) {
+					((DefaultTableModel) tablaCanciones.getModel()).addRow(new Object[] {
+			                cancion.getListaInterpretes().toString(), cancion.getTitulo()});
+				}
+			}
+		});
+		
+		
 		
 		JButton btnPlay = new JButton("");
 		btnPlay.setContentAreaFilled(false);

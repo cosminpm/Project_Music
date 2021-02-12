@@ -2,12 +2,15 @@ package umu.tds.persistencia;
 
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import beans.Entidad;
 import beans.Propiedad;
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
+import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Cancion;
+
 
 public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 
@@ -174,9 +177,6 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		for (Entidad eCancion : eCanciones) {
 			canciones.add(recuperarCancion(eCancion.getId()));
 		}
-		
-		System.out.println(canciones.size());
-		
 		return canciones;
 	}
 	
@@ -204,4 +204,26 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 	}
 	
 	
+	public List<Cancion> filtrarCanciones(String interprete, String titulo, String estilo){
+		
+		LinkedList<Cancion> todasCanciones = (LinkedList<Cancion>) this.recuperarTodasCanciones();
+		LinkedList<Cancion> resultado = new LinkedList<Cancion>();
+		
+		if(titulo != null)
+			todasCanciones.stream().filter(c -> c.getTitulo().contains(titulo));
+		if(estilo != null)
+			todasCanciones.stream().filter(c -> c.getEstiloMusical().contains(estilo));
+		
+		if(interprete != null) {
+			Set<String> autores = this.genSetFromString(interprete);
+			for (Cancion c : todasCanciones) {
+				if(c.getListaInterpretes().stream().collect(Collectors.toSet()).containsAll(autores))
+					resultado.add(c);
+			}
+			return resultado;
+		}
+			
+		resultado = todasCanciones;
+		return resultado;
+	}
 }

@@ -2,8 +2,9 @@ package umu.tds.controlador;
 
 import java.time.LocalDate;
 import java.util.EventObject;
-import java.util.List;
+import java.util.*;
 
+import umu.tds.persistencia.AdaptadorCancionTDS;
 import umu.tds.persistencia.DAOException;
 import umu.tds.persistencia.FactoriaDAO;
 import umu.tds.modelo.Cancion;
@@ -183,8 +184,15 @@ public class AppMusicControlador implements CancionesListener {
 		
 	
 	         //TODO Actualizar catalogo de canciones...etc	
+		}
 	}
 	
+	public LinkedList<Cancion> filtrarCanciones(String interprete, String titulo, String estilo){
+		LinkedList<Cancion> resultado = new LinkedList<Cancion>();
+		// Filtrar segun parametros
+		resultado =(LinkedList<Cancion>) adaptadorCancion.filtrarCanciones(interprete, titulo, estilo);
+		return resultado;
 	}
+	
 	
 }

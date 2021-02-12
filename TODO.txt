@@ -1,1 +1,3 @@
 - Boton para volver al menú principal --> Imaginarse que quieres cargar mas canciones
+- Combo box que se rellene con los estilos de las canciones
+- (Posible mejora) Si al explorar el string es INTERPRETE que lo considere como que no ha rellenado nada
