@@ -187,12 +187,27 @@ public class AppMusicControlador implements CancionesListener {
 		}
 	}
 	
-	public LinkedList<Cancion> filtrarCanciones(String interprete, String titulo, String estilo){
-		LinkedList<Cancion> resultado = new LinkedList<Cancion>();
+	public List<Cancion> filtrarCanciones(String interprete, String titulo, String estilo){
+		List<Cancion> resultado = new LinkedList<Cancion>();
 		// Filtrar segun parametros
-		resultado =(LinkedList<Cancion>) adaptadorCancion.filtrarCanciones(interprete, titulo, estilo);
+		resultado =(List<Cancion>) adaptadorCancion.filtrarCanciones(interprete, titulo, estilo);
 		return resultado;
 	}
 	
+	public String printAutoresNice(List<String> autores) {
+		String resultado =  "";
+		for (String s : autores) {
+			resultado = resultado + ", " + s;
+		}
+		resultado = resultado.substring(2);
+		return resultado;
+	}
+	
+	public String comprobarCadenasExplorar(String cadena) {
+		System.err.println(Integer.parseInt(cadena));
+		if (Integer.parseInt(cadena) <= 0)
+			return null;
+		return cadena;
+	}
 	
 }

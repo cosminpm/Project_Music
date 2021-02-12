@@ -143,8 +143,8 @@ public class GUILogin {
 	 				}
 				else {
 					
-					//Crear instancia de VentanaMain y mostrar la ventana
-					//Recuperar el usuario de base de datos
+					//Crear instancia de VentanaMain y mostrar la ventana1
+					//Recuperar el usuario de1 base de datos
 					//TODO Preguntar si la interfaz recupera el usuario
 					Usuario usuario = AppMusicControlador.getInstancia().recuperarUsuario(login, password);
 					AppMusicControlador.getInstancia().setUsuarioActual(usuario);

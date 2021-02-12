@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.math.BigInteger;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -300,21 +301,7 @@ public class VentanaExplorar extends JDialog {
 		tablaCanciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tablaCanciones.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
-				{"", null},
+
 			},
 			new String[] {
 				"T\u00CDTULO", "ARTISTA"
@@ -329,19 +316,23 @@ public class VentanaExplorar extends JDialog {
 				String interprete = textInterprete.getText();
 				String titulo = textTitulo.getText();
 				String estilo = comboBoxEstilo.getSelectedItem().toString();
+				
 				// TODO BORRAR
 				estilo = null;
-				
-				LinkedList<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo, estilo);
-				
+							
+				List<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo, estilo);
+				System.err.println(canciones.toString());
+				String aux;
 				for (Cancion cancion : canciones) {
+					interprete = AppMusicControlador.getInstancia().comprobarCadenasExplorar(interprete);
+					titulo = AppMusicControlador.getInstancia().comprobarCadenasExplorar(titulo);
+					
+					aux = AppMusicControlador.getInstancia().printAutoresNice(cancion.getListaInterpretes());
 					((DefaultTableModel) tablaCanciones.getModel()).addRow(new Object[] {
-			                cancion.getListaInterpretes().toString(), cancion.getTitulo()});
+			                cancion.getTitulo(), aux});
 				}
 			}
 		});
-		
-		
 		
 		JButton btnPlay = new JButton("");
 		btnPlay.setContentAreaFilled(false);

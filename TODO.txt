@@ -1,3 +1,8 @@
 - Boton para volver al menú principal --> Imaginarse que quieres cargar mas canciones
 - Combo box que se rellene con los estilos de las canciones
 - (Posible mejora) Si al explorar el string es INTERPRETE que lo considere como que no ha rellenado nada
+- Campos null al buscar
+- Poner en interfaz al buscar encima interprete y cancion
+
+---- HECHO ----
+Que imprima correctamente las listas de los autores en la tabla

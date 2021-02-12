@@ -2,6 +2,7 @@ package umu.tds.persistencia;
 
 
 import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import beans.Entidad;
@@ -206,11 +207,17 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 	
 	public List<Cancion> filtrarCanciones(String interprete, String titulo, String estilo){
 		
-		LinkedList<Cancion> todasCanciones = (LinkedList<Cancion>) this.recuperarTodasCanciones();
-		LinkedList<Cancion> resultado = new LinkedList<Cancion>();
+		
+		System.err.println("INTERPRETE: "+interprete);
+		System.err.println("TITULO: "+titulo);
+		System.err.println("estilo: " +estilo);
+		
+		List<Cancion> todasCanciones = (LinkedList<Cancion>) this.recuperarTodasCanciones();
+		List<Cancion> resultado = new LinkedList<Cancion>();
 		
 		if(titulo != null)
-			todasCanciones.stream().filter(c -> c.getTitulo().contains(titulo));
+			todasCanciones = todasCanciones.stream().filter(c -> c.getTitulo().contains(titulo)).collect(Collectors.toList());
+		
 		if(estilo != null)
 			todasCanciones.stream().filter(c -> c.getEstiloMusical().contains(estilo));
 		

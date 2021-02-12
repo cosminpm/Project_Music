@@ -19,4 +19,6 @@
 	<section name="BuildPathsPropertyPage">
 		<item key="pageIndex" value="2"/>
 	</section>
+	<section name="RenameInformationPopup">
+	</section>
 </section>
