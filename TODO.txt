@@ -3,6 +3,7 @@
 - Mejorar Interfaz, pero eso lo último, ahora mismo esta en beta
 - Al explorar que no diferencie entre lower y upper case
 - Poner Cualquiera el primera
+- Añadir opción mediante click y mediante boton en nueva lista
 
 ---- HECHO ----
 - Que imprima correctamente las listas de los autores en la tabla

@@ -13,6 +13,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
@@ -30,7 +31,7 @@ public class VentanaNuevaLista extends JDialog {
 	private JTextField txtInterprete;
 	private JTextField txtTitulo;
 	private JTable tableCancionesSinAniadir;
-	private JTable table;
+	private JTable tableCancionesAniadidas;
 
 	/**
 	 * Launch the application.
@@ -371,6 +372,8 @@ public class VentanaNuevaLista extends JDialog {
 		panelCrearLista.add(scrollPaneSinAniadir, gbc_scrollPaneSinAniadir);
 		
 		tableCancionesSinAniadir = new JTable();
+		tableCancionesSinAniadir.setRowSelectionAllowed(true);
+		tableCancionesSinAniadir.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		tableCancionesSinAniadir.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
@@ -390,21 +393,18 @@ public class VentanaNuevaLista extends JDialog {
 		gbc_scrollPaneAniadidas.gridy = 2;
 		panelCrearLista.add(scrollPaneAniadidas, gbc_scrollPaneAniadidas);
 		
-		table = new JTable();
-		table.setForeground(Color.WHITE);
-		table.setBackground(Color.WHITE);
-		table.setModel(new DefaultTableModel(
+		tableCancionesAniadidas = new JTable();
+		//tableCancionesAniadidas.setForeground(Color.WHITE);
+		//tableCancionesAniadidas.setBackground(Color.WHITE);
+		tableCancionesAniadidas.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
+				
 			},
 			new String[] {
 				"T\u00CDTULO", "INT\u00C9RPRETE"
 			}
 		));
-		scrollPaneAniadidas.setViewportView(table);
+		scrollPaneAniadidas.setViewportView(tableCancionesAniadidas);
 		
 		JButton btnSendBack = new JButton("<<");
 		btnSendBack.setForeground(Color.WHITE);
@@ -416,6 +416,29 @@ public class VentanaNuevaLista extends JDialog {
 		panelCrearLista.add(btnSendBack, gbc_btnSendBack);
 		
 		JButton btnSendToList = new JButton(">>");
+		btnSendToList.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//Coger valor de la tabla sin aniadir, borrarlo y pasarlo a las canciones aniadidas
+				int[] indicesSeleccionados = tableCancionesSinAniadir.getSelectedRows();
+				int aux = 0;
+				//Para cada fila seleccionada, sacamos los valores de su primera columna (titulo) y su segunda columna (interprete)
+				for(int i = 0; i < indicesSeleccionados.length; i++) {
+					
+					String titulo = tableCancionesSinAniadir.getModel().getValueAt(indicesSeleccionados[i]-aux, 0).toString();
+					String interprete = tableCancionesSinAniadir.getModel().getValueAt(indicesSeleccionados[i]-aux, 1).toString();
+					DefaultTableModel model = (DefaultTableModel) tableCancionesAniadidas.getModel();
+					model.addRow(new Object[]{titulo, interprete});
+					DefaultTableModel model1 = (DefaultTableModel) tableCancionesSinAniadir.getModel();
+					model1.removeRow(indicesSeleccionados[i]-aux);
+					aux++;
+					
+				}
+				
+				
+				
+			}
+		});
 		btnSendToList.setForeground(Color.WHITE);
 		btnSendToList.setBackground(Color.GRAY);
 		GridBagConstraints gbc_btnSendToList = new GridBagConstraints();
