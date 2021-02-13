@@ -154,10 +154,7 @@ public class GUILogin {
 					
 					panelPrincipal.mostrarVentana();
 					frame.dispose();
-					
-					
 				}
-				
 			}
 		});
 		GridBagConstraints gbc_botonLogin = new GridBagConstraints();

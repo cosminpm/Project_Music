@@ -224,7 +224,8 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		if(interprete != null) {
 			Set<String> autores = this.genSetFromString(interprete);
 			for (Cancion c : todasCanciones) {
-				if(c.getListaInterpretes().stream().collect(Collectors.toSet()).containsAll(autores))
+				if(c.getListaInterpretes().stream().collect(Collectors.toSet()).containsAll(autores)
+						|| c.getListaInterpretes().stream().filter(a -> a.contains(interprete)).collect(Collectors.toList()).size() > 0)
 					resultado.add(c);
 			}
 			return resultado;
@@ -234,3 +235,6 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		return resultado;
 	}
 }
+
+	
+
