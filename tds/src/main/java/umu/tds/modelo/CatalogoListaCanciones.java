@@ -42,7 +42,6 @@ public class CatalogoListaCanciones {
 	public List<ListaCanciones> getListaCanciones() throws DAOException {
 		return new LinkedList<ListaCanciones>(ListaCancionesPorID.values());
 	}
-	
 
 	public ListaCanciones getListaCanciones(int id) {
 		return ListaCancionesPorID.get(id);

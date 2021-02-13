@@ -202,12 +202,9 @@ public class AppMusicControlador implements CancionesListener {
 		resultado = resultado.substring(2);
 		return resultado;
 	}
-	
-	public String comprobarCadenasExplorar(String cadena) {
-		System.err.println(Integer.parseInt(cadena));
-		if (Integer.parseInt(cadena) <= 0)
-			return null;
-		return cadena;
+
+	public Set<String> recuperarEstilos() {
+		return adaptadorCancion.recuperarTodosEstilos();
 	}
 	
 }

@@ -251,7 +251,10 @@ public class VentanaExplorar extends JDialog {
 		comboBoxEstilo.setBorder(null);
 		comboBoxEstilo.setForeground(Color.WHITE);
 		comboBoxEstilo.setBackground(Color.GRAY);
-		comboBoxEstilo.setModel(new DefaultComboBoxModel(new String[] {"ESTILO", "ROCK", "POP", "ELECTRO", "CL\u00C1SICA", "RETRO", "80'S", "90'S", "OTRO"}));
+		
+		
+		String[] array = AppMusicControlador.getInstancia().recuperarEstilos().stream().toArray(String[]::new);
+		comboBoxEstilo.setModel(new DefaultComboBoxModel(array));
 		GridBagConstraints gbc_comboBoxEstilo = new GridBagConstraints();
 		gbc_comboBoxEstilo.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBoxEstilo.fill = GridBagConstraints.HORIZONTAL;
@@ -328,10 +331,12 @@ public class VentanaExplorar extends JDialog {
 			public void actionPerformed(ActionEvent arg0) {
 				panelBuscar.setVisible(true);
 				
+				DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
+				model.setRowCount(0);
+				
 				String interprete = textInterprete.getText();
 				if(textInterprete.getText().isEmpty()) {
 					interprete = null;
-					
 				}
 				String titulo = textTitulo.getText();
 				if(textTitulo.getText().isEmpty()) {
@@ -339,17 +344,14 @@ public class VentanaExplorar extends JDialog {
 				}
 				
 				String estilo = comboBoxEstilo.getSelectedItem().toString();
+				if(estilo == "Cualquiera") {
+					estilo = null;
+				}
 				
-				// TODO BORRAR
-				estilo = null;
-							
 				List<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo, estilo);
-				//System.err.println(canciones.toString());
+				
 				String aux;
 				for (Cancion cancion : canciones) {
-					//ESTO DEBERIA ESTAR EN LA LINEA 334, PUEDES BORRAR LA FUNCION COMPROBAR interprete = AppMusicControlador.getInstancia().comprobarCadenasExplorar(interprete);
-					//ESTO DEBERIA ESTAR EN LA LINEA 334, PUEDES BORRAR LA FUNCION COMPROBAR titulo = AppMusicControlador.getInstancia().comprobarCadenasExplorar(titulo);
-					
 					aux = AppMusicControlador.getInstancia().printAutoresNice(cancion.getListaInterpretes());
 					((DefaultTableModel) tablaCanciones.getModel()).addRow(new Object[] {
 			                cancion.getTitulo(), aux});

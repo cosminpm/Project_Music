@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -19,14 +20,15 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import umu.tds.controlador.AppMusicControlador;
+import umu.tds.modelo.Cancion;
 import umu.tds.modelo.Usuario;
 
 import javax.swing.JScrollPane;
 
 public class VentanaNuevaLista extends JDialog {
 	private JTextField txtNombreLista;
-	private JTextField txtIntrprete;
-	private JTextField txtTtulo;
+	private JTextField txtInterprete;
+	private JTextField txtTitulo;
 	private JTable tableCancionesSinAniadir;
 	private JTable table;
 
@@ -265,59 +267,87 @@ public class VentanaNuevaLista extends JDialog {
 		gbc_panelCrearLista.gridy = 4;
 		getContentPane().add(panelCrearLista, gbc_panelCrearLista);
 		GridBagLayout gbl_panelCrearLista = new GridBagLayout();
-		gbl_panelCrearLista.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panelCrearLista.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panelCrearLista.rowHeights = new int[]{0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panelCrearLista.columnWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gbl_panelCrearLista.columnWeights = new double[]{1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		gbl_panelCrearLista.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panelCrearLista.setLayout(gbl_panelCrearLista);
 		
-		txtIntrprete = new JTextField();
-		txtIntrprete.setText("INT\u00C9RPRETE");
-		GridBagConstraints gbc_txtIntrprete = new GridBagConstraints();
-		gbc_txtIntrprete.anchor = GridBagConstraints.NORTH;
-		gbc_txtIntrprete.gridwidth = 3;
-		gbc_txtIntrprete.insets = new Insets(0, 0, 5, 5);
-		gbc_txtIntrprete.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtIntrprete.gridx = 0;
-		gbc_txtIntrprete.gridy = 0;
-		panelCrearLista.add(txtIntrprete, gbc_txtIntrprete);
-		txtIntrprete.setColumns(10);
+		txtInterprete = new JTextField();
+		txtInterprete.setText("INT\u00C9RPRETE");
+		GridBagConstraints gbc_txtInterprete = new GridBagConstraints();
+		gbc_txtInterprete.anchor = GridBagConstraints.NORTH;
+		gbc_txtInterprete.gridwidth = 3;
+		gbc_txtInterprete.insets = new Insets(0, 0, 5, 5);
+		gbc_txtInterprete.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtInterprete.gridx = 0;
+		gbc_txtInterprete.gridy = 0;
+		panelCrearLista.add(txtInterprete, gbc_txtInterprete);
+		txtInterprete.setColumns(10);
 		
-		txtTtulo = new JTextField();
-		txtTtulo.setText("T\u00CDTULO");
-		GridBagConstraints gbc_txtTtulo = new GridBagConstraints();
-		gbc_txtTtulo.anchor = GridBagConstraints.NORTH;
-		gbc_txtTtulo.insets = new Insets(0, 0, 5, 5);
-		gbc_txtTtulo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtTtulo.gridx = 3;
-		gbc_txtTtulo.gridy = 0;
-		panelCrearLista.add(txtTtulo, gbc_txtTtulo);
-		txtTtulo.setColumns(10);
+		JComboBox comboBoxEstilo = new JComboBox();
+		comboBoxEstilo.setBackground(Color.GRAY);
+		comboBoxEstilo.setForeground(Color.WHITE);
 		
-		JComboBox comboBoxTitulo = new JComboBox();
-		comboBoxTitulo.setBackground(Color.GRAY);
-		comboBoxTitulo.setForeground(Color.WHITE);
-		comboBoxTitulo.setModel(new DefaultComboBoxModel(new String[] {"RAP", "POP", "OTRO"}));
-		GridBagConstraints gbc_comboBoxTitulo = new GridBagConstraints();
-		gbc_comboBoxTitulo.anchor = GridBagConstraints.NORTH;
-		gbc_comboBoxTitulo.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBoxTitulo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBoxTitulo.gridx = 4;
-		gbc_comboBoxTitulo.gridy = 0;
-		panelCrearLista.add(comboBoxTitulo, gbc_comboBoxTitulo);
+		String[] array = AppMusicControlador.getInstancia().recuperarEstilos().stream().toArray(String[]::new);
+		
+		txtTitulo = new JTextField();
+		txtTitulo.setText("T\u00CDTULO");
+		GridBagConstraints gbc_txtTitulo = new GridBagConstraints();
+		gbc_txtTitulo.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtTitulo.gridwidth = 2;
+		gbc_txtTitulo.anchor = GridBagConstraints.NORTH;
+		gbc_txtTitulo.insets = new Insets(0, 0, 5, 5);
+		gbc_txtTitulo.gridx = 3;
+		gbc_txtTitulo.gridy = 0;
+		panelCrearLista.add(txtTitulo, gbc_txtTitulo);
+		txtTitulo.setColumns(10);
+		comboBoxEstilo.setModel(new DefaultComboBoxModel(array));
+		GridBagConstraints gbc_comboBoxEstilo = new GridBagConstraints();
+		gbc_comboBoxEstilo.anchor = GridBagConstraints.NORTH;
+		gbc_comboBoxEstilo.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBoxEstilo.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBoxEstilo.gridx = 5;
+		gbc_comboBoxEstilo.gridy = 0;
+		panelCrearLista.add(comboBoxEstilo, gbc_comboBoxEstilo);
 		
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setForeground(Color.WHITE);
 		btnBuscar.setBackground(Color.GRAY);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				DefaultTableModel model = (DefaultTableModel) tableCancionesSinAniadir.getModel();
+				model.setRowCount(0);
+				
+				
+				String interprete = txtInterprete.getText();
+				String titulo = txtInterprete.getText();
+				String estilo = comboBoxEstilo.getSelectedItem().toString();
+				
+				if(txtInterprete.getText().isEmpty()) {
+					interprete = null;
+				}
+				if(txtTitulo.getText().isEmpty()) {
+					titulo = null;
+				}
+				
+				if(estilo.equals("Cualquiera")) {
+					estilo = null;
+				}
+				List<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo, estilo);
+				String aux;
+				for (Cancion cancion : canciones) {
+					aux = AppMusicControlador.getInstancia().printAutoresNice(cancion.getListaInterpretes());
+					((DefaultTableModel) tableCancionesSinAniadir.getModel()).addRow(new Object[] {
+			                cancion.getTitulo(), aux});
+				}
 			}
 		});
 		GridBagConstraints gbc_btnBuscar = new GridBagConstraints();
 		gbc_btnBuscar.anchor = GridBagConstraints.NORTH;
 		gbc_btnBuscar.gridwidth = 2;
 		gbc_btnBuscar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnBuscar.gridx = 5;
+		gbc_btnBuscar.gridx = 6;
 		gbc_btnBuscar.gridy = 0;
 		panelCrearLista.add(btnBuscar, gbc_btnBuscar);
 		
@@ -325,7 +355,7 @@ public class VentanaNuevaLista extends JDialog {
 		GridBagConstraints gbc_lblPlaylist = new GridBagConstraints();
 		gbc_lblPlaylist.anchor = GridBagConstraints.SOUTH;
 		gbc_lblPlaylist.insets = new Insets(0, 0, 5, 5);
-		gbc_lblPlaylist.gridx = 6;
+		gbc_lblPlaylist.gridx = 7;
 		gbc_lblPlaylist.gridy = 1;
 		panelCrearLista.add(lblPlaylist, gbc_lblPlaylist);
 		
@@ -343,9 +373,6 @@ public class VentanaNuevaLista extends JDialog {
 		tableCancionesSinAniadir = new JTable();
 		tableCancionesSinAniadir.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
 			},
 			new String[] {
 				"T\u00CDTULO", "INT\u00C9RPRETE"
@@ -359,7 +386,7 @@ public class VentanaNuevaLista extends JDialog {
 		gbc_scrollPaneAniadidas.gridheight = 4;
 		gbc_scrollPaneAniadidas.insets = new Insets(0, 0, 5, 5);
 		gbc_scrollPaneAniadidas.fill = GridBagConstraints.BOTH;
-		gbc_scrollPaneAniadidas.gridx = 5;
+		gbc_scrollPaneAniadidas.gridx = 6;
 		gbc_scrollPaneAniadidas.gridy = 2;
 		panelCrearLista.add(scrollPaneAniadidas, gbc_scrollPaneAniadidas);
 		
@@ -384,7 +411,7 @@ public class VentanaNuevaLista extends JDialog {
 		btnSendBack.setBackground(Color.GRAY);
 		GridBagConstraints gbc_btnSendBack = new GridBagConstraints();
 		gbc_btnSendBack.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSendBack.gridx = 4;
+		gbc_btnSendBack.gridx = 5;
 		gbc_btnSendBack.gridy = 4;
 		panelCrearLista.add(btnSendBack, gbc_btnSendBack);
 		
@@ -394,7 +421,7 @@ public class VentanaNuevaLista extends JDialog {
 		GridBagConstraints gbc_btnSendToList = new GridBagConstraints();
 		gbc_btnSendToList.anchor = GridBagConstraints.NORTH;
 		gbc_btnSendToList.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSendToList.gridx = 4;
+		gbc_btnSendToList.gridx = 5;
 		gbc_btnSendToList.gridy = 5;
 		panelCrearLista.add(btnSendToList, gbc_btnSendToList);
 		
@@ -417,7 +444,7 @@ public class VentanaNuevaLista extends JDialog {
 		btnCancelar.setBackground(Color.GRAY);
 		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnCancelar.gridx = 6;
+		gbc_btnCancelar.gridx = 7;
 		gbc_btnCancelar.gridy = 6;
 		panelCrearLista.add(btnCancelar, gbc_btnCancelar);
 		

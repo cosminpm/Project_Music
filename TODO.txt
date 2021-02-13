@@ -1,11 +1,14 @@
 - Boton para volver al menú principal --> Imaginarse que quieres cargar mas canciones
-- Combo box que se rellene con los estilos de las canciones
 - (Posible mejora) Si al explorar el string es INTERPRETE que lo considere como que no ha rellenado nada
 - Mejorar Interfaz, pero eso lo último, ahora mismo esta en beta
+- Al explorar que no diferencie entre lower y upper case
+- Poner Cualquiera el primera
 
 ---- HECHO ----
 - Que imprima correctamente las listas de los autores en la tabla
 - Campos null al buscar
 - En los autores al buscar con una sola letra tambien me busque, es decir su busco iaf me salga las canciones de Edith Piaf
 - Poner en interfaz al buscar encima interprete y cancion
-
+- Combo box que se rellene con los estilos de las canciones
+- Añadir opcion de cualquiera en el estilo
+- Resetear la tabla cada vez que se busca

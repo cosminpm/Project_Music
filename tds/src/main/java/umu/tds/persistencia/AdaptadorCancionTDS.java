@@ -219,7 +219,7 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 			todasCanciones = todasCanciones.stream().filter(c -> c.getTitulo().contains(titulo)).collect(Collectors.toList());
 		
 		if(estilo != null)
-			todasCanciones.stream().filter(c -> c.getEstiloMusical().contains(estilo));
+			todasCanciones = todasCanciones.stream().filter(c -> c.getEstiloMusical().contains(estilo)).collect(Collectors.toList());
 		
 		if(interprete != null) {
 			Set<String> autores = this.genSetFromString(interprete);
@@ -233,6 +233,17 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 			
 		resultado = todasCanciones;
 		return resultado;
+	}
+	
+	public Set<String> recuperarTodosEstilos(){
+		HashSet<String> estilos = new HashSet<String>();
+		
+		List<Entidad> eCanciones = servPersistencia.recuperarEntidades("cancion");
+		for (Entidad eCancion : eCanciones) {
+			estilos.add((recuperarCancion(eCancion.getId()).getEstiloMusical()));
+		}
+		estilos.add("Cualquiera");
+		return estilos;
 	}
 }
 
