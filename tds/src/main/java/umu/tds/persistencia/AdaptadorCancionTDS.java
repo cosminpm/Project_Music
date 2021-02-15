@@ -235,14 +235,13 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		return resultado;
 	}
 	
-	public Set<String> recuperarTodosEstilos(){
-		HashSet<String> estilos = new HashSet<String>();
-		
+	public LinkedHashSet<String> recuperarTodosEstilos(){
+		LinkedHashSet<String> estilos = new LinkedHashSet<String>();
 		List<Entidad> eCanciones = servPersistencia.recuperarEntidades("cancion");
+		estilos.add("Cualquiera");
 		for (Entidad eCancion : eCanciones) {
 			estilos.add((recuperarCancion(eCancion.getId()).getEstiloMusical()));
 		}
-		estilos.add("Cualquiera");
 		return estilos;
 	}
 	

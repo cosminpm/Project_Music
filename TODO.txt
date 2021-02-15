@@ -1,7 +1,6 @@
 - Boton para volver al menú principal --> Imaginarse que quieres cargar mas canciones
 - Mejorar Interfaz, pero eso lo último, ahora mismo esta en beta
 - Al explorar que no diferencie entre lower y upper case
-- Poner Cualquiera el primera
 - Añadir opción mediante click y mediante boton en nueva lista
 - Al darse al boton buscar si las canciones ya estan en cualquiera de las dos partes que no vuelvan a aparecer
 
@@ -19,3 +18,4 @@
 - Que no se permita la seleccion de tanto izquierda como derecha de la plantilla
 - (Posible mejora) Si al explorar el string es INTERPRETE o con TITULO que lo considere como que no ha rellenado nada
 - - Borrar todos los warnings(Que se han podido)
+- Poner Cualquiera como primera opción

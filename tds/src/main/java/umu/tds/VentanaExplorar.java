@@ -337,9 +337,21 @@ public class VentanaExplorar extends JDialog {
 				if(textInterprete.getText().isEmpty()) {
 					interprete = null;
 				}
+				
+				else {
+					
+					interprete = AppMusicControlador.getInstancia().comprobarCorrecionInterprete(interprete);
+					
+				}
 				String titulo = textTitulo.getText();
 				if(textTitulo.getText().isEmpty()) {
 					titulo = null;
+				}
+				
+				else {
+					
+					titulo = AppMusicControlador.getInstancia().comprobarCorrecionTitulo(titulo);
+					
 				}
 				
 				String estilo = comboBoxEstilo.getSelectedItem().toString();
@@ -347,8 +359,6 @@ public class VentanaExplorar extends JDialog {
 					estilo = null;
 				}
 				
-				interprete = AppMusicControlador.getInstancia().comprobarCorrecionInterprete(interprete);
-				titulo = AppMusicControlador.getInstancia().comprobarCorrecionTitulo(titulo);
 				
 				System.out.println("AA: " + titulo);
 				System.out.println("BB: " + interprete);

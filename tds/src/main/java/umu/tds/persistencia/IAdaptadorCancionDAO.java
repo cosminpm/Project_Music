@@ -1,7 +1,7 @@
 package umu.tds.persistencia;
 
+import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 import umu.tds.modelo.Cancion;
 
@@ -15,7 +15,7 @@ public interface IAdaptadorCancionDAO {
 	public List<Cancion> recuperarTodasCanciones();
 	public boolean comprobarAutorTitulo(String Titulo, List<String> Autores);
 	public List<Cancion> filtrarCanciones(String interprete, String titulo, String estilo);
-	public Set<String> recuperarTodosEstilos();
+	public LinkedHashSet<String> recuperarTodosEstilos();
 	public String comprobarCorrecionTitulo(String titulo);
 	public String comprobarCorrecionInterprete(String interprete);
 

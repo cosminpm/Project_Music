@@ -203,7 +203,7 @@ public class AppMusicControlador implements CancionesListener {
 		return resultado;
 	}
 
-	public Set<String> recuperarEstilos() {
+	public LinkedHashSet<String> recuperarEstilos() {
 		return adaptadorCancion.recuperarTodosEstilos();
 	}
 	
