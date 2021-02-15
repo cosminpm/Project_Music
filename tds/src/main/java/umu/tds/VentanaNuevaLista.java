@@ -445,14 +445,6 @@ public class VentanaNuevaLista extends JDialog {
 				listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesAnididas);
 				listaCancionesSinAniadir = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesSinAniadir);
 				
-				// TODO BORRAR
-				for (Cancion c : listaCancionesAnididas) {
-					System.out.println(c.getTitulo());
-				}
-				for (Cancion c : listaCancionesSinAniadir) {
-					System.out.println(c.getTitulo());
-				}
-				
 				DefaultTableModel modelAniadidos = (DefaultTableModel) tableCancionesAniadidas.getModel();
 				modelAniadidos.setRowCount(0);
 				
@@ -473,9 +465,8 @@ public class VentanaNuevaLista extends JDialog {
 			                c.getTitulo(),	auxAutor});
 				}
 				
-				conjuntoCancionesAniadidas = new LinkedHashSet<>(listaCancionesAnididas);
-				conjuntoCancionesSinAniadir = new LinkedHashSet<>(listaCancionesSinAniadir);
-				
+				conjuntoCancionesAniadidas = (LinkedHashSet<Cancion>) AppMusicControlador.getInstancia().listToSet(listaCancionesAnididas);
+				conjuntoCancionesSinAniadir = (LinkedHashSet<Cancion>) AppMusicControlador.getInstancia().listToSet(listaCancionesSinAniadir);	
 			}
 		});
 		btnSendBack.setForeground(Color.WHITE);
@@ -495,22 +486,21 @@ public class VentanaNuevaLista extends JDialog {
 				if (tableCancionesAniadidas.getSelectedRows().length > 0) {
 					return;
 				}
+				
 				int aux = 0;
 				
-				List<Cancion> listaCancionesSinAniadir = new LinkedList<Cancion>(conjuntoCancionesSinAniadir); 
-				List<Cancion> listaCancionesAnididas = new LinkedList<Cancion>(conjuntoCancionesAniadidas); 
+				List<Cancion> listaCancionesSinAniadir = AppMusicControlador.getInstancia().setToList(conjuntoCancionesSinAniadir); 
+				List<Cancion> listaCancionesAnididas =  AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas); 
 				
 				//Para cada fila seleccionada, sacamos los valores de su primera columna (titulo) y su segunda columna (interprete)
 				for(int i = 0; i < indicesSeleccionados.length; i++) {
 					listaCancionesAnididas.add(listaCancionesSinAniadir.get(indicesSeleccionados[i]-aux));
 					listaCancionesSinAniadir.remove(indicesSeleccionados[i] - aux);
-					
 					aux++;
 				}
 				
 				listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesAnididas);
 				listaCancionesSinAniadir = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesSinAniadir);
-				
 				
 				DefaultTableModel modelAniadidos = (DefaultTableModel) tableCancionesAniadidas.getModel();
 				modelAniadidos.setRowCount(0);
@@ -531,9 +521,8 @@ public class VentanaNuevaLista extends JDialog {
 			                c.getTitulo(),	auxAutor});
 				}
 				
-				conjuntoCancionesAniadidas = new LinkedHashSet<>(listaCancionesAnididas);
-				conjuntoCancionesSinAniadir = new LinkedHashSet<>(listaCancionesSinAniadir);
-				
+				conjuntoCancionesAniadidas = (LinkedHashSet<Cancion>) AppMusicControlador.getInstancia().listToSet(listaCancionesAnididas);
+				conjuntoCancionesSinAniadir = (LinkedHashSet<Cancion>) AppMusicControlador.getInstancia().listToSet(listaCancionesSinAniadir);
 			}
 		});
 		btnSendToList.setForeground(Color.WHITE);
@@ -567,10 +556,6 @@ public class VentanaNuevaLista extends JDialog {
 		gbc_btnCancelar.gridx = 7;
 		gbc_btnCancelar.gridy = 6;
 		panelCrearLista.add(btnCancelar, gbc_btnCancelar);
-		
-		
-
-		
 	}
 
 }
