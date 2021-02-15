@@ -258,6 +258,22 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		}
 		return titulo;
 	}
+	
+	public Set<Cancion> listToSet(List<Cancion> l){
+		return new LinkedHashSet<Cancion>(l);
+	}
+	
+	public List<Cancion> setToList(Set<Cancion> s){
+		return new LinkedList<Cancion>(s); 
+	}
+	
+	
+	public List<Cancion> rmRepetidas(List<Cancion> l){
+		return setToList(listToSet(l));
+	}
+	
+	
+	
 }
 
 	

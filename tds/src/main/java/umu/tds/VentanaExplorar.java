@@ -339,9 +339,7 @@ public class VentanaExplorar extends JDialog {
 				}
 				
 				else {
-					
 					interprete = AppMusicControlador.getInstancia().comprobarCorrecionInterprete(interprete);
-					
 				}
 				String titulo = textTitulo.getText();
 				if(textTitulo.getText().isEmpty()) {
@@ -349,9 +347,7 @@ public class VentanaExplorar extends JDialog {
 				}
 				
 				else {
-					
 					titulo = AppMusicControlador.getInstancia().comprobarCorrecionTitulo(titulo);
-					
 				}
 				
 				String estilo = comboBoxEstilo.getSelectedItem().toString();

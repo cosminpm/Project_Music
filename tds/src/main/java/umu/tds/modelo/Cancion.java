@@ -1,7 +1,9 @@
 package umu.tds.modelo;
 
 import java.util.List;
+import java.util.Set;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 
 
@@ -67,5 +69,5 @@ public class Cancion {
 	
 		return aux;
 	}
-	
+		
 }

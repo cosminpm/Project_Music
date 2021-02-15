@@ -1,7 +1,6 @@
 package umu.tds.controlador;
 
 import java.time.LocalDate;
-import java.util.EventObject;
 import java.util.*;
 
 import umu.tds.persistencia.AdaptadorCancionTDS;
@@ -215,8 +214,16 @@ public class AppMusicControlador implements CancionesListener {
 		return adaptadorCancion.comprobarCorrecionInterprete(interprete);
 	}
 	
+	public Set<Cancion> listToSet(List<Cancion> l){
+		return adaptadorCancion.listToSet(l);
+	}
 	
+	public List<Cancion> setToList(Set<Cancion> s){
+		return adaptadorCancion.setToList(s);
+	}
 	
-	
+	public List<Cancion> rmRepetidas(List<Cancion> l){
+		return adaptadorCancion.rmRepetidas(l);
+	}
 	
 }
