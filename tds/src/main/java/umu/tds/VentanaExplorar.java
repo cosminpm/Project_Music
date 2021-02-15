@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.math.BigInteger;
+//import java.math.BigInteger;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -221,7 +221,7 @@ public class VentanaExplorar extends JDialog {
 		panel.add(lblMisListas, gbc_lblMisListas);
 		
 		textInterprete = new JTextField();
-		textInterprete.setText("INT\u00C9RPRETE");
+		textInterprete.setText("INTERPRETE");
 		textInterprete.setForeground(Color.WHITE);
 		textInterprete.setColumns(10);
 		textInterprete.setBorder(null);
@@ -238,7 +238,7 @@ public class VentanaExplorar extends JDialog {
 		textTitulo.setBorder(null);
 		textTitulo.setForeground(Color.WHITE);
 		textTitulo.setBackground(Color.GRAY);
-		textTitulo.setText("T\u00CDTULO");
+		textTitulo.setText("TITULO");
 		GridBagConstraints gbc_textTitulo = new GridBagConstraints();
 		gbc_textTitulo.insets = new Insets(0, 0, 5, 5);
 		gbc_textTitulo.fill = GridBagConstraints.HORIZONTAL;
@@ -247,14 +247,14 @@ public class VentanaExplorar extends JDialog {
 		getContentPane().add(textTitulo, gbc_textTitulo);
 		textTitulo.setColumns(10);
 		
-		JComboBox comboBoxEstilo = new JComboBox();
+		JComboBox<String> comboBoxEstilo = new JComboBox<String>();
 		comboBoxEstilo.setBorder(null);
 		comboBoxEstilo.setForeground(Color.WHITE);
 		comboBoxEstilo.setBackground(Color.GRAY);
 		
 		
 		String[] array = AppMusicControlador.getInstancia().recuperarEstilos().stream().toArray(String[]::new);
-		comboBoxEstilo.setModel(new DefaultComboBoxModel(array));
+		comboBoxEstilo.setModel(new DefaultComboBoxModel<String>(array));
 		GridBagConstraints gbc_comboBoxEstilo = new GridBagConstraints();
 		gbc_comboBoxEstilo.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBoxEstilo.fill = GridBagConstraints.HORIZONTAL;
@@ -326,7 +326,6 @@ public class VentanaExplorar extends JDialog {
 		));
 		scrollPane.setViewportView(tablaCanciones);
 		
-		
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelBuscar.setVisible(true);
@@ -347,6 +346,13 @@ public class VentanaExplorar extends JDialog {
 				if(estilo == "Cualquiera") {
 					estilo = null;
 				}
+				
+				interprete = AppMusicControlador.getInstancia().comprobarCorrecionInterprete(interprete);
+				titulo = AppMusicControlador.getInstancia().comprobarCorrecionTitulo(titulo);
+				
+				System.out.println("AA: " + titulo);
+				System.out.println("BB: " + interprete);
+				
 				
 				List<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo, estilo);
 				

@@ -1,9 +1,10 @@
 - Boton para volver al menú principal --> Imaginarse que quieres cargar mas canciones
-- (Posible mejora) Si al explorar el string es INTERPRETE que lo considere como que no ha rellenado nada
 - Mejorar Interfaz, pero eso lo último, ahora mismo esta en beta
 - Al explorar que no diferencie entre lower y upper case
 - Poner Cualquiera el primera
 - Añadir opción mediante click y mediante boton en nueva lista
+- Al darse al boton buscar si las canciones ya estan en cualquiera de las dos partes que no vuelvan a aparecer
+
 
 ---- HECHO ----
 - Que imprima correctamente las listas de los autores en la tabla
@@ -13,3 +14,8 @@
 - Combo box que se rellene con los estilos de las canciones
 - Añadir opcion de cualquiera en el estilo
 - Resetear la tabla cada vez que se busca
+- Añadido boton pasar de aniadidas a sin aniadir
+- Que si se da al boton de izquierda y ya esta en izquierda que no haga nada y viceversa con el derecha 
+- Que no se permita la seleccion de tanto izquierda como derecha de la plantilla
+- (Posible mejora) Si al explorar el string es INTERPRETE o con TITULO que lo considere como que no ha rellenado nada
+- - Borrar todos los warnings(Que se han podido)

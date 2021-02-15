@@ -2,7 +2,6 @@ package umu.tds;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import umu.tds.Constantes;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;

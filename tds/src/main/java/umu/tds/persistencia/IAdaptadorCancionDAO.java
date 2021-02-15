@@ -16,6 +16,8 @@ public interface IAdaptadorCancionDAO {
 	public boolean comprobarAutorTitulo(String Titulo, List<String> Autores);
 	public List<Cancion> filtrarCanciones(String interprete, String titulo, String estilo);
 	public Set<String> recuperarTodosEstilos();
+	public String comprobarCorrecionTitulo(String titulo);
+	public String comprobarCorrecionInterprete(String interprete);
 
 	
 }

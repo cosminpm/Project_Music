@@ -275,7 +275,7 @@ public class VentanaNuevaLista extends JDialog {
 		panelCrearLista.setLayout(gbl_panelCrearLista);
 		
 		txtInterprete = new JTextField();
-		txtInterprete.setText("INT\u00C9RPRETE");
+		txtInterprete.setText("INTERPRETE");
 		GridBagConstraints gbc_txtInterprete = new GridBagConstraints();
 		gbc_txtInterprete.anchor = GridBagConstraints.NORTH;
 		gbc_txtInterprete.gridwidth = 3;
@@ -293,7 +293,7 @@ public class VentanaNuevaLista extends JDialog {
 		String[] array = AppMusicControlador.getInstancia().recuperarEstilos().stream().toArray(String[]::new);
 		
 		txtTitulo = new JTextField();
-		txtTitulo.setText("T\u00CDTULO");
+		txtTitulo.setText("TITULO");
 		GridBagConstraints gbc_txtTitulo = new GridBagConstraints();
 		gbc_txtTitulo.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtTitulo.gridwidth = 2;
@@ -407,6 +407,28 @@ public class VentanaNuevaLista extends JDialog {
 		scrollPaneAniadidas.setViewportView(tableCancionesAniadidas);
 		
 		JButton btnSendBack = new JButton("<<");
+		btnSendBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int[] indicesSeleccionados = tableCancionesAniadidas.getSelectedRows();
+				
+				if (tableCancionesSinAniadir.getSelectedRows().length > 0) {
+					return;
+				}
+				
+				int aux = 0;
+				//Para cada fila seleccionada, sacamos los valores de su primera columna (titulo) y su segunda columna (interprete)
+				for(int i = 0; i < indicesSeleccionados.length; i++) {
+					String titulo =tableCancionesAniadidas.getModel().getValueAt(indicesSeleccionados[i]-aux, 0).toString();
+					String interprete = tableCancionesAniadidas.getModel().getValueAt(indicesSeleccionados[i]-aux, 1).toString();
+					DefaultTableModel model = (DefaultTableModel) tableCancionesSinAniadir.getModel();
+					model.addRow(new Object[]{titulo, interprete});
+					DefaultTableModel model1 = (DefaultTableModel) tableCancionesAniadidas.getModel();
+					model1.removeRow(indicesSeleccionados[i]-aux);
+					aux++;
+				}				
+				
+			}
+		});
 		btnSendBack.setForeground(Color.WHITE);
 		btnSendBack.setBackground(Color.GRAY);
 		GridBagConstraints gbc_btnSendBack = new GridBagConstraints();
@@ -418,13 +440,15 @@ public class VentanaNuevaLista extends JDialog {
 		JButton btnSendToList = new JButton(">>");
 		btnSendToList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				//Coger valor de la tabla sin aniadir, borrarlo y pasarlo a las canciones aniadidas
 				int[] indicesSeleccionados = tableCancionesSinAniadir.getSelectedRows();
+				
+				if (tableCancionesAniadidas.getSelectedRows().length > 0) {
+					return;
+				}
 				int aux = 0;
 				//Para cada fila seleccionada, sacamos los valores de su primera columna (titulo) y su segunda columna (interprete)
 				for(int i = 0; i < indicesSeleccionados.length; i++) {
-					
 					String titulo = tableCancionesSinAniadir.getModel().getValueAt(indicesSeleccionados[i]-aux, 0).toString();
 					String interprete = tableCancionesSinAniadir.getModel().getValueAt(indicesSeleccionados[i]-aux, 1).toString();
 					DefaultTableModel model = (DefaultTableModel) tableCancionesAniadidas.getModel();
@@ -432,7 +456,6 @@ public class VentanaNuevaLista extends JDialog {
 					DefaultTableModel model1 = (DefaultTableModel) tableCancionesSinAniadir.getModel();
 					model1.removeRow(indicesSeleccionados[i]-aux);
 					aux++;
-					
 				}
 				
 				

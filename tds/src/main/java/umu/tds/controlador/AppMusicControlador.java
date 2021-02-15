@@ -207,4 +207,16 @@ public class AppMusicControlador implements CancionesListener {
 		return adaptadorCancion.recuperarTodosEstilos();
 	}
 	
+	public String comprobarCorrecionTitulo(String titulo) {
+		return adaptadorCancion.comprobarCorrecionTitulo(titulo);
+	}
+	
+	public String comprobarCorrecionInterprete(String interprete) {
+		return adaptadorCancion.comprobarCorrecionInterprete(interprete);
+	}
+	
+	
+	
+	
+	
 }

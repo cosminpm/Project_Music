@@ -245,6 +245,20 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		estilos.add("Cualquiera");
 		return estilos;
 	}
+	
+	public String comprobarCorrecionInterprete(String interprete) {
+		if (interprete.equals("INTERPRETE")) {
+			return null;
+		}
+		return interprete;
+	}
+	
+	public String comprobarCorrecionTitulo(String titulo) {
+		if (titulo.equals("TITULO")) {
+			return null;
+		}
+		return titulo;
+	}
 }
 
 	
