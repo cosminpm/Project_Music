@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 import umu.tds.persistencia.AdaptadorCancionTDS;
+import umu.tds.persistencia.AdaptadorListaCancionesTDS;
 import umu.tds.persistencia.DAOException;
 import umu.tds.persistencia.FactoriaDAO;
 import umu.tds.modelo.Cancion;
@@ -225,5 +226,24 @@ public class AppMusicControlador implements CancionesListener {
 	public List<Cancion> rmRepetidas(List<Cancion> l){
 		return adaptadorCancion.rmRepetidas(l);
 	}
+	
+	// Metodos PlayList
+	public void registrarListaCanciones(ListaCanciones lista) {
+		adaptadorListaCanciones.registrarListaCanciones(lista);
+	}
+	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
+		adaptadorListaCanciones.registrarPlayListConVariasCanciones(nombre, lista);
+	}
+	
+	public boolean comprobarNombreExiste(String nombre) {
+		return adaptadorListaCanciones.comprobarNombreExiste(nombre);
+	}
+	
+	public List<ListaCanciones> recuperarTodasListasCanciones(){
+		return adaptadorListaCanciones.recuperarTodasListasCanciones();
+	}
+	
+	
+	
 	
 }

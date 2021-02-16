@@ -37,24 +37,23 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		boolean existe = true; 
 		
 		// Si la entidad está registrada no la registra de nuevo
-		try {
-			eLista = servPersistencia.recuperarEntidad(lista.getCodigo());
-		} catch (NullPointerException e) {
+		eLista = servPersistencia.recuperarEntidad(lista.getCodigo());
+		if (eLista == null)
 			existe = false;
-		}
-		if (existe) return;
-
-	
-		// crear entidad Lista
 		
+		if (existe) return;
+		
+		System.err.println("VOY A REGISTRAR");
+	
 		
 		// registrar primero los atributos que son objetos
-				AdaptadorCancionTDS adaptadorCancion = AdaptadorCancionTDS.getUnicaInstancia();
-				for (Cancion c: lista.getCanciones())
-					adaptadorCancion.registrarCancion(c);
 		
+		/*AdaptadorCancionTDS adaptadorCancion = AdaptadorCancionTDS.getUnicaInstancia();
+			for (Cancion c: lista.getCanciones())
+				adaptadorCancion.registrarCancion(c);
+		*/
 				
-				
+		// crear entidad Lista	
 		eLista = new Entidad();
 		eLista.setNombre("listaCanciones");
 		eLista.setPropiedades(new ArrayList<Propiedad>(
@@ -66,6 +65,10 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		// asignar identificador unico
 		// Se aprovecha el que genera el servicio de persistencia
 		lista.setCodigo(eLista.getId()); 
+		
+		System.err.println("CODIGO "+lista.getCodigo());
+		
+		System.err.println("HE LLEGADO AL FINAL");
 	}
 	
 	
@@ -137,30 +140,47 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		for (Entidad eLista : eListas) {
 			listas.add(recuperarListaCanciones(eLista.getId()));
 		}
+		
+		System.err.println(listas.toString());
 		return listas;
 	}
 	
-	
-	
-	
 	// -------------------Funciones auxiliares-----------------------------
-		private String obtenerCodigosCanciones(List<Cancion> listaCanciones) {
-			String aux = "";
-			for (Cancion c : listaCanciones) {
-				aux += c.getCodigo() + " ";
-			}
-			return aux.trim();
+	private String obtenerCodigosCanciones(List<Cancion> listaCanciones) {
+		String aux = "";
+		for (Cancion c : listaCanciones) {
+			aux += c.getCodigo() + " ";
 		}
+		return aux.trim();
+	}
 		
-		
-		private List<Cancion> obtenerCancionesDesdeCodigos(String canciones) {
-
-			List<Cancion> listaCanciones = new LinkedList<Cancion>();
-			StringTokenizer strTok = new StringTokenizer(canciones, " ");
-			AdaptadorCancionTDS adaptadorC = AdaptadorCancionTDS.getUnicaInstancia();
-			while (strTok.hasMoreTokens()) {
-				listaCanciones.add(adaptadorC.recuperarCancion(Integer.valueOf((String) strTok.nextElement())));
-			}
-			return listaCanciones;
+	private List<Cancion> obtenerCancionesDesdeCodigos(String canciones) {
+	
+		List<Cancion> listaCanciones = new LinkedList<Cancion>();
+		StringTokenizer strTok = new StringTokenizer(canciones, " ");
+		AdaptadorCancionTDS adaptadorC = AdaptadorCancionTDS.getUnicaInstancia();
+		while (strTok.hasMoreTokens()) {
+			listaCanciones.add(adaptadorC.recuperarCancion(Integer.valueOf((String) strTok.nextElement())));
 		}
+		return listaCanciones;
+	}
+		
+	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
+		ListaCanciones l = new ListaCanciones(nombre);
+		for (Cancion c : lista) {
+			l.addCancion(c);
+		}
+		this.registrarListaCanciones(l);		
+	}
+	
+	public boolean comprobarNombreExiste(String nombre) {
+		List<ListaCanciones> l =  recuperarTodasListasCanciones();
+		System.err.println("Antes, bucle comprobar nombre existe");
+		for (ListaCanciones listaCanciones : l) {
+			System.err.println("A:"+listaCanciones.getNombre());
+			if (listaCanciones.getNombre().equals(nombre))
+				return true;
+			}
+		return false;
+	}
 }

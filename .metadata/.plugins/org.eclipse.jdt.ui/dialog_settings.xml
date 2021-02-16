@@ -21,4 +21,6 @@
 	</section>
 	<section name="RenameInformationPopup">
 	</section>
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+	</section>
 </section>

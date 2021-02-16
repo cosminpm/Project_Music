@@ -233,15 +233,24 @@ public class VentanaNuevaLista extends JDialog {
 				if(JOptionPane.showConfirmDialog(btnCrear,"¿Crear nueva Lista?", "¿Crear nueva Lista?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 					// Opcion SI
 					panelCrearLista.setVisible(true);
-				
-				
-				
-				
+					String nombre = txtNombreLista.getText();
+					System.out.println(nombre);
+					List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
+					
+					if(AppMusicControlador.getInstancia().comprobarNombreExiste(nombre)) {
+						// TODO MENSAJE DE ERROR NOMBRE YA EXISTE
+						JOptionPane.showMessageDialog(btnCrear, "Error, nombre ya existente", "La lista con ese nombre ya existe!",
+								JOptionPane.ERROR_MESSAGE, null);
+					}
+					else {
+						AppMusicControlador.getInstancia().registrarPlayListConVariasCanciones(nombre, l);
+					}
+					
 				}
 				else {
 					// Opcion NO
 				}
-				
+				AppMusicControlador.getInstancia().recuperarTodasListasCanciones();
 			}
 		});
 		
@@ -326,12 +335,13 @@ public class VentanaNuevaLista extends JDialog {
 				conjuntoCancionesSinAniadir.clear();
 				
 				String interprete = txtInterprete.getText();
-				String titulo = txtInterprete.getText();
+				String titulo = txtTitulo.getText();
 				String estilo = comboBoxEstilo.getSelectedItem().toString();
 				
 				if(txtInterprete.getText().isEmpty()) {
 					interprete = null;
 				}
+				
 				else {
 					interprete = AppMusicControlador.getInstancia().comprobarCorrecionInterprete(interprete);
 				}
@@ -339,6 +349,7 @@ public class VentanaNuevaLista extends JDialog {
 				if(txtTitulo.getText().isEmpty()) {
 					titulo = null;
 				}
+				
 				else {
 					titulo = AppMusicControlador.getInstancia().comprobarCorrecionTitulo(titulo);
 				}

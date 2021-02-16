@@ -10,11 +10,11 @@ public class ListaCanciones {
 	
 	private int codigo;
 	private String nombre;
-	// TODO Lista de canciones
 	private List<Cancion> lCanciones;
 	
 	public ListaCanciones(String nombre) {
 		this.nombre = nombre;
+		this.codigo = 0;
 		lCanciones = new LinkedList<Cancion>();
 	}
 	

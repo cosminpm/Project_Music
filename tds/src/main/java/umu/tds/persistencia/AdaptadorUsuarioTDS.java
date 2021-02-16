@@ -43,10 +43,10 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		
 		// Si la entidad está registrada no la registra de nuevo
 		
-			eUsuario = servPersistencia.recuperarEntidad(usuario.getCodigo());
-			if (eUsuario == null) {
-				existe = false;
-			}
+		eUsuario = servPersistencia.recuperarEntidad(usuario.getCodigo());
+		if (eUsuario == null) {
+			existe = false;
+		}
 			
 		if (existe) {
 			return;

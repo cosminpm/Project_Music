@@ -20,3 +20,4 @@
 - - Borrar todos los warnings(Que se han podido)
 - Poner Cualquiera como primera opción
 - Al darse al boton buscar si las canciones ya estan en cualquiera de las dos partes que no vuelvan a aparecer
+- INTERPRETE null en Nueva Lista
