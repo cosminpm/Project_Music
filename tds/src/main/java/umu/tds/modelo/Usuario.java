@@ -86,6 +86,23 @@ public class Usuario {
 		this.fecha = fechaNacimiento;
 	}
 	
+	public List<ListaCanciones> getListaCanciones(){
+		List<ListaCanciones> lista = new LinkedList<ListaCanciones>(this.ListaCanciones);
+		return lista;
+		
+	}
+	
+	
+	public String getNombreListaDePlaylist() {
+		
+		String aux = "";
+		aux = this.login;
+		aux+="PLAYLIST";  //loginPLAYLIST
+		
+		return aux;
+	}
+	
+	
 	// TODO De aqui adelante es nuestro codigo
 	
 	// TODO Â¿Es correcto esto?

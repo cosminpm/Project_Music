@@ -105,6 +105,13 @@ public class VentanaNuevaLista extends JDialog {
 		gbc_btnSALIR.gridy = 1;
 		getContentPane().add(btnSALIR, gbc_btnSALIR);
 		
+		JButton btnDefinitivo = new JButton("DEFINITIVO");
+		GridBagConstraints gbc_btnDefinitivo = new GridBagConstraints();
+		gbc_btnDefinitivo.insets = new Insets(0, 0, 5, 5);
+		gbc_btnDefinitivo.gridx = 8;
+		gbc_btnDefinitivo.gridy = 2;
+		getContentPane().add(btnDefinitivo, gbc_btnDefinitivo);
+		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(153, 0, 51));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
@@ -236,7 +243,7 @@ public class VentanaNuevaLista extends JDialog {
 					String nombre = txtNombreLista.getText();
 					System.out.println(nombre);
 					List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
-					
+					System.out.println(l.toString());
 					if(AppMusicControlador.getInstancia().comprobarNombreExiste(nombre)) {
 						// TODO MENSAJE DE ERROR NOMBRE YA EXISTE
 						JOptionPane.showMessageDialog(btnCrear, "Error, nombre ya existente", "La lista con ese nombre ya existe!",

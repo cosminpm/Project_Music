@@ -90,7 +90,7 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		String canciones = obtenerCodigosCanciones(lista.getCanciones());
 		
 		servPersistencia.eliminarPropiedadEntidad(eLista, "lCanciones");
-		servPersistencia.anadirPropiedadEntidad(eLista, "nombre", canciones);
+		servPersistencia.anadirPropiedadEntidad(eLista, "lCanciones", canciones);
 
 	}
 	
@@ -99,8 +99,8 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 
 		// Si la entidad está en el pool la devuelve directamente
 		
-		if (PoolDAO.getUnicaInstancia().contiene(codigo))
-			return (ListaCanciones) PoolDAO.getUnicaInstancia().getObjeto(codigo);
+		/*if (PoolDAO.getUnicaInstancia().contiene(codigo))
+			return (ListaCanciones) PoolDAO.getUnicaInstancia().getObjeto(codigo);*/
 
 		// si no, la recupera de la base de datos
 		Entidad eLista;
@@ -118,9 +118,9 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		ListaCanciones lista = new ListaCanciones(nombre);
 		lista.setCodigo(codigo);
 
-		// IMPORTANTE:añadir el cliente al pool antes de llamar a otros
+		/*// IMPORTANTE:añadir el cliente al pool antes de llamar a otros
 		// adaptadores
-		PoolDAO.getUnicaInstancia().addObjeto(codigo, lista);
+		PoolDAO.getUnicaInstancia().addObjeto(codigo, lista);*/
 
 		// recuperar propiedades que son objetos llamando a adaptadores
 		// canciones

@@ -63,7 +63,7 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		eUsuario.setPropiedades(new ArrayList<Propiedad>(
 				Arrays.asList(new Propiedad("nombre", usuario.getNombre()), new Propiedad("apellidos", usuario.getApellidos()),
 						new Propiedad("email", usuario.getEmail()), new Propiedad("login", usuario.getLogin()), 
-				        new Propiedad("password", usuario.getPassword()), new Propiedad("fechanacimiento", fechaCodificada))));
+				        new Propiedad("password", usuario.getPassword()), new Propiedad("fechanacimiento", fechaCodificada), new Propiedad("listaPlaylist", usuario.getNombreListaDePlaylist()))));
 		
 		// registrar entidad usuario
 		eUsuario = servPersistencia.registrarEntidad(eUsuario);
@@ -103,6 +103,8 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		servPersistencia.anadirPropiedadEntidad(eUsuario, "password", usuario.getPassword());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "fechanacimiento");
 		servPersistencia.anadirPropiedadEntidad(eUsuario, "fechanacimiento", fechaCodificada);
+		servPersistencia.eliminarPropiedadEntidad(eUsuario, "listaPlaylist");
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "listaPlaylist", usuario.getNombreListaDePlaylist());
 		
 	}
 	
@@ -189,4 +191,6 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		}
 		return null;	
 	}
+	
+	
 }
