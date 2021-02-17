@@ -106,6 +106,31 @@ public class VentanaNuevaLista extends JDialog {
 		getContentPane().add(btnSALIR, gbc_btnSALIR);
 		
 		JButton btnDefinitivo = new JButton("DEFINITIVO");
+		btnDefinitivo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(JOptionPane.showConfirmDialog(btnDefinitivo,"¿Crear nueva Lista?", "¿Crear nueva Lista?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					// Opcion SI
+					
+					String nombre = txtNombreLista.getText();
+					System.out.println(nombre);
+					List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
+					System.out.println(l.toString());
+					if(AppMusicControlador.getInstancia().comprobarNombreExiste(nombre)) {
+						// TODO MENSAJE DE ERROR NOMBRE YA EXISTE
+						JOptionPane.showMessageDialog(btnDefinitivo, "Error, nombre ya existente", "La lista con ese nombre ya existe!",
+								JOptionPane.ERROR_MESSAGE, null);
+					}
+					else {
+						AppMusicControlador.getInstancia().registrarPlayListConVariasCanciones(nombre, l);
+					}
+					
+				}
+				else {
+					// Opcion NO
+				}
+				AppMusicControlador.getInstancia().recuperarTodasListasCanciones();
+			}
+		});
 		GridBagConstraints gbc_btnDefinitivo = new GridBagConstraints();
 		gbc_btnDefinitivo.insets = new Insets(0, 0, 5, 5);
 		gbc_btnDefinitivo.gridx = 8;
@@ -236,28 +261,9 @@ public class VentanaNuevaLista extends JDialog {
 		btnCrear.setForeground(Color.WHITE);
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				panelCrearLista.setVisible(true);
 				//JOptionPane.showConfirmDialog(btnCrear, "¿Crear nueva Lista?");	
-				if(JOptionPane.showConfirmDialog(btnCrear,"¿Crear nueva Lista?", "¿Crear nueva Lista?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-					// Opcion SI
-					panelCrearLista.setVisible(true);
-					String nombre = txtNombreLista.getText();
-					System.out.println(nombre);
-					List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
-					System.out.println(l.toString());
-					if(AppMusicControlador.getInstancia().comprobarNombreExiste(nombre)) {
-						// TODO MENSAJE DE ERROR NOMBRE YA EXISTE
-						JOptionPane.showMessageDialog(btnCrear, "Error, nombre ya existente", "La lista con ese nombre ya existe!",
-								JOptionPane.ERROR_MESSAGE, null);
-					}
-					else {
-						AppMusicControlador.getInstancia().registrarPlayListConVariasCanciones(nombre, l);
-					}
-					
-				}
-				else {
-					// Opcion NO
-				}
-				AppMusicControlador.getInstancia().recuperarTodasListasCanciones();
+				
 			}
 		});
 		
