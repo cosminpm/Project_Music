@@ -2667,3 +2667,22 @@
 2021-02-16 21:29:55,035 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
 2021-02-16 21:29:55,035 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-02-16 21:29:55,035 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-17 09:58:45,103 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-02-17 10:03:23,522 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:03:23,524 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-17 10:03:23,527 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:03:23,527 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-17 10:03:59,017 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:03:59,017 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-17 10:03:59,018 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:03:59,018 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-17 10:04:25,226 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:04:25,226 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-17 10:04:25,227 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:04:25,228 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-17 10:04:28,290 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:04:28,291 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-17 10:04:28,291 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-17 10:04:28,291 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-17 19:41:19,133 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-02-17 19:41:49,219 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Buscar"/>
+		<item key="selection" value="show"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="show"/>
+			<item value="System.out.println(nombre);"/>
+			<item value="crear"/>
+			<item value="interprete"/>
+			<item value="comprobarcorrec"/>
+			<item value="INTERPRETE"/>
 			<item value="buscar"/>
 			<item value="&lt;&lt;"/>
 			<item value="&gt;&gt;"/>
@@ -17,12 +23,6 @@
 			<item value="filtrar"/>
 			<item value="recuperar"/>
 			<item value="tableCancionesSinAniadir"/>
-			<item value="tabla"/>
-			<item value="tabl"/>
-			<item value="table"/>
-			<item value="isem"/>
-			<item value="txtIntrprete"/>
-			<item value="txtTi"/>
 		</list>
 		<list key="replacehistory">
 		</list>

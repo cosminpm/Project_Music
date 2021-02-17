@@ -32,8 +32,7 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 	
 	
 	public void registrarListaCanciones(ListaCanciones lista) {
-		
-		Entidad eLista;
+		Entidad eLista = new Entidad();
 		boolean existe = true; 
 		
 		// Si la entidad está registrada no la registra de nuevo
@@ -65,10 +64,6 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		// asignar identificador unico
 		// Se aprovecha el que genera el servicio de persistencia
 		lista.setCodigo(eLista.getId()); 
-		
-		System.err.println("CODIGO "+lista.getCodigo());
-		
-		System.err.println("HE LLEGADO AL FINAL");
 	}
 	
 	
