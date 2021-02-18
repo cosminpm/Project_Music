@@ -34,7 +34,7 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 	}
 	
 	
-	public void registrarListaCanciones(ListaCanciones lista) {
+	public void registrarListaCanciones(ListaCanciones lista, Usuario usuarioActual) {
 		Entidad eLista = new Entidad();
 		boolean existe = true; 
 		
@@ -71,17 +71,16 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		
 		// ANADIRSELA AL USUARIO
 		
-		Usuario usuarioActual = AppMusicControlador.getInstancia().getUsuarioActual();
 		System.out.println("LOGIN: "+usuarioActual.getLogin());
 		
-		List<ListaCanciones> l = usuarioActual.getListaCanciones();
-		l.add(lista);
+		LinkedList<ListaCanciones> l = (LinkedList<ListaCanciones>)usuarioActual.getListaCanciones();
+		l.addLast(lista);
 		usuarioActual.setListaCanciones(l);
 		AdaptadorUsuarioTDS.getUnicaInstancia().modificarUsuario(usuarioActual);
 		
-		
 		System.err.println("Print: registrarListaCancion FINAL");
 		List<ListaCanciones> auxl = AppMusicControlador.getInstancia().getUsuarioActual().getListaCanciones();
+		
 		System.err.println(l.size());
 		for (ListaCanciones listaCanciones : l) {
 			System.err.println(listaCanciones.getNombre());
@@ -108,7 +107,6 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		
 		servPersistencia.eliminarPropiedadEntidad(eLista, "lCanciones");
 		servPersistencia.anadirPropiedadEntidad(eLista, "lCanciones", canciones);
-
 	}
 	
 	
@@ -157,7 +155,7 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		for (Entidad eLista : eListas) {
 			listas.add(recuperarListaCanciones(eLista.getId()));
 		}
-		
+		System.err.println("TAMANIO LISTAS USUARIO: " + listas.size());
 		return listas;
 	}
 	
@@ -181,12 +179,12 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		return listaCanciones;
 	}
 		
-	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
+	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista, Usuario usuarioActual) {
 		ListaCanciones l = new ListaCanciones(nombre);
 		for (Cancion c : lista) {
 			l.addCancion(c);
 		}
-		this.registrarListaCanciones(l);		
+		this.registrarListaCanciones(l, usuarioActual);		
 	}
 	
 	public boolean comprobarNombreExiste(String nombre) {

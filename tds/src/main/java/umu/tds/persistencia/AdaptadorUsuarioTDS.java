@@ -230,5 +230,4 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		return false;
 	}
 	
-	
 }

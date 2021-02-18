@@ -61,16 +61,7 @@ public class VentanaNuevaLista extends JDialog {
 	 */
 	public VentanaNuevaLista() {
 		
-		System.err.println("TODAS LISTAS");
-		List<ListaCanciones>  listaPlaylist = AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones();
-		for (ListaCanciones listaCanciones : listaPlaylist) {
-			System.err.println(listaCanciones.getNombre());
-		}
-		System.err.println("LISTAS USUARIO");
-		List<ListaCanciones>  listaPlaylist2 =	AppMusicControlador.getInstancia().getUsuarioActual().getListaCanciones();
-		for (ListaCanciones listaCanciones : listaPlaylist2) {
-			System.err.println(listaCanciones.getNombre());
-		}
+		
 		
 		
 		
@@ -84,7 +75,7 @@ public class VentanaNuevaLista extends JDialog {
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		getContentPane().setLayout(gridBagLayout);
 		
-		Usuario usuario =AppMusicControlador.getInstancia().getUsuarioActual();
+		Usuario usuario = AppMusicControlador.getInstancia().getUsuarioActual();
 		String nombre = usuario.getNombre() +" " +usuario.getApellidos();
 		
 		
@@ -131,7 +122,6 @@ public class VentanaNuevaLista extends JDialog {
 					
 					String nombrePlaylist = txtNombreLista.getText();
 					List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
-					Usuario usuario = AppMusicControlador.getInstancia().getUsuarioActual();
 					//System.err.println("Voy a printear todas las listas del sistema");
 					for (ListaCanciones lista: AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones()) {
 						//System.err.println(lista.getNombre());
@@ -143,7 +133,7 @@ public class VentanaNuevaLista extends JDialog {
 								JOptionPane.ERROR_MESSAGE, null);
 					}
 					else {
-						AppMusicControlador.getInstancia().registrarPlayListConVariasCanciones(nombrePlaylist, l);
+						AppMusicControlador.getInstancia().registrarPlayListConVariasCanciones(nombrePlaylist, l, usuario);
 					}
 					
 				}
@@ -284,6 +274,16 @@ public class VentanaNuevaLista extends JDialog {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelCrearLista.setVisible(true);
+				System.err.println("TODAS LISTAS");
+				List<ListaCanciones>  listaPlaylist = AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones();
+				for (ListaCanciones listaCanciones : listaPlaylist) {
+					System.err.println(listaCanciones.getNombre());
+				}
+				System.err.println("LISTAS USUARIO");
+				List<ListaCanciones>  listaPlaylist2 =	usuario.getListaCanciones();
+				for (ListaCanciones listaCanciones : listaPlaylist2) {
+					System.err.println(listaCanciones.getNombre());
+				}				
 				//JOptionPane.showConfirmDialog(btnCrear, "¿Crear nueva Lista?");	
 				
 			}

@@ -3,6 +3,8 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
+import umu.tds.persistencia.AdaptadorUsuarioTDS;
+
 public class Usuario {
 	
 	private int codigo;
@@ -94,7 +96,7 @@ public class Usuario {
 	}
 	
 	public List<ListaCanciones> getListaCanciones(){
-		List<ListaCanciones> lista = new LinkedList<ListaCanciones>(this.listaPlayList);
+		List<ListaCanciones> lista = new LinkedList<ListaCanciones>();
 		return lista;
 	}
 	

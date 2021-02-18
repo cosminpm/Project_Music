@@ -228,11 +228,11 @@ public class AppMusicControlador implements CancionesListener {
 	}
 	
 	// Metodos PlayList
-	public void registrarListaCanciones(ListaCanciones lista) {
-		adaptadorListaCanciones.registrarListaCanciones(lista);
+	public void registrarListaCanciones(ListaCanciones lista, Usuario usuarioActual) {
+		adaptadorListaCanciones.registrarListaCanciones(lista,usuarioActual);
 	}
-	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
-		adaptadorListaCanciones.registrarPlayListConVariasCanciones(nombre, lista);
+	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista, Usuario usuarioActual) {
+		adaptadorListaCanciones.registrarPlayListConVariasCanciones(nombre, lista, usuarioActual);
 	}
 	
 	public boolean comprobarNombreExiste(String nombre) {
