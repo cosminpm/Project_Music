@@ -1,5 +1,6 @@
 package umu.tds.persistencia;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -11,8 +12,10 @@ import beans.Propiedad;
 
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
+import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Cancion;
 import umu.tds.modelo.ListaCanciones;
+import umu.tds.modelo.Usuario;
 
 public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 
@@ -43,9 +46,6 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		
 		if (existe) return;
 		
-		System.err.println("VOY A REGISTRAR");
-	
-		
 		// registrar primero los atributos que son objetos
 		
 		/*AdaptadorCancionTDS adaptadorCancion = AdaptadorCancionTDS.getUnicaInstancia();
@@ -59,13 +59,30 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		eLista.setPropiedades(new ArrayList<Propiedad>(
 				Arrays.asList(new Propiedad("nombre", lista.getNombre()), new Propiedad("lCanciones",obtenerCodigosCanciones(lista.getCanciones())))));
 		
-	    System.out.println("SALIDA CODIFICADA OBTENIDA CON LOS CODIGOS DE LAS CANCIONES: " + obtenerCodigosCanciones(lista.getCanciones()));
+	    
 		// registrar entidad cancion
 		eLista = servPersistencia.registrarEntidad(eLista);
 		// asignar identificador unico
 		// Se aprovecha el que genera el servicio de persistencia
 		lista.setCodigo(eLista.getId());
-		System.out.println("EL ID DE LA LISTA ES:" + eLista.getId());
+		
+		//(String nombre, String apellidos, String email, String login, String password,
+				//LocalDate fechaNacimiento, List<ListaCanciones> listaPlayList)
+		Usuario usuarioActual = AppMusicControlador.getInstancia().getUsuarioActual();
+		List<ListaCanciones> l = usuarioActual.getListaCanciones();
+		l.add(lista);
+		
+		Usuario usuarioModificado = new Usuario(usuarioActual.getNombre(), usuarioActual.getApellidos(), usuarioActual.getEmail(), 
+				usuarioActual.getLogin(), usuarioActual.getPassword(), usuarioActual.getFechaNacimiento(), l);
+		AdaptadorUsuarioTDS.getUnicaInstancia().modificarUsuario(usuarioActual, usuarioModificado);
+		
+		
+		System.err.println("Print: registrarListaCancion FINAL");
+		List<ListaCanciones> auxl = AppMusicControlador.getInstancia().getUsuarioActual().getListaCanciones();
+		System.err.println(l.size());
+		for (ListaCanciones listaCanciones : l) {
+			System.err.println(listaCanciones.getNombre());
+		}
 	}
 	
 	
@@ -138,8 +155,6 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 			listas.add(recuperarListaCanciones(eLista.getId()));
 		}
 		
-		System.err.println("LA LISTA DE PLAYLIST ES LA SIGUIENTE: ");
-		System.err.println(listas.toString());
 		return listas;
 	}
 	
@@ -168,26 +183,22 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		for (Cancion c : lista) {
 			l.addCancion(c);
 		}
-		System.out.println("PLAYLIST CREADA, CON NOMBRE: " + l.getNombre());
-		System.out.println("Y CON CANCIONES"+ l.getCanciones().toString());
-		
-		for (Cancion c : lista) {
-			
-			System.out.println("CANCION AÑADIDA, CON CODIGO: " + String.valueOf(c.getCodigo()));
-			
-		}
-		
 		this.registrarListaCanciones(l);		
 	}
 	
 	public boolean comprobarNombreExiste(String nombre) {
 		List<ListaCanciones> l =  recuperarTodasListasCanciones();
-		System.err.println("Antes, bucle comprobar nombre existe");
 		for (ListaCanciones listaCanciones : l) {
-			System.err.println("A:"+listaCanciones.getNombre());
 			if (listaCanciones.getNombre().equals(nombre))
 				return true;
 			}
 		return false;
 	}
+	
+	
+	
+	
+	
+	
+	
 }

@@ -25,8 +25,10 @@ import javax.swing.table.DefaultTableModel;
 
 import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Cancion;
+import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
 import umu.tds.persistencia.AdaptadorCancionTDS;
+import umu.tds.persistencia.AdaptadorListaCancionesTDS;
 
 import javax.swing.JScrollPane;
 
@@ -111,18 +113,30 @@ public class VentanaNuevaLista extends JDialog {
 				if(JOptionPane.showConfirmDialog(btnDefinitivo,"¿Crear nueva Lista?", "¿Crear nueva Lista?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 					// Opcion SI
 					
-					String nombre = txtNombreLista.getText();
-					System.out.println(nombre);
+					
+					
+					String nombrePlaylist = txtNombreLista.getText();
 					List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
-					System.out.println(l.toString());
-					if(AppMusicControlador.getInstancia().comprobarNombreExiste(nombre)) {
+					Usuario usuario = AppMusicControlador.getInstancia().getUsuarioActual();
+					//System.err.println("Voy a printear todas las listas del sistema");
+					for (ListaCanciones lista: AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones()) {
+						//System.err.println(lista.getNombre());
+					};
+					
+					
+					System.err.println(usuario.getListaCanciones());
+					for (ListaCanciones lista : usuario.getListaCanciones()) {
+						System.err.println("LISTA: "+lista.getNombre());
+					}
+					
+					
+					if(AppMusicControlador.getInstancia().comprobarListaYaExiste(nombrePlaylist, usuario)) {
 						// TODO MENSAJE DE ERROR NOMBRE YA EXISTE
 						JOptionPane.showMessageDialog(btnDefinitivo, "Error, nombre ya existente", "La lista con ese nombre ya existe!",
 								JOptionPane.ERROR_MESSAGE, null);
 					}
 					else {
-						System.out.println("Vamos al metodo registrar");
-						AppMusicControlador.getInstancia().registrarPlayListConVariasCanciones(nombre, l);
+						AppMusicControlador.getInstancia().registrarPlayListConVariasCanciones(nombrePlaylist, l);
 					}
 					
 				}

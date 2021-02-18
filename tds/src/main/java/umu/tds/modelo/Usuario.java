@@ -33,10 +33,8 @@ public class Usuario {
 	
 	public Usuario(String nombre, String apellidos, String email, String login, String password,
 			LocalDate fechaNacimiento, List<ListaCanciones> listaPlayList) {
-		
 		this(nombre, apellidos,email, login, password, fechaNacimiento);
 		this.listaPlayList = new LinkedList<ListaCanciones>(listaPlayList);
-		
 	} 
 	
 	public int getCodigo() {

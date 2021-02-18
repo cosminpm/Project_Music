@@ -242,7 +242,9 @@ public class AppMusicControlador implements CancionesListener {
 	public List<ListaCanciones> recuperarTodasListasCanciones(){
 		return adaptadorListaCanciones.recuperarTodasListasCanciones();
 	}
-	
+	public boolean comprobarListaYaExiste(String nombre, Usuario usuario) {
+		return adaptadorUsuario.comprobarListaYaExiste(nombre, usuario);
+	}
 	
 	
 	

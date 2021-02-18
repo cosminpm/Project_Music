@@ -48,7 +48,6 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 	
 		
 		if (existe) {
-			System.out.println("ESTA REGISTRADA");
 			return;
 		}
 
@@ -77,9 +76,7 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		eCancion = servPersistencia.registrarEntidad(eCancion);
 		// asignar identificador unico
 		// Se aprovecha el que genera el servicio de persistencia
-		System.err.println("Idetnficicador de eCancion:"+eCancion.getId());
 		cancion.setCodigo(eCancion.getId()); 
-		System.err.println("Identificador de Cancion:"+cancion.getCodigo());
 	}
 	
 	
@@ -206,12 +203,6 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 	
 	
 	public List<Cancion> filtrarCanciones(String interprete, String titulo, String estilo){
-		
-		
-		System.err.println("INTERPRETE: "+interprete);
-		System.err.println("TITULO: "+titulo);
-		System.err.println("estilo: " +estilo);
-		
 		List<Cancion> todasCanciones = (LinkedList<Cancion>) this.recuperarTodasCanciones();
 		List<Cancion> resultado = new LinkedList<Cancion>();
 		

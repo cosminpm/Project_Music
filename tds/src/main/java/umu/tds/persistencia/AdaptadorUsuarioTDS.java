@@ -13,6 +13,7 @@ import beans.Propiedad;
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
 import umu.tds.Constantes;
+import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Cancion;
 import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
@@ -64,9 +65,13 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		String fechaCodificada = usuario.getFechaNacimiento().format(formatter);
 		
 		eUsuario.setPropiedades(new ArrayList<Propiedad>(
-				Arrays.asList(new Propiedad("nombre", usuario.getNombre()), new Propiedad("apellidos", usuario.getApellidos()),
-						new Propiedad("email", usuario.getEmail()), new Propiedad("login", usuario.getLogin()), 
-				        new Propiedad("password", usuario.getPassword()), new Propiedad("fechanacimiento", fechaCodificada), new Propiedad("listaPlaylist", obtenerCodigosPlayList(usuario.getListaCanciones())))));
+				Arrays.asList(new Propiedad("nombre", usuario.getNombre()), 
+						new Propiedad("apellidos", usuario.getApellidos()),
+						new Propiedad("email", usuario.getEmail()), 
+						new Propiedad("login", usuario.getLogin()), 
+				        new Propiedad("password", usuario.getPassword()), 
+				        new Propiedad("fechanacimiento", fechaCodificada), 
+				        new Propiedad("listaPlaylist", obtenerCodigosPlayList(usuario.getListaCanciones())))));
 		// registrar entidad usuario
 		eUsuario = servPersistencia.registrarEntidad(eUsuario);
 		// asignar identificador unico
@@ -84,29 +89,29 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 	}
 	
 	
-	public void modificarUsuario(Usuario usuario) {
+	public void modificarUsuario(Usuario usuario, Usuario usuarioModificado) {
 
 		Entidad eUsuario = servPersistencia.recuperarEntidad(usuario.getCodigo());
 		
 		//Pasar LocalDate a String con el formato que deseamos almacenar
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Constantes.fecha_format);
-		String fechaCodificada = usuario.getFechaNacimiento().format(formatter);
+		String fechaCodificada = usuarioModificado.getFechaNacimiento().format(formatter);
 		
 		
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "nombre");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "nombre", usuario.getNombre());
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "nombre", usuarioModificado.getNombre());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "apellidos");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "apellidos", usuario.getApellidos());
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "apellidos", usuarioModificado.getApellidos());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "email");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "email", usuario.getEmail());
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "email", usuarioModificado.getEmail());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "login");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "login", usuario.getLogin());
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "login", usuarioModificado.getLogin());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "password");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "password", usuario.getPassword());
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "password", usuarioModificado.getPassword());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "fechanacimiento");
 		servPersistencia.anadirPropiedadEntidad(eUsuario, "fechanacimiento", fechaCodificada);
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "listaPlaylist");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "listaPlaylist", obtenerCodigosPlayList(usuario.getListaCanciones()));
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "listaPlaylist", obtenerCodigosPlayList(usuarioModificado.getListaCanciones()));
 	}
 	
 	public Usuario recuperarUsuario(Entidad eUsuario) {
@@ -119,6 +124,7 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		String password;
 		LocalDate fecha;
 		String fechanacimiento;
+		List<ListaCanciones> lista = new LinkedList<ListaCanciones>();
 
 
 		// recuperar propiedades que no son objetos
@@ -129,8 +135,6 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		login = servPersistencia.recuperarPropiedadEntidad(eUsuario, "login");
 		password = servPersistencia.recuperarPropiedadEntidad(eUsuario, "password");
 		fechanacimiento = servPersistencia.recuperarPropiedadEntidad(eUsuario, "fechanacimiento");
-		
-		List<ListaCanciones> lista = new LinkedList<ListaCanciones>();
 		lista = obtenerListaPlayListDesdeCodigos(servPersistencia.recuperarPropiedadEntidad(eUsuario, "listaPlaylist"));
 		
 		
@@ -190,7 +194,6 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		
 		List<Usuario> listaUsuarios = recuperarTodosUsuarios();
 		for (Usuario usuario1 : listaUsuarios) {
-			System.out.println(usuario1.toString());
 			if(usuario1.getLogin().equals(login) && usuario1.getPassword().equals(clave)) {
 				return usuario1;
 			}
@@ -217,5 +220,17 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		}
 		return listaPlayList;
 	}
+	
+	public boolean comprobarListaYaExiste(String nombre, Usuario usuario) {
+		List<ListaCanciones> lista = usuario.getListaCanciones();
+		System.err.println("Imprimiendo numero de playlsit de usuario: "+lista.size());
+		for (ListaCanciones playlist : lista) {
+			if(playlist.getNombre().equals(nombre)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	
 }

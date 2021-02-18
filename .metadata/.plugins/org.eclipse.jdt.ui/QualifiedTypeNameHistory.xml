@@ -3,13 +3,15 @@
     <fullyQualifiedTypeName name="java.math.BigInteger"/>
     <fullyQualifiedTypeName name="java.util.stream.Collector"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
     <fullyQualifiedTypeName name="umu.tds.modelo.Cancion"/>
     <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorCancionTDS"/>
-    <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorListaCancionesTDS"/>
-    <fullyQualifiedTypeName name="umu.tds.modelo.ListaCanciones"/>
     <fullyQualifiedTypeName name="umu.tds.controlador.AppMusicControlador"/>
+    <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorListaCancionesTDS"/>
+    <fullyQualifiedTypeName name="umu.tds.modelo.Usuario"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="umu.tds.modelo.ListaCanciones"/>
+    <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorUsuarioTDS"/>
 </qualifiedTypeNameHistroy>
