@@ -9,10 +9,7 @@
 - Generacion pdf datos
 - Refactoring
 - Tests --> JUnit
-- Reciente --> Tiene chicha
-
-
-
+- Reciente --> Tiene chichas
 
 ---- HECHO ----
 - Que imprima correctamente las listas de los autores en la tabla

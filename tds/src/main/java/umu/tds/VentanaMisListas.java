@@ -219,7 +219,7 @@ public class VentanaMisListas extends JDialog {
 		list.setForeground(Color.WHITE);
 		list.setBackground(Color.GRAY);
 		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"A", "BF", "F", "GSG", "FSDF", "SADF", "A", "EGF", "AEGT", "E", "ASG", "EAS", "GSE", "G", "SE", "Z"};
+			String[] values = new String[] {};
 			public int getSize() {
 				return values.length;
 			}
@@ -259,16 +259,6 @@ public class VentanaMisListas extends JDialog {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"A", null},
-				{"B", null},
-				{"C", null},
-				{"SD", null},
-				{"SD", null},
-				{"SD", null},
-				{"SD", null},
-				{"SD", null},
-				{"SD", null},
-				{"SDSDSDSDSDS", null},
 			},
 			new String[] {
 				"T\u00CDTULO", "INT\u00C9RPRETE"
