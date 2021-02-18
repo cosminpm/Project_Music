@@ -155,7 +155,7 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		for (Entidad eLista : eListas) {
 			listas.add(recuperarListaCanciones(eLista.getId()));
 		}
-		System.err.println("TAMANIO LISTAS USUARIO: " + listas.size());
+		
 		return listas;
 	}
 	
