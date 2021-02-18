@@ -89,29 +89,27 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 	}
 	
 	
-	public void modificarUsuario(Usuario usuario, Usuario usuarioModificado) {
+	public void modificarUsuario(Usuario usuario) {
 
 		Entidad eUsuario = servPersistencia.recuperarEntidad(usuario.getCodigo());
 		
 		//Pasar LocalDate a String con el formato que deseamos almacenar
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Constantes.fecha_format);
-		String fechaCodificada = usuarioModificado.getFechaNacimiento().format(formatter);
-		
-		
+		String fechaCodificada = usuario.getFechaNacimiento().format(formatter);
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "nombre");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "nombre", usuarioModificado.getNombre());
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "nombre", usuario.getNombre());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "apellidos");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "apellidos", usuarioModificado.getApellidos());
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "apellidos", usuario.getApellidos());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "email");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "email", usuarioModificado.getEmail());
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "email", usuario.getEmail());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "login");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "login", usuarioModificado.getLogin());
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "login", usuario.getLogin());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "password");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "password", usuarioModificado.getPassword());
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "password", usuario.getPassword());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "fechanacimiento");
 		servPersistencia.anadirPropiedadEntidad(eUsuario, "fechanacimiento", fechaCodificada);
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "listaPlaylist");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "listaPlaylist", obtenerCodigosPlayList(usuarioModificado.getListaCanciones()));
+		servPersistencia.anadirPropiedadEntidad(eUsuario, "listaPlaylist", obtenerCodigosPlayList(usuario.getListaCanciones()));
 	}
 	
 	public Usuario recuperarUsuario(Entidad eUsuario) {

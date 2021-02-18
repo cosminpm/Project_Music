@@ -20,7 +20,11 @@ import javax.swing.table.DefaultTableModel;
 
 import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Usuario;
+import umu.tds.persistencia.AdaptadorListaCancionesTDS;
+import umu.tds.persistencia.AdaptadorUsuarioTDS;
 import umu.tds.modelo.Cancion;
+import umu.tds.modelo.ListaCanciones;
+
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
 import java.util.*;
@@ -49,6 +53,8 @@ public class VentanaExplorar extends JDialog {
 	 * Create the dialog.
 	 */
 	public VentanaExplorar() {
+
+		
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();

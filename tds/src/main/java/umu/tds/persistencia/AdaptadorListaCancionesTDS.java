@@ -68,13 +68,16 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		
 		//(String nombre, String apellidos, String email, String login, String password,
 				//LocalDate fechaNacimiento, List<ListaCanciones> listaPlayList)
+		
+		// ANADIRSELA AL USUARIO
+		
 		Usuario usuarioActual = AppMusicControlador.getInstancia().getUsuarioActual();
+		System.out.println("LOGIN: "+usuarioActual.getLogin());
+		
 		List<ListaCanciones> l = usuarioActual.getListaCanciones();
 		l.add(lista);
-		
-		Usuario usuarioModificado = new Usuario(usuarioActual.getNombre(), usuarioActual.getApellidos(), usuarioActual.getEmail(), 
-				usuarioActual.getLogin(), usuarioActual.getPassword(), usuarioActual.getFechaNacimiento(), l);
-		AdaptadorUsuarioTDS.getUnicaInstancia().modificarUsuario(usuarioActual, usuarioModificado);
+		usuarioActual.setListaCanciones(l);
+		AdaptadorUsuarioTDS.getUnicaInstancia().modificarUsuario(usuarioActual);
 		
 		
 		System.err.println("Print: registrarListaCancion FINAL");

@@ -29,6 +29,7 @@ import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
 import umu.tds.persistencia.AdaptadorCancionTDS;
 import umu.tds.persistencia.AdaptadorListaCancionesTDS;
+import umu.tds.persistencia.AdaptadorUsuarioTDS;
 
 import javax.swing.JScrollPane;
 
@@ -59,6 +60,21 @@ public class VentanaNuevaLista extends JDialog {
 	 * Create the dialog.
 	 */
 	public VentanaNuevaLista() {
+		
+		System.err.println("TODAS LISTAS");
+		List<ListaCanciones>  listaPlaylist = AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones();
+		for (ListaCanciones listaCanciones : listaPlaylist) {
+			System.err.println(listaCanciones.getNombre());
+		}
+		System.err.println("LISTAS USUARIO");
+		List<ListaCanciones>  listaPlaylist2 =	AppMusicControlador.getInstancia().getUsuarioActual().getListaCanciones();
+		for (ListaCanciones listaCanciones : listaPlaylist2) {
+			System.err.println(listaCanciones.getNombre());
+		}
+		
+		
+		
+		
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -113,8 +129,6 @@ public class VentanaNuevaLista extends JDialog {
 				if(JOptionPane.showConfirmDialog(btnDefinitivo,"¿Crear nueva Lista?", "¿Crear nueva Lista?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 					// Opcion SI
 					
-					
-					
 					String nombrePlaylist = txtNombreLista.getText();
 					List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
 					Usuario usuario = AppMusicControlador.getInstancia().getUsuarioActual();
@@ -122,13 +136,6 @@ public class VentanaNuevaLista extends JDialog {
 					for (ListaCanciones lista: AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones()) {
 						//System.err.println(lista.getNombre());
 					};
-					
-					
-					System.err.println(usuario.getListaCanciones());
-					for (ListaCanciones lista : usuario.getListaCanciones()) {
-						System.err.println("LISTA: "+lista.getNombre());
-					}
-					
 					
 					if(AppMusicControlador.getInstancia().comprobarListaYaExiste(nombrePlaylist, usuario)) {
 						// TODO MENSAJE DE ERROR NOMBRE YA EXISTE

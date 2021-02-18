@@ -10,7 +10,7 @@ public interface IAdaptadorUsuarioDAO {
 
 	public void registrarUsuario(Usuario usuario);
 	public boolean borrarUsuario(Usuario usuario);
-	public void modificarUsuario(Usuario usuario, Usuario usuarioModificado);
+	public void modificarUsuario(Usuario usuario);
 	public Usuario recuperarUsuario(Entidad eUsuario);
 	public List<Usuario> recuperarTodosUsuarios();
 	public boolean comprobarUsuarioRegistrado(String login);

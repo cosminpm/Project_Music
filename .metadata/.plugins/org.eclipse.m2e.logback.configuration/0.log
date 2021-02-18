@@ -3084,3 +3084,88 @@
 2021-02-18 11:43:04,877 [Worker-84: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
 2021-02-18 11:43:04,878 [Worker-84: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-02-18 11:43:04,878 [Worker-84: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 18:37:05,538 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-02-18 18:54:27,860 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:54:27,860 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 18:54:27,862 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:54:27,862 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 18:54:37,908 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:54:37,909 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 18:54:37,910 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:54:37,910 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 18:55:35,210 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:55:35,210 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 18:55:35,211 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:55:35,211 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 18:57:24,526 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:57:24,526 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 18:57:24,527 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:57:24,527 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 18:57:40,335 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:57:40,335 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 18:57:40,336 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:57:40,336 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 18:57:57,268 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:57:57,268 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 18:57:57,269 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:57:57,269 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 18:58:05,490 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:58:05,490 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 18:58:05,491 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:58:05,491 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 18:58:13,450 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:58:13,450 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 18:58:13,451 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:58:13,451 [Worker-46: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 18:59:02,585 [Worker-48: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:59:02,585 [Worker-48: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 18:59:02,586 [Worker-48: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 18:59:02,586 [Worker-48: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:00:58,769 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:00:58,770 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:00:58,770 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:00:58,770 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:03:11,505 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:03:11,505 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:03:11,506 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:03:11,506 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:04:36,057 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:04:36,057 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:04:36,058 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:04:36,058 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:04:44,636 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:04:44,636 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:04:44,637 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:04:44,637 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:06:43,264 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:06:43,264 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:06:43,265 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:06:43,265 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:06:50,071 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:06:50,071 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:06:50,072 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:06:50,072 [Worker-39: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:06:53,593 [Worker-50: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:06:53,593 [Worker-50: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:06:53,594 [Worker-50: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:06:53,594 [Worker-50: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:09:28,020 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:09:28,020 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:09:28,020 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:09:28,021 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:10:26,183 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:10:26,184 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:10:26,184 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:10:26,185 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:10:35,301 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:10:35,302 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:10:35,302 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:10:35,303 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:13:05,633 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:13:05,633 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:13:05,634 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:13:05,634 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-02-18 19:13:25,637 [Worker-50: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:13:25,638 [Worker-50: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-02-18 19:13:25,639 [Worker-50: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-02-18 19:13:25,639 [Worker-50: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources

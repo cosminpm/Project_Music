@@ -96,7 +96,10 @@ public class Usuario {
 	public List<ListaCanciones> getListaCanciones(){
 		List<ListaCanciones> lista = new LinkedList<ListaCanciones>(this.listaPlayList);
 		return lista;
-		
+	}
+	
+	public void setListaCanciones(List<ListaCanciones> l){
+		this.listaPlayList = l;
 	}
 	
 	
