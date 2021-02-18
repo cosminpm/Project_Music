@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
@@ -18,8 +20,12 @@ import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.table.DefaultTableModel;
 import umu.tds.controlador.AppMusicControlador;
+import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
 import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaMisListas extends JDialog {
 	private JTable table;
@@ -215,11 +221,29 @@ public class VentanaMisListas extends JDialog {
 		gbc_scrollPane.gridy = 8;
 		panel.add(scrollPane, gbc_scrollPane);
 		
-		JList list = new JList();
-		list.setForeground(Color.WHITE);
-		list.setBackground(Color.GRAY);
-		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {};
+		JList listaPlayList = new JList();
+		listaPlayList.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String aux = (String) listaPlayList.getSelectedValue();
+				System.out.println("HE CLICKAO");
+			}
+		});
+		listaPlayList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listaPlayList.setForeground(Color.WHITE);
+		listaPlayList.setBackground(Color.GRAY);
+		// Rellenar lista con nombres playlist del usuario
+		List<ListaCanciones> listaPlayListUsu = AppMusicControlador.getInstancia().getUsuarioActual().getListaCanciones();
+		
+		List<String> nombresPlaylist = new ArrayList<String>();
+		
+		for (ListaCanciones listaCanciones : listaPlayListUsu) {
+			
+			nombresPlaylist.add(listaCanciones.getNombre());
+		}
+		String[] array = nombresPlaylist.toArray(new String[0]);
+		listaPlayList.setModel(new AbstractListModel() {
+			String[] values = array;
 			public int getSize() {
 				return values.length;
 			}
@@ -227,7 +251,7 @@ public class VentanaMisListas extends JDialog {
 				return values[index];
 			}
 		});
-		scrollPane.setViewportView(list);
+		scrollPane.setViewportView(listaPlayList);
 		
 		JPanel panelCanciones = new JPanel();
 		panelCanciones.setBackground(Color.WHITE);
