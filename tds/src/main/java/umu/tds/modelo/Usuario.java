@@ -13,7 +13,7 @@ public class Usuario {
 	private String password;
 	private LocalDate fecha;
 	//TODO Lista que contiene listas de canciones
-	private List<ListaCanciones> ListaCanciones; 
+	private List<ListaCanciones> listaPlayList; 
 	private boolean esPremium;
 
 	public Usuario(String nombre, String apellidos, String email, String login, String password,
@@ -26,9 +26,18 @@ public class Usuario {
 		this.login = login;
 		this.password = password;
 		this.fecha = fechaNacimiento;
-		this.ListaCanciones = new LinkedList<ListaCanciones>();
+		this.listaPlayList = new LinkedList<ListaCanciones>();
 		this.esPremium = false;
 	}
+	
+	
+	public Usuario(String nombre, String apellidos, String email, String login, String password,
+			LocalDate fechaNacimiento, List<ListaCanciones> listaPlayList) {
+		
+		this(nombre, apellidos,email, login, password, fechaNacimiento);
+		this.listaPlayList = new LinkedList<ListaCanciones>(listaPlayList);
+		
+	} 
 	
 	public int getCodigo() {
 		return codigo;
@@ -87,7 +96,7 @@ public class Usuario {
 	}
 	
 	public List<ListaCanciones> getListaCanciones(){
-		List<ListaCanciones> lista = new LinkedList<ListaCanciones>(this.ListaCanciones);
+		List<ListaCanciones> lista = new LinkedList<ListaCanciones>(this.listaPlayList);
 		return lista;
 		
 	}
@@ -107,7 +116,7 @@ public class Usuario {
 	
 	// TODO Â¿Es correcto esto?
 	public void addListaCanciones(ListaCanciones c) {
-		ListaCanciones.add(c);
+		listaPlayList.add(c);
 	}	
 	
 	public void setEsPremium(boolean p) {

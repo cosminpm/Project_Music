@@ -121,6 +121,7 @@ public class VentanaNuevaLista extends JDialog {
 								JOptionPane.ERROR_MESSAGE, null);
 					}
 					else {
+						System.out.println("Vamos al metodo registrar");
 						AppMusicControlador.getInstancia().registrarPlayListConVariasCanciones(nombre, l);
 					}
 					
@@ -128,7 +129,7 @@ public class VentanaNuevaLista extends JDialog {
 				else {
 					// Opcion NO
 				}
-				AppMusicControlador.getInstancia().recuperarTodasListasCanciones();
+				//AppMusicControlador.getInstancia().recuperarTodasListasCanciones();
 			}
 		});
 		GridBagConstraints gbc_btnDefinitivo = new GridBagConstraints();

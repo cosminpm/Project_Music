@@ -3,6 +3,7 @@ package umu.tds.persistencia;
 import java.util.List;
 
 import beans.Entidad;
+import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
 
 public interface IAdaptadorUsuarioDAO {
@@ -15,4 +16,5 @@ public interface IAdaptadorUsuarioDAO {
 	public boolean comprobarUsuarioRegistrado(String login);
 	public boolean comprobarCorreosRegistrados(String email);
 	public Usuario comprobarLoginPassword(String login, String clave);
+	public String obtenerCodigosPlayList(List<ListaCanciones> listaPlaylist);
 }

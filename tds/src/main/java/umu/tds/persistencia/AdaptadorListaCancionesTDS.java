@@ -36,6 +36,7 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		boolean existe = true; 
 		
 		// Si la entidad está registrada no la registra de nuevo
+		//eLista = servPersistencia.recuperarEntidad(322);
 		eLista = servPersistencia.recuperarEntidad(lista.getCodigo());
 		if (eLista == null)
 			existe = false;
@@ -58,12 +59,13 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		eLista.setPropiedades(new ArrayList<Propiedad>(
 				Arrays.asList(new Propiedad("nombre", lista.getNombre()), new Propiedad("lCanciones",obtenerCodigosCanciones(lista.getCanciones())))));
 		
-	
+	    System.out.println("SALIDA CODIFICADA OBTENIDA CON LOS CODIGOS DE LAS CANCIONES: " + obtenerCodigosCanciones(lista.getCanciones()));
 		// registrar entidad cancion
 		eLista = servPersistencia.registrarEntidad(eLista);
 		// asignar identificador unico
 		// Se aprovecha el que genera el servicio de persistencia
-		lista.setCodigo(eLista.getId()); 
+		lista.setCodigo(eLista.getId());
+		System.out.println("EL ID DE LA LISTA ES:" + eLista.getId());
 	}
 	
 	
@@ -129,13 +131,14 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 
 	public List<ListaCanciones> recuperarTodasListasCanciones() {
 
-		List<Entidad> eListas = servPersistencia.recuperarEntidades("nombre");
+		List<Entidad> eListas = servPersistencia.recuperarEntidades("listaCanciones");
 		List<ListaCanciones> listas = new LinkedList<ListaCanciones>();
 
 		for (Entidad eLista : eListas) {
 			listas.add(recuperarListaCanciones(eLista.getId()));
 		}
 		
+		System.err.println("LA LISTA DE PLAYLIST ES LA SIGUIENTE: ");
 		System.err.println(listas.toString());
 		return listas;
 	}
@@ -165,6 +168,15 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		for (Cancion c : lista) {
 			l.addCancion(c);
 		}
+		System.out.println("PLAYLIST CREADA, CON NOMBRE: " + l.getNombre());
+		System.out.println("Y CON CANCIONES"+ l.getCanciones().toString());
+		
+		for (Cancion c : lista) {
+			
+			System.out.println("CANCION AÑADIDA, CON CODIGO: " + String.valueOf(c.getCodigo()));
+			
+		}
+		
 		this.registrarListaCanciones(l);		
 	}
 	
