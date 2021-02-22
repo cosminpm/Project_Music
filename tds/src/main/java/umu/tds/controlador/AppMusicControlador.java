@@ -1,5 +1,16 @@
 package umu.tds.controlador;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -16,10 +27,16 @@ import umu.tds.modelo.Usuario;
 import umu.tds.persistencia.IAdaptadorCancionDAO;
 import umu.tds.persistencia.IAdaptadorListaCancionesDAO;
 import umu.tds.persistencia.IAdaptadorUsuarioDAO;
+import umu.tds.VentanaMisListas;
 import umu.tds.componente.*;
 
 
 public class AppMusicControlador implements CancionesListener {
+	
+	private MediaPlayer mediaPlayer;
+	private String binPath;
+	private String tempPath;
+	
 	
 	private static AppMusicControlador unicaInstancia = null;
 	private Usuario usuarioActual;
@@ -249,6 +266,58 @@ public class AppMusicControlador implements CancionesListener {
 		return adaptadorUsuario.comprobarListaYaExiste(nombre, usuario);
 	}
 	
+	public void play(Cancion cancion) {
+		
+		mediaPlayer = null;
+		binPath = AppMusicControlador.class.getClassLoader().getResource(".").getPath();
+		binPath = binPath.replaceFirst("/", "");
+		//System.out.println(binPath);
+		// quitar "/" añadida al inicio del path en plataforma Windows
+		tempPath = binPath.replace("/bin", "/temp");
+		tempPath = tempPath.replace("%20", " ");
+		System.out.println(tempPath);
+		//tempPath = "C:/Users/crist/OneDrive/Escritorio/Proyecto Actual TDS/Project_Music/tds/target/classes/";
+		System.out.println(tempPath);
+		URL uri = null;
+		try {
+			com.sun.javafx.application.PlatformImpl.startup(() -> {
+			});
+
+			uri = new URL(cancion.getRutaFichero());
+
+			System.setProperty("java.io.tmpdir", tempPath);
+			Path mp3 = Files.createTempFile("now-playing", ".mp3");
+
+			System.out.println(mp3.getFileName());
+			try (InputStream stream = uri.openStream()) {
+				Files.copy(stream, mp3, StandardCopyOption.REPLACE_EXISTING);
+			}
+			System.out.println("finished-copy: " + mp3.getFileName());
+
+			Media media = new Media(mp3.toFile().toURI().toString());
+			mediaPlayer = new MediaPlayer(media);
+			
+			mediaPlayer.play();
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		
+	}
 	
+	public void stop(Cancion cancion) {
+		
+		if (mediaPlayer != null) mediaPlayer.stop();
+		File directorio = new File(tempPath);
+		String[] files = directorio.list();
+		for (String archivo : files) {
+			File fichero = new File(tempPath + File.separator + archivo);
+			fichero.delete();
+		}
+		
+		
+	}
 	
 }

@@ -12,6 +12,7 @@ import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -20,6 +21,7 @@ import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.table.DefaultTableModel;
 import umu.tds.controlador.AppMusicControlador;
+import umu.tds.modelo.Cancion;
 import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
 import javax.swing.JScrollPane;
@@ -28,7 +30,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class VentanaMisListas extends JDialog {
-	private JTable table;
+	private JTable tablaCanciones;
 
 	/**
 	 * Launch the application.
@@ -220,12 +222,29 @@ public class VentanaMisListas extends JDialog {
 		gbc_scrollPane.gridx = 1;
 		gbc_scrollPane.gridy = 8;
 		panel.add(scrollPane, gbc_scrollPane);
-		
 		JList listaPlayList = new JList();
+		List<Cancion> listaCancionesSeleccionada = new LinkedList<Cancion>();
 		listaPlayList.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
+				model.setRowCount(0);
 				String aux = (String) listaPlayList.getSelectedValue();
+				List<ListaCanciones> listaPlaylistUsuario = usuario.getListaCanciones();
+				for (ListaCanciones listaCanciones : listaPlaylistUsuario) {
+					if(listaCanciones.getNombre().equals(aux)) {
+						String autores = "";
+						for (Cancion cancion : listaCanciones.getCanciones()) {
+							autores = AppMusicControlador.getInstancia().printAutoresNice(cancion.getListaInterpretes());
+							((DefaultTableModel) tablaCanciones.getModel()).addRow(new Object[] {
+					                cancion.getTitulo(), autores});
+							listaCancionesSeleccionada.add(cancion);
+						}
+						
+						
+						
+						}
+					}
 				System.out.println("HE CLICKAO");
 			}
 		});
@@ -280,17 +299,25 @@ public class VentanaMisListas extends JDialog {
 		gbc_scrollPane_1.gridy = 0;
 		panelCanciones.add(scrollPane_1, gbc_scrollPane_1);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		tablaCanciones = new JTable();
+		tablaCanciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tablaCanciones.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
 				"T\u00CDTULO", "INT\u00C9RPRETE"
 			}
 		));
-		scrollPane_1.setViewportView(table);
+		scrollPane_1.setViewportView(tablaCanciones);
 		
 		JButton btnPlay = new JButton("");
+		btnPlay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int indiceSeleccionado = tablaCanciones.getSelectedRow();
+				Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
+				AppMusicControlador.getInstancia().play(cancionParaReproducir);
+			}
+		});
 		btnPlay.setContentAreaFilled(false);
 		btnPlay.setBorderPainted(false);
 		btnPlay.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/PlayIcon.jpg")));
@@ -311,6 +338,13 @@ public class VentanaMisListas extends JDialog {
 		panelCanciones.add(btnBack, gbc_btnBack);
 		
 		JButton btnStop = new JButton("");
+		btnStop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int indiceSeleccionado = tablaCanciones.getSelectedRow();
+				Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
+				AppMusicControlador.getInstancia().stop(cancionParaReproducir);
+			}
+		});
 		btnStop.setBorderPainted(false);
 		btnStop.setContentAreaFilled(false);
 		btnStop.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/PauseIcon.jpg")));

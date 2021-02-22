@@ -1,4 +1,4 @@
-/*package umu.tds.test;
+package umu.tds.test;
 
 import java.awt.EventQueue;
 
@@ -57,7 +57,7 @@ public class TestPlay {
 	 * Launch the application.
 	 */
 
-/*
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -74,7 +74,7 @@ public class TestPlay {
 	/**
 	 * Create the application.
 	 */
-/*
+
 	public TestPlay() {
 		initialize();
 	}
@@ -120,7 +120,7 @@ public class TestPlay {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-/*
+
 	private void initialize() {
 		mediaPlayer = null;
 		binPath = TestPlay.class.getClassLoader().getResource(".").getPath();
@@ -231,4 +231,4 @@ public class TestPlay {
 	}
 
 }
-*/
+
