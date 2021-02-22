@@ -71,8 +71,6 @@ public class CargadorCanciones implements Serializable {
 		oyentesArchivoCanciones.firePropertyChange("archivoCanciones",antesArchivoCanciones, nuevoArchivoCanciones);
 		}
 	
-
-	
 	/*
 	// TODO PREGUNTAR PROFE
 	@SuppressWarnings("unchecked")

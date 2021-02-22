@@ -99,7 +99,7 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 					s.replace(" ", "_");
 				    listaInterpretes += s + ",";
 				}
-				
+		/*
 		servPersistencia.eliminarPropiedadEntidad(eCancion, "titulo");
 		servPersistencia.anadirPropiedadEntidad(eCancion, "titulo", cancion.getTitulo());
 		servPersistencia.eliminarPropiedadEntidad(eCancion, "rutafichero");
@@ -110,8 +110,26 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		servPersistencia.anadirPropiedadEntidad(eCancion, "estiloMusical", cancion.getEstiloMusical());
 		servPersistencia.eliminarPropiedadEntidad(eCancion, "listaInterpretes");
 		servPersistencia.anadirPropiedadEntidad(eCancion, "listaInterpretes", listaInterpretes);
-		
-		
+		*/
+		for (Propiedad prop : eCancion.getPropiedades()) {
+
+			if (prop.getNombre().equals("titulo")) {
+			prop.setValor(String.valueOf(cancion.getTitulo()));
+			}
+			else if (prop.getNombre().equals("rutafichero")) {
+				prop.setValor(String.valueOf(cancion.getRutaFichero()));
+			}
+			else if (prop.getNombre().equals("numreproducciones")) {
+				prop.setValor(String.valueOf(cancion.getNumReproducciones()));
+			}
+			else if (prop.getNombre().equals("estiloMusical")) {
+				prop.setValor(String.valueOf(cancion.getEstiloMusical()));
+			}
+			else if (prop.getNombre().equals("listaInterpretes")) {
+				prop.setValor(String.valueOf(listaInterpretes));
+			}
+			servPersistencia.modificarPropiedad(prop);
+		} 		
 	}
 	
 	

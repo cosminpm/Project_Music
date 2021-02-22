@@ -60,12 +60,6 @@ public class VentanaNuevaLista extends JDialog {
 	 * Create the dialog.
 	 */
 	public VentanaNuevaLista() {
-		
-		
-		
-		
-		
-		
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();

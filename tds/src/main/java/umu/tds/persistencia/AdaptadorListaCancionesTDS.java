@@ -75,9 +75,18 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		
 		LinkedList<ListaCanciones> l = (LinkedList<ListaCanciones>)usuarioActual.getListaCanciones();
 		l.addLast(lista);
+		
+		System.out.println("SET: "+l.size());
+		
 		usuarioActual.setListaCanciones(l);
+		
+		System.out.println("SET1: "+l.size());
+		
+		System.out.println("REGISTRAR LISTA0: "+usuarioActual.getListaCanciones().size());
+		
 		AdaptadorUsuarioTDS.getUnicaInstancia().modificarUsuario(usuarioActual);
 		
+		System.out.println("REGISTRAR LISTA1: "+usuarioActual.getListaCanciones().size());
 		System.err.println("Print: registrarListaCancion FINAL");
 		List<ListaCanciones> auxl = AppMusicControlador.getInstancia().getUsuarioActual().getListaCanciones();
 		
@@ -99,14 +108,24 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 	public void modificarListaCanciones(ListaCanciones lista) {
 
 		Entidad eLista = servPersistencia.recuperarEntidad(lista.getCodigo());
-
+		String canciones = obtenerCodigosCanciones(lista.getCanciones());
+	
+		for (Propiedad prop : eLista.getPropiedades()) {
+			if (prop.getNombre().equals("lCanciones")) {
+			 prop.setValor(String.valueOf(canciones));
+			 }
+			
+			else if (prop.getNombre().equals("nombre")) {
+			prop.setValor(String.valueOf(eLista.getNombre()));
+			}
+			servPersistencia.modificarPropiedad(prop);
+		} 		
+		/*
 		servPersistencia.eliminarPropiedadEntidad(eLista, "nombre");
 		servPersistencia.anadirPropiedadEntidad(eLista, "nombre", lista.getNombre());
-		
-		String canciones = obtenerCodigosCanciones(lista.getCanciones());
-		
 		servPersistencia.eliminarPropiedadEntidad(eLista, "lCanciones");
 		servPersistencia.anadirPropiedadEntidad(eLista, "lCanciones", canciones);
+		*/
 	}
 	
 	
@@ -184,6 +203,7 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		for (Cancion c : lista) {
 			l.addCancion(c);
 		}
+		
 		this.registrarListaCanciones(l, usuarioActual);		
 	}
 	

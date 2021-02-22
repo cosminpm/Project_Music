@@ -96,6 +96,8 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		//Pasar LocalDate a String con el formato que deseamos almacenar
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Constantes.fecha_format);
 		String fechaCodificada = usuario.getFechaNacimiento().format(formatter);
+		
+		/*
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "nombre");
 		servPersistencia.anadirPropiedadEntidad(eUsuario, "nombre", usuario.getNombre());
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "apellidos");
@@ -109,7 +111,33 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "fechanacimiento");
 		servPersistencia.anadirPropiedadEntidad(eUsuario, "fechanacimiento", fechaCodificada);
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "listaPlaylist");
-		servPersistencia.anadirPropiedadEntidad(eUsuario, "listaPlaylist", obtenerCodigosPlayList(usuario.getListaCanciones()));
+		*/
+		
+		for (Propiedad prop : eUsuario.getPropiedades()) {
+			if (prop.getNombre().equals("listaPlaylist")) {
+			 prop.setValor(String.valueOf(obtenerCodigosPlayList(usuario.getListaCanciones())));
+			 }
+			
+			else if (prop.getNombre().equals("nombre")) {
+			prop.setValor(String.valueOf(usuario.getNombre()));
+			}
+			else if (prop.getNombre().equals("apellidos")) {
+				prop.setValor(String.valueOf(usuario.getApellidos()));
+			}
+			else if (prop.getNombre().equals("email")) {
+				prop.setValor(String.valueOf(usuario.getEmail()));
+			}
+			else if (prop.getNombre().equals("login")) {
+				prop.setValor(String.valueOf(usuario.getLogin()));
+			}
+			else if (prop.getNombre().equals("password")) {
+				prop.setValor(String.valueOf(usuario.getPassword()));
+			}
+			else if (prop.getNombre().equals("fechanacimiento")) {
+				prop.setValor(String.valueOf(fechaCodificada));
+			}
+			servPersistencia.modificarPropiedad(prop);
+		} 		
 	}
 	
 	public Usuario recuperarUsuario(Entidad eUsuario) {

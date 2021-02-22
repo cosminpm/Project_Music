@@ -232,7 +232,10 @@ public class AppMusicControlador implements CancionesListener {
 		adaptadorListaCanciones.registrarListaCanciones(lista,usuarioActual);
 	}
 	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista, Usuario usuarioActual) {
+		
+		System.out.println("Controlador: "+usuarioActual.getListaCanciones().size());
 		adaptadorListaCanciones.registrarPlayListConVariasCanciones(nombre, lista, usuarioActual);
+		System.out.println("Controlador1: "+usuarioActual.getListaCanciones().size());
 	}
 	
 	public boolean comprobarNombreExiste(String nombre) {

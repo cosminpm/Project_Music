@@ -96,7 +96,7 @@ public class Usuario {
 	}
 	
 	public List<ListaCanciones> getListaCanciones(){
-		List<ListaCanciones> lista = new LinkedList<ListaCanciones>();
+		List<ListaCanciones> lista = new LinkedList<ListaCanciones>(this.listaPlayList);
 		return lista;
 	}
 	
