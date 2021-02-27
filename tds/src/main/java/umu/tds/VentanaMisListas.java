@@ -20,6 +20,8 @@ import javax.swing.JTable;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.table.DefaultTableModel;
+
+import PRACTICAS.TDS.App;
 import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Cancion;
 import umu.tds.modelo.ListaCanciones;
@@ -328,6 +330,38 @@ public class VentanaMisListas extends JDialog {
 		panelCanciones.add(btnPlay, gbc_btnPlay);
 		
 		JButton btnBack = new JButton("");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int indiceSeleccionado = tablaCanciones.getSelectedRow();
+				Cancion cancionParaParar;
+				Cancion cancionParaReproducir;
+				//Comprobar si es el primero, indiceSeleccionado == 0
+				//System.out.println(indiceSeleccionado);
+				//System.out.println(listaCancionesSeleccionada.size()-1);
+				// Si es la primera, cambiar a la ultima
+				if(indiceSeleccionado == 0) {
+					
+					int aux = listaCancionesSeleccionada.size()-1;
+				    cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+				    AppMusicControlador.getInstancia().play(cancionParaParar);
+				    AppMusicControlador.getInstancia().stop(cancionParaParar);	
+				    cancionParaReproducir = listaCancionesSeleccionada.get(aux);
+				    AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				    
+					
+				}
+				
+				else {
+					
+				cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+				AppMusicControlador.getInstancia().play(cancionParaParar);
+				AppMusicControlador.getInstancia().stop(cancionParaParar);
+				cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado-1);
+				AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				}
+				
+			}
+		});
 		btnBack.setContentAreaFilled(false);
 		btnBack.setBorderPainted(false);
 		btnBack.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/BackSongIcon.jpg")));
@@ -355,6 +389,38 @@ public class VentanaMisListas extends JDialog {
 		panelCanciones.add(btnStop, gbc_btnStop);
 		
 		JButton btnNext = new JButton("");
+		btnNext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				int indiceSeleccionado = tablaCanciones.getSelectedRow();
+				Cancion cancionParaParar;
+				Cancion cancionParaReproducir;
+				//Comprobar si es el último, indiceSeleccionado == size - 1
+				//System.out.println(indiceSeleccionado);
+				//System.out.println(listaCancionesSeleccionada.size()-1);
+				// Si es la ultima cambiar a la primera
+				if(indiceSeleccionado == listaCancionesSeleccionada.size()-1) {
+					
+					int aux = 0;
+				    cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+				    AppMusicControlador.getInstancia().play(cancionParaParar);
+				    AppMusicControlador.getInstancia().stop(cancionParaParar);
+				    cancionParaReproducir = listaCancionesSeleccionada.get(aux);
+				    AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				    
+					
+				}
+				
+				else {
+					
+				cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+				AppMusicControlador.getInstancia().play(cancionParaParar);
+				AppMusicControlador.getInstancia().stop(cancionParaParar);
+				cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado+1);
+				AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				}
+			}
+		});
 		btnNext.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/NextSongIcon.jpg")));
 		btnNext.setBorderPainted(false);
 		btnNext.setContentAreaFilled(false);
