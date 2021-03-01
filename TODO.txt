@@ -1,15 +1,14 @@
 - Boton para volver al menú principal --> Imaginarse que quieres cargar mas canciones
 - Boton de luz en todas
-- Mis listas se puede empezas a hacer
 - Mejorar Interfaz, pero eso lo último, ahora mismo esta en beta
 - Al explorar que no diferencie entre lower y upper case
 - Añadir opción mediante click y mediante boton en nueva lista
-- Reproducir canciones con el boton, etc
+- Reproducir canciones con el boton --> PONER EN TODAS (funcionalidad hecha)
 - Mejora usuario
 - Generacion pdf datos
 - Refactoring
 - Tests --> JUnit
-- Reciente --> Tiene chichas
+- Reciente --> Tratar booleano para reordenar la lista de recientes y poner restriccion a 10 canciones y al escribir la 11 borrar la primera que se metio
 
 ---- HECHO ----
 - Que imprima correctamente las listas de los autores en la tabla
@@ -28,3 +27,4 @@
 - Al darse al boton buscar si las canciones ya estan en cualquiera de las dos partes que no vuelvan a aparecer
 - INTERPRETE null en Nueva Lista
 - Aniadir las playlist a la lista en la base de datos
+- Mis listas se puede empezas a hacer
