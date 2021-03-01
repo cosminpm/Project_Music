@@ -114,6 +114,11 @@ public class Usuario {
 		return aux;
 	}
 	
+	public ListaCanciones obtenerRecientes() {
+		
+		return this.listaPlayList.get(0);
+		
+	}
 	
 	// TODO De aqui adelante es nuestro codigo
 	

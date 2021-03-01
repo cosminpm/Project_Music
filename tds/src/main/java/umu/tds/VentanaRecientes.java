@@ -9,16 +9,19 @@ import javax.swing.JLabel;
 import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import umu.tds.controlador.AppMusicControlador;
+import umu.tds.modelo.Cancion;
+import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
 import javax.swing.JScrollPane;
 
 public class VentanaRecientes extends JDialog {
-	private JTable table;
+	private JTable cancionesRecientes;
 
 	/**
 	 * Launch the application.
@@ -216,35 +219,42 @@ public class VentanaRecientes extends JDialog {
 		gbl_panelCanciones.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panelCanciones.setLayout(gbl_panelCanciones);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBackground(Color.WHITE);
-		GridBagConstraints gbc_scrollPane_1 = new GridBagConstraints();
-		gbc_scrollPane_1.gridwidth = 8;
-		gbc_scrollPane_1.insets = new Insets(0, 0, 5, 0);
-		gbc_scrollPane_1.fill = GridBagConstraints.BOTH;
-		gbc_scrollPane_1.gridx = 0;
-		gbc_scrollPane_1.gridy = 0;
-		panelCanciones.add(scrollPane_1, gbc_scrollPane_1);
+		JScrollPane scrllPane = new JScrollPane();
+		scrllPane.setBackground(Color.WHITE);
+		GridBagConstraints gbc_scrllPane = new GridBagConstraints();
+		gbc_scrllPane.gridwidth = 8;
+		gbc_scrllPane.insets = new Insets(0, 0, 5, 0);
+		gbc_scrllPane.fill = GridBagConstraints.BOTH;
+		gbc_scrllPane.gridx = 0;
+		gbc_scrllPane.gridy = 0;
+		panelCanciones.add(scrllPane, gbc_scrllPane);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		cancionesRecientes = new JTable();
+		cancionesRecientes.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"A", null},
-				{"B", null},
-				{"C", null},
-				{"SD", null},
-				{"SD", null},
-				{"SD", null},
-				{"SD", null},
-				{"SD", null},
-				{"SD", null},
-				{"SDSDSDSDSDS", null},
 			},
 			new String[] {
 				"T\u00CDTULO", "INT\u00C9RPRETE"
 			}
 		));
-		scrollPane_1.setViewportView(table);
+		scrllPane.setViewportView(cancionesRecientes);
+		//Rellenar tabla
+		List<ListaCanciones> listaPlaylistUsuario = usuario.getListaCanciones();
+		for (ListaCanciones listaCanciones : listaPlaylistUsuario) {
+			if(listaCanciones.getNombre().equals("Recientes")) {
+				String autores = "";
+				for (Cancion cancion : listaCanciones.getCanciones()) {
+					autores = AppMusicControlador.getInstancia().printAutoresNice(cancion.getListaInterpretes());
+					((DefaultTableModel) cancionesRecientes.getModel()).addRow(new Object[] {
+			                cancion.getTitulo(), autores});
+				}
+				
+				
+				
+				}
+			}
+		
+		
 		
 		JButton btnPlay = new JButton("");
 		btnPlay.setContentAreaFilled(false);

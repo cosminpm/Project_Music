@@ -147,10 +147,11 @@ public class GUILogin {
 					//TODO Preguntar si la interfaz recupera el usuario
 					Usuario usuario = AppMusicControlador.getInstancia().recuperarUsuario(login, password);
 					AppMusicControlador.getInstancia().setUsuarioActual(usuario);
+					//Comprueba si tiene recientes creada, si no, la crea
+					AppMusicControlador.getInstancia().crearRecientes();
 					// TODO Preguntar, se visibilice esto
 					PanelPrincipal panelPrincipal = new PanelPrincipal();
 					AppMusicControlador.getInstancia().registrarComoOyente();
-					
 					panelPrincipal.mostrarVentana();
 					frame.dispose();
 				}

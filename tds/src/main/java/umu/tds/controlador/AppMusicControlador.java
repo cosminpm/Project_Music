@@ -266,7 +266,18 @@ public class AppMusicControlador implements CancionesListener {
 		return adaptadorUsuario.comprobarListaYaExiste(nombre, usuario);
 	}
 	
+	public void modificarPlayList(ListaCanciones lista) {
+		adaptadorListaCanciones.modificarListaCanciones(lista);
+	}
+	
 	public void play(Cancion cancion) {
+		
+		//Cada vez que se reproduce, añadir a Recientes
+		ListaCanciones recientes = usuarioActual.obtenerRecientes();
+		recientes.addCancion(cancion);
+		AppMusicControlador.getInstancia().modificarPlayList(recientes);
+		
+		
 		
 		mediaPlayer = null;
 		binPath = AppMusicControlador.class.getClassLoader().getResource(".").getPath();
@@ -318,6 +329,15 @@ public class AppMusicControlador implements CancionesListener {
 		}
 		
 		
+	}
+	
+	public void crearRecientes() {
+		
+		if (usuarioActual.getListaCanciones().size() == 0) {
+		   ListaCanciones playList  = new ListaCanciones("Recientes");
+		   AppMusicControlador.getInstancia().registrarListaCanciones(playList, usuarioActual);
+			
+		}
 	}
 	
 }
