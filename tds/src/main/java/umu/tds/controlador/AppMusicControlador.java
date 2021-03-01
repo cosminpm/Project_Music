@@ -273,6 +273,15 @@ public class AppMusicControlador implements CancionesListener {
 	public void play(Cancion cancion) {
 		
 		//Cada vez que se reproduce, añadir a Recientes
+		List<ListaCanciones> lista = usuarioActual.getListaCanciones();
+		
+		System.err.println("Printeando todas las listas en PLAY");
+		for (ListaCanciones listaCanciones : lista) {
+			System.out.println(listaCanciones.getNombre());
+		}
+		System.err.println("FIN todas las listas en PLAY");
+		
+		
 		ListaCanciones recientes = usuarioActual.obtenerRecientes();
 		recientes.addCancion(cancion);
 		AppMusicControlador.getInstancia().modificarPlayList(recientes);
@@ -334,6 +343,9 @@ public class AppMusicControlador implements CancionesListener {
 	public void crearRecientes() {
 		
 		if (usuarioActual.getListaCanciones().size() == 0) {
+			System.err.println("ESTOY CREANDO RECIENTES");
+			
+			
 		   ListaCanciones playList  = new ListaCanciones("Recientes");
 		   AppMusicControlador.getInstancia().registrarListaCanciones(playList, usuarioActual);
 			

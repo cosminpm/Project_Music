@@ -55,6 +55,11 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 				
 		// crear entidad Lista	
 		eLista = new Entidad();
+		
+		System.err.println("ESTOY EN Registrar Lista Canciones y el nombre de la lista es: "+ lista.getNombre());
+		
+		
+		
 		eLista.setNombre("listaCanciones");
 		eLista.setPropiedades(new ArrayList<Propiedad>(
 				Arrays.asList(new Propiedad("nombre", lista.getNombre()), new Propiedad("lCanciones",obtenerCodigosCanciones(lista.getCanciones())))));
@@ -116,7 +121,7 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 			 }
 			
 			else if (prop.getNombre().equals("nombre")) {
-			prop.setValor(String.valueOf(eLista.getNombre()));
+			prop.setValor(String.valueOf(lista.getNombre()));
 			}
 			servPersistencia.modificarPropiedad(prop);
 		} 		
