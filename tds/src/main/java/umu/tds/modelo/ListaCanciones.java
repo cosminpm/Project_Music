@@ -30,7 +30,15 @@ public class ListaCanciones {
 	public void addCancion(Cancion c) {
 		lCanciones.add(c);
 	}
-
+    public boolean addCancionSet(Cancion c) {
+    	//Return false, la cancion pertenece a recientes por primera vez
+    	if(!lCanciones.contains(c)) {
+    		lCanciones.add(c);
+    		return false;
+    	}
+    	//Return true, la cancion ya pertenece a recientes
+    	return true;
+    }
 	public int getCodigo() {
 		return codigo;
 	}

@@ -281,9 +281,10 @@ public class AppMusicControlador implements CancionesListener {
 		}
 		System.err.println("FIN todas las listas en PLAY");
 		
-		
+		//TODO TRATAR BOOLEANO
 		ListaCanciones recientes = usuarioActual.obtenerRecientes();
-		recientes.addCancion(cancion);
+		recientes.addCancionSet(cancion);
+		
 		AppMusicControlador.getInstancia().modificarPlayList(recientes);
 		
 		
