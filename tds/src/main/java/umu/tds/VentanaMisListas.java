@@ -315,18 +315,19 @@ public class VentanaMisListas extends JDialog {
 		JButton btnPlay = new JButton("");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				/*
 				// TODO QUITAR
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}*/
 				
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
 				Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
 				AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				AppMusicControlador.getInstancia().aniadirRecientes(cancionParaReproducir);
 			}
 		});
 		btnPlay.setContentAreaFilled(false);
@@ -421,7 +422,6 @@ public class VentanaMisListas extends JDialog {
 				}
 				
 				else {
-					
 				cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
 				AppMusicControlador.getInstancia().play(cancionParaParar);
 				AppMusicControlador.getInstancia().stop(cancionParaParar);

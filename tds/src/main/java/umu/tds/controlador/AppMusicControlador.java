@@ -282,13 +282,6 @@ public class AppMusicControlador implements CancionesListener {
 		System.err.println("FIN todas las listas en PLAY");
 		
 		//TODO TRATAR BOOLEANO
-		ListaCanciones recientes = usuarioActual.obtenerRecientes();
-		recientes.addCancionSet(cancion);
-		
-		AppMusicControlador.getInstancia().modificarPlayList(recientes);
-		
-		
-		
 		mediaPlayer = null;
 		binPath = AppMusicControlador.class.getClassLoader().getResource(".").getPath();
 		binPath = binPath.replaceFirst("/", "");
@@ -337,8 +330,6 @@ public class AppMusicControlador implements CancionesListener {
 			File fichero = new File(tempPath + File.separator + archivo);
 			fichero.delete();
 		}
-		
-		
 	}
 	
 	public void crearRecientes() {
@@ -353,4 +344,9 @@ public class AppMusicControlador implements CancionesListener {
 		}
 	}
 	
+	public void aniadirRecientes(Cancion cancion) {
+		ListaCanciones recientes = usuarioActual.obtenerRecientes();
+		recientes.addCancionSet(cancion);
+		AppMusicControlador.getInstancia().modificarPlayList(recientes);
+	}
 }

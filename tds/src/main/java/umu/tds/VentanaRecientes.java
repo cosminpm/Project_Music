@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -21,7 +22,7 @@ import umu.tds.modelo.Usuario;
 import javax.swing.JScrollPane;
 
 public class VentanaRecientes extends JDialog {
-	private JTable cancionesRecientes;
+	private JTable tablaCancionesRecientes;
 
 	/**
 	 * Launch the application.
@@ -228,16 +229,16 @@ public class VentanaRecientes extends JDialog {
 		gbc_scrllPane.gridx = 0;
 		gbc_scrllPane.gridy = 0;
 		panelCanciones.add(scrllPane, gbc_scrllPane);
-		
-		cancionesRecientes = new JTable();
-		cancionesRecientes.setModel(new DefaultTableModel(
+		List<Cancion> listaCancionesSeleccionada = new LinkedList<Cancion>(); 
+		tablaCancionesRecientes = new JTable();
+		tablaCancionesRecientes.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
 				"T\u00CDTULO", "INT\u00C9RPRETE"
 			}
 		));
-		scrllPane.setViewportView(cancionesRecientes);
+		scrllPane.setViewportView(tablaCancionesRecientes);
 		//Rellenar tabla
 		List<ListaCanciones> listaPlaylistUsuario = usuario.getListaCanciones();
 		for (ListaCanciones listaCanciones : listaPlaylistUsuario) {
@@ -245,18 +246,24 @@ public class VentanaRecientes extends JDialog {
 				String autores = "";
 				for (Cancion cancion : listaCanciones.getCanciones()) {
 					autores = AppMusicControlador.getInstancia().printAutoresNice(cancion.getListaInterpretes());
-					((DefaultTableModel) cancionesRecientes.getModel()).addRow(new Object[] {
+					((DefaultTableModel) tablaCancionesRecientes.getModel()).addRow(new Object[] {
 			                cancion.getTitulo(), autores});
+					listaCancionesSeleccionada.add(cancion);
 				}
-				
-				
-				
 				}
 			}
 		
 		
 		
 		JButton btnPlay = new JButton("");
+		btnPlay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					int indiceSeleccionado = tablaCancionesRecientes.getSelectedRow();
+					Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
+					AppMusicControlador.getInstancia().play(cancionParaReproducir);
+					AppMusicControlador.getInstancia().aniadirRecientes(cancionParaReproducir);			
+			}
+		});
 		btnPlay.setContentAreaFilled(false);
 		btnPlay.setBorderPainted(false);
 		btnPlay.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/PlayIcon.jpg")));
@@ -267,6 +274,32 @@ public class VentanaRecientes extends JDialog {
 		panelCanciones.add(btnPlay, gbc_btnPlay);
 		
 		JButton btnBack = new JButton("");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0){
+				int indiceSeleccionado = tablaCancionesRecientes.getSelectedRow();
+				Cancion cancionParaParar;
+				Cancion cancionParaReproducir;
+				//Comprobar si es el primero, indiceSeleccionado == 0
+				//System.out.println(indiceSeleccionado);
+				//System.out.println(listaCancionesSeleccionada.size()-1);
+				// Si es la primera, cambiar a la ultima
+				if(indiceSeleccionado == 0) {
+					int aux = listaCancionesSeleccionada.size()-1;
+				    cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+				    AppMusicControlador.getInstancia().play(cancionParaParar);
+				    AppMusicControlador.getInstancia().stop(cancionParaParar);	
+				    cancionParaReproducir = listaCancionesSeleccionada.get(aux);
+				    AppMusicControlador.getInstancia().play(cancionParaReproducir);	
+				}
+				else {
+					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+					AppMusicControlador.getInstancia().play(cancionParaParar);
+					AppMusicControlador.getInstancia().stop(cancionParaParar);
+					cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado-1);
+					AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				}
+			}
+		});
 		btnBack.setContentAreaFilled(false);
 		btnBack.setBorderPainted(false);
 		btnBack.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/BackSongIcon.jpg")));
@@ -277,6 +310,13 @@ public class VentanaRecientes extends JDialog {
 		panelCanciones.add(btnBack, gbc_btnBack);
 		
 		JButton btnStop = new JButton("");
+		btnStop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					int indiceSeleccionado = tablaCancionesRecientes.getSelectedRow();
+					Cancion cancionPausa = listaCancionesSeleccionada.get(indiceSeleccionado);
+					AppMusicControlador.getInstancia().stop(cancionPausa);
+			}
+		});
 		btnStop.setBorderPainted(false);
 		btnStop.setContentAreaFilled(false);
 		btnStop.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/PauseIcon.jpg")));
@@ -287,6 +327,34 @@ public class VentanaRecientes extends JDialog {
 		panelCanciones.add(btnStop, gbc_btnStop);
 		
 		JButton btnNext = new JButton("");
+		btnNext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				int indiceSeleccionado = tablaCancionesRecientes.getSelectedRow();
+				Cancion cancionParaParar;
+				Cancion cancionParaReproducir;
+				//Comprobar si es el último, indiceSeleccionado == size - 1
+				//System.out.println(indiceSeleccionado);
+				//System.out.println(listaCancionesSeleccionada.size()-1);
+				// Si es la ultima cambiar a la primera
+				if(indiceSeleccionado == listaCancionesSeleccionada.size()-1) {
+					int aux = 0;
+				    cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+				    AppMusicControlador.getInstancia().play(cancionParaParar);
+				    AppMusicControlador.getInstancia().stop(cancionParaParar);
+				    cancionParaReproducir = listaCancionesSeleccionada.get(aux);
+				    AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				}
+				
+				else {
+				cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+				AppMusicControlador.getInstancia().play(cancionParaParar);
+				AppMusicControlador.getInstancia().stop(cancionParaParar);
+				cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado+1);
+				AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				}
+			}
+		});
 		btnNext.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/NextSongIcon.jpg")));
 		btnNext.setBorderPainted(false);
 		btnNext.setContentAreaFilled(false);

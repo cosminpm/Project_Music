@@ -9,6 +9,11 @@
 - Refactoring
 - Tests --> JUnit
 - Reciente --> Tratar booleano para reordenar la lista de recientes y poner restriccion a 10 canciones y al escribir la 11 borrar la primera que se metio
+- Numero reproducciones
+
+Ventana “Canciones más reproducidas por usuario”: Mostrará la lista de canciones más escuchadas por un
+usuario (canción, interprete y número de veces reproducida).
+
 
 ---- HECHO ----
 - Que imprima correctamente las listas de los autores en la tabla
