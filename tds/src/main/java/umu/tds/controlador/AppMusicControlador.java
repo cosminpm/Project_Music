@@ -347,6 +347,9 @@ public class AppMusicControlador implements CancionesListener {
 	public void aniadirRecientes(Cancion cancion) {
 		ListaCanciones recientes = usuarioActual.obtenerRecientes();
 		recientes.addCancionSet(cancion);
+		if(recientes.getCanciones().size() > 10)
+			recientes = AdaptadorListaCancionesTDS.getUnicaInstancia().eliminarPrimera(recientes);
 		AppMusicControlador.getInstancia().modificarPlayList(recientes);
+
 	}
 }

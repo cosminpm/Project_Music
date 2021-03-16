@@ -27,6 +27,11 @@ public class ListaCanciones {
 		return new LinkedList<Cancion>(lCanciones);
 	}	
 	
+	
+	public void setCanciones(List<Cancion> lCanciones) {
+		this.lCanciones = lCanciones;
+	}
+	
 	public void addCancion(Cancion c) {
 		lCanciones.add(c);
 	}
@@ -61,7 +66,7 @@ public class ListaCanciones {
 		}
 
 		return listaCancionesModelo;
-	
 	}
 	
+
 }
