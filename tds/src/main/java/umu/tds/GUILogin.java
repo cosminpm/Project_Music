@@ -163,10 +163,6 @@ public class GUILogin {
 						System.out.println(listaCanciones.getNombre());
 					}
 					System.err.println("FIN todas las listas en LOGIN");					
-					
-					
-					
-					
 					frame.dispose();
 				}
 			}

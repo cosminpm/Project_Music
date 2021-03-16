@@ -2,6 +2,7 @@ package umu.tds;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -9,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 //import java.math.BigInteger;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -28,6 +31,7 @@ import umu.tds.modelo.ListaCanciones;
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
 import java.util.*;
+import pulsador.Luz;
 
 
 public class VentanaExplorar extends JDialog {
@@ -73,6 +77,27 @@ public class VentanaExplorar extends JDialog {
 		gbc_lbnombreUsuario.gridx = 1;
 		gbc_lbnombreUsuario.gridy = 1;
 		getContentPane().add(lbnombreUsuario, gbc_lbnombreUsuario);
+		
+		Luz luz = new Luz();
+		luz.addEncendidoListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent arg0) {
+				
+				JFileChooser chooser = new JFileChooser();
+				chooser.showSaveDialog(null);
+				
+				if(chooser.getSelectedFile() != null) {
+					
+					String fichero = chooser.getSelectedFile().getAbsolutePath();
+					AppMusicControlador.getInstancia().cargarCanciones(fichero);
+					AppMusicControlador.getInstancia().getCanciones();
+				}
+			}
+		});
+		GridBagConstraints gbc_luz = new GridBagConstraints();
+		gbc_luz.insets = new Insets(0, 0, 5, 5);
+		gbc_luz.gridx = 7;
+		gbc_luz.gridy = 1;
+		getContentPane().add(luz, gbc_luz);
 		
 		JButton btnMejorarCuenta = new JButton("MEJORAR CUENTA");
 		btnMejorarCuenta.setBorderPainted(false);

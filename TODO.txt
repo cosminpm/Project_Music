@@ -1,5 +1,5 @@
 - Boton para volver al menú principal --> Imaginarse que quieres cargar mas canciones
-- Boton de luz en todas
+
 - Mejorar Interfaz, pero eso lo último, ahora mismo esta en beta
 - Al explorar que no diferencie entre lower y upper case
 - Añadir opción mediante click y mediante boton en nueva lista
@@ -8,7 +8,7 @@
 - Generacion pdf datos
 - Refactoring
 - Tests --> JUnit
-- Reciente --> Tratar booleano para reordenar la lista de recientes y poner restriccion a 10 canciones y al escribir la 11 borrar la primera que se metio
+- Reciente --> Tratar booleano para reordenar la lista de recientes y 
 - Numero reproducciones
 
 Ventana “Canciones más reproducidas por usuario”: Mostrará la lista de canciones más escuchadas por un
@@ -33,3 +33,5 @@ usuario (canción, interprete y número de veces reproducida).
 - INTERPRETE null en Nueva Lista
 - Aniadir las playlist a la lista en la base de datos
 - Mis listas se puede empezas a hacer
+- poner restriccion a 10 canciones y al escribir la 11 borrar la primera que se metio
+- Boton de luz en todas
