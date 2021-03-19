@@ -21,6 +21,8 @@ import umu.tds.persistencia.FactoriaDAO;
 import umu.tds.modelo.Cancion;
 import umu.tds.modelo.CatalogoCanciones;
 import umu.tds.modelo.CatalogoUsuarios;
+import umu.tds.modelo.DescuentoFijo;
+import umu.tds.modelo.DescuentoJovenes;
 import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.CatalogoListaCanciones;
 import umu.tds.modelo.Usuario;
@@ -40,6 +42,7 @@ public class AppMusicControlador implements CancionesListener {
 	
 	private static AppMusicControlador unicaInstancia = null;
 	private Usuario usuarioActual;
+	private String tipoDescuento = "";
 	
 	private IAdaptadorUsuarioDAO adaptadorUsuario;
 	private IAdaptadorCancionDAO adaptadorCancion;
@@ -352,4 +355,42 @@ public class AppMusicControlador implements CancionesListener {
 		AppMusicControlador.getInstancia().modificarPlayList(recientes);
 
 	}
+	
+	public void setPremium (Usuario usuario, boolean opcion) {
+		adaptadorUsuario.setPremium(usuario, opcion);
+	}
+	
+	public int calcularDescuentoFijo() {
+		DescuentoFijo descuentoFijo = new DescuentoFijo();
+		descuentoFijo.calcDescuento();
+		System.out.println("EL DESCUENTO ES: "+descuentoFijo.getDescuento());
+	    return descuentoFijo.getDescuento();
+		
+	}
+	
+	public int calcularDescuentoJoven() {
+		DescuentoJovenes descuentoJoven = new DescuentoJovenes();
+		descuentoJoven.calcDescuento();
+		System.out.println("EL DESCUENTO ES"+descuentoJoven.getDescuento());
+	    return descuentoJoven.getDescuento();
+		
+	}
+	
+	public String getTipoDescuento() {
+		return tipoDescuento;
+	}
+	
+	public void setTipoDescuento(String tipoDescuento) {
+		this.tipoDescuento = tipoDescuento;
+	}
+	
+	public boolean compararDescuento(String descuento) {
+		System.out.println("ENTRO A COMPARAR CON DESCUENTO TIPO"+ this.tipoDescuento);
+		if(this.tipoDescuento.equals(descuento)) {
+			System.out.println("");
+			return true;
+		}
+		return false;
+	}
+	
 }

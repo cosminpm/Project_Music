@@ -13,6 +13,7 @@ import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Usuario;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 //import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -112,6 +113,23 @@ public class PanelPrincipal {
 		frame.getContentPane().add(luz, gbc_luz);
 		
 		JButton btnPremium = new JButton("MEJORAR CUENTA");
+		btnPremium.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(JOptionPane.showConfirmDialog(btnPremium,"Confirmación", "¿Quieres ser usuario premium?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					
+					VentanaPremium ventanaPremium = new VentanaPremium();
+					ventanaPremium.setVisible(true);
+					frame.setVisible(false);
+					AppMusicControlador.getInstancia().setPremium(usuario, true);
+					
+				}
+				
+				else {
+					
+				}
+				
+			}
+		});
 		btnPremium.setForeground(Color.WHITE);
 		btnPremium.setBackground(Color.BLACK);
 		GridBagConstraints gbc_btnPremium = new GridBagConstraints();

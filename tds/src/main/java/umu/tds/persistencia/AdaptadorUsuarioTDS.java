@@ -59,7 +59,12 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		// crear entidad Usuario
 		eUsuario = new Entidad();
 		eUsuario.setNombre("usuario");
-		
+		String esPremium = "0";
+		if (usuario.getEsPremium()) {
+			
+			esPremium = "1";
+			
+		}
 		//Pasar LocalDate a String con el formato que deseamos almacenar
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Constantes.fecha_format);
 		String fechaCodificada = usuario.getFechaNacimiento().format(formatter);
@@ -71,7 +76,9 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 						new Propiedad("login", usuario.getLogin()), 
 				        new Propiedad("password", usuario.getPassword()), 
 				        new Propiedad("fechanacimiento", fechaCodificada), 
-				        new Propiedad("listaPlaylist", obtenerCodigosPlayList(usuario.getListaCanciones())))));
+				        new Propiedad("listaPlaylist", obtenerCodigosPlayList(usuario.getListaCanciones())),
+				        new Propiedad("esPremium", esPremium))));
+						
 		// registrar entidad usuario
 		eUsuario = servPersistencia.registrarEntidad(eUsuario);
 		// asignar identificador unico
@@ -112,7 +119,12 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		servPersistencia.anadirPropiedadEntidad(eUsuario, "fechanacimiento", fechaCodificada);
 		servPersistencia.eliminarPropiedadEntidad(eUsuario, "listaPlaylist");
 		*/
-		
+		String esPremium = "0";
+		if (usuario.getEsPremium()) {
+			
+			esPremium = "1";
+			
+		}
 		for (Propiedad prop : eUsuario.getPropiedades()) {
 			if (prop.getNombre().equals("listaPlaylist")) {
 			 prop.setValor(String.valueOf(obtenerCodigosPlayList(usuario.getListaCanciones())));
@@ -136,6 +148,9 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 			else if (prop.getNombre().equals("fechanacimiento")) {
 				prop.setValor(String.valueOf(fechaCodificada));
 			}
+			else if (prop.getNombre().equals("esPremium")) {
+				prop.setValor(String.valueOf(esPremium));
+			}
 			servPersistencia.modificarPropiedad(prop);
 		} 		
 	}
@@ -150,6 +165,7 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		String password;
 		LocalDate fecha;
 		String fechanacimiento;
+		String esPremium;
 		List<ListaCanciones> lista = new LinkedList<ListaCanciones>();
 
 
@@ -162,7 +178,7 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		password = servPersistencia.recuperarPropiedadEntidad(eUsuario, "password");
 		fechanacimiento = servPersistencia.recuperarPropiedadEntidad(eUsuario, "fechanacimiento");
 		lista = obtenerListaPlayListDesdeCodigos(servPersistencia.recuperarPropiedadEntidad(eUsuario, "listaPlaylist"));
-		
+		esPremium = servPersistencia.recuperarPropiedadEntidad(eUsuario, "esPremium");
 		
 		//TODO hacer obtenerCodigosListaPlaylist
 		// Pasar la fecha con nuestro formato a LocalDate
@@ -173,6 +189,13 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 
 		Usuario usuario = new Usuario(nombre,apellidos,email,login,password,fecha, lista);
 		usuario.setCodigo(eUsuario.getId());
+		if(esPremium.equals("0")) {
+			
+			usuario.setEsPremium(false);
+		}
+		else {
+			usuario.setEsPremium(true);
+		}
 	
 		return usuario;
 	}
@@ -256,6 +279,14 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 			}
 		}
 		return false;
+	}
+	
+	public void setPremium (Usuario usuario, boolean opcion) {
+		if(usuario.getEsPremium() == opcion) {
+			return;
+		}
+		usuario.setEsPremium(opcion);
+		this.modificarUsuario(usuario);
 	}
 	
 }

@@ -2,8 +2,10 @@ package umu.tds.modelo;
 
 
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import umu.tds.persistencia.DAOException;
 import umu.tds.persistencia.FactoriaDAO;
@@ -58,4 +60,32 @@ public class CatalogoCanciones {
 		cancionesPorID.remove(cancion.getCodigo());
 		
 	}
+	
+	public String comprobarCorrecionInterprete(String interprete) {
+		if (interprete.equals("INTERPRETE")) {
+			return null;
+		}
+		return interprete;
+	}
+	
+	public String comprobarCorrecionTitulo(String titulo) {
+		if (titulo.equals("TITULO")) {
+			return null;
+		}
+		return titulo;
+	}
+	
+	public Set<Cancion> listToSet(List<Cancion> l){
+		return new LinkedHashSet<Cancion>(l);
+	}
+	
+	public List<Cancion> setToList(Set<Cancion> s){
+		return new LinkedList<Cancion>(s); 
+	}
+	
+	
+	public List<Cancion> rmRepetidas(List<Cancion> l){
+		return setToList(listToSet(l));
+	}
+	
 }

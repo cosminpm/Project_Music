@@ -5,4 +5,6 @@ public class Constantes {
 	public static final int x_size =900;
 	public static final int y_size =700;
 	public static final String fecha_format = "dd/MM/yyyy";
+	public static final String descuentoFijo = "Descuento Fijo";
+	public static final String descuentoJoven = "Descuento Joven";
 }

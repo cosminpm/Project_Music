@@ -18,4 +18,5 @@ public interface IAdaptadorUsuarioDAO {
 	public Usuario comprobarLoginPassword(String login, String clave);
 	public String obtenerCodigosPlayList(List<ListaCanciones> listaPlaylist);
 	public boolean comprobarListaYaExiste(String nombre, Usuario usuario);
+	public void setPremium (Usuario usuario, boolean opcion);
 }

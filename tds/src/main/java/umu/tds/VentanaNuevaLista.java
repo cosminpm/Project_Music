@@ -142,9 +142,9 @@ public class VentanaNuevaLista extends JDialog {
 					String nombrePlaylist = txtNombreLista.getText();
 					List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
 					//System.err.println("Voy a printear todas las listas del sistema");
-					for (ListaCanciones lista: AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones()) {
+					/*for (ListaCanciones lista: AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones()) {
 						//System.err.println(lista.getNombre());
-					};
+					};*/
 					
 					if(AppMusicControlador.getInstancia().comprobarListaYaExiste(nombrePlaylist, usuario)) {
 						// TODO MENSAJE DE ERROR NOMBRE YA EXISTE
@@ -294,7 +294,8 @@ public class VentanaNuevaLista extends JDialog {
 			public void actionPerformed(ActionEvent arg0) {
 				panelCrearLista.setVisible(true);
 				System.err.println("TODAS LISTAS");
-				List<ListaCanciones>  listaPlaylist = AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones();
+				//List<ListaCanciones>  listaPlaylist = AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones();
+				List<ListaCanciones>  listaPlaylist = AppMusicControlador.getInstancia().recuperarTodasListasCanciones();
 				for (ListaCanciones listaCanciones : listaPlaylist) {
 					System.err.println(listaCanciones.getNombre());
 				}
@@ -496,8 +497,11 @@ public class VentanaNuevaLista extends JDialog {
 				}
 				
 				int aux = 0;
-				List<Cancion> listaCancionesSinAniadir = AdaptadorCancionTDS.getUnicaInstancia().setToList(conjuntoCancionesSinAniadir); 
-				List<Cancion> listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().setToList(conjuntoCancionesAniadidas);
+				//List<Cancion> listaCancionesSinAniadir = AdaptadorCancionTDS.getUnicaInstancia().setToList(conjuntoCancionesSinAniadir); 
+				//List<Cancion> listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().setToList(conjuntoCancionesAniadidas);
+				
+				List<Cancion> listaCancionesSinAniadir = AppMusicControlador.getInstancia().setToList(conjuntoCancionesSinAniadir);
+				List<Cancion> listaCancionesAnididas = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
 				
 				
 				//Para cada fila seleccionada, sacamos los valores de su primera columna (titulo) y su segunda columna (interprete)
@@ -507,8 +511,11 @@ public class VentanaNuevaLista extends JDialog {
 					aux++;
 				}	
 				
-				listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesAnididas);
-				listaCancionesSinAniadir = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesSinAniadir);
+				//listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesAnididas);
+				//listaCancionesSinAniadir = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesSinAniadir);
+				
+				listaCancionesAnididas = AppMusicControlador.getInstancia().rmRepetidas(listaCancionesAnididas);
+				listaCancionesSinAniadir = AppMusicControlador.getInstancia().rmRepetidas(listaCancionesSinAniadir);
 				
 				DefaultTableModel modelAniadidos = (DefaultTableModel) tableCancionesAniadidas.getModel();
 				modelAniadidos.setRowCount(0);

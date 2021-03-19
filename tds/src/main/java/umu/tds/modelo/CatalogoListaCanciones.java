@@ -58,6 +58,22 @@ public class CatalogoListaCanciones {
 	}
 	
 	
+	public ListaCanciones eliminarPrimera(ListaCanciones lCanciones){
+		System.err.println("ANTEES: "+lCanciones.getCanciones().size());
+		List<Cancion> aux = lCanciones.getCanciones();
+		aux.remove(0);
+		lCanciones.setCanciones(aux);
+		System.err.println("DESPUES: "+lCanciones.getCanciones().size());
+		return lCanciones;
+	}
 	
+	
+	private String obtenerCodigosCanciones(List<Cancion> listaCanciones) {
+		String aux = "";
+		for (Cancion c : listaCanciones) {
+			aux += c.getCodigo() + " ";
+		}
+		return aux.trim();
+	}
 	
 }
