@@ -64,22 +64,6 @@ public class VentanaPremium extends JDialog {
 		gbc_lblTextoMejora.gridy = 2;
 		getContentPane().add(lblTextoMejora, gbc_lblTextoMejora);
 		
-		tablaPrecios = new JTable();
-		GridBagConstraints gbc_tablaPrecios = new GridBagConstraints();
-		gbc_tablaPrecios.insets = new Insets(0, 0, 5, 5);
-		gbc_tablaPrecios.fill = GridBagConstraints.BOTH;
-		gbc_tablaPrecios.gridx = 9;
-		gbc_tablaPrecios.gridy = 4;
-		getContentPane().add(tablaPrecios, gbc_tablaPrecios);
-		tablaPrecios.setModel(new DefaultTableModel(
-				new Object[][] {
-
-				},
-				new String[] {
-					"PRECIO INICIAL", "DESCUENTO", "PRECIO FINAL"
-				}
-			));
-		
 		
 		String[] array = {Constantes.descuentoFijo, Constantes.descuentoJoven};
 		JComboBox comboBox = new JComboBox();
@@ -160,6 +144,22 @@ public class VentanaPremium extends JDialog {
 				AppMusicControlador.getInstancia().setPremium(AppMusicControlador.getInstancia().getUsuarioActual(), true);
 			}
 		});
+		
+		tablaPrecios = new JTable();
+		GridBagConstraints gbc_tablaPrecios = new GridBagConstraints();
+		gbc_tablaPrecios.insets = new Insets(0, 0, 5, 5);
+		gbc_tablaPrecios.fill = GridBagConstraints.BOTH;
+		gbc_tablaPrecios.gridx = 9;
+		gbc_tablaPrecios.gridy = 5;
+		getContentPane().add(tablaPrecios, gbc_tablaPrecios);
+		tablaPrecios.setModel(new DefaultTableModel(
+				new Object[][] {
+
+				},
+				new String[] {
+					"PRECIO INICIAL", "DESCUENTO", "PRECIO FINAL"
+				}
+			));
 		btnPagar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		GridBagConstraints gbc_btnPagar = new GridBagConstraints();
 		gbc_btnPagar.insets = new Insets(0, 0, 5, 5);
