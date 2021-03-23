@@ -28,8 +28,14 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
 
 public class GUILogin {
+	
+	
+
+	
+	
 	
 	private JFrame frame;
 	private JTextField textUsuario;
@@ -42,13 +48,28 @@ public class GUILogin {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					try {
+				        UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
+				    } catch (Exception e) {
+				        e.printStackTrace();
+				    }
+					
+					
+					
 					GUILogin window = new GUILogin();
 					window.frame.setVisible(true);
+				
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+	
+	
+	
+	
+	
 	}
 
 	/**

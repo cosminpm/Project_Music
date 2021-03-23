@@ -7,9 +7,9 @@ INDEX VERSION 1.131+C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 P
 2499447023.index
 3845093729.index
 4281530017.index
-2983968332.index
 567926994.index
 3530583099.index
+10703953.index
 3897340196.index
 3403018967.index
 2161267126.index
@@ -19,6 +19,8 @@ INDEX VERSION 1.131+C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 P
 1503995259.index
 2046493601.index
 1442258218.index
+3941393330.index
+2626578505.index
 1006248367.index
 353294990.index
 2733466336.index
@@ -26,6 +28,5 @@ INDEX VERSION 1.131+C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 P
 3117327621.index
 2583219878.index
 1602252583.index
-4019016050.index
 3609155655.index
 37487023.index

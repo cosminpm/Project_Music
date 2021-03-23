@@ -239,7 +239,6 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 			}
 			return resultado;
 		}
-			
 		resultado = todasCanciones;
 		return resultado;
 	}
@@ -280,7 +279,6 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 	public List<Cancion> rmRepetidas(List<Cancion> l){
 		return setToList(listToSet(l));
 	}
-	
 	
 }
 

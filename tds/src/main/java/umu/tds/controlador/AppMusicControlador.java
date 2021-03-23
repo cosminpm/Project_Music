@@ -325,7 +325,6 @@ public class AppMusicControlador implements CancionesListener {
 	}
 	
 	public void stop(Cancion cancion) {
-		
 		if (mediaPlayer != null) mediaPlayer.stop();
 		File directorio = new File(tempPath);
 		String[] files = directorio.list();

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="play"/>
+		<item key="selection" value="stop"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="stop"/>
+			<item value="adaptador"/>
+			<item value="Se"/>
+			<item value="Setto"/>
+			<item value="listoset"/>
 			<item value="play"/>
 			<item value="usuario"/>
 			<item value="usuarioActual"/>
@@ -18,11 +23,6 @@
 			<item value="Sys"/>
 			<item value="sys"/>
 			<item value="compro"/>
-			<item value="btnCrear"/>
-			<item value="show"/>
-			<item value="System.out.println(nombre);"/>
-			<item value="interprete"/>
-			<item value="comprobarcorrec"/>
 		</list>
 		<list key="replacehistory">
 		</list>
