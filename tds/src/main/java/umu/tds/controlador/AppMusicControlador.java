@@ -362,7 +362,6 @@ public class AppMusicControlador implements CancionesListener {
 	public int calcularDescuentoFijo() {
 		DescuentoFijo descuentoFijo = new DescuentoFijo();
 		descuentoFijo.calcDescuento();
-		System.out.println("EL DESCUENTO ES: "+descuentoFijo.getDescuento());
 	    return descuentoFijo.getDescuento();
 		
 	}
@@ -384,7 +383,6 @@ public class AppMusicControlador implements CancionesListener {
 	}
 	
 	public boolean compararDescuento(String descuento) {
-		System.out.println("ENTRO A COMPARAR CON DESCUENTO TIPO"+ this.tipoDescuento);
 		if(this.tipoDescuento.equals(descuento)) {
 			System.out.println("");
 			return true;

@@ -106,6 +106,22 @@ public class VentanaNuevaLista extends JDialog {
 		getContentPane().add(luz, gbc_luz);
 		
 		JButton btnMejorarCuenta = new JButton("MEJORAR CUENTA");
+		btnMejorarCuenta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					if(JOptionPane.showConfirmDialog(btnMejorarCuenta,"Confirmación", "¿Quieres ser usuario premium?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					
+					VentanaPremium ventanaPremium = new VentanaPremium();
+					ventanaPremium.setVisible(true);
+					dispose();
+					AppMusicControlador.getInstancia().setPremium(usuario, true);
+					
+				}
+				
+				else {
+					
+				}	
+			}
+		});
 		btnMejorarCuenta.setBorderPainted(false);
 		btnMejorarCuenta.setForeground(Color.WHITE);
 		btnMejorarCuenta.setBackground(Color.BLACK);
