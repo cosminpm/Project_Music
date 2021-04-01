@@ -28,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 
 import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Cancion;
+import umu.tds.modelo.CatalogoCanciones;
 import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
 import umu.tds.persistencia.AdaptadorCancionTDS;
@@ -92,10 +93,8 @@ public class VentanaNuevaLista extends JDialog {
 				chooser.showSaveDialog(null);
 				
 				if(chooser.getSelectedFile() != null) {
-					
 					String fichero = chooser.getSelectedFile().getAbsolutePath();
 					AppMusicControlador.getInstancia().cargarCanciones(fichero);
-					AppMusicControlador.getInstancia().getCanciones();
 				}
 			}
 		});
@@ -587,9 +586,10 @@ public class VentanaNuevaLista extends JDialog {
 					aux++;
 				}
 				
-				listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesAnididas);
-				listaCancionesSinAniadir = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesSinAniadir);
-				
+				//listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesAnididas);
+				  listaCancionesAnididas = CatalogoCanciones.getUnicaInstancia().rmRepetidas(listaCancionesAnididas);
+				//listaCancionesSinAniadir= AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesSinAniadir);
+				  listaCancionesSinAniadir = CatalogoCanciones.getUnicaInstancia().rmRepetidas(listaCancionesSinAniadir);
 				DefaultTableModel modelAniadidos = (DefaultTableModel) tableCancionesAniadidas.getModel();
 				modelAniadidos.setRowCount(0);
 				

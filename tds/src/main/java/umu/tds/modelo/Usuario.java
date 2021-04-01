@@ -122,7 +122,7 @@ public class Usuario {
 	
 	// TODO De aqui adelante es nuestro codigo
 	
-	// TODO Â¿Es correcto esto?
+	// TODO ¿Es correcto esto?
 	public void addListaCanciones(ListaCanciones c) {
 		listaPlayList.add(c);
 	}	

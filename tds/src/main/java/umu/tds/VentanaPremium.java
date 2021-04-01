@@ -1,18 +1,16 @@
 package umu.tds;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+
 import javax.swing.table.DefaultTableModel;
 
 import umu.tds.controlador.AppMusicControlador;
-import umu.tds.modelo.DescuentoFijo;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -22,13 +20,11 @@ import java.awt.Font;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.GridLayout;
+
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.Color;
-import java.math.RoundingMode;
+
 import java.text.DecimalFormat;
 
 public class VentanaPremium extends JDialog {

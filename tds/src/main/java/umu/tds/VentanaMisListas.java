@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.table.DefaultTableModel;
 
-import PRACTICAS.TDS.App;
+
 import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Cancion;
 import umu.tds.modelo.ListaCanciones;
@@ -89,7 +89,6 @@ public class VentanaMisListas extends JDialog {
 					
 					String fichero = chooser.getSelectedFile().getAbsolutePath();
 					AppMusicControlador.getInstancia().cargarCanciones(fichero);
-					AppMusicControlador.getInstancia().getCanciones();
 				}
 			}
 		});

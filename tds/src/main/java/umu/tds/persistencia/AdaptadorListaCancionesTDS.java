@@ -125,22 +125,12 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 			}
 			servPersistencia.modificarPropiedad(prop);
 		} 		
-		/*
-		servPersistencia.eliminarPropiedadEntidad(eLista, "nombre");
-		servPersistencia.anadirPropiedadEntidad(eLista, "nombre", lista.getNombre());
-		servPersistencia.eliminarPropiedadEntidad(eLista, "lCanciones");
-		servPersistencia.anadirPropiedadEntidad(eLista, "lCanciones", canciones);
-		*/
 	}
 	
 	
 	public ListaCanciones recuperarListaCanciones(int codigo) {
 
 		// Si la entidad está en el pool la devuelve directamente
-		
-		/*if (PoolDAO.getUnicaInstancia().contiene(codigo))
-			return (ListaCanciones) PoolDAO.getUnicaInstancia().getObjeto(codigo);*/
-
 		// si no, la recupera de la base de datos
 		Entidad eLista;
 		List<Cancion> canciones = new LinkedList<Cancion>();
@@ -208,7 +198,6 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		for (Cancion c : lista) {
 			l.addCancion(c);
 		}
-		
 		this.registrarListaCanciones(l, usuarioActual);		
 	}
 	
@@ -220,18 +209,4 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 			}
 		return false;
 	}
-	
-	public ListaCanciones eliminarPrimera(ListaCanciones lCanciones){
-		System.err.println("ANTEES: "+lCanciones.getCanciones().size());
-		List<Cancion> aux = lCanciones.getCanciones();
-		aux.remove(0);
-		lCanciones.setCanciones(aux);
-		System.err.println("DESPUES: "+lCanciones.getCanciones().size());
-		return lCanciones;
-	}
-	
-	
-	
-	
-	
 }

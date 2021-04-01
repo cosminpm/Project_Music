@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import beans.Entidad;
 import umu.tds.persistencia.DAOException;
 import umu.tds.persistencia.FactoriaDAO;
 
@@ -37,7 +38,7 @@ public class CatalogoUsuarios {
 		}
 	}
 	
-	public List<Usuario> getUsuarios() throws DAOException {
+	public List<Usuario> getUsuarios() {
 		return new LinkedList<Usuario>(asistentesPorLogin.values());
 	}
 	
@@ -78,6 +79,49 @@ public class CatalogoUsuarios {
 		return aux.trim();
 	}
 	
+	public void setPremium (Usuario usuario, boolean opcion) {
+		if(usuario.getEsPremium() == opcion) {
+			return;
+		}
+		usuario.setEsPremium(opcion);
+	}
 	
-
+	public boolean comprobarCorreosRegistrados(String email) {	
+		List<Usuario> usuarios = this.getUsuarios();
+		String aux;
+		for (Usuario u : usuarios) {
+			aux = u.getEmail();
+			if(aux.equals(email))
+				return true;
+		}
+		return false;
+	}	
+	
+	public boolean comprobarUsuarioRegistrado(String login) {	
+		List<Usuario> usuarios = this.getUsuarios();
+		String aux;
+		for (Usuario u : usuarios) {
+			aux = u.getLogin();
+			if(aux.equals(login))
+				return true;
+		}
+		return false;
+	}	
+	
+	
+	public Usuario comprobarLoginPassword(String login, String clave) {
+		
+		if (login == null || clave == null) {
+			return null;
+		}
+		
+		List<Usuario> listaUsuarios = this.getUsuarios();
+		for (Usuario usuario1 : listaUsuarios) {
+			if(usuario1.getLogin().equals(login) && usuario1.getPassword().equals(clave)) {
+				return usuario1;
+			}
+		}
+		return null;	
+	}
+	
 }

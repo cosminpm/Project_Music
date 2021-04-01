@@ -13,10 +13,6 @@ public interface IAdaptadorUsuarioDAO {
 	public void modificarUsuario(Usuario usuario);
 	public Usuario recuperarUsuario(Entidad eUsuario);
 	public List<Usuario> recuperarTodosUsuarios();
-	public boolean comprobarUsuarioRegistrado(String login);
-	public boolean comprobarCorreosRegistrados(String email);
-	public Usuario comprobarLoginPassword(String login, String clave);
-	public String obtenerCodigosPlayList(List<ListaCanciones> listaPlaylist);
 	public boolean comprobarListaYaExiste(String nombre, Usuario usuario);
 	public void setPremium (Usuario usuario, boolean opcion);
 }

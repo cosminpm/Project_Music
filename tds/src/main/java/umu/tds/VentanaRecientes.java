@@ -77,7 +77,6 @@ public class VentanaRecientes extends JDialog {
 					
 					String fichero = chooser.getSelectedFile().getAbsolutePath();
 					AppMusicControlador.getInstancia().cargarCanciones(fichero);
-					AppMusicControlador.getInstancia().getCanciones();
 				}
 			}
 		});

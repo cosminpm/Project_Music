@@ -102,7 +102,7 @@ public class PanelPrincipal {
 					
 					String fichero = chooser.getSelectedFile().getAbsolutePath();
 					AppMusicControlador.getInstancia().cargarCanciones(fichero);
-					AppMusicControlador.getInstancia().getCanciones();
+					
 				}
 			}
 		});
@@ -127,7 +127,6 @@ public class PanelPrincipal {
 				else {
 					
 				}
-				
 			}
 		});
 		btnPremium.setForeground(Color.WHITE);
@@ -269,7 +268,6 @@ public class PanelPrincipal {
 		gbc_btnMisListas.gridx = 1;
 		gbc_btnMisListas.gridy = 7;
 		panel.add(btnMisListas, gbc_btnMisListas);
-		
 		btnMisListas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 					VentanaMisListas ventanaMisListas = new VentanaMisListas();
@@ -277,10 +275,6 @@ public class PanelPrincipal {
 					frame.setVisible(false);
 				}			
 		});		
-		
-				
-		
-		
 		JLabel lblMisListas = new JLabel("MIS LISTAS");
 		lblMisListas.setForeground(Color.WHITE);
 		GridBagConstraints gbc_lblMisListas = new GridBagConstraints();

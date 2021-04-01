@@ -25,10 +25,8 @@ import javax.swing.table.DefaultTableModel;
 
 import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Usuario;
-import umu.tds.persistencia.AdaptadorListaCancionesTDS;
-import umu.tds.persistencia.AdaptadorUsuarioTDS;
 import umu.tds.modelo.Cancion;
-import umu.tds.modelo.ListaCanciones;
+import umu.tds.modelo.CatalogoCanciones;
 
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
@@ -88,10 +86,8 @@ public class VentanaExplorar extends JDialog {
 				chooser.showSaveDialog(null);
 				
 				if(chooser.getSelectedFile() != null) {
-					
 					String fichero = chooser.getSelectedFile().getAbsolutePath();
 					AppMusicControlador.getInstancia().cargarCanciones(fichero);
-					AppMusicControlador.getInstancia().getCanciones();
 				}
 			}
 		});
@@ -403,25 +399,26 @@ public class VentanaExplorar extends JDialog {
 					titulo = AppMusicControlador.getInstancia().comprobarCorrecionTitulo(titulo);
 				}
 				
-				String estilo = comboBoxEstilo.getSelectedItem().toString();
-				if(estilo == "Cualquiera") {
-					estilo = null;
+				if (comboBoxEstilo.getSelectedItem()!=null) {
+					String estilo = comboBoxEstilo.getSelectedItem().toString();
+					if(estilo == "Cualquiera") {
+						estilo = null;
+					}
+					System.out.println("AA: " + titulo);
+					System.out.println("BB: " + interprete);
+					
+					
+					List<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo, estilo);
+					
+					String aux;
+					for (Cancion cancion : canciones) {
+						aux = AppMusicControlador.getInstancia().printAutoresNice(cancion.getListaInterpretes());
+						((DefaultTableModel) tablaCanciones.getModel()).addRow(new Object[] {
+				                cancion.getTitulo(), aux});
+						listaCancionesSeleccionada.add(cancion);
+					}
 				}
-				
-				
-				System.out.println("AA: " + titulo);
-				System.out.println("BB: " + interprete);
-				
-				
-				List<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo, estilo);
-				
-				String aux;
-				for (Cancion cancion : canciones) {
-					aux = AppMusicControlador.getInstancia().printAutoresNice(cancion.getListaInterpretes());
-					((DefaultTableModel) tablaCanciones.getModel()).addRow(new Object[] {
-			                cancion.getTitulo(), aux});
-					listaCancionesSeleccionada.add(cancion);
-				}
+
 			}
 		});
 		

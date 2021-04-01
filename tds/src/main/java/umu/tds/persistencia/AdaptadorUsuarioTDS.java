@@ -211,47 +211,9 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		return usuarios;
 	}
 
+
 	
-	
-	public boolean comprobarUsuarioRegistrado(String login) {	
-		List<Entidad> eUsuarios = servPersistencia.recuperarEntidades("usuario");
-		String aux;
-		for (Entidad eUsuario : eUsuarios) {
-			aux = servPersistencia.recuperarPropiedadEntidad(eUsuario, "login");	
-			if(aux.equals(login))
-				return true;
-		}
-		return false;
-	}
-	
-	public boolean comprobarCorreosRegistrados(String email) {	
-		List<Entidad> eUsuarios = servPersistencia.recuperarEntidades("usuario");
-		String aux;
-		for (Entidad eUsuario : eUsuarios) {
-			aux = servPersistencia.recuperarPropiedadEntidad(eUsuario, "email");	
-			if(aux.equals(email))
-				return true;
-		}
-		return false;
-	}
-	
-	public Usuario comprobarLoginPassword(String login, String clave) {
-		
-		if (login == null || clave == null) {
-			return null;
-		}
-		
-		List<Usuario> listaUsuarios = recuperarTodosUsuarios();
-		for (Usuario usuario1 : listaUsuarios) {
-			if(usuario1.getLogin().equals(login) && usuario1.getPassword().equals(clave)) {
-				return usuario1;
-			}
-		}
-		return null;	
-	}
-	
-	
-	public String obtenerCodigosPlayList(List<ListaCanciones> listaPlaylist) {
+	private String obtenerCodigosPlayList(List<ListaCanciones> listaPlaylist) {
 		String aux = "";
 		for (ListaCanciones playlist : listaPlaylist) {
 			aux += playlist.getCodigo() + " ";

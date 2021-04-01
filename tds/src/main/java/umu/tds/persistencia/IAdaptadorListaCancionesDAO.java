@@ -15,5 +15,4 @@ public interface IAdaptadorListaCancionesDAO {
 	public List<ListaCanciones> recuperarTodasListasCanciones();
 	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista, Usuario usuarioActual);
 	public boolean comprobarNombreExiste(String nombre);
-	public ListaCanciones eliminarPrimera(ListaCanciones lCanciones);
 }
