@@ -76,7 +76,7 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 						new Propiedad("login", usuario.getLogin()), 
 				        new Propiedad("password", usuario.getPassword()), 
 				        new Propiedad("fechanacimiento", fechaCodificada), 
-				        new Propiedad("listaPlaylist", obtenerCodigosPlayList(usuario.getListaCanciones())),
+				        new Propiedad("listaPlaylist", obtenerCodigosPlayList(usuario.getListaPlayList())),
 				        new Propiedad("esPremium", esPremium))));
 						
 		// registrar entidad usuario
@@ -127,7 +127,7 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 		}
 		for (Propiedad prop : eUsuario.getPropiedades()) {
 			if (prop.getNombre().equals("listaPlaylist")) {
-			 prop.setValor(String.valueOf(obtenerCodigosPlayList(usuario.getListaCanciones())));
+			 prop.setValor(String.valueOf(obtenerCodigosPlayList(usuario.getListaPlayList())));
 			 }
 			
 			else if (prop.getNombre().equals("nombre")) {
@@ -233,7 +233,7 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 	}
 	
 	public boolean comprobarListaYaExiste(String nombre, Usuario usuario) {
-		List<ListaCanciones> lista = usuario.getListaCanciones();
+		List<ListaCanciones> lista = usuario.getListaPlayList();
 		System.err.println("Imprimiendo numero de playlsit de usuario: "+lista.size());
 		for (ListaCanciones playlist : lista) {
 			if(playlist.getNombre().equals(nombre)) {

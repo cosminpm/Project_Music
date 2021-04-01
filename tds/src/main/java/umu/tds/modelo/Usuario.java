@@ -3,6 +3,8 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
+import umu.tds.VentanaMisListas;
+import umu.tds.persistencia.AdaptadorListaCancionesTDS;
 import umu.tds.persistencia.AdaptadorUsuarioTDS;
 
 public class Usuario {
@@ -16,8 +18,8 @@ public class Usuario {
 	private LocalDate fecha;
 	//TODO Lista que contiene listas de canciones
 	private List<ListaCanciones> listaPlayList; 
+	
 	private boolean esPremium;
-
 	public Usuario(String nombre, String apellidos, String email, String login, String password,
 			LocalDate fechaNacimiento) {
 		
@@ -95,7 +97,7 @@ public class Usuario {
 		this.fecha = fechaNacimiento;
 	}
 	
-	public List<ListaCanciones> getListaCanciones(){
+	public List<ListaCanciones> getListaPlayList(){
 		List<ListaCanciones> lista = new LinkedList<ListaCanciones>(this.listaPlayList);
 		return lista;
 	}
@@ -115,9 +117,7 @@ public class Usuario {
 	}
 	
 	public ListaCanciones obtenerRecientes() {
-		
 		return this.listaPlayList.get(0);
-		
 	}
 	
 	// TODO De aqui adelante es nuestro codigo
@@ -127,8 +127,11 @@ public class Usuario {
 		listaPlayList.add(c);
 	}	
 	
-	public void setEsPremium(boolean p) {
-		this.esPremium = p;
+	public void setEsPremium(boolean p) {	
+		if (this.getEsPremium()!=p) {
+			this.esPremium = p;
+			AdaptadorUsuarioTDS.getUnicaInstancia().setPremium(this, p);
+		}
 	}
 	
 	public boolean getEsPremium() {
@@ -143,5 +146,43 @@ public class Usuario {
 		
 	}
 	
-
+	
+	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
+		AdaptadorListaCancionesTDS.getUnicaInstancia().registrarPlayListConVariasCanciones(nombre, lista, this);
+		// TODO Esto no fufa
+		listaPlayList.add(new ListaCanciones(nombre, lista));
+	}
+	
+	public boolean comprobarListaYaExiste(String nombre) {
+		for (ListaCanciones playlist : this.getListaPlayList()) {
+			if(playlist.getNombre().equals(nombre)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void aniadirRecientes(Cancion cancion) {
+		ListaCanciones recientes = this.obtenerRecientes();
+		recientes.addCancionSet(cancion);
+		if (recientes.getCanciones().size() > 10) {
+			recientes = this.eliminarPrimera(recientes);
+		}
+		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(recientes);
+	}
+	
+	public ListaCanciones eliminarPrimera(ListaCanciones lCanciones){
+		System.err.println("ANTEES: "+lCanciones.getCanciones().size());
+		List<Cancion> aux = lCanciones.getCanciones();
+		aux.remove(0);
+		lCanciones.setCanciones(aux);
+		System.err.println("DESPUES: "+lCanciones.getCanciones().size());
+		return lCanciones;
+	}
+	
+	public void modificarListaCanciones(ListaCanciones lista) {
+		// TODO
+		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(lista);
+	}
+	
 }

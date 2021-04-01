@@ -24,7 +24,6 @@ import umu.tds.modelo.CatalogoUsuarios;
 import umu.tds.modelo.DescuentoFijo;
 import umu.tds.modelo.DescuentoJovenes;
 import umu.tds.modelo.ListaCanciones;
-import umu.tds.modelo.CatalogoListaCanciones;
 import umu.tds.modelo.Usuario;
 import umu.tds.persistencia.IAdaptadorCancionDAO;
 import umu.tds.persistencia.IAdaptadorListaCancionesDAO;
@@ -48,10 +47,7 @@ public class AppMusicControlador implements CancionesListener {
 	
 	private CatalogoUsuarios catalogoUsuarios;
 	private CatalogoCanciones catalogoCanciones;
-	private CatalogoListaCanciones catalogoListaCanciones;
 	private CargadorCanciones cargadorCanciones = new CargadorCanciones();
-	
-	private Usuario usuario =this.getUsuarioActual();
 	
 	private AppMusicControlador() {
 		inicializarAdaptadores(); // debe ser la primera linea para evitar error
@@ -149,7 +145,6 @@ public class AppMusicControlador implements CancionesListener {
 	private void inicializarCatalogos() throws DAOException {
 		catalogoUsuarios = CatalogoUsuarios.getUnicaInstancia();
 		catalogoCanciones = CatalogoCanciones.getUnicaInstancia();
-		catalogoListaCanciones = CatalogoListaCanciones.getUnicaInstancia();
 	}
 
 	// Este metodo carga las canciones el la base de datos
@@ -234,16 +229,14 @@ public class AppMusicControlador implements CancionesListener {
 	}
 
 	// Metodos PlayList
-	public void registrarListaCanciones(ListaCanciones lista, Usuario usuarioActual) {
+	public void registrarListaCanciones(ListaCanciones lista) {
 		adaptadorListaCanciones.registrarListaCanciones(lista, usuarioActual);
 	}
 
-	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista, Usuario usuarioActual) {
-
-		// System.out.println("Controlador: "+usuarioActual.getListaCanciones().size());
+	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
+		// TODO MODIFICAR ESTO SOLUCIONAR SALEN DOS VECES EL NOMBRE DE LAS LISTAS
+		//usuarioActual.registrarPlayListConVariasCanciones(nombre, lista);
 		adaptadorListaCanciones.registrarPlayListConVariasCanciones(nombre, lista, usuarioActual);
-		// System.out.println("Controlador1:
-		// "+usuarioActual.getListaCanciones().size());
 	}
 
 	public boolean comprobarNombreExiste(String nombre) {
@@ -254,18 +247,24 @@ public class AppMusicControlador implements CancionesListener {
 		return adaptadorListaCanciones.recuperarTodasListasCanciones();
 	}
 
+	/*
 	public boolean comprobarListaYaExiste(String nombre, Usuario usuario) {
 		return adaptadorUsuario.comprobarListaYaExiste(nombre, usuario);
+	}*/
+	
+	public boolean comprobarListaYaExiste(String nombre) {
+		return usuarioActual.comprobarListaYaExiste(nombre);
 	}
+	
 
 	public void modificarPlayList(ListaCanciones lista) {
-		adaptadorListaCanciones.modificarListaCanciones(lista);
+		usuarioActual.modificarListaCanciones(lista);
 	}
 
 	public void play(Cancion cancion) {
 
 		// Cada vez que se reproduce, añadir a Recientes
-		List<ListaCanciones> lista = usuarioActual.getListaCanciones();
+		List<ListaCanciones> lista = usuarioActual.getListaPlayList();
 
 		System.err.println("Printeando todas las listas en PLAY");
 		for (ListaCanciones listaCanciones : lista) {
@@ -325,28 +324,21 @@ public class AppMusicControlador implements CancionesListener {
 	}
 
 	public void crearRecientes() {
-		if (usuarioActual.getListaCanciones().size() == 0) {
-			System.err.println("ESTOY CREANDO RECIENTES");
+		if (usuarioActual.getListaPlayList().size() == 0) {
 			ListaCanciones playList = new ListaCanciones("Recientes");
-			this.registrarListaCanciones(playList, usuarioActual);
+			this.registrarListaCanciones(playList);
 		}
 	}
 
 	public void aniadirRecientes(Cancion cancion) {
-		ListaCanciones recientes = usuarioActual.obtenerRecientes();
-		recientes.addCancionSet(cancion);
-		if (recientes.getCanciones().size() > 10) {
-			recientes = catalogoListaCanciones.eliminarPrimera(recientes);
-			catalogoListaCanciones.eliminarPrimera(recientes);
-		}
-		this.modificarPlayList(recientes);
+		usuarioActual.aniadirRecientes(cancion);
+
 	}
 
 	// Metodo que modifica si el usuario es premium tanto en el catalogo como en la
 	// persistencia
-	public void setPremium(Usuario usuario, boolean opcion) {
-		catalogoUsuarios.setPremium(usuario, opcion);
-		adaptadorUsuario.setPremium(usuario, opcion);
+	public void setPremium(boolean opcion) {
+		usuarioActual.setEsPremium(opcion);
 	}
 
 	public int calcularDescuentoFijo() {
@@ -359,7 +351,6 @@ public class AppMusicControlador implements CancionesListener {
 		DescuentoJovenes descuentoJoven = new DescuentoJovenes();
 		descuentoJoven.calcDescuento();
 		return descuentoJoven.getDescuento();
-
 	}
 
 	public String getTipoDescuento() {

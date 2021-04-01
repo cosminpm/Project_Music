@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Usuario;
 import umu.tds.modelo.Cancion;
-import umu.tds.modelo.CatalogoCanciones;
+
 
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
@@ -105,7 +105,7 @@ public class VentanaExplorar extends JDialog {
 					VentanaPremium ventanaPremium = new VentanaPremium();
 					ventanaPremium.setVisible(true);
 					dispose();
-					AppMusicControlador.getInstancia().setPremium(usuario, true);
+					AppMusicControlador.getInstancia().setPremium(true);
 					
 				}
 				
@@ -426,9 +426,11 @@ public class VentanaExplorar extends JDialog {
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
-				Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
-				AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				AppMusicControlador.getInstancia().aniadirRecientes(cancionParaReproducir);
+				if (indiceSeleccionado!=-1) {
+					Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
+					AppMusicControlador.getInstancia().play(cancionParaReproducir);
+					AppMusicControlador.getInstancia().aniadirRecientes(cancionParaReproducir);
+				}
 			}
 		});
 		btnPlay.setContentAreaFilled(false);

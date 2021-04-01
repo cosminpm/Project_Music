@@ -1,3 +1,4 @@
+/*
 package umu.tds.modelo;
 
 import java.util.HashMap;
@@ -67,13 +68,4 @@ public class CatalogoListaCanciones {
 		return lCanciones;
 	}
 	
-	
-	private String obtenerCodigosCanciones(List<Cancion> listaCanciones) {
-		String aux = "";
-		for (Cancion c : listaCanciones) {
-			aux += c.getCodigo() + " ";
-		}
-		return aux.trim();
-	}
-	
-}
+}*/

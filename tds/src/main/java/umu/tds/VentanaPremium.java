@@ -139,7 +139,7 @@ public class VentanaPremium extends JDialog {
 		JButton btnPagar = new JButton("PAGAR");
 		btnPagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				AppMusicControlador.getInstancia().setPremium(AppMusicControlador.getInstancia().getUsuarioActual(), true);
+				AppMusicControlador.getInstancia().setPremium(true);
 			}
 		});
 		
@@ -334,7 +334,7 @@ public class VentanaPremium extends JDialog {
 		JButton btnCancelar = new JButton("CANCELAR SUSCRIPCIÓN");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				AppMusicControlador.getInstancia().setPremium(AppMusicControlador.getInstancia().getUsuarioActual(), false);
+				AppMusicControlador.getInstancia().setPremium(false);
 			}
 		});
 		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();

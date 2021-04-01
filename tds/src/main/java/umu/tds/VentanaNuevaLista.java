@@ -112,7 +112,7 @@ public class VentanaNuevaLista extends JDialog {
 					VentanaPremium ventanaPremium = new VentanaPremium();
 					ventanaPremium.setVisible(true);
 					dispose();
-					AppMusicControlador.getInstancia().setPremium(usuario, true);
+					AppMusicControlador.getInstancia().setPremium(true);
 					
 				}
 				
@@ -161,13 +161,13 @@ public class VentanaNuevaLista extends JDialog {
 						//System.err.println(lista.getNombre());
 					};*/
 					
-					if(AppMusicControlador.getInstancia().comprobarListaYaExiste(nombrePlaylist, usuario)) {
+					if(AppMusicControlador.getInstancia().comprobarListaYaExiste(nombrePlaylist)) {
 						// TODO MENSAJE DE ERROR NOMBRE YA EXISTE
 						JOptionPane.showMessageDialog(btnDefinitivo, "Error, nombre ya existente", "La lista con ese nombre ya existe!",
 								JOptionPane.ERROR_MESSAGE, null);
 					}
 					else {
-						AppMusicControlador.getInstancia().registrarPlayListConVariasCanciones(nombrePlaylist, l, usuario);
+						AppMusicControlador.getInstancia().registrarPlayListConVariasCanciones(nombrePlaylist, l);
 					}
 					
 				}
@@ -315,7 +315,7 @@ public class VentanaNuevaLista extends JDialog {
 					System.err.println(listaCanciones.getNombre());
 				}
 				System.err.println("LISTAS USUARIO");
-				List<ListaCanciones>  listaPlaylist2 =	usuario.getListaCanciones();
+				List<ListaCanciones>  listaPlaylist2 =	usuario.getListaPlayList();
 				for (ListaCanciones listaCanciones : listaPlaylist2) {
 					System.err.println(listaCanciones.getNombre());
 				}				

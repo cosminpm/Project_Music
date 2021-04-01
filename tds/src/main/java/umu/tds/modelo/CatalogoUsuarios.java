@@ -61,7 +61,7 @@ public class CatalogoUsuarios {
 	}
 	
 	public boolean comprobarListaYaExiste(String nombre, Usuario usuario) {
-		List<ListaCanciones> lista = usuario.getListaCanciones();
+		List<ListaCanciones> lista = usuario.getListaPlayList();
 		System.err.println("Imprimiendo numero de playlsit de usuario: "+lista.size());
 		for (ListaCanciones playlist : lista) {
 			if(playlist.getNombre().equals(nombre)) {
@@ -77,13 +77,6 @@ public class CatalogoUsuarios {
 			aux += playlist.getCodigo() + " ";
 		}
 		return aux.trim();
-	}
-	
-	public void setPremium (Usuario usuario, boolean opcion) {
-		if(usuario.getEsPremium() == opcion) {
-			return;
-		}
-		usuario.setEsPremium(opcion);
 	}
 	
 	public boolean comprobarCorreosRegistrados(String email) {	

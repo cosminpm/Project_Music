@@ -78,7 +78,7 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		
 		System.out.println("LOGIN: "+usuarioActual.getLogin());
 		
-		LinkedList<ListaCanciones> l = (LinkedList<ListaCanciones>)usuarioActual.getListaCanciones();
+		LinkedList<ListaCanciones> l = (LinkedList<ListaCanciones>)usuarioActual.getListaPlayList();
 		l.addLast(lista);
 		
 		System.out.println("SET: "+l.size());
@@ -86,14 +86,13 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		usuarioActual.setListaCanciones(l);
 		
 		System.out.println("SET1: "+l.size());
-		
-		System.out.println("REGISTRAR LISTA0: "+usuarioActual.getListaCanciones().size());
+		System.out.println("REGISTRAR LISTA0: "+usuarioActual.getListaPlayList().size());
 		
 		AdaptadorUsuarioTDS.getUnicaInstancia().modificarUsuario(usuarioActual);
 		
-		System.out.println("REGISTRAR LISTA1: "+usuarioActual.getListaCanciones().size());
+		System.out.println("REGISTRAR LISTA1: "+usuarioActual.getListaPlayList().size());
 		System.err.println("Print: registrarListaCancion FINAL");
-		List<ListaCanciones> auxl = AppMusicControlador.getInstancia().getUsuarioActual().getListaCanciones();
+		List<ListaCanciones> auxl = AppMusicControlador.getInstancia().getUsuarioActual().getListaPlayList();
 		
 		System.err.println(l.size());
 		for (ListaCanciones listaCanciones : l) {

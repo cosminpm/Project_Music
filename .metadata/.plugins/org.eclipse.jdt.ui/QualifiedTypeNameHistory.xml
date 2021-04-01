@@ -8,10 +8,12 @@
     <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
     <fullyQualifiedTypeName name="umu.tds.modelo.Cancion"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="umu.tds.controlador.AppMusicControlador"/>
     <fullyQualifiedTypeName name="umu.tds.modelo.Usuario"/>
     <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorUsuarioTDS"/>
     <fullyQualifiedTypeName name="umu.tds.modelo.ListaCanciones"/>
     <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorListaCancionesTDS"/>
     <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorCancionTDS"/>
+    <fullyQualifiedTypeName name="umu.tds.controlador.AppMusicControlador"/>
+    <fullyQualifiedTypeName name="umu.tds.modelo.CatalogoUsuarios"/>
+    <fullyQualifiedTypeName name="umu.tds.modelo.CatalogoCanciones"/>
 </qualifiedTypeNameHistroy>

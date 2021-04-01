@@ -106,7 +106,7 @@ public class VentanaMisListas extends JDialog {
 					VentanaPremium ventanaPremium = new VentanaPremium();
 					ventanaPremium.setVisible(true);
 					dispose();
-					AppMusicControlador.getInstancia().setPremium(usuario, true);
+					AppMusicControlador.getInstancia().setPremium(true);
 					
 				}
 				
@@ -274,7 +274,7 @@ public class VentanaMisListas extends JDialog {
 				DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
 				model.setRowCount(0);
 				String aux = (String) listaPlayList.getSelectedValue();
-				List<ListaCanciones> listaPlaylistUsuario = usuario.getListaCanciones();
+				List<ListaCanciones> listaPlaylistUsuario = usuario.getListaPlayList();
 				for (ListaCanciones listaCanciones : listaPlaylistUsuario) {
 					if(listaCanciones.getNombre().equals(aux)) {
 						String autores = "";
@@ -296,7 +296,7 @@ public class VentanaMisListas extends JDialog {
 		listaPlayList.setForeground(Color.WHITE);
 		listaPlayList.setBackground(Color.GRAY);
 		// Rellenar lista con nombres playlist del usuario
-		List<ListaCanciones> listaPlayListUsu = AppMusicControlador.getInstancia().getUsuarioActual().getListaCanciones();
+		List<ListaCanciones> listaPlayListUsu = AppMusicControlador.getInstancia().getUsuarioActual().getListaPlayList();
 		
 		List<String> nombresPlaylist = new ArrayList<String>();
 		

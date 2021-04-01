@@ -18,6 +18,14 @@ public class ListaCanciones {
 		lCanciones = new LinkedList<Cancion>();
 	}
 	
+	
+	public ListaCanciones(String nombre, List<Cancion> l) {
+		this.nombre = nombre;
+		this.codigo = 0;
+		lCanciones = l;
+	}	
+	
+	
 	// TODO Metodos que hemos aniadido nosotros
 	public String getNombre() {
 		return nombre;
@@ -58,13 +66,9 @@ public class ListaCanciones {
 		List<umu.tds.componente.Cancion> listaCancionesComponente = lista.getCancion();
 		List<Cancion> listaCancionesModelo = new LinkedList<Cancion>();
 		
-		
 		for (umu.tds.componente.Cancion cancionEnLista : listaCancionesComponente) {
-			
-			listaCancionesModelo.add(Cancion.componenteCanciontoCancion(cancionEnLista));
-					
+			listaCancionesModelo.add(Cancion.componenteCanciontoCancion(cancionEnLista));			
 		}
-
 		return listaCancionesModelo;
 	}
 	

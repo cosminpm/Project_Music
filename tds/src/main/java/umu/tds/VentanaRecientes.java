@@ -94,7 +94,7 @@ public class VentanaRecientes extends JDialog {
 					VentanaPremium ventanaPremium = new VentanaPremium();
 					ventanaPremium.setVisible(true);
 					dispose();
-					AppMusicControlador.getInstancia().setPremium(usuario, true);
+					AppMusicControlador.getInstancia().setPremium(true);
 					
 				}
 				
@@ -282,7 +282,7 @@ public class VentanaRecientes extends JDialog {
 		));
 		scrllPane.setViewportView(tablaCancionesRecientes);
 		//Rellenar tabla
-		List<ListaCanciones> listaPlaylistUsuario = usuario.getListaCanciones();
+		List<ListaCanciones> listaPlaylistUsuario = usuario.getListaPlayList();
 		for (ListaCanciones listaCanciones : listaPlaylistUsuario) {
 			if(listaCanciones.getNombre().equals("Recientes")) {
 				String autores = "";

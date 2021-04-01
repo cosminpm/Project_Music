@@ -31,12 +31,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 
 public class GUILogin {
-	
-	
 
-	
-	
-	
 	private JFrame frame;
 	private JTextField textUsuario;
 	private JPasswordField textContrasenia;
@@ -49,27 +44,20 @@ public class GUILogin {
 			public void run() {
 				try {
 					try {
-				        UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
-				    } catch (Exception e) {
-				        e.printStackTrace();
-				    }
-					
-					
-					
+						UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
 					GUILogin window = new GUILogin();
 					window.frame.setVisible(true);
-				
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-	
-	
-	
-	
-	
+
 	}
 
 	/**
@@ -86,26 +74,26 @@ public class GUILogin {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JLabel lblNewLabel = new JLabel("Bienvenidos a AppMusic");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(lblNewLabel, BorderLayout.NORTH);
-		
+
 		JPanel panelCentro = new JPanel();
 		frame.getContentPane().add(panelCentro, BorderLayout.CENTER);
 		panelCentro.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
+
 		JPanel panel = new JPanel();
 		panel.setPreferredSize(new Dimension(300, 200));
 		panelCentro.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{20, 0, 0, 0, 20, 0};
-		gbl_panel.rowHeights = new int[]{20, 0, 0, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[] { 20, 0, 0, 0, 20, 0 };
+		gbl_panel.rowHeights = new int[] { 20, 0, 0, 0, 0 };
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panel.setLayout(gbl_panel);
-		
+
 		JLabel label1 = new JLabel("Usuario");
 		label1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_label1 = new GridBagConstraints();
@@ -114,7 +102,7 @@ public class GUILogin {
 		gbc_label1.gridx = 1;
 		gbc_label1.gridy = 1;
 		panel.add(label1, gbc_label1);
-		
+
 		textUsuario = new JTextField();
 		GridBagConstraints gbc_textUsuario = new GridBagConstraints();
 		gbc_textUsuario.gridwidth = 2;
@@ -124,7 +112,7 @@ public class GUILogin {
 		gbc_textUsuario.gridy = 1;
 		panel.add(textUsuario, gbc_textUsuario);
 		textUsuario.setColumns(10);
-		
+
 		JLabel label2 = new JLabel("Contrase\u00F1a");
 		label2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_label2 = new GridBagConstraints();
@@ -133,7 +121,7 @@ public class GUILogin {
 		gbc_label2.gridx = 1;
 		gbc_label2.gridy = 2;
 		panel.add(label2, gbc_label2);
-		
+
 		textContrasenia = new JPasswordField();
 		textContrasenia.setColumns(10);
 		GridBagConstraints gbc_textContrasenia = new GridBagConstraints();
@@ -143,47 +131,46 @@ public class GUILogin {
 		gbc_textContrasenia.gridx = 2;
 		gbc_textContrasenia.gridy = 2;
 		panel.add(textContrasenia, gbc_textContrasenia);
-		
+
 		final JButton botonLogin = new JButton("Login");
 		botonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				// Leemos datos de la vista
-				
+
 				String login = textUsuario.getText();
-				String password =  new String(textContrasenia.getPassword());
-				
-				// Pasamos los datos al controlador invocando metodos que proporcionan la logica de negocio
+				String password = new String(textContrasenia.getPassword());
+
+				// Pasamos los datos al controlador invocando metodos que proporcionan la logica
+				// de negocio
 				boolean logueado = AppMusicControlador.getInstancia().login(login, password);
 				// Si el controlador devuelve datos, presentarlos a la vista
-				if(!logueado) {
-					
-					JOptionPane.showMessageDialog(botonLogin, "Identificador de usuario o clave incorrectos", "Login Incorrecto",
-							JOptionPane.ERROR_MESSAGE, null);
-					
-					
-	 				}
-				else {
-					
-					//Crear instancia de VentanaMain y mostrar la ventana1
-					//Recuperar el usuario de1 base de datos
-					//TODO Preguntar si la interfaz recupera el usuario
+				if (!logueado) {
+
+					JOptionPane.showMessageDialog(botonLogin, "Identificador de usuario o clave incorrectos",
+							"Login Incorrecto", JOptionPane.ERROR_MESSAGE, null);
+
+				} else {
+
+					// Crear instancia de VentanaMain y mostrar la ventana1
+					// Recuperar el usuario de1 base de datos
+					// TODO Preguntar si la interfaz recupera el usuario
 					Usuario usuario = AppMusicControlador.getInstancia().recuperarUsuario(login, password);
 					AppMusicControlador.getInstancia().setUsuarioActual(usuario);
-					//Comprueba si tiene recientes creada, si no, la crea
+					// Comprueba si tiene recientes creada, si no, la crea
 					AppMusicControlador.getInstancia().crearRecientes();
 					// TODO Preguntar, se visibilice esto
 					PanelPrincipal panelPrincipal = new PanelPrincipal();
 					AppMusicControlador.getInstancia().registrarComoOyente();
 					panelPrincipal.mostrarVentana();
-					
-					List<ListaCanciones> lista = usuario.getListaCanciones();
-					
+
+					List<ListaCanciones> lista = usuario.getListaPlayList();
+
 					System.err.println("Printeando todas las listas en LOGIN");
 					for (ListaCanciones listaCanciones : lista) {
 						System.out.println(listaCanciones.getNombre());
 					}
-					System.err.println("FIN todas las listas en LOGIN");					
+					System.err.println("FIN todas las listas en LOGIN");
 					frame.dispose();
 				}
 			}
@@ -194,17 +181,17 @@ public class GUILogin {
 		gbc_botonLogin.gridx = 2;
 		gbc_botonLogin.gridy = 3;
 		panel.add(botonLogin, gbc_botonLogin);
-		
+
 		JButton botonRegistro = new JButton("Registro");
 		botonRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					
+
 				VentanaRegistro ventanaRegistro = new VentanaRegistro(frame);
 				ventanaRegistro.setVisible(true);
 				frame.setVisible(false);
-					
-			}	
-			
+
+			}
+
 		});
 		GridBagConstraints gbc_botonRegistro = new GridBagConstraints();
 		gbc_botonRegistro.anchor = GridBagConstraints.EAST;
@@ -215,4 +202,3 @@ public class GUILogin {
 	}
 
 }
-
