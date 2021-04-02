@@ -228,23 +228,24 @@ public class AppMusicControlador implements CancionesListener {
 		return catalogoCanciones.rmRepetidas(l);
 	}
 
+	//TODO Modificar
 	// Metodos PlayList
 	public void registrarListaCanciones(ListaCanciones lista) {
-		adaptadorListaCanciones.registrarListaCanciones(lista, usuarioActual);
+		usuarioActual.registrarListaCanciones(lista);
 	}
-
+	// TODO MODIFICAR ESTO SOLUCIONAR SALEN DOS VECES EL NOMBRE DE LAS LISTAS
 	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
-		// TODO MODIFICAR ESTO SOLUCIONAR SALEN DOS VECES EL NOMBRE DE LAS LISTAS
+		
 		//usuarioActual.registrarPlayListConVariasCanciones(nombre, lista);
-		adaptadorListaCanciones.registrarPlayListConVariasCanciones(nombre, lista, usuarioActual);
+		usuarioActual.registrarPlayListConVariasCanciones(nombre, lista);
 	}
 
 	public boolean comprobarNombreExiste(String nombre) {
-		return adaptadorListaCanciones.comprobarNombreExiste(nombre);
+		return usuarioActual.comprobarNombreExiste(nombre);
 	}
 
 	public List<ListaCanciones> recuperarTodasListasCanciones() {
-		return adaptadorListaCanciones.recuperarTodasListasCanciones();
+		return usuarioActual.getListaPlayList();
 	}
 
 	/*

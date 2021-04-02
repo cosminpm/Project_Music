@@ -245,6 +245,24 @@ public class VentanaRecientes extends JDialog {
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
 		
+		JButton btnNewButton = new JButton((String) null);
+		btnNewButton.setContentAreaFilled(false);
+		btnNewButton.setIcon(new ImageIcon(VentanaRecientes.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.fill = GridBagConstraints.VERTICAL;
+		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNewButton.gridx = 1;
+		gbc_btnNewButton.gridy = 9;
+		panel.add(btnNewButton, gbc_btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("MAS REPRODUCIDAS");
+		lblNewLabel.setForeground(Color.WHITE);
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel.gridx = 3;
+		gbc_lblNewLabel.gridy = 9;
+		panel.add(lblNewLabel, gbc_lblNewLabel);
+		
 		JPanel panelCanciones = new JPanel();
 		panelCanciones.setBackground(Color.WHITE);
 		GridBagConstraints gbc_panelCanciones = new GridBagConstraints();

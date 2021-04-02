@@ -17,6 +17,9 @@ Ventana “Canciones más reproducidas por usuario”: Mostrará la lista de can
 usuario (canción, interprete y número de veces reproducida).
 
 
+- Ver que hacer con la creacion de nuevas listas, porque cre que se crean dos veces, si intentamos pasar todo al dominio del usuario.
+
+
 ---- HECHO ----
 - Que imprima correctamente las listas de los autores en la tabla
 - Campos null al buscar

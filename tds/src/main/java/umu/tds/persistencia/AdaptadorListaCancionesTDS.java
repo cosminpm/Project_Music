@@ -159,18 +159,6 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 
 		return lista;
 	}
-
-	public List<ListaCanciones> recuperarTodasListasCanciones() {
-
-		List<Entidad> eListas = servPersistencia.recuperarEntidades("listaCanciones");
-		List<ListaCanciones> listas = new LinkedList<ListaCanciones>();
-
-		for (Entidad eLista : eListas) {
-			listas.add(recuperarListaCanciones(eLista.getId()));
-		}
-		
-		return listas;
-	}
 	
 	// -------------------Funciones auxiliares-----------------------------
 	private String obtenerCodigosCanciones(List<Cancion> listaCanciones) {
@@ -198,14 +186,5 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 			l.addCancion(c);
 		}
 		this.registrarListaCanciones(l, usuarioActual);		
-	}
-	
-	public boolean comprobarNombreExiste(String nombre) {
-		List<ListaCanciones> l =  recuperarTodasListasCanciones();
-		for (ListaCanciones listaCanciones : l) {
-			if (listaCanciones.getNombre().equals(nombre))
-				return true;
-			}
-		return false;
 	}
 }
