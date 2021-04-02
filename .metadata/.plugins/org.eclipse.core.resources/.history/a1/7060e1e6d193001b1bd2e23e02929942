@@ -142,14 +142,13 @@ public class VentanaPremium extends JDialog {
 		btnPagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
+				AppMusicControlador.getInstancia().setPremium(true);
 				if(AppMusicControlador.getInstancia().getUsuarioActual().getEsPremium()) {
 					JOptionPane.showMessageDialog(btnPagar, "¡¡¡Ya eras premium!!!, No hace falta que vuelvas a sucribirte", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
 				}
 				else {
 					JOptionPane.showMessageDialog(btnPagar, "Bienvenido a la familia, ¡¡Ya eres premium!!", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
 				}
-				AppMusicControlador.getInstancia().setPremium(true);
 			}
 		});
 		

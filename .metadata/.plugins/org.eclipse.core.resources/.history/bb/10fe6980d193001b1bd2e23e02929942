@@ -142,18 +142,16 @@ public class VentanaPremium extends JDialog {
 		btnPagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
-				if(AppMusicControlador.getInstancia().getUsuarioActual().getEsPremium()) {
-					JOptionPane.showMessageDialog(btnPagar, "¡¡¡Ya eras premium!!!, No hace falta que vuelvas a sucribirte", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
-				}
-				else {
-					JOptionPane.showMessageDialog(btnPagar, "Bienvenido a la familia, ¡¡Ya eres premium!!", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
-				}
 				AppMusicControlador.getInstancia().setPremium(true);
 			}
 		});
 		
-
+		if(AppMusicControlador.getInstancia().getUsuarioActual().getEsPremium()) {
+			JOptionPane.showMessageDialog(btnPagar, "¡¡¡Ya eras premium!!!, No hace falta que vuelvas a sucribirte", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
+		}
+		else {
+			JOptionPane.showMessageDialog(btnPagar, "Bienvenido a la familia, ¡¡Ya eres premium!!", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
+		}
 		
 		
 		
@@ -372,13 +370,6 @@ public class VentanaPremium extends JDialog {
 		JButton btnCancelar = new JButton("CANCELAR SUSCRIPCIÓN");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(AppMusicControlador.getInstancia().getUsuarioActual().getEsPremium()) {
-					JOptionPane.showMessageDialog(btnCancelar, "Has cancelado tu suscripcion :(", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
-				}
-				else
-				{
-					JOptionPane.showMessageDialog(btnCancelar, "No puedes cancelar tu suscripion si ya estas suscrito", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
-				}
 				AppMusicControlador.getInstancia().setPremium(false);
 			}
 		});
@@ -396,7 +387,9 @@ public class VentanaPremium extends JDialog {
 		{		
 	
 		}
-
+		if(AppMusicControlador.getInstancia().getUsuarioActual().getEsPremium()) {
+			JOptionPane.showMessageDialog(btnCancelar, "¡¡¡Ya eras premium!!!, No hace falta que vuelvas a sucribirte", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
+		}
 	}
 
 	

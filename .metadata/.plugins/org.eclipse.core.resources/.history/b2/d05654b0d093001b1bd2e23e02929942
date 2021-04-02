@@ -16,8 +16,6 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
@@ -141,22 +139,9 @@ public class VentanaPremium extends JDialog {
 		JButton btnPagar = new JButton("PAGAR");
 		btnPagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
-				if(AppMusicControlador.getInstancia().getUsuarioActual().getEsPremium()) {
-					JOptionPane.showMessageDialog(btnPagar, "¡¡¡Ya eras premium!!!, No hace falta que vuelvas a sucribirte", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
-				}
-				else {
-					JOptionPane.showMessageDialog(btnPagar, "Bienvenido a la familia, ¡¡Ya eres premium!!", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
-				}
 				AppMusicControlador.getInstancia().setPremium(true);
 			}
 		});
-		
-
-		
-		
-		
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(153, 0, 51));
@@ -372,22 +357,9 @@ public class VentanaPremium extends JDialog {
 		JButton btnCancelar = new JButton("CANCELAR SUSCRIPCIÓN");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(AppMusicControlador.getInstancia().getUsuarioActual().getEsPremium()) {
-					JOptionPane.showMessageDialog(btnCancelar, "Has cancelado tu suscripcion :(", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
-				}
-				else
-				{
-					JOptionPane.showMessageDialog(btnCancelar, "No puedes cancelar tu suscripion si ya estas suscrito", "InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
-				}
 				AppMusicControlador.getInstancia().setPremium(false);
 			}
 		});
-		
-
-		
-		
-		
-		
 		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
 		gbc_btnCancelar.gridx = 9;
@@ -396,7 +368,6 @@ public class VentanaPremium extends JDialog {
 		{		
 	
 		}
-
 	}
 
 	

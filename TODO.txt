@@ -9,15 +9,13 @@
 - Refactoring
 - Tests --> JUnit
 - Reciente --> Tratar booleano para reordenar la lista de recientes y 
-- Numero reproducciones
-- Patron adaptador con clase Reproductor
 
 
-Ventana “Canciones más reproducidas por usuario”: Mostrará la lista de canciones más escuchadas por un
-usuario (canción, interprete y número de veces reproducida).
 
 
-- Ver que hacer con la creacion de nuevas listas, porque cre que se crean dos veces, si intentamos pasar todo al dominio del usuario.
+
+
+
 
 
 ---- HECHO ----
@@ -40,3 +38,7 @@ usuario (canción, interprete y número de veces reproducida).
 - Mis listas se puede empezas a hacer
 - poner restriccion a 10 canciones y al escribir la 11 borrar la primera que se metio
 - Boton de luz en todas
+- Ver que hacer con la creacion de nuevas listas, porque cre que se crean dos veces, si intentamos pasar todo al dominio del usuario.
+- Ventana “Canciones más reproducidas por usuario”: Mostrará la lista de canciones más escuchadas por un
+usuario (canción, interprete y número de veces reproducida).
+- Numero reproducciones
