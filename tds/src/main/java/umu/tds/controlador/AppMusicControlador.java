@@ -378,5 +378,15 @@ public class AppMusicControlador implements CancionesListener {
 		}
 		return false;
 	}
+	
+	
+	public List<Cancion> obtenerMasReproducidas(){
+		return catalogoCanciones.obtenerMasReproducidas();
+	}
+	
+	
+	
+	
+	
 
 }

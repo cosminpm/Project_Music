@@ -2,6 +2,7 @@ package umu.tds.modelo;
 
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -162,4 +163,18 @@ public class CatalogoCanciones {
 		resultado = todasCanciones;
 		return resultado;
 	}	
+	
+	public List<Cancion> obtenerMasReproducidas(){
+		List<Cancion> r = new LinkedList<Cancion>();
+		r = this.getCanciones().stream()
+			.sorted(Comparator.comparingInt(Cancion::getNumReproducciones).reversed())
+			.collect(Collectors.toList());
+		return r;
+	}
+	
+	
+	
+	
+	
+	
 }

@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Usuario;
 import umu.tds.modelo.Cancion;
-
+import umu.tds.modelo.ListaCanciones;
 
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
@@ -35,7 +35,7 @@ import pulsador.Luz;
 
 
 public class VentanaMasReproducida extends JDialog {
-	private JTable table;
+	private JTable tablaMasReproducidas;
 
 	/**
 	 * Launch the application.
@@ -274,7 +274,7 @@ public class VentanaMasReproducida extends JDialog {
 		
 		JPanel panel_1 = new JPanel();
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
-		gbc_panel_1.gridheight = 6;
+		gbc_panel_1.gridheight = 10;
 		gbc_panel_1.gridwidth = 5;
 		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_panel_1.fill = GridBagConstraints.BOTH;
@@ -285,14 +285,27 @@ public class VentanaMasReproducida extends JDialog {
 		JScrollPane scrollPane = new JScrollPane();
 		panel_1.add(scrollPane);
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		tablaMasReproducidas = new JTable();
+		tablaMasReproducidas.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"CANCION", "INTERPRETE", "N. REPRO"
+			}
+		));
+		tablaMasReproducidas.getColumnModel().getColumn(0).setPreferredWidth(59);
+		scrollPane.setViewportView(tablaMasReproducidas);
 		
 		
 		String[] array = AppMusicControlador.getInstancia().recuperarEstilos().stream().toArray(String[]::new);
 		
-		
-		List<Cancion> listaCancionesSeleccionada = new LinkedList<Cancion>();
+		//Rellenar tabla
+		List<Cancion> listaCanciones = AppMusicControlador.getInstancia().obtenerMasReproducidas();
+		for (Cancion c : listaCanciones) {
+				String autores = "";
+				autores = AppMusicControlador.getInstancia().printAutoresNice(c.getListaInterpretes());
+				((DefaultTableModel) tablaMasReproducidas.getModel()).addRow(new Object[] {c.getTitulo(), autores, c.getNumReproducciones()});
+			}
+	
 	}
-
 }
