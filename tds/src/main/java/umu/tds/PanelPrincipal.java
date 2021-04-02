@@ -287,6 +287,9 @@ public class PanelPrincipal {
 		btnNewButton.setContentAreaFilled(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				VentanaMasReproducida ventanaMasReproducida = new VentanaMasReproducida();
+				ventanaMasReproducida.setVisible(true);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));

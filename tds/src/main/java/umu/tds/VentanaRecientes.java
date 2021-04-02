@@ -141,9 +141,9 @@ public class VentanaRecientes extends JDialog {
 		getContentPane().add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{5, 0, 0, 0, 0};
-		gbl_panel.rowHeights = new int[]{30, 0, 30, 0, 30, 0, 30, 0, 0, 0, 0, 30, 0};
+		gbl_panel.rowHeights = new int[]{30, 0, 30, 0, 30, 0, 30, 0, 0, 0, 0};
 		gbl_panel.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JButton btnExplorar = new JButton("");
@@ -246,13 +246,19 @@ public class VentanaRecientes extends JDialog {
 		panel.add(lblMisListas, gbc_lblMisListas);
 		
 		JButton btnNewButton = new JButton((String) null);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaMasReproducida ventanaMasReproducida= new VentanaMasReproducida();
+				ventanaMasReproducida.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton.setContentAreaFilled(false);
 		btnNewButton.setIcon(new ImageIcon(VentanaRecientes.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.fill = GridBagConstraints.VERTICAL;
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 9;
+		gbc_btnNewButton.gridy = 8;
 		panel.add(btnNewButton, gbc_btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("MAS REPRODUCIDAS");
@@ -260,7 +266,7 @@ public class VentanaRecientes extends JDialog {
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel.gridx = 3;
-		gbc_lblNewLabel.gridy = 9;
+		gbc_lblNewLabel.gridy = 8;
 		panel.add(lblNewLabel, gbc_lblNewLabel);
 		
 		JPanel panelCanciones = new JPanel();

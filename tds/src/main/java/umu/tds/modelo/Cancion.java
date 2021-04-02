@@ -25,6 +25,13 @@ public class Cancion {
 		this.listaInterpretes = new LinkedList<String>(listaInterpretes);
 	}
 	
+	
+	public Cancion(String titulo, String rutaFichero,String estiloMusical, List<String> listaInterpretes, int numeroReproducciones) {
+		this(titulo, rutaFichero, estiloMusical, listaInterpretes);
+		this.numReproducciones = numeroReproducciones;
+		
+	}	
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -53,6 +60,10 @@ public class Cancion {
 	// Metodo que aumenta en uno el numero de reproducciones
 	public void aumentarReproduccion() {
 		numReproducciones = numReproducciones + 1;
+	}
+	
+	public void aumentarNumReproducciones() {
+		this.numReproducciones += 1;
 	}
 
 	public static Cancion componenteCanciontoCancion (umu.tds.componente.Cancion cancion) {

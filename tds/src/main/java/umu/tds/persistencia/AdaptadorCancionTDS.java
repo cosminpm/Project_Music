@@ -59,8 +59,10 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		eCancion = new Entidad();
 		eCancion.setNombre("cancion");
 		eCancion.setPropiedades(new ArrayList<Propiedad>(
-				Arrays.asList(new Propiedad("titulo", cancion.getTitulo()), new Propiedad("rutafichero", cancion.getRutaFichero()),
-						new Propiedad("numreproducciones", String.valueOf(cancion.getNumReproducciones())), new Propiedad("estiloMusical", cancion.getEstiloMusical()), 
+				Arrays.asList(new Propiedad("titulo", cancion.getTitulo()), 
+						new Propiedad("rutafichero", cancion.getRutaFichero()),
+						new Propiedad("numreproducciones", String.valueOf(cancion.getNumReproducciones())), 
+						new Propiedad("estiloMusical", cancion.getEstiloMusical()), 
 				        new Propiedad("listaInterpretes", listaInterpretes))));
 		
 		// registrar entidad cancion
@@ -72,9 +74,7 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 	
 	
 	public void borrarCancion(Cancion cancion) {
-		
 		Entidad eCancion = servPersistencia.recuperarEntidad(cancion.getCodigo());
-		
 		servPersistencia.borrarEntidad(eCancion);
 	}
 	
@@ -160,7 +160,8 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 			aux.replace("_", " ");
 		}
 		listaInterpretes = Arrays.asList(listaInterpretes2);
-		Cancion cancion = new Cancion(titulo, rutafichero, estiloMusical , listaInterpretes);
+		
+		Cancion cancion = new Cancion(titulo, rutafichero, estiloMusical , listaInterpretes, numreproducciones);
 		cancion.setCodigo(codigo);
 		// IMPORTANTE:añadir la cancion al pool antes de llamar a otros
 		// adaptadores

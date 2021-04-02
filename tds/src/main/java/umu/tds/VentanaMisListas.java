@@ -257,14 +257,21 @@ public class VentanaMisListas extends JDialog {
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setContentAreaFilled(false);
-		btnNewButton_1.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
-		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton_1.gridx = 1;
-		gbc_btnNewButton_1.gridy = 9;
-		panel.add(btnNewButton_1, gbc_btnNewButton_1);
+		JButton btnMasReproducidas = new JButton("");
+		btnMasReproducidas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaMasReproducida ventanaMasReproducida = new VentanaMasReproducida();
+				ventanaMasReproducida.setVisible(true);
+				dispose();
+			}
+		});
+		btnMasReproducidas.setContentAreaFilled(false);
+		btnMasReproducidas.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
+		GridBagConstraints gbc_btnMasReproducidas = new GridBagConstraints();
+		gbc_btnMasReproducidas.insets = new Insets(0, 0, 5, 5);
+		gbc_btnMasReproducidas.gridx = 1;
+		gbc_btnMasReproducidas.gridy = 9;
+		panel.add(btnMasReproducidas, gbc_btnMasReproducidas);
 		
 		JLabel lblNewLabel = new JLabel("MAS REPRODUCIDAS");
 		lblNewLabel.setForeground(Color.WHITE);

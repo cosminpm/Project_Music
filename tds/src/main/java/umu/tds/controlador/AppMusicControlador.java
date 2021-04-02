@@ -263,10 +263,8 @@ public class AppMusicControlador implements CancionesListener {
 	}
 
 	public void play(Cancion cancion) {
-
 		// Cada vez que se reproduce, añadir a Recientes
 		List<ListaCanciones> lista = usuarioActual.getListaPlayList();
-
 		System.err.println("Printeando todas las listas en PLAY");
 		for (ListaCanciones listaCanciones : lista) {
 			System.out.println(listaCanciones.getNombre());
@@ -305,6 +303,17 @@ public class AppMusicControlador implements CancionesListener {
 			mediaPlayer = new MediaPlayer(media);
 
 			mediaPlayer.play();
+			cancion.aumentarNumReproducciones();
+			
+			AdaptadorCancionTDS.getUnicaInstancia().modificarCancion(cancion);
+			
+			Cancion cancion2 = AdaptadorCancionTDS.getUnicaInstancia().recuperarCancion(cancion.getCodigo());
+			
+			System.err.println("PERSIS: NUM REPRO "+cancion2.getNumReproducciones() + " DE CANCION: "+ cancion2.getTitulo());
+			
+			System.err.println("MODELO: NUM REPRO "+cancion.getNumReproducciones() + " DE CANCION: "+ cancion.getTitulo());
+			
+			
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {

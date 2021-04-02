@@ -303,6 +303,9 @@ public class VentanaNuevaLista extends JDialog {
 		btnNewButton.setContentAreaFilled(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				VentanaMasReproducida ventanaMasReproducida= new VentanaMasReproducida();
+				ventanaMasReproducida.setVisible(true);
+				dispose();
 			}
 		});
 		btnNewButton.setIcon(new ImageIcon(VentanaNuevaLista.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));

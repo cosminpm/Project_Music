@@ -266,6 +266,13 @@ public class VentanaExplorar extends JDialog {
 		panel.add(lblMisListas, gbc_lblMisListas);
 		
 		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaMasReproducida ventanaMasReproducida= new VentanaMasReproducida();
+				ventanaMasReproducida.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton.setContentAreaFilled(false);
 		btnNewButton.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();

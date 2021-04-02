@@ -35,6 +35,7 @@ import pulsador.Luz;
 
 
 public class VentanaMasReproducida extends JDialog {
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -255,14 +256,14 @@ public class VentanaMasReproducida extends JDialog {
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.setIcon(new ImageIcon(VentanaMasReproducida.class.getResource("/umu/tds/imagenes/TopIconReversed.jpg")));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton.gridx = 0;
-		gbc_btnNewButton.gridy = 9;
-		panel.add(btnNewButton, gbc_btnNewButton);
+		JButton btnMasReproducidas = new JButton("");
+		btnMasReproducidas.setContentAreaFilled(false);
+		btnMasReproducidas.setIcon(new ImageIcon(VentanaMasReproducida.class.getResource("/umu/tds/imagenes/TopIconReversed.jpg")));
+		GridBagConstraints gbc_btnMasReproducidas = new GridBagConstraints();
+		gbc_btnMasReproducidas.insets = new Insets(0, 0, 0, 5);
+		gbc_btnMasReproducidas.gridx = 0;
+		gbc_btnMasReproducidas.gridy = 9;
+		panel.add(btnMasReproducidas, gbc_btnMasReproducidas);
 		
 		JLabel lblNewLabel = new JLabel("MAS REPRODUCIDAS");
 		lblNewLabel.setForeground(Color.WHITE);
@@ -270,6 +271,22 @@ public class VentanaMasReproducida extends JDialog {
 		gbc_lblNewLabel.gridx = 2;
 		gbc_lblNewLabel.gridy = 9;
 		panel.add(lblNewLabel, gbc_lblNewLabel);
+		
+		JPanel panel_1 = new JPanel();
+		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
+		gbc_panel_1.gridheight = 6;
+		gbc_panel_1.gridwidth = 5;
+		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_1.fill = GridBagConstraints.BOTH;
+		gbc_panel_1.gridx = 5;
+		gbc_panel_1.gridy = 4;
+		getContentPane().add(panel_1, gbc_panel_1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		panel_1.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
 		
 		
 		String[] array = AppMusicControlador.getInstancia().recuperarEstilos().stream().toArray(String[]::new);
