@@ -53,9 +53,9 @@ public class VentanaPremium extends JDialog {
 	public VentanaPremium() {
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{10, 10, 10, 0, 0, 0, 0, 10, 10, 0, 10, 10, 0, 10, 10, 10, 0};
+		gridBagLayout.columnWidths = new int[]{10, 10, 10, 10, 10, 10, 0, 0, 0, 0, 10, 10, 0, 10, 10, 0, 10, 10, 10, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		getContentPane().setLayout(gridBagLayout);
 		
@@ -63,7 +63,7 @@ public class VentanaPremium extends JDialog {
 		lblTextoMejora.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GridBagConstraints gbc_lblTextoMejora = new GridBagConstraints();
 		gbc_lblTextoMejora.insets = new Insets(0, 0, 5, 5);
-		gbc_lblTextoMejora.gridx = 5;
+		gbc_lblTextoMejora.gridx = 8;
 		gbc_lblTextoMejora.gridy = 2;
 		getContentPane().add(lblTextoMejora, gbc_lblTextoMejora);
 		
@@ -74,7 +74,7 @@ public class VentanaPremium extends JDialog {
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox.gridx = 9;
+		gbc_comboBox.gridx = 12;
 		gbc_comboBox.gridy = 3;
 		getContentPane().add(comboBox, gbc_comboBox);
 		//int cantidadDescontada = 0;
@@ -115,7 +115,7 @@ public class VentanaPremium extends JDialog {
 		btnCalcularDescuento.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		GridBagConstraints gbc_btnCalcularDescuento = new GridBagConstraints();
 		gbc_btnCalcularDescuento.insets = new Insets(0, 0, 5, 5);
-		gbc_btnCalcularDescuento.gridx = 12;
+		gbc_btnCalcularDescuento.gridx = 15;
 		gbc_btnCalcularDescuento.gridy = 3;
 		getContentPane().add(btnCalcularDescuento, gbc_btnCalcularDescuento);
 		
@@ -164,7 +164,7 @@ public class VentanaPremium extends JDialog {
 		gbc_panel.gridwidth = 4;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
-		gbc_panel.gridx = 1;
+		gbc_panel.gridx = 4;
 		gbc_panel.gridy = 4;
 		getContentPane().add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
@@ -308,7 +308,7 @@ public class VentanaPremium extends JDialog {
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
 		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_panel_1.fill = GridBagConstraints.BOTH;
-		gbc_panel_1.gridx = 9;
+		gbc_panel_1.gridx = 12;
 		gbc_panel_1.gridy = 4;
 		getContentPane().add(panel_1, gbc_panel_1);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
@@ -365,7 +365,7 @@ public class VentanaPremium extends JDialog {
 		btnPagar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		GridBagConstraints gbc_btnPagar = new GridBagConstraints();
 		gbc_btnPagar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnPagar.gridx = 3;
+		gbc_btnPagar.gridx = 6;
 		gbc_btnPagar.gridy = 9;
 		getContentPane().add(btnPagar, gbc_btnPagar);
 		
@@ -390,7 +390,7 @@ public class VentanaPremium extends JDialog {
 		
 		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnCancelar.gridx = 9;
+		gbc_btnCancelar.gridx = 12;
 		gbc_btnCancelar.gridy = 9;
 		getContentPane().add(btnCancelar, gbc_btnCancelar);
 		{		

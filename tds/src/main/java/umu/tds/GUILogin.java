@@ -168,6 +168,7 @@ public class GUILogin {
 
 					System.err.println("Printeando todas las listas en LOGIN");
 					for (ListaCanciones listaCanciones : lista) {
+						
 						System.out.println(listaCanciones.getNombre());
 					}
 					System.err.println("FIN todas las listas en LOGIN");

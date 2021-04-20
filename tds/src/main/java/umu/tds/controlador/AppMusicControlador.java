@@ -1,6 +1,8 @@
 package umu.tds.controlador;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -30,6 +32,13 @@ import umu.tds.persistencia.IAdaptadorListaCancionesDAO;
 import umu.tds.persistencia.IAdaptadorUsuarioDAO;
 import umu.tds.VentanaMisListas;
 import umu.tds.componente.*;
+import com.itextpdf.*;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
+
 
 public class AppMusicControlador implements CancionesListener {
 
@@ -382,6 +391,35 @@ public class AppMusicControlador implements CancionesListener {
 	
 	public List<Cancion> obtenerMasReproducidas(){
 		return catalogoCanciones.obtenerMasReproducidas();
+	}
+
+	public void generarPDF() throws FileNotFoundException, DocumentException  {
+		String usuario = this.usuarioActual.getLogin() + "DocumentoPDF";
+		binPath = AppMusicControlador.class.getClassLoader().getResource(".").getPath();
+		binPath = binPath.replaceFirst("/", "");
+		// System.out.println(binPath);
+		// quitar "/" añadida al inicio del path en plataforma Windows
+		tempPath = binPath.replace("/bin", "/temp");
+		tempPath = tempPath.replace("%20", " ");
+		System.out.println(tempPath);
+		FileOutputStream archivo = new FileOutputStream(tempPath+usuario+".pdf");
+		Document documento = new Document();
+		PdfWriter.getInstance(documento, archivo);
+		documento.open();
+		for (ListaCanciones lista : this.usuarioActual.getListaPlayList()) {
+			String nombreLista = lista.getNombre();
+			documento.add(new Paragraph("Nombre Playlist: "+nombreLista));
+			List<Cancion> l = lista.getCanciones();
+			documento.add(new Paragraph("Canciones: "));
+			for (Cancion ca : l) {
+				documento.add(new Paragraph("-"+ca.getTitulo()+", "+AppMusicControlador.getInstancia().printAutoresNice(ca.getListaInterpretes())+", "+ca.getEstiloMusical()));
+				
+			}
+			
+			documento.add(new Paragraph("-------------------------------------------------"));
+			
+		}
+		documento.close();
 	}
 	
 	
