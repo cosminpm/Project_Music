@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.math.BigInteger"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collector"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
-    <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
     <fullyQualifiedTypeName name="umu.tds.modelo.Cancion"/>
     <fullyQualifiedTypeName name="umu.tds.modelo.Usuario"/>
@@ -19,4 +16,13 @@
     <fullyQualifiedTypeName name="umu.tds.VentanaMasReproducida"/>
     <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorCancionTDS"/>
     <fullyQualifiedTypeName name="umu.tds.controlador.AppMusicControlador"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collector"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="umu.tds.GUILogin"/>
 </qualifiedTypeNameHistroy>

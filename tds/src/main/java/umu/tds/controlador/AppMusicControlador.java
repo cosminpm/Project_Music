@@ -78,9 +78,7 @@ public class AppMusicControlador implements CancionesListener {
 	}
 
 	public void registrarComoOyente() {
-
 		cargadorCanciones.addOyente(unicaInstancia);
-
 	}
 
 	public boolean registrarUsuario(String nombre, String apellidos, String email, String login, String password,

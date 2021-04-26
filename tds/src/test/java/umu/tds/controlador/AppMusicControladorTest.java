@@ -29,7 +29,7 @@ public class AppMusicControladorTest {
 		String login = "carlosPrueba";
 		String password = "1";
 		LocalDate fechaNacimiento = LocalDate.now();
-		boolean resultado = true;
+		boolean resultado = false;
 		assertEquals(resultado, AppMusicControlador.getInstancia().registrarUsuario(nombre, apellidos, email, login, password, fechaNacimiento));
 	}
 

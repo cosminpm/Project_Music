@@ -1,10 +1,28 @@
-- Mejorar Interfaz, pero eso lo último, ahora mismo esta en beta
+
 - Al explorar que no diferencie entre lower y upper case
-- Añadir opción mediante click y mediante boton en nueva lista
-- Generacion pdf datos
-- Refactoring
-- Tests --> JUnit 
+- Añadir opción mediante click y mediante boton en nueva lista QUITAR BOTON DEFINITIVO
 - Una vez registrado un usuario podrá, en cualquier momento, activar su cuenta como “Premium”, generar un archivo PDF con las playlists y reproducir las 10 canciones más escuchadas en toda la aplicación.
+
+- Tests --> JUnit 
+- Añadir canciones y eliminar de playlist en cualquier momento
+- Se implementarán test unitarios para, al menos, una clase del modelo
+
+-- MEMORIA 
+
+1. Diagrama de clases del dominio.
+2. Un diagrama de colaboración o secuencia para la operación de añadir playlist (se ejecuta al hacer clic sobre el botón “Aceptar” del panel “Nueva Lista”) o equivalente.
+3. Una breve explicación de la arquitectura de la aplicación y decisiones de diseño que se consideren de interés para la comprensión del trabajo.
+4. Breve explicación de cada uno de los patrones de diseño utilizados (también aquellos indirectamente aplicados al ser parte de Swing).
+5. Breve explicación sobre los componentes utilizados.
+6. Tests unitarios implementados
+7. Un pequeño manual de usuario que explique cómo usar la aplicación.
+8. Observaciones finales que el alumno desee comentar (deben incluir una estimación del tiempo dedicado)
+
+---- POSIBLES MEJORAS ----
+- Que la fecha de nacimiento sea anterior a la actual
+- Funcion aproximacion de busqueda de nombres
+- Modelo aleatorio
+
 
 ---- HECHO ----
 - Que imprima correctamente las listas de los autores en la tabla
@@ -32,3 +50,7 @@ usuario (canción, interprete y número de veces reproducida).
 - Numero reproducciones
 - Reproducir canciones con el boton --> PONER EN TODAS (funcionalidad hecha)
 - Mejora usuario
+- Mejorar Interfaz, pero eso lo último, ahora mismo esta en beta
+- Generacion pdf datos
+- Refactoring
+
