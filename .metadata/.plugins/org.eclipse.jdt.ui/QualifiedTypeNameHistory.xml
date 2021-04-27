@@ -9,13 +9,11 @@
     <fullyQualifiedTypeName name="umu.tds.modelo.CatalogoCanciones"/>
     <fullyQualifiedTypeName name="umu.tds.VentanaMisListas"/>
     <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorUsuarioTDS"/>
-    <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorListaCancionesTDS"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="umu.tds.modelo.ListaCanciones"/>
     <fullyQualifiedTypeName name="javax.print.attribute.standard.ReferenceUriSchemesSupported"/>
     <fullyQualifiedTypeName name="umu.tds.VentanaMasReproducida"/>
     <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorCancionTDS"/>
-    <fullyQualifiedTypeName name="umu.tds.controlador.AppMusicControlador"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -25,4 +23,6 @@
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="umu.tds.GUILogin"/>
+    <fullyQualifiedTypeName name="umu.tds.controlador.AppMusicControlador"/>
+    <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorListaCancionesTDS"/>
 </qualifiedTypeNameHistroy>

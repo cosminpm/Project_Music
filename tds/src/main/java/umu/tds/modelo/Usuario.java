@@ -150,6 +150,17 @@ public class Usuario {
 
 	}
 
+	public ListaCanciones getListaEnConcreto(String nombre) {
+		for (ListaCanciones playlist : this.getListaPlayList()) {
+			if (playlist.getNombre().equals(nombre)) {
+				return playlist;
+			}
+		}
+		// Esto no deberia pasar nunca puesto
+		return null;
+	}
+	
+	
 	public boolean comprobarListaYaExiste(String nombre) {
 		for (ListaCanciones playlist : this.getListaPlayList()) {
 			if (playlist.getNombre().equals(nombre)) {
@@ -187,4 +198,14 @@ public class Usuario {
 		}
 		return false;
 	}
+	
+	// Modificar la lsita de canciones
+	public void editarPlayList(String nombre, List<Cancion> l) {
+		ListaCanciones lista = this.listaPlayList.stream().filter(aux -> aux.getNombre().equals(nombre)).findFirst().get();
+		lista.aniadirCancionesSinRepetir(l);
+		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(lista);
+	}
+	
+	
+	
 }

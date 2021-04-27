@@ -369,4 +369,9 @@ public class AppMusicControlador implements CancionesListener {
 		documento.close();
 	}
 
+	public void editarPlayList(String nombre, List<Cancion> l) {
+		usuarioActual.editarPlayList(nombre, l);
+	}
+	
+	
 }

@@ -2,6 +2,7 @@ package umu.tds.modelo;
 
 
 import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import umu.tds.componente.*;
 
@@ -59,6 +60,17 @@ public class ListaCanciones {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+	
+	public void aniadirCancionesSinRepetir(List<Cancion> l) {
+		List<Cancion> aux = this.getCanciones();
+		aux.addAll(l);
+		// Eliminar en el caso de que hubiera alguna repetida
+		LinkedHashSet<Cancion> aux2 = new LinkedHashSet<Cancion>(aux);
+		LinkedList<Cancion> aux3 = new LinkedList<Cancion>(aux2);
+		this.setCanciones(aux3);
+	}
+	
+	
 	
 	
 	public static List<Cancion> listaCancionesComponenteToListaCancionesModelo (Canciones lista){
