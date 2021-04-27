@@ -9,8 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import beans.Entidad;
 import umu.tds.persistencia.DAOException;
 import umu.tds.persistencia.FactoriaDAO;
 
@@ -128,20 +126,28 @@ public class CatalogoCanciones {
 		}
 		return false;
 	}
-
+	
+	
+	// Filtrado de canciones
 	public List<Cancion> filtrarCanciones(String interprete, String titulo, String estilo) {
 		List<Cancion> todasCanciones = this.getCanciones();
 		List<Cancion> resultado = new LinkedList<Cancion>();
+		// Filtramos por titulo de la cancion
 		if (titulo != null)
-			todasCanciones = todasCanciones.stream().filter(c -> c.getTitulo().contains(titulo))
+			todasCanciones = todasCanciones.stream()
+					.filter(c -> c.getTitulo().contains(titulo))
 					.collect(Collectors.toList());
+		// Filtramos por estilo de la cancion
 		if (estilo != null)
-			todasCanciones = todasCanciones.stream().filter(c -> c.getEstiloMusical().contains(estilo))
+			todasCanciones = todasCanciones.stream()
+					.filter(c -> c.getEstiloMusical().contains(estilo))
 					.collect(Collectors.toList());
+		// Se filtra por interprete de la cancion
 		if (interprete != null) {
 			Set<String> autores = this.genSetFromString(interprete);
 			for (Cancion c : todasCanciones) {
-				if (c.getListaInterpretes().stream().collect(Collectors.toSet()).containsAll(autores)
+				if (c.getListaInterpretes().stream()
+						.collect(Collectors.toSet()).containsAll(autores)
 						|| c.getListaInterpretes().stream().filter(a -> a.contains(interprete))
 								.collect(Collectors.toList()).size() > 0)
 					resultado.add(c);
@@ -151,7 +157,7 @@ public class CatalogoCanciones {
 		resultado = todasCanciones;
 		return resultado;
 	}
-
+	// Obtencion de las canciones mas reproducidas para la ventana de las mas reproducidas
 	public List<Cancion> obtenerMasReproducidas() {
 		List<Cancion> r = new LinkedList<Cancion>();
 		r = this.getCanciones().stream().sorted(Comparator.comparingInt(Cancion::getNumReproducciones).reversed())

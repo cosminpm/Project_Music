@@ -3,9 +3,6 @@ package umu.tds.modelo;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
-
-import beans.Entidad;
-import umu.tds.VentanaMisListas;
 import umu.tds.persistencia.AdaptadorListaCancionesTDS;
 import umu.tds.persistencia.AdaptadorUsuarioTDS;
 
@@ -150,15 +147,16 @@ public class Usuario {
 
 	}
 
-	public ListaCanciones getListaEnConcreto(String nombre) {
+	public List<Cancion> getListaEnConcreto(String nombre) {
 		for (ListaCanciones playlist : this.getListaPlayList()) {
 			if (playlist.getNombre().equals(nombre)) {
-				return playlist;
+				return playlist.getCanciones();
 			}
 		}
 		// Esto no deberia pasar nunca puesto
 		return null;
 	}
+	
 	
 	
 	public boolean comprobarListaYaExiste(String nombre) {

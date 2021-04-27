@@ -434,8 +434,7 @@ public class VentanaExplorar extends JDialog {
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
 				if (indiceSeleccionado != -1) {
 					Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-					AppMusicControlador.getInstancia().aniadirRecientes(cancionParaReproducir);
+					AppMusicControlador.getInstancia().play(cancionParaReproducir);	
 				}
 			}
 		});

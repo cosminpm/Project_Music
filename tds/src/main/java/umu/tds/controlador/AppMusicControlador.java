@@ -17,7 +17,6 @@ import java.time.LocalDate;
 import java.util.*;
 
 import umu.tds.persistencia.AdaptadorCancionTDS;
-import umu.tds.persistencia.AdaptadorListaCancionesTDS;
 import umu.tds.persistencia.DAOException;
 import umu.tds.persistencia.FactoriaDAO;
 import umu.tds.modelo.Cancion;
@@ -28,11 +27,8 @@ import umu.tds.modelo.DescuentoJovenes;
 import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
 import umu.tds.persistencia.IAdaptadorCancionDAO;
-import umu.tds.persistencia.IAdaptadorListaCancionesDAO;
 import umu.tds.persistencia.IAdaptadorUsuarioDAO;
-import umu.tds.VentanaMisListas;
 import umu.tds.componente.*;
-import com.itextpdf.*;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
@@ -50,7 +46,6 @@ public class AppMusicControlador implements CancionesListener {
 
 	private IAdaptadorUsuarioDAO adaptadorUsuario;
 	private IAdaptadorCancionDAO adaptadorCancion;
-	private IAdaptadorListaCancionesDAO adaptadorListaCanciones;
 
 	private CatalogoUsuarios catalogoUsuarios;
 	private CatalogoCanciones catalogoCanciones;
@@ -130,7 +125,6 @@ public class AppMusicControlador implements CancionesListener {
 		}
 		adaptadorUsuario = factoria.getUsuarioDAO();
 		adaptadorCancion = factoria.getCancionDAO();
-		adaptadorListaCanciones = factoria.getListaCancionesDAO();
 	}
 
 	private void inicializarCatalogos() throws DAOException {
@@ -150,12 +144,12 @@ public class AppMusicControlador implements CancionesListener {
 				adaptadorCancion.registrarCancion(cancion2);
 				catalogoCanciones.addCancion(cancion2);
 			}
-
 		}
 		// Hay que llamar otra vez al catalogo para rellenarlo puesto que hemos
 		// modificado la base de datos al cargar las canciones
 		catalogoCanciones = CatalogoCanciones.getUnicaInstancia();
 	}
+
 	@Override
 	public void enteradoCambioCanciones(EventObject ev) {
 		if (ev instanceof CancionesEvent) {
@@ -234,14 +228,6 @@ public class AppMusicControlador implements CancionesListener {
 	}
 
 	public void play(Cancion cancion) {
-		// Cada vez que se reproduce, añadir a Recientes
-		List<ListaCanciones> lista = usuarioActual.getListaPlayList();
-		System.err.println("Printeando todas las listas en PLAY");
-		for (ListaCanciones listaCanciones : lista) {
-			System.out.println(listaCanciones.getNombre());
-		}
-		System.err.println("FIN todas las listas en PLAY");
-
 		mediaPlayer = null;
 		binPath = AppMusicControlador.class.getClassLoader().getResource(".").getPath();
 		binPath = binPath.replaceFirst("/", "");
@@ -270,7 +256,11 @@ public class AppMusicControlador implements CancionesListener {
 			mediaPlayer.play();
 			cancion.aumentarNumReproducciones();
 
+			// Para modificar el numero de reproducciones de la cancion
 			AdaptadorCancionTDS.getUnicaInstancia().modificarCancion(cancion);
+			// Para aniadir a recientes
+			this.aniadirRecientes(cancion);
+
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {
@@ -299,7 +289,6 @@ public class AppMusicControlador implements CancionesListener {
 
 	public void aniadirRecientes(Cancion cancion) {
 		usuarioActual.aniadirRecientes(cancion);
-
 	}
 
 	// Metodo que modifica si el usuario es premium tanto en el catalogo como en la
@@ -372,6 +361,11 @@ public class AppMusicControlador implements CancionesListener {
 	public void editarPlayList(String nombre, List<Cancion> l) {
 		usuarioActual.editarPlayList(nombre, l);
 	}
+
+	public List<Cancion> getListaEnConcreto(String nombre){
+		return usuarioActual.getListaEnConcreto(nombre);
+	}
+	
 	
 	
 }

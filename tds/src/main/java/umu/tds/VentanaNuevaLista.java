@@ -344,17 +344,19 @@ public class VentanaNuevaLista extends JDialog {
 				if (AppMusicControlador.getInstancia().comprobarListaYaExiste(nombrePlaylist)) {
 
 					// MENSAJE DE NOMBRE YA EXISTE
-					JOptionPane.showMessageDialog(btnDefinitivo, "Nombre ya existente, Podras editar la PlayList",
+					JOptionPane.showMessageDialog(btnDefinitivo, "Nombre ya existente, podras editar la PlayList",
 							"La lista con ese nombre ya existe!", JOptionPane.INFORMATION_MESSAGE, null);
 					panelCrearLista.setVisible(true);
+					// Si el nombre ya existe ya no se podra editar
 					txtNombreLista.setEditable(false);
+					// El nombre del boton se cambia a editar
 					btnCrear.setText("EDITAR");
-
+					
 					// Para rellenar la tabla de listas
 					String auxAutor = "";
 					// Obtiene la lista de listas
-					conjuntoCancionesAniadidas.addAll(usuario.getListaEnConcreto(nombrePlaylist).getCanciones());
-					for (Cancion c : usuario.getListaEnConcreto(nombrePlaylist).getCanciones()) {
+					conjuntoCancionesAniadidas.addAll(AppMusicControlador.getInstancia().getListaEnConcreto(nombrePlaylist));
+					for (Cancion c : AppMusicControlador.getInstancia().getListaEnConcreto(nombrePlaylist)) {
 						auxAutor = AppMusicControlador.getInstancia().printAutoresNice(c.getListaInterpretes());
 						((DefaultTableModel) tableCancionesAniadidas.getModel())
 								.addRow(new Object[] { c.getTitulo(), auxAutor });
@@ -583,10 +585,9 @@ public class VentanaNuevaLista extends JDialog {
 					} else {
 						JOptionPane.showMessageDialog(btnDefinitivo, "Lista Modificada", "Se ha editado la lista",
 								JOptionPane.INFORMATION_MESSAGE, null);
-						// TODO Hacer cambios en la lista
+						//Hacer cambios en la lista
 						List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
 						AppMusicControlador.getInstancia().editarPlayList(nombrePlaylist, l);
-
 					}
 
 				} else {

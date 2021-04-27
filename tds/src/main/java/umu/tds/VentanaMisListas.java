@@ -422,7 +422,6 @@ public class VentanaMisListas extends JDialog {
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
 				Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
 				AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				AppMusicControlador.getInstancia().aniadirRecientes(cancionParaReproducir);
 			}
 		});
 		btnPlay.setContentAreaFilled(false);

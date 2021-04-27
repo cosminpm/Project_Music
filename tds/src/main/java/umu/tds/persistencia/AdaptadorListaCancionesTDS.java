@@ -1,6 +1,5 @@
 package umu.tds.persistencia;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -12,7 +11,6 @@ import beans.Propiedad;
 
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
-import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Cancion;
 import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
@@ -76,7 +74,7 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 
 		System.out.println("REGISTRAR LISTA1: " + usuarioActual.getListaPlayList().size());
 		System.err.println("Print: registrarListaCancion FINAL");
-		List<ListaCanciones> auxl = AppMusicControlador.getInstancia().getUsuarioActual().getListaPlayList();
+		
 
 		System.err.println(l.size());
 		for (ListaCanciones listaCanciones : l) {

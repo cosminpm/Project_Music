@@ -13,8 +13,6 @@ import beans.Propiedad;
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
 import umu.tds.Constantes;
-import umu.tds.controlador.AppMusicControlador;
-import umu.tds.modelo.Cancion;
 import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
 

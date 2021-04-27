@@ -327,7 +327,6 @@ public class VentanaRecientes extends JDialog {
 					int indiceSeleccionado = tablaCancionesRecientes.getSelectedRow();
 					Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
 					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-					AppMusicControlador.getInstancia().aniadirRecientes(cancionParaReproducir);			
 			}
 		});
 		btnPlay.setContentAreaFilled(false);

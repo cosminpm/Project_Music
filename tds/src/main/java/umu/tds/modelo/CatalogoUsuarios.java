@@ -3,8 +3,6 @@ package umu.tds.modelo;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-
-import beans.Entidad;
 import umu.tds.persistencia.DAOException;
 import umu.tds.persistencia.FactoriaDAO;
 

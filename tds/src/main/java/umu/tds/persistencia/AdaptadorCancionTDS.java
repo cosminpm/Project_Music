@@ -2,14 +2,12 @@ package umu.tds.persistencia;
 
 
 import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+
 
 import beans.Entidad;
 import beans.Propiedad;
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
-import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Cancion;
 
 

@@ -1,8 +1,6 @@
 package umu.tds.persistencia;
 
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 import umu.tds.modelo.Cancion;
 

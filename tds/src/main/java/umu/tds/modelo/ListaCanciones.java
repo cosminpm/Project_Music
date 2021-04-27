@@ -63,7 +63,7 @@ public class ListaCanciones {
 	
 	public void aniadirCancionesSinRepetir(List<Cancion> l) {
 		List<Cancion> aux = this.getCanciones();
-		aux.addAll(l);
+		aux = l;
 		// Eliminar en el caso de que hubiera alguna repetida
 		LinkedHashSet<Cancion> aux2 = new LinkedHashSet<Cancion>(aux);
 		LinkedList<Cancion> aux3 = new LinkedList<Cancion>(aux2);
