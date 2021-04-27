@@ -75,11 +75,10 @@ public class CatalogoCanciones {
 		return titulo;
 	}
 
-	// Metodos auxiliares
+	// Metodos auxiliares que nos sirven para eliminar las canciones repetidas
 	public Set<Cancion> listToSet(List<Cancion> l) {
 		return new LinkedHashSet<Cancion>(l);
 	}
-
 	public List<Cancion> setToList(Set<Cancion> s) {
 		return new LinkedList<Cancion>(s);
 	}

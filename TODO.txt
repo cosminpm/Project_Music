@@ -17,9 +17,16 @@
 8. Observaciones finales que el alumno desee comentar (deben incluir una estimación del tiempo dedicado)
 
 ---- POSIBLES MEJORAS ----
-- Que la fecha de nacimiento sea anterior a la actual
+
 - Funcion aproximacion de busqueda de nombres
 - Modelo aleatorio
+
+
+
+--- MEJORAS HECHAS ---
+- Que la fecha de nacimiento sea anterior a la actual
+
+
 
 
 ---- HECHO ----

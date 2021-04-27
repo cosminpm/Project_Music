@@ -326,10 +326,11 @@ public class VentanaNuevaLista extends JDialog {
 		 * gbc_btnCrear.insets = new Insets(0, 0, 5, 5); gbc_btnCrear.gridx = 11;
 		 * gbc_btnCrear.gridy = 3; getContentPane().add(btnCrear, gbc_btnCrear);;
 		 */
-
+		String nombrePlaylist = txtNombreLista.getText();
 		JButton btnEliminar = new JButton("ELIMINAR");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				AppMusicControlador.getInstancia().eliminarPlayList(nombrePlaylist);
 			}
 		});
 		// Boton exterior
@@ -355,8 +356,8 @@ public class VentanaNuevaLista extends JDialog {
 					// Para rellenar la tabla de listas
 					String auxAutor = "";
 					// Obtiene la lista de listas
-					conjuntoCancionesAniadidas.addAll(AppMusicControlador.getInstancia().getListaEnConcreto(nombrePlaylist));
-					for (Cancion c : AppMusicControlador.getInstancia().getListaEnConcreto(nombrePlaylist)) {
+					conjuntoCancionesAniadidas.addAll(AppMusicControlador.getInstancia().getListEnConcreto(nombrePlaylist));
+					for (Cancion c : AppMusicControlador.getInstancia().getListEnConcreto(nombrePlaylist)) {
 						auxAutor = AppMusicControlador.getInstancia().printAutoresNice(c.getListaInterpretes());
 						((DefaultTableModel) tableCancionesAniadidas.getModel())
 								.addRow(new Object[] { c.getTitulo(), auxAutor });
@@ -566,7 +567,6 @@ public class VentanaNuevaLista extends JDialog {
 					((DefaultTableModel) tableCancionesSinAniadir.getModel())
 							.addRow(new Object[] { c.getTitulo(), auxAutor });
 				}
-
 				conjuntoCancionesAniadidas = (LinkedHashSet<Cancion>) AppMusicControlador.getInstancia()
 						.listToSet(listaCancionesAnididas);
 				conjuntoCancionesSinAniadir = (LinkedHashSet<Cancion>) AppMusicControlador.getInstancia()
@@ -687,29 +687,6 @@ public class VentanaNuevaLista extends JDialog {
 		gbc_btnSendToList.gridx = 5;
 		gbc_btnSendToList.gridy = 5;
 		panelCrearLista.add(btnSendToList, gbc_btnSendToList);
-
-		JButton btnAceptar = new JButton("ACEPTAR");
-		btnAceptar.setForeground(Color.WHITE);
-		btnAceptar.setBackground(Color.GRAY);
-		btnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		GridBagConstraints gbc_btnAceptar = new GridBagConstraints();
-		gbc_btnAceptar.gridwidth = 2;
-		gbc_btnAceptar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnAceptar.gridx = 1;
-		gbc_btnAceptar.gridy = 6;
-		panelCrearLista.add(btnAceptar, gbc_btnAceptar);
-
-		JButton btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setForeground(Color.WHITE);
-		btnCancelar.setBackground(Color.GRAY);
-		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
-		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnCancelar.gridx = 8;
-		gbc_btnCancelar.gridy = 6;
-		panelCrearLista.add(btnCancelar, gbc_btnCancelar);
 	}
 
 }

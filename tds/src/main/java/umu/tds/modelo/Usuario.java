@@ -147,17 +147,19 @@ public class Usuario {
 
 	}
 
-	public List<Cancion> getListaEnConcreto(String nombre) {
+	public ListaCanciones getListaEnConcreto(String nombre) {
 		for (ListaCanciones playlist : this.getListaPlayList()) {
 			if (playlist.getNombre().equals(nombre)) {
-				return playlist.getCanciones();
+				return playlist;
 			}
 		}
 		// Esto no deberia pasar nunca puesto
 		return null;
 	}
 	
-	
+	public List<Cancion> getListEnConcreto(String nombre){
+		return this.getListaEnConcreto(nombre).getCanciones();
+	}
 	
 	public boolean comprobarListaYaExiste(String nombre) {
 		for (ListaCanciones playlist : this.getListaPlayList()) {
@@ -202,6 +204,19 @@ public class Usuario {
 		ListaCanciones lista = this.listaPlayList.stream().filter(aux -> aux.getNombre().equals(nombre)).findFirst().get();
 		lista.aniadirCancionesSinRepetir(l);
 		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(lista);
+	}
+	
+	
+	
+	
+	
+	public void eliminarPlayList(String nombre) {
+		ListaCanciones l = this.getListaEnConcreto(nombre);
+		// Eliminamos la lista de las listas del usuario
+		List<ListaCanciones> aux = this.getListaPlayList();
+		aux.remove(l);
+		this.setListaCanciones(aux);
+		AdaptadorListaCancionesTDS.getUnicaInstancia().borrarListaCanciones(l);
 	}
 	
 	

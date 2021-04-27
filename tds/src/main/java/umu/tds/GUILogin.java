@@ -149,14 +149,13 @@ public class GUILogin {
 				} else {
 					// Crear instancia de VentanaMain y mostrar la ventana1
 					// Recuperar el usuario de1 base de datos
-					Usuario usuario = AppMusicControlador.getInstancia().recuperarUsuario(login, password);
+					Usuario usuario = AppMusicControlador.getInstancia().recuperarUsuario(login);
 					AppMusicControlador.getInstancia().setUsuarioActual(usuario);
 					// Comprueba si tiene recientes creada, si no, la crea
 					AppMusicControlador.getInstancia().crearRecientes();
 					PanelPrincipal panelPrincipal = new PanelPrincipal();
 					AppMusicControlador.getInstancia().registrarComoOyente();
 					panelPrincipal.mostrarVentana();
-					List<ListaCanciones> lista = usuario.getListaPlayList();
 					frame.dispose();
 				}
 			}

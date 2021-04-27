@@ -242,24 +242,37 @@ public class VentanaRegistro extends JFrame {
 				String apellidos = textApellidos.getText();
 				String email = textMail.getText();
 				Date fechaRAW = dateFecha.getDate();
+
 				// Metodo antiguo//LocalDate fechaNacimiento =
 				// LocalDate.of(dateFecha.getDate().getYear(),dateFecha.getDate().getMonth(),
 				// dateFecha.getDate().getDay());
 				// Metodo sacado de internet, date ---> localDate
 				LocalDate fechaNacimiento = fechaRAW.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-				// Fecha ok pero se puede hacer de otra form
-				if (clave1.equals(clave2)) {
-					if (AppMusicControlador.getInstancia().registrarUsuario(nombre, apellidos, email, login, clave1,
-							fechaNacimiento)) {
-						JOptionPane.showMessageDialog(botonRegistrar, "Usuario registrado con exito",
-								"Registro usuario", JOptionPane.INFORMATION_MESSAGE, null);
-						Usuario usu = new Usuario(nombre, apellidos, email, login, clave1, fechaNacimiento);
-						AppMusicControlador.getInstancia().setUsuarioActual(usu);
-						vaciarCampos();
 
-					} else {
-						JOptionPane.showMessageDialog(botonRegistrar, "Usuario ya registrado", "Registro usuario",
-								JOptionPane.ERROR_MESSAGE, null);
+			
+				if (clave1.equals(clave2)) {
+					// EXTRA Comprobacion de que la fecha actual es posterior a la fecha de
+					// Nacimiento
+
+					if (fechaNacimiento.isAfter(LocalDate.now())) {
+						JOptionPane.showMessageDialog(botonRegistrar, "La fecha actual no puede ser en el futuro!!", "Registro usuario",
+								JOptionPane.INFORMATION_MESSAGE, null);
+					}
+					// En caso de que la fecha este bien puesta...
+					else {
+						// Se intenta registrar al usuario
+						if (AppMusicControlador.getInstancia().registrarUsuario(nombre, apellidos, email, login, clave1,
+								fechaNacimiento)) {
+							JOptionPane.showMessageDialog(botonRegistrar, "Usuario registrado con exito",
+									"Registro usuario", JOptionPane.INFORMATION_MESSAGE, null);
+							Usuario usu = new Usuario(nombre, apellidos, email, login, clave1, fechaNacimiento);
+							AppMusicControlador.getInstancia().setUsuarioActual(usu);
+							vaciarCampos();
+
+						} else {
+							JOptionPane.showMessageDialog(botonRegistrar, "Usuario ya registrado", "Registro usuario",
+									JOptionPane.ERROR_MESSAGE, null);
+						}
 					}
 				}
 

@@ -30,6 +30,7 @@ public class Cancion {
 		
 	}	
 	
+	// **** Metodos get ****
 	public String getTitulo() {
 		return titulo;
 	}
@@ -50,32 +51,25 @@ public class Cancion {
 	public int getCodigo() {
 		return codigo;
 	}
-
+	// **** Fin Metodos get ****
+	
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 	
 	// Metodo que aumenta en uno el numero de reproducciones
-	public void aumentarReproduccion() {
-		numReproducciones = numReproducciones + 1;
-	}
-	
 	public void aumentarNumReproducciones() {
 		this.numReproducciones += 1;
 	}
 
 	public static Cancion componenteCanciontoCancion (umu.tds.componente.Cancion cancion) {
-		
-
 		String rutaFichero = cancion.getURL();
 		String estilo = cancion.getEstilo();
 		String interprete = cancion.getInterprete();
 		String titulo = cancion.getTitulo();
 		List<String> listaInterpretes = new LinkedList<String>();
 		listaInterpretes.add(interprete);
-		
 		Cancion aux = new Cancion(titulo,rutaFichero, estilo,listaInterpretes);
-	
 		return aux;
 	}
 		

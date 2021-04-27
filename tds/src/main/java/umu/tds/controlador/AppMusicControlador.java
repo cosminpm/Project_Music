@@ -103,19 +103,20 @@ public class AppMusicControlador implements CancionesListener {
 		return false;
 	}
 
-	public Usuario recuperarUsuario(String login, String password) {
+	// Recuperar el usuario que nos pasen como login
+	public Usuario recuperarUsuario(String login) {
 		Usuario usuario = CatalogoUsuarios.getUnicaInstancia().getUsuario(login);
 		return usuario;
 	}
-
+	// Recuperamos el usuario actual
 	public Usuario getUsuarioActual() {
 		return usuarioActual;
 	}
-
+	// Para cambiar el usuario actual
 	public void setUsuarioActual(Usuario usuarioActual) {
 		this.usuarioActual = usuarioActual;
 	}
-
+	// Incializacion de Adaptadores
 	private void inicializarAdaptadores() {
 		FactoriaDAO factoria = null;
 		try {
@@ -126,7 +127,6 @@ public class AppMusicControlador implements CancionesListener {
 		adaptadorUsuario = factoria.getUsuarioDAO();
 		adaptadorCancion = factoria.getCancionDAO();
 	}
-
 	private void inicializarCatalogos() throws DAOException {
 		catalogoUsuarios = CatalogoUsuarios.getUnicaInstancia();
 		catalogoCanciones = CatalogoCanciones.getUnicaInstancia();
@@ -160,14 +160,14 @@ public class AppMusicControlador implements CancionesListener {
 			}
 		}
 	}
-
+	// Para filtrar las canciones
 	public List<Cancion> filtrarCanciones(String interprete, String titulo, String estilo) {
 		List<Cancion> resultado = new LinkedList<Cancion>();
 		// Filtrar segun parametros
 		resultado = (List<Cancion>) catalogoCanciones.filtrarCanciones(interprete, titulo, estilo);
 		return resultado;
 	}
-
+	// Para imprimir de forma correcta los autores
 	public String printAutoresNice(List<String> autores) {
 		String resultado = "";
 		for (String s : autores) {
@@ -176,27 +176,27 @@ public class AppMusicControlador implements CancionesListener {
 		resultado = resultado.substring(2);
 		return resultado;
 	}
-
+	// Para recuperar los estilos de la base de datos
 	public LinkedHashSet<String> recuperarEstilos() {
 		return catalogoCanciones.recuperarTodosEstilos();
 	}
-
+	// Para comprobar si es TITULO que es lo que hay por defecto o es otro
 	public String comprobarCorrecionTitulo(String titulo) {
 		return catalogoCanciones.comprobarCorrecionTitulo(titulo);
 	}
-
+	// Para comprobar si lo que hay escrito es INTERPRETE o otro, esto nos servira para si es INTERPRETE se busquen todos
 	public String comprobarCorrecionInterprete(String interprete) {
 		return catalogoCanciones.comprobarCorrecionInterprete(interprete);
 	}
-
+	// Para pasar a un set la lista
 	public Set<Cancion> listToSet(List<Cancion> l) {
 		return catalogoCanciones.listToSet(l);
 	}
-
+	// Para pasar el set a una lista
 	public List<Cancion> setToList(Set<Cancion> s) {
 		return catalogoCanciones.setToList(s);
 	}
-
+	// Esto llama a los dos metedos anteriores para pasar las listas a listas pero sin repetir, llamando al metodo setToList y otra vez luego al list toset del catalogo
 	public List<Cancion> rmRepetidas(List<Cancion> l) {
 		return catalogoCanciones.rmRepetidas(l);
 	}
@@ -205,28 +205,27 @@ public class AppMusicControlador implements CancionesListener {
 	public void registrarListaCanciones(ListaCanciones lista) {
 		usuarioActual.registrarListaCanciones(lista);
 	}
-
+	/// Para registrar la playlist con varias canciones
 	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
-
 		usuarioActual.registrarPlayListConVariasCanciones(nombre, lista);
 	}
-
+	// Para comprobar si el nombre de las playlist ya existe
 	public boolean comprobarNombreExiste(String nombre) {
 		return usuarioActual.comprobarNombreExiste(nombre);
 	}
-
+	// Para recuperar la lista de playlist del usuario
 	public List<ListaCanciones> recuperarTodasListasCanciones() {
 		return usuarioActual.getListaPlayList();
 	}
-
+	// Para comprobar si el usuario ya tiene una lista con ese nombre
 	public boolean comprobarListaYaExiste(String nombre) {
 		return usuarioActual.comprobarListaYaExiste(nombre);
 	}
-
+	// Para modificar una lista
 	public void modificarPlayList(ListaCanciones lista) {
 		usuarioActual.modificarListaCanciones(lista);
 	}
-
+	// Metodo de reproduccion de canciones
 	public void play(Cancion cancion) {
 		mediaPlayer = null;
 		binPath = AppMusicControlador.class.getClassLoader().getResource(".").getPath();
@@ -268,7 +267,8 @@ public class AppMusicControlador implements CancionesListener {
 		}
 
 	}
-
+	
+	// Metodo de parar una cancion
 	public void stop(Cancion cancion) {
 		if (mediaPlayer != null)
 			mediaPlayer.stop();
@@ -280,6 +280,7 @@ public class AppMusicControlador implements CancionesListener {
 		}
 	}
 
+	// Para crear la playlist de recientes del usuario
 	public void crearRecientes() {
 		if (usuarioActual.getListaPlayList().size() == 0) {
 			ListaCanciones playList = new ListaCanciones("Recientes");
@@ -287,42 +288,36 @@ public class AppMusicControlador implements CancionesListener {
 		}
 	}
 
+	// Para aniadir una cancion a recientes
 	public void aniadirRecientes(Cancion cancion) {
 		usuarioActual.aniadirRecientes(cancion);
 	}
 
-	// Metodo que modifica si el usuario es premium tanto en el catalogo como en la
-	// persistencia
+	// Metodo que modifica si el usuario es premium tanto en el catalogo como en la persistencia
 	public void setPremium(boolean opcion) {
 		usuarioActual.setEsPremium(opcion);
 	}
 
+	// Para calcular el descuento Fijo
 	public int calcularDescuentoFijo() {
 		DescuentoFijo descuentoFijo = new DescuentoFijo();
 		descuentoFijo.calcDescuento();
 		return descuentoFijo.getDescuento();
 	}
-
+	// Para calcular el descuento joven
 	public int calcularDescuentoJoven() {
 		DescuentoJovenes descuentoJoven = new DescuentoJovenes();
 		descuentoJoven.calcDescuento();
 		return descuentoJoven.getDescuento();
 	}
-
+	// Para ver que tipo de descuento se esta utilizando
 	public String getTipoDescuento() {
 		return tipoDescuento;
 	}
-
+	
+	// Para cambiar de un tipo de descuento a otro
 	public void setTipoDescuento(String tipoDescuento) {
 		this.tipoDescuento = tipoDescuento;
-	}
-
-	public boolean compararDescuento(String descuento) {
-		if (this.tipoDescuento.equals(descuento)) {
-			System.out.println("");
-			return true;
-		}
-		return false;
 	}
 
 	public List<Cancion> obtenerMasReproducidas() {
@@ -358,14 +353,22 @@ public class AppMusicControlador implements CancionesListener {
 		documento.close();
 	}
 
+	// Para editar una playlist en concreto, pasandole un nombre y una lista de canciones, esto se utiliza practicamente para editar las canciones en nuevaLista
 	public void editarPlayList(String nombre, List<Cancion> l) {
 		usuarioActual.editarPlayList(nombre, l);
 	}
 
-	public List<Cancion> getListaEnConcreto(String nombre){
+	// Para obtener una lista del usuario que nos interese
+	public ListaCanciones getListaEnConcreto(String nombre){
 		return usuarioActual.getListaEnConcreto(nombre);
+	}
+	public List<Cancion> getListEnConcreto(String nombre){
+		return usuarioActual.getListEnConcreto(nombre);
 	}
 	
 	
+	public void eliminarPlayList(String nombre) {
+		usuarioActual.eliminarPlayList(nombre);
+	}
 	
 }
