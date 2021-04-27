@@ -346,8 +346,6 @@ public class VentanaRecientes extends JDialog {
 				Cancion cancionParaParar;
 				Cancion cancionParaReproducir;
 				//Comprobar si es el primero, indiceSeleccionado == 0
-				//System.out.println(indiceSeleccionado);
-				//System.out.println(listaCancionesSeleccionada.size()-1);
 				// Si es la primera, cambiar a la ultima
 				if(indiceSeleccionado == 0) {
 					int aux = listaCancionesSeleccionada.size()-1;
@@ -400,8 +398,6 @@ public class VentanaRecientes extends JDialog {
 				Cancion cancionParaParar;
 				Cancion cancionParaReproducir;
 				//Comprobar si es el último, indiceSeleccionado == size - 1
-				//System.out.println(indiceSeleccionado);
-				//System.out.println(listaCancionesSeleccionada.size()-1);
 				// Si es la ultima cambiar a la primera
 				if(indiceSeleccionado == listaCancionesSeleccionada.size()-1) {
 					int aux = 0;

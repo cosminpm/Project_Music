@@ -153,16 +153,10 @@ public class VentanaNuevaLista extends JDialog {
 			public void actionPerformed(ActionEvent arg0) {
 				if(JOptionPane.showConfirmDialog(btnDefinitivo,"¿Crear nueva Lista?", "¿Crear nueva Lista?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 					// Opcion SI
-					
 					String nombrePlaylist = txtNombreLista.getText();
 					List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
-					//System.err.println("Voy a printear todas las listas del sistema");
-					/*for (ListaCanciones lista: AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones()) {
-						//System.err.println(lista.getNombre());
-					};*/
-					
 					if(AppMusicControlador.getInstancia().comprobarListaYaExiste(nombrePlaylist)) {
-						// TODO MENSAJE DE ERROR NOMBRE YA EXISTE
+						// MENSAJE DE ERROR NOMBRE YA EXISTE
 						JOptionPane.showMessageDialog(btnDefinitivo, "Error, nombre ya existente", "La lista con ese nombre ya existe!",
 								JOptionPane.ERROR_MESSAGE, null);
 					}
@@ -171,10 +165,6 @@ public class VentanaNuevaLista extends JDialog {
 					}
 					
 				}
-				else {
-					// Opcion NO
-				}
-				//AppMusicControlador.getInstancia().recuperarTodasListasCanciones();
 			}
 		});
 		GridBagConstraints gbc_btnDefinitivo = new GridBagConstraints();
@@ -510,8 +500,6 @@ public class VentanaNuevaLista extends JDialog {
 		panelCrearLista.add(scrollPaneAniadidas, gbc_scrollPaneAniadidas);
 		
 		tableCancionesAniadidas = new JTable();
-		//tableCancionesAniadidas.setForeground(Color.WHITE);
-		//tableCancionesAniadidas.setBackground(Color.WHITE);
 		tableCancionesAniadidas.setModel(new DefaultTableModel(
 			new Object[][] {
 				
@@ -535,23 +523,14 @@ public class VentanaNuevaLista extends JDialog {
 				}
 				
 				int aux = 0;
-				//List<Cancion> listaCancionesSinAniadir = AdaptadorCancionTDS.getUnicaInstancia().setToList(conjuntoCancionesSinAniadir); 
-				//List<Cancion> listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().setToList(conjuntoCancionesAniadidas);
-				
 				List<Cancion> listaCancionesSinAniadir = AppMusicControlador.getInstancia().setToList(conjuntoCancionesSinAniadir);
 				List<Cancion> listaCancionesAnididas = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
-				
-				
 				//Para cada fila seleccionada, sacamos los valores de su primera columna (titulo) y su segunda columna (interprete)
 				for(int i = 0; i < indicesSeleccionados.length; i++) {
 					listaCancionesSinAniadir.add(listaCancionesAnididas.get(indicesSeleccionados[i]-aux));
 					listaCancionesAnididas.remove(indicesSeleccionados[i] - aux);
 					aux++;
 				}	
-				
-				//listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesAnididas);
-				//listaCancionesSinAniadir = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesSinAniadir);
-				
 				listaCancionesAnididas = AppMusicControlador.getInstancia().rmRepetidas(listaCancionesAnididas);
 				listaCancionesSinAniadir = AppMusicControlador.getInstancia().rmRepetidas(listaCancionesSinAniadir);
 				
@@ -608,10 +587,7 @@ public class VentanaNuevaLista extends JDialog {
 					listaCancionesSinAniadir.remove(indicesSeleccionados[i] - aux);
 					aux++;
 				}
-				
-				//listaCancionesAnididas = AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesAnididas);
 				  listaCancionesAnididas = CatalogoCanciones.getUnicaInstancia().rmRepetidas(listaCancionesAnididas);
-				//listaCancionesSinAniadir= AdaptadorCancionTDS.getUnicaInstancia().rmRepetidas(listaCancionesSinAniadir);
 				  listaCancionesSinAniadir = CatalogoCanciones.getUnicaInstancia().rmRepetidas(listaCancionesSinAniadir);
 				DefaultTableModel modelAniadidos = (DefaultTableModel) tableCancionesAniadidas.getModel();
 				modelAniadidos.setRowCount(0);

@@ -90,18 +90,7 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 					s.replace(" ", "_");
 				    listaInterpretes += s + ",";
 				}
-		/*
-		servPersistencia.eliminarPropiedadEntidad(eCancion, "titulo");
-		servPersistencia.anadirPropiedadEntidad(eCancion, "titulo", cancion.getTitulo());
-		servPersistencia.eliminarPropiedadEntidad(eCancion, "rutafichero");
-		servPersistencia.anadirPropiedadEntidad(eCancion, "rutafichero", cancion.getRutaFichero());
-		servPersistencia.eliminarPropiedadEntidad(eCancion, "numreproducciones");
-		servPersistencia.anadirPropiedadEntidad(eCancion, "numreproducciones", String.valueOf(cancion.getNumReproducciones()));
-		servPersistencia.eliminarPropiedadEntidad(eCancion, "estiloMusical");
-		servPersistencia.anadirPropiedadEntidad(eCancion, "estiloMusical", cancion.getEstiloMusical());
-		servPersistencia.eliminarPropiedadEntidad(eCancion, "listaInterpretes");
-		servPersistencia.anadirPropiedadEntidad(eCancion, "listaInterpretes", listaInterpretes);
-		*/
+
 		for (Propiedad prop : eCancion.getPropiedades()) {
 
 			if (prop.getNombre().equals("titulo")) {
@@ -136,8 +125,6 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		String titulo;
 		String rutafichero;
 		String numre;
-		
-		//TODO VER QUE HACEMOS CON EL NUM DE REPRODUCCIONES, COMO LO AUMENTAMOS
 		int numreproducciones;
 		String estiloMusical;
 		String listaInterpretes1;
@@ -163,7 +150,6 @@ public class AdaptadorCancionTDS implements IAdaptadorCancionDAO {
 		
 		Cancion cancion = new Cancion(titulo, rutafichero, estiloMusical , listaInterpretes, numreproducciones);
 		cancion.setCodigo(codigo);
-		// IMPORTANTE:añadir la cancion al pool antes de llamar a otros
 		// adaptadores
 		PoolDAO.getUnicaInstancia().addObjeto(codigo, cancion);
 		return cancion;

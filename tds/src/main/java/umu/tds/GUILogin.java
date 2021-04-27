@@ -135,43 +135,28 @@ public class GUILogin {
 		final JButton botonLogin = new JButton("Login");
 		botonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
 				// Leemos datos de la vista
-
 				String login = textUsuario.getText();
 				String password = new String(textContrasenia.getPassword());
-
 				// Pasamos los datos al controlador invocando metodos que proporcionan la logica
 				// de negocio
 				boolean logueado = AppMusicControlador.getInstancia().login(login, password);
 				// Si el controlador devuelve datos, presentarlos a la vista
 				if (!logueado) {
-
 					JOptionPane.showMessageDialog(botonLogin, "Identificador de usuario o clave incorrectos",
 							"Login Incorrecto", JOptionPane.ERROR_MESSAGE, null);
 
 				} else {
-
 					// Crear instancia de VentanaMain y mostrar la ventana1
 					// Recuperar el usuario de1 base de datos
-					// TODO Preguntar si la interfaz recupera el usuario
 					Usuario usuario = AppMusicControlador.getInstancia().recuperarUsuario(login, password);
 					AppMusicControlador.getInstancia().setUsuarioActual(usuario);
 					// Comprueba si tiene recientes creada, si no, la crea
 					AppMusicControlador.getInstancia().crearRecientes();
-					// TODO Preguntar, se visibilice esto
 					PanelPrincipal panelPrincipal = new PanelPrincipal();
 					AppMusicControlador.getInstancia().registrarComoOyente();
 					panelPrincipal.mostrarVentana();
-
 					List<ListaCanciones> lista = usuario.getListaPlayList();
-
-					System.err.println("Printeando todas las listas en LOGIN");
-					for (ListaCanciones listaCanciones : lista) {
-						
-						System.out.println(listaCanciones.getNombre());
-					}
-					System.err.println("FIN todas las listas en LOGIN");
 					frame.dispose();
 				}
 			}

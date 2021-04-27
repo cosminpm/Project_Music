@@ -38,8 +38,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-
-
 public class AppMusicControlador implements CancionesListener {
 
 	private MediaPlayer mediaPlayer;
@@ -53,18 +51,17 @@ public class AppMusicControlador implements CancionesListener {
 	private IAdaptadorUsuarioDAO adaptadorUsuario;
 	private IAdaptadorCancionDAO adaptadorCancion;
 	private IAdaptadorListaCancionesDAO adaptadorListaCanciones;
-	
+
 	private CatalogoUsuarios catalogoUsuarios;
 	private CatalogoCanciones catalogoCanciones;
 	private CargadorCanciones cargadorCanciones = new CargadorCanciones();
-	
+
 	private AppMusicControlador() {
-		inicializarAdaptadores(); // debe ser la primera linea para evitar error
-		// de sincronización
+		inicializarAdaptadores(); // debe ser la primera linea para evitar error de sincronización
 		try {
 			inicializarCatalogos();
 		} catch (DAOException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -109,23 +106,11 @@ public class AppMusicControlador implements CancionesListener {
 			return true;
 		}
 		return false;
-
-		/*
-		 * //Si existe, entonces comprobar clave: usuario.login(clave) if( usuario !=
-		 * null && usuario.getPassword().equals(clave)) {
-		 * 
-		 * this.usuarioActual = usuario; // Si clave correcta, return true return true;
-		 * }
-		 * 
-		 * //Si no, return false return false;
-		 */
 	}
 
 	public Usuario recuperarUsuario(String login, String password) {
-
 		Usuario usuario = CatalogoUsuarios.getUnicaInstancia().getUsuario(login);
 		return usuario;
-
 	}
 
 	public Usuario getUsuarioActual() {
@@ -148,7 +133,6 @@ public class AppMusicControlador implements CancionesListener {
 		adaptadorListaCanciones = factoria.getListaCancionesDAO();
 	}
 
-	// TODO
 	private void inicializarCatalogos() throws DAOException {
 		catalogoUsuarios = CatalogoUsuarios.getUnicaInstancia();
 		catalogoCanciones = CatalogoCanciones.getUnicaInstancia();
@@ -166,22 +150,12 @@ public class AppMusicControlador implements CancionesListener {
 				adaptadorCancion.registrarCancion(cancion2);
 				catalogoCanciones.addCancion(cancion2);
 			}
-				
+
 		}
 		// Hay que llamar otra vez al catalogo para rellenarlo puesto que hemos
 		// modificado la base de datos al cargar las canciones
 		catalogoCanciones = CatalogoCanciones.getUnicaInstancia();
 	}
-
-	// TODO Borrar
-	/*
-	 * public void getCanciones(){ List<Cancion> lista =
-	 * adaptadorCancion.recuperarTodasCanciones(); for (Cancion cancion : lista) {
-	 * System.out.println("Cancion con ruta "+ cancion.getRutaFichero() + "Nombre"+
-	 * cancion.getTitulo()); System.out.println(cancion.getListaInterpretes()); } }
-	 */
-
-	// TODO Ver que sucede con los eventos
 	@Override
 	public void enteradoCambioCanciones(EventObject ev) {
 		if (ev instanceof CancionesEvent) {
@@ -190,7 +164,6 @@ public class AppMusicControlador implements CancionesListener {
 			if (event.getFicheroAntiguo() != null) {
 				System.out.println("Viejo Archivo " + event.getFicheroAntiguo());
 			}
-			// TODO Actualizar catalogo de canciones...etc
 		}
 	}
 
@@ -210,7 +183,6 @@ public class AppMusicControlador implements CancionesListener {
 		return resultado;
 	}
 
-	// TODO Ver como hacemos esto
 	public LinkedHashSet<String> recuperarEstilos() {
 		return catalogoCanciones.recuperarTodosEstilos();
 	}
@@ -235,15 +207,13 @@ public class AppMusicControlador implements CancionesListener {
 		return catalogoCanciones.rmRepetidas(l);
 	}
 
-	//TODO Modificar
 	// Metodos PlayList
 	public void registrarListaCanciones(ListaCanciones lista) {
 		usuarioActual.registrarListaCanciones(lista);
 	}
-	// TODO MODIFICAR ESTO SOLUCIONAR SALEN DOS VECES EL NOMBRE DE LAS LISTAS
+
 	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
-		
-		//usuarioActual.registrarPlayListConVariasCanciones(nombre, lista);
+
 		usuarioActual.registrarPlayListConVariasCanciones(nombre, lista);
 	}
 
@@ -255,15 +225,9 @@ public class AppMusicControlador implements CancionesListener {
 		return usuarioActual.getListaPlayList();
 	}
 
-	/*
-	public boolean comprobarListaYaExiste(String nombre, Usuario usuario) {
-		return adaptadorUsuario.comprobarListaYaExiste(nombre, usuario);
-	}*/
-	
 	public boolean comprobarListaYaExiste(String nombre) {
 		return usuarioActual.comprobarListaYaExiste(nombre);
 	}
-	
 
 	public void modificarPlayList(ListaCanciones lista) {
 		usuarioActual.modificarListaCanciones(lista);
@@ -278,18 +242,12 @@ public class AppMusicControlador implements CancionesListener {
 		}
 		System.err.println("FIN todas las listas en PLAY");
 
-		// TODO TRATAR BOOLEANO
 		mediaPlayer = null;
 		binPath = AppMusicControlador.class.getClassLoader().getResource(".").getPath();
 		binPath = binPath.replaceFirst("/", "");
-		// System.out.println(binPath);
 		// quitar "/" añadida al inicio del path en plataforma Windows
 		tempPath = binPath.replace("/bin", "/temp");
 		tempPath = tempPath.replace("%20", " ");
-		System.out.println(tempPath);
-		// tempPath = "C:/Users/crist/OneDrive/Escritorio/Proyecto Actual
-		// TDS/Project_Music/tds/target/classes/";
-		System.out.println(tempPath);
 		URL uri = null;
 		try {
 			com.sun.javafx.application.PlatformImpl.startup(() -> {
@@ -311,16 +269,8 @@ public class AppMusicControlador implements CancionesListener {
 
 			mediaPlayer.play();
 			cancion.aumentarNumReproducciones();
-			
+
 			AdaptadorCancionTDS.getUnicaInstancia().modificarCancion(cancion);
-			
-			Cancion cancion2 = AdaptadorCancionTDS.getUnicaInstancia().recuperarCancion(cancion.getCodigo());
-			
-			System.err.println("PERSIS: NUM REPRO "+cancion2.getNumReproducciones() + " DE CANCION: "+ cancion2.getTitulo());
-			
-			System.err.println("MODELO: NUM REPRO "+cancion.getNumReproducciones() + " DE CANCION: "+ cancion.getTitulo());
-			
-			
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {
@@ -385,13 +335,12 @@ public class AppMusicControlador implements CancionesListener {
 		}
 		return false;
 	}
-	
-	
-	public List<Cancion> obtenerMasReproducidas(){
+
+	public List<Cancion> obtenerMasReproducidas() {
 		return catalogoCanciones.obtenerMasReproducidas();
 	}
 
-	public void generarPDF() throws FileNotFoundException, DocumentException  {
+	public void generarPDF() throws FileNotFoundException, DocumentException {
 		String usuario = this.usuarioActual.getLogin() + "DocumentoPDF";
 		binPath = AppMusicControlador.class.getClassLoader().getResource(".").getPath();
 		binPath = binPath.replaceFirst("/", "");
@@ -400,29 +349,24 @@ public class AppMusicControlador implements CancionesListener {
 		tempPath = binPath.replace("/bin", "/temp");
 		tempPath = tempPath.replace("%20", " ");
 		System.out.println(tempPath);
-		FileOutputStream archivo = new FileOutputStream(tempPath+usuario+".pdf");
+		FileOutputStream archivo = new FileOutputStream(tempPath + usuario + ".pdf");
 		Document documento = new Document();
 		PdfWriter.getInstance(documento, archivo);
 		documento.open();
 		for (ListaCanciones lista : this.usuarioActual.getListaPlayList()) {
 			String nombreLista = lista.getNombre();
-			documento.add(new Paragraph("Nombre Playlist: "+nombreLista));
+			documento.add(new Paragraph("Nombre Playlist: " + nombreLista));
 			List<Cancion> l = lista.getCanciones();
 			documento.add(new Paragraph("Canciones: "));
 			for (Cancion ca : l) {
-				documento.add(new Paragraph("-"+ca.getTitulo()+", "+AppMusicControlador.getInstancia().printAutoresNice(ca.getListaInterpretes())+", "+ca.getEstiloMusical()));
-				
+				documento.add(new Paragraph("-" + ca.getTitulo() + ", "
+						+ AppMusicControlador.getInstancia().printAutoresNice(ca.getListaInterpretes()) + ", "
+						+ ca.getEstiloMusical()));
+
 			}
-			
 			documento.add(new Paragraph("-------------------------------------------------"));
-			
 		}
 		documento.close();
 	}
-	
-	
-	
-	
-	
 
 }

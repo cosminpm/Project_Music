@@ -27,15 +27,13 @@ import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Usuario;
 import umu.tds.modelo.Cancion;
 
-
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
 import java.util.*;
 import pulsador.Luz;
 
-
 public class VentanaExplorar extends JDialog {
-	
+
 	private JTextField textTitulo;
 	private JTable tablaCanciones;
 	private JTextField textInterprete;
@@ -58,34 +56,35 @@ public class VentanaExplorar extends JDialog {
 	 */
 	public VentanaExplorar() {
 
-		
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{10, 10, 10, 10, 189, 10, 10, 30, 30, 30, 30, 0, 0, 10, 0, 0};
-		gridBagLayout.rowHeights = new int[]{10, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[] { 10, 10, 10, 10, 189, 10, 10, 30, 30, 30, 30, 0, 0, 10, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 10, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0,
+				0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+				0.0, Double.MIN_VALUE };
 		getContentPane().setLayout(gridBagLayout);
-		
-		Usuario usuario =AppMusicControlador.getInstancia().getUsuarioActual();
-		String nombre = usuario.getNombre() +" " +usuario.getApellidos();
-		
+
+		Usuario usuario = AppMusicControlador.getInstancia().getUsuarioActual();
+		String nombre = usuario.getNombre() + " " + usuario.getApellidos();
+
 		JLabel lbnombreUsuario = new JLabel(nombre);
 		GridBagConstraints gbc_lbnombreUsuario = new GridBagConstraints();
 		gbc_lbnombreUsuario.insets = new Insets(0, 0, 5, 5);
 		gbc_lbnombreUsuario.gridx = 4;
 		gbc_lbnombreUsuario.gridy = 1;
 		getContentPane().add(lbnombreUsuario, gbc_lbnombreUsuario);
-		
+
 		Luz luz = new Luz();
 		luz.addEncendidoListener(new PropertyChangeListener() {
 			public void propertyChange(PropertyChangeEvent arg0) {
-				
+
 				JFileChooser chooser = new JFileChooser();
 				chooser.showSaveDialog(null);
-				
-				if(chooser.getSelectedFile() != null) {
+
+				if (chooser.getSelectedFile() != null) {
 					String fichero = chooser.getSelectedFile().getAbsolutePath();
 					AppMusicControlador.getInstancia().cargarCanciones(fichero);
 				}
@@ -96,22 +95,18 @@ public class VentanaExplorar extends JDialog {
 		gbc_luz.gridx = 10;
 		gbc_luz.gridy = 1;
 		getContentPane().add(luz, gbc_luz);
-		
+
 		JButton btnMejorarCuenta = new JButton("MEJORAR CUENTA");
 		btnMejorarCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					if(JOptionPane.showConfirmDialog(btnMejorarCuenta,"Confirmación", "¿Quieres ser usuario premium?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-					
+				if (JOptionPane.showConfirmDialog(btnMejorarCuenta, "Confirmación", "¿Quieres ser usuario premium?",
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+
 					VentanaPremium ventanaPremium = new VentanaPremium();
 					ventanaPremium.setVisible(true);
 					dispose();
 					AppMusicControlador.getInstancia().setPremium(true);
-					
 				}
-				
-				else {
-					
-				}	
 			}
 		});
 		btnMejorarCuenta.setBorderPainted(false);
@@ -123,7 +118,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_btnMejorarCuenta.gridx = 11;
 		gbc_btnMejorarCuenta.gridy = 1;
 		getContentPane().add(btnMejorarCuenta, gbc_btnMejorarCuenta);
-		
+
 		JButton btnSALIR = new JButton("SALIR");
 		btnSALIR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -139,21 +134,21 @@ public class VentanaExplorar extends JDialog {
 		gbc_btnSALIR.gridx = 12;
 		gbc_btnSALIR.gridy = 1;
 		getContentPane().add(btnSALIR, gbc_btnSALIR);
-		
+
 		JLabel InterpreteShow = new JLabel("INTERPRETE");
 		GridBagConstraints gbc_InterpreteShow = new GridBagConstraints();
 		gbc_InterpreteShow.insets = new Insets(0, 0, 5, 5);
 		gbc_InterpreteShow.gridx = 8;
 		gbc_InterpreteShow.gridy = 3;
 		getContentPane().add(InterpreteShow, gbc_InterpreteShow);
-		
+
 		JLabel tituloShow = new JLabel("TITULO");
 		GridBagConstraints gbc_tituloShow = new GridBagConstraints();
 		gbc_tituloShow.insets = new Insets(0, 0, 5, 5);
 		gbc_tituloShow.gridx = 11;
 		gbc_tituloShow.gridy = 3;
 		getContentPane().add(tituloShow, gbc_tituloShow);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(153, 0, 51));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
@@ -165,22 +160,23 @@ public class VentanaExplorar extends JDialog {
 		gbc_panel.gridy = 4;
 		getContentPane().add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0, 0, 0, 0};
-		gbl_panel.rowHeights = new int[]{30, 0, 30, 0, 30, 0, 30, 0, 30, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[] { 0, 0, 0, 0 };
+		gbl_panel.rowHeights = new int[] { 30, 0, 30, 0, 30, 0, 30, 0, 30, 0, 0 };
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panel.setLayout(gbl_panel);
-		
+
 		JButton btnExplorar = new JButton("");
 		btnExplorar.setContentAreaFilled(false);
 		btnExplorar.setBorderPainted(false);
-		btnExplorar.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/LupaIconrReversed.jpg")));
+		btnExplorar
+				.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/LupaIconrReversed.jpg")));
 		GridBagConstraints gbc_btnExplorar = new GridBagConstraints();
 		gbc_btnExplorar.insets = new Insets(0, 0, 5, 5);
 		gbc_btnExplorar.gridx = 0;
 		gbc_btnExplorar.gridy = 1;
 		panel.add(btnExplorar, gbc_btnExplorar);
-		
+
 		JLabel lblExplorar = new JLabel("EXPLORAR");
 		lblExplorar.setForeground(new Color(255, 255, 255));
 		GridBagConstraints gbc_lblExplorar = new GridBagConstraints();
@@ -188,11 +184,10 @@ public class VentanaExplorar extends JDialog {
 		gbc_lblExplorar.gridx = 2;
 		gbc_lblExplorar.gridy = 1;
 		panel.add(lblExplorar, gbc_lblExplorar);
-		
+
 		JButton btnNuevaLista = new JButton("");
 		btnNuevaLista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				VentanaNuevaLista ventanaNuevaLista = new VentanaNuevaLista();
 				ventanaNuevaLista.setVisible(true);
 				dispose();
@@ -206,7 +201,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_btnNuevaLista.gridx = 0;
 		gbc_btnNuevaLista.gridy = 3;
 		panel.add(btnNuevaLista, gbc_btnNuevaLista);
-		
+
 		JLabel lblNuevaLista = new JLabel("NUEVA LISTA");
 		lblNuevaLista.setForeground(new Color(255, 255, 255));
 		GridBagConstraints gbc_lblNuevaLista = new GridBagConstraints();
@@ -214,7 +209,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_lblNuevaLista.gridx = 2;
 		gbc_lblNuevaLista.gridy = 3;
 		panel.add(lblNuevaLista, gbc_lblNuevaLista);
-		
+
 		JButton btnReciente = new JButton("");
 		btnReciente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -231,7 +226,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_btnReciente.gridx = 0;
 		gbc_btnReciente.gridy = 5;
 		panel.add(btnReciente, gbc_btnReciente);
-		
+
 		JLabel lblReciente = new JLabel("RECIENTE");
 		lblReciente.setForeground(new Color(255, 255, 255));
 		GridBagConstraints gbc_lblReciente = new GridBagConstraints();
@@ -239,7 +234,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_lblReciente.gridx = 2;
 		gbc_lblReciente.gridy = 5;
 		panel.add(lblReciente, gbc_lblReciente);
-		
+
 		JButton btnMisListas = new JButton("");
 		btnMisListas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -256,7 +251,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_btnMisListas.gridx = 0;
 		gbc_btnMisListas.gridy = 7;
 		panel.add(btnMisListas, gbc_btnMisListas);
-		
+
 		JLabel lblMisListas = new JLabel("MIS LISTAS");
 		lblMisListas.setForeground(new Color(255, 255, 255));
 		GridBagConstraints gbc_lblMisListas = new GridBagConstraints();
@@ -264,11 +259,11 @@ public class VentanaExplorar extends JDialog {
 		gbc_lblMisListas.gridx = 2;
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
-		
+
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				VentanaMasReproducida ventanaMasReproducida= new VentanaMasReproducida();
+				VentanaMasReproducida ventanaMasReproducida = new VentanaMasReproducida();
 				ventanaMasReproducida.setVisible(true);
 				dispose();
 			}
@@ -280,14 +275,14 @@ public class VentanaExplorar extends JDialog {
 		gbc_btnNewButton.gridx = 0;
 		gbc_btnNewButton.gridy = 9;
 		panel.add(btnNewButton, gbc_btnNewButton);
-		
+
 		JLabel lblNewLabel = new JLabel("MAS REPRODUCIDAS");
 		lblNewLabel.setForeground(Color.WHITE);
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.gridx = 2;
 		gbc_lblNewLabel.gridy = 9;
 		panel.add(lblNewLabel, gbc_lblNewLabel);
-		
+
 		textInterprete = new JTextField();
 		textInterprete.setText("INTERPRETE");
 		textInterprete.setForeground(Color.WHITE);
@@ -301,7 +296,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_textInterprete.gridx = 7;
 		gbc_textInterprete.gridy = 4;
 		getContentPane().add(textInterprete, gbc_textInterprete);
-		
+
 		textTitulo = new JTextField();
 		textTitulo.setBorder(null);
 		textTitulo.setForeground(Color.WHITE);
@@ -314,13 +309,12 @@ public class VentanaExplorar extends JDialog {
 		gbc_textTitulo.gridy = 4;
 		getContentPane().add(textTitulo, gbc_textTitulo);
 		textTitulo.setColumns(10);
-		
+
 		JComboBox<String> comboBoxEstilo = new JComboBox<String>();
 		comboBoxEstilo.setBorder(null);
 		comboBoxEstilo.setForeground(Color.WHITE);
 		comboBoxEstilo.setBackground(Color.GRAY);
-		
-		
+
 		String[] array = AppMusicControlador.getInstancia().recuperarEstilos().stream().toArray(String[]::new);
 		comboBoxEstilo.setModel(new DefaultComboBoxModel<String>(array));
 		GridBagConstraints gbc_comboBoxEstilo = new GridBagConstraints();
@@ -329,7 +323,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_comboBoxEstilo.gridx = 12;
 		gbc_comboBoxEstilo.gridy = 4;
 		getContentPane().add(comboBoxEstilo, gbc_comboBoxEstilo);
-		
+
 		JButton btnBuscar = new JButton("BUSCAR");
 		GridBagConstraints gbc_btnBuscar = new GridBagConstraints();
 		gbc_btnBuscar.anchor = GridBagConstraints.EAST;
@@ -339,12 +333,10 @@ public class VentanaExplorar extends JDialog {
 		getContentPane().add(btnBuscar, gbc_btnBuscar);
 		btnBuscar.setBackground(Color.GRAY);
 		btnBuscar.setForeground(Color.WHITE);
-		
+
 		final JPanel panelBuscar = new JPanel();
 		panelBuscar.setVisible(false);
-		
 
-		
 		JButton btnCancelar = new JButton("CANCELAR");
 		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 		gbc_btnCancelar.anchor = GridBagConstraints.EAST;
@@ -354,8 +346,7 @@ public class VentanaExplorar extends JDialog {
 		getContentPane().add(btnCancelar, gbc_btnCancelar);
 		btnCancelar.setForeground(Color.WHITE);
 		btnCancelar.setBackground(Color.GRAY);
-		
-		
+
 		panelBuscar.setBackground(Color.WHITE);
 		GridBagConstraints gbc_panelBuscar = new GridBagConstraints();
 		gbc_panelBuscar.gridheight = 7;
@@ -366,12 +357,12 @@ public class VentanaExplorar extends JDialog {
 		gbc_panelBuscar.gridy = 7;
 		getContentPane().add(panelBuscar, gbc_panelBuscar);
 		GridBagLayout gbl_panelBuscar = new GridBagLayout();
-		gbl_panelBuscar.columnWidths = new int[]{30, 30, 0, 0, 0, 0, 0, 30, 0};
-		gbl_panelBuscar.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panelBuscar.columnWeights = new double[]{0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
-		gbl_panelBuscar.rowWeights = new double[]{1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_panelBuscar.columnWidths = new int[] { 30, 30, 0, 0, 0, 0, 0, 30, 0 };
+		gbl_panelBuscar.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
+		gbl_panelBuscar.columnWeights = new double[] { 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, Double.MIN_VALUE };
+		gbl_panelBuscar.rowWeights = new double[] { 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
 		panelBuscar.setLayout(gbl_panelBuscar);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.gridheight = 4;
@@ -381,75 +372,67 @@ public class VentanaExplorar extends JDialog {
 		gbc_scrollPane.gridx = 1;
 		gbc_scrollPane.gridy = 1;
 		panelBuscar.add(scrollPane, gbc_scrollPane);
-		
+
 		tablaCanciones = new JTable();
 		tablaCanciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		tablaCanciones.setModel(new DefaultTableModel(
-			new Object[][] {
+		tablaCanciones.setModel(new DefaultTableModel(new Object[][] {
 
-			},
-			new String[] {
-				"T\u00CDTULO", "ARTISTA"
-			}
-		));
+		}, new String[] { "T\u00CDTULO", "ARTISTA" }));
 		scrollPane.setViewportView(tablaCanciones);
-		
-		
-		List<Cancion> listaCancionesSeleccionada = new LinkedList<Cancion>(); 
-		
-		
+
+		List<Cancion> listaCancionesSeleccionada = new LinkedList<Cancion>();
+
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelBuscar.setVisible(true);
 				listaCancionesSeleccionada.clear();
 				DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
 				model.setRowCount(0);
-				
+
 				String interprete = textInterprete.getText();
-				if(textInterprete.getText().isEmpty()) {
+				if (textInterprete.getText().isEmpty()) {
 					interprete = null;
 				}
-				
 				else {
 					interprete = AppMusicControlador.getInstancia().comprobarCorrecionInterprete(interprete);
 				}
 				String titulo = textTitulo.getText();
-				if(textTitulo.getText().isEmpty()) {
+				if (textTitulo.getText().isEmpty()) {
 					titulo = null;
 				}
-				
+
 				else {
 					titulo = AppMusicControlador.getInstancia().comprobarCorrecionTitulo(titulo);
 				}
-				
-				if (comboBoxEstilo.getSelectedItem()!=null) {
+
+				if (comboBoxEstilo.getSelectedItem() != null) {
 					String estilo = comboBoxEstilo.getSelectedItem().toString();
-					if(estilo == "Cualquiera") {
+					if (estilo == "Cualquiera") {
 						estilo = null;
 					}
 					System.out.println("AA: " + titulo);
 					System.out.println("BB: " + interprete);
-					
-					
-					List<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo, estilo);
-					
+
+					List<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo,
+							estilo);
+
 					String aux;
 					for (Cancion cancion : canciones) {
 						aux = AppMusicControlador.getInstancia().printAutoresNice(cancion.getListaInterpretes());
-						((DefaultTableModel) tablaCanciones.getModel()).addRow(new Object[] {
-				                cancion.getTitulo(), aux});
+						((DefaultTableModel) tablaCanciones.getModel())
+								.addRow(new Object[] { cancion.getTitulo(), aux });
 						listaCancionesSeleccionada.add(cancion);
 					}
 				}
 
 			}
 		});
-		
+
 		JButton btnPlay = new JButton("");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
-				if (indiceSeleccionado!=-1) {
+				if (indiceSeleccionado != -1) {
 					Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
 					AppMusicControlador.getInstancia().play(cancionParaReproducir);
 					AppMusicControlador.getInstancia().aniadirRecientes(cancionParaReproducir);
@@ -464,33 +447,30 @@ public class VentanaExplorar extends JDialog {
 		gbc_btnPlay.gridx = 4;
 		gbc_btnPlay.gridy = 5;
 		panelBuscar.add(btnPlay, gbc_btnPlay);
-		
+
 		JButton btnBackSong = new JButton("");
 		btnBackSong.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					int indiceSeleccionado = tablaCanciones.getSelectedRow();
-					Cancion cancionParaParar;
-					Cancion cancionParaReproducir;
-					//Comprobar si es el primero, indiceSeleccionado == 0
-					//System.out.println(indiceSeleccionado);
-					//System.out.println(listaCancionesSeleccionada.size()-1);
-					// Si es la primera, cambiar a la ultima
-					if(indiceSeleccionado == 0) {
-						int aux = listaCancionesSeleccionada.size()-1;
-					    cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-					    AppMusicControlador.getInstancia().play(cancionParaParar);
-					    AppMusicControlador.getInstancia().stop(cancionParaParar);	
-					    cancionParaReproducir = listaCancionesSeleccionada.get(aux);
-					    AppMusicControlador.getInstancia().play(cancionParaReproducir);	
-					}
-					else {
-						cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-						AppMusicControlador.getInstancia().play(cancionParaParar);
-						AppMusicControlador.getInstancia().stop(cancionParaParar);
-						cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado-1);
-						AppMusicControlador.getInstancia().play(cancionParaReproducir);
-					}
+				int indiceSeleccionado = tablaCanciones.getSelectedRow();
+				Cancion cancionParaParar;
+				Cancion cancionParaReproducir;
+				// Comprobar si es el primero, indiceSeleccionado == 0
+				// Si es la primera, cambiar a la ultima
+				if (indiceSeleccionado == 0) {
+					int aux = listaCancionesSeleccionada.size() - 1;
+					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+					AppMusicControlador.getInstancia().play(cancionParaParar);
+					AppMusicControlador.getInstancia().stop(cancionParaParar);
+					cancionParaReproducir = listaCancionesSeleccionada.get(aux);
+					AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				} else {
+					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+					AppMusicControlador.getInstancia().play(cancionParaParar);
+					AppMusicControlador.getInstancia().stop(cancionParaParar);
+					cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado - 1);
+					AppMusicControlador.getInstancia().play(cancionParaReproducir);
 				}
+			}
 		});
 		btnBackSong.setContentAreaFilled(false);
 		btnBackSong.setBorderPainted(false);
@@ -500,7 +480,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_btnBackSong.gridx = 3;
 		gbc_btnBackSong.gridy = 6;
 		panelBuscar.add(btnBackSong, gbc_btnBackSong);
-		
+
 		JButton btnStop = new JButton("");
 		btnStop.setContentAreaFilled(false);
 		btnStop.setBorderPainted(false);
@@ -517,33 +497,31 @@ public class VentanaExplorar extends JDialog {
 		gbc_btnStop.gridx = 4;
 		gbc_btnStop.gridy = 6;
 		panelBuscar.add(btnStop, gbc_btnStop);
-		
+
 		JButton btnNextSong = new JButton("");
 		btnNextSong.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
 				Cancion cancionParaParar;
 				Cancion cancionParaReproducir;
-				//Comprobar si es el último, indiceSeleccionado == size - 1
-				//System.out.println(indiceSeleccionado);
-				//System.out.println(listaCancionesSeleccionada.size()-1);
+				// Comprobar si es el último, indiceSeleccionado == size - 1
 				// Si es la ultima cambiar a la primera
-				if(indiceSeleccionado == listaCancionesSeleccionada.size()-1) {
+				if (indiceSeleccionado == listaCancionesSeleccionada.size() - 1) {
 					int aux = 0;
-				    cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-				    AppMusicControlador.getInstancia().play(cancionParaParar);
-				    AppMusicControlador.getInstancia().stop(cancionParaParar);
-				    cancionParaReproducir = listaCancionesSeleccionada.get(aux);
-				    AppMusicControlador.getInstancia().play(cancionParaReproducir);
+					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+					AppMusicControlador.getInstancia().play(cancionParaParar);
+					AppMusicControlador.getInstancia().stop(cancionParaParar);
+					cancionParaReproducir = listaCancionesSeleccionada.get(aux);
+					AppMusicControlador.getInstancia().play(cancionParaReproducir);
 				}
-				
+
 				else {
-				cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-				AppMusicControlador.getInstancia().play(cancionParaParar);
-				AppMusicControlador.getInstancia().stop(cancionParaParar);
-				cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado+1);
-				AppMusicControlador.getInstancia().play(cancionParaReproducir);
+					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+					AppMusicControlador.getInstancia().play(cancionParaParar);
+					AppMusicControlador.getInstancia().stop(cancionParaParar);
+					cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado + 1);
+					AppMusicControlador.getInstancia().play(cancionParaReproducir);
 				}
 			}
 		});

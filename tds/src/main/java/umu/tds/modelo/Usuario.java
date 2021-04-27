@@ -18,7 +18,6 @@ public class Usuario {
 	private String login;
 	private String password;
 	private LocalDate fecha;
-	// TODO Lista que contiene listas de canciones
 	private List<ListaCanciones> listaPlayList;
 
 	private boolean esPremium;
@@ -121,7 +120,6 @@ public class Usuario {
 		return this.listaPlayList.get(0);
 	}
 
-	// TODO De aqui adelante es nuestro codigo
 
 	public void addListaCanciones(ListaCanciones c) {
 		listaPlayList.add(c);
@@ -144,20 +142,10 @@ public class Usuario {
 	}
 
 	public void registrarListaCanciones(ListaCanciones lista) {
-		/*
-		LinkedList<ListaCanciones> l = (LinkedList<ListaCanciones>) this.getListaPlayList();
-		l.addLast(lista);
-		this.setListaCanciones(l);*/
 		AdaptadorListaCancionesTDS.getUnicaInstancia().registrarListaCanciones(lista, this);
 	}
 
 	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
-		/*
-		LinkedList<ListaCanciones> l = (LinkedList<ListaCanciones>) this.getListaPlayList();
-		ListaCanciones ultima = new ListaCanciones(nombre, lista);
-		l.addLast(ultima);
-		this.setListaCanciones(l);
-		 */
 		AdaptadorListaCancionesTDS.getUnicaInstancia().registrarPlayListConVariasCanciones(nombre, lista, this);
 
 	}
@@ -181,16 +169,13 @@ public class Usuario {
 	}
 
 	public ListaCanciones eliminarPrimera(ListaCanciones lCanciones) {
-		System.err.println("ANTEES: " + lCanciones.getCanciones().size());
 		List<Cancion> aux = lCanciones.getCanciones();
 		aux.remove(0);
 		lCanciones.setCanciones(aux);
-		System.err.println("DESPUES: " + lCanciones.getCanciones().size());
 		return lCanciones;
 	}
 
 	public void modificarListaCanciones(ListaCanciones lista) {
-		// TODO
 		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(lista);
 	}
 
