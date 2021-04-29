@@ -4,7 +4,7 @@
 - Tests --> JUnit 
 - Añadir canciones y eliminar de playlist en cualquier momento
 - Se implementarán test unitarios para, al menos, una clase del modelo
-- NO SE PUEDE ELIMINAR NI EDITAR 
+
 
 
 -- MEMORIA 
@@ -64,3 +64,4 @@ usuario (canción, interprete y número de veces reproducida).
 - Rellenar la playlist de nueva lista cuando se vaya a editar
 
 - Una vez registrado un usuario podrá, en cualquier momento, activar su cuenta como “Premium”, generar un archivo PDF con las playlists y reproducir las 10 canciones más escuchadas en toda la aplicación.
+- NO SE PUEDE ELIMINAR NI EDITAR RECIENTES

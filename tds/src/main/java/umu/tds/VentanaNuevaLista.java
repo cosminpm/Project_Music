@@ -326,24 +326,35 @@ public class VentanaNuevaLista extends JDialog {
 		 * gbc_btnCrear.insets = new Insets(0, 0, 5, 5); gbc_btnCrear.gridx = 11;
 		 * gbc_btnCrear.gridy = 3; getContentPane().add(btnCrear, gbc_btnCrear);;
 		 */
+		JButton btnDefinitivo = new JButton("CREAR");
 		String nombrePlaylist = txtNombreLista.getText();
 		JButton btnEliminar = new JButton("ELIMINAR");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				AppMusicControlador.getInstancia().eliminarPlayList(nombrePlaylist);
+				JOptionPane.showMessageDialog(btnEliminar, "Playlist:" + nombrePlaylist+" eliminada con exito",
+						"Error, Recientes", JOptionPane.ERROR_MESSAGE, null);
+				panelCrearLista.setVisible(false);
+				btnDefinitivo.setVisible(true);
 			}
 		});
 		// Boton exterior
-		JButton btnDefinitivo = new JButton("CREAR");
+		
 		// Boton que esta dentro del panel
 		JButton btnCrear = new JButton("CREAR");
 		btnDefinitivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				btnDefinitivo.setVisible(false);
 				// Opcion SI
+				btnCrear.setText("CREAR");
 				String nombrePlaylist = txtNombreLista.getText();
-				if (AppMusicControlador.getInstancia().comprobarListaYaExiste(nombrePlaylist)) {
-
+				if (nombrePlaylist.equals("Recientes")) {
+					JOptionPane.showMessageDialog(btnDefinitivo, "NO se puede editar ni eliminar Recientes!",
+							"Error, Recientes", JOptionPane.ERROR_MESSAGE, null);
+				}
+				
+				
+				else if (AppMusicControlador.getInstancia().comprobarListaYaExiste(nombrePlaylist)) {
+					btnDefinitivo.setVisible(false);
 					// MENSAJE DE NOMBRE YA EXISTE
 					JOptionPane.showMessageDialog(btnDefinitivo, "Nombre ya existente, podras editar la PlayList",
 							"La lista con ese nombre ya existe!", JOptionPane.INFORMATION_MESSAGE, null);
@@ -364,6 +375,7 @@ public class VentanaNuevaLista extends JDialog {
 					}
 
 				} else {
+					btnDefinitivo.setVisible(false);
 					panelCrearLista.setVisible(true);
 					btnEliminar.setVisible(false);
 				}
