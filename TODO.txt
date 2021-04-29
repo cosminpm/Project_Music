@@ -4,6 +4,8 @@
 - Tests --> JUnit 
 - Añadir canciones y eliminar de playlist en cualquier momento
 - Se implementarán test unitarios para, al menos, una clase del modelo
+- NO SE PUEDE ELIMINAR NI EDITAR 
+
 
 -- MEMORIA 
 

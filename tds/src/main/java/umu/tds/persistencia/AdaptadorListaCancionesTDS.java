@@ -74,7 +74,6 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 
 		System.out.println("REGISTRAR LISTA1: " + usuarioActual.getListaPlayList().size());
 		System.err.println("Print: registrarListaCancion FINAL");
-		
 
 		System.err.println(l.size());
 		for (ListaCanciones listaCanciones : l) {
@@ -85,8 +84,8 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 	public void borrarListaCanciones(ListaCanciones lista) {
 		// No se comprueban restricciones de integridad con Venta
 		Entidad eLista = servPersistencia.recuperarEntidad(lista.getCodigo());
-
 		servPersistencia.borrarEntidad(eLista);
+
 	}
 
 	public void modificarListaCanciones(ListaCanciones lista) {

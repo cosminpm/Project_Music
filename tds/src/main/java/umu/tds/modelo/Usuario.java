@@ -206,17 +206,14 @@ public class Usuario {
 		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(lista);
 	}
 	
-	
-	
-	
-	
+
 	public void eliminarPlayList(String nombre) {
 		ListaCanciones l = this.getListaEnConcreto(nombre);
+		listaPlayList.remove(l);
 		// Eliminamos la lista de las listas del usuario
-		List<ListaCanciones> aux = this.getListaPlayList();
-		aux.remove(l);
-		this.setListaCanciones(aux);
 		AdaptadorListaCancionesTDS.getUnicaInstancia().borrarListaCanciones(l);
+		
+				
 	}
 	
 	

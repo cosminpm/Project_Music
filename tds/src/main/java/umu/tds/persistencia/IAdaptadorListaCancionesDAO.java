@@ -13,4 +13,5 @@ public interface IAdaptadorListaCancionesDAO {
 	public void modificarListaCanciones(ListaCanciones lista);
 	public ListaCanciones recuperarListaCanciones(int codigo);
 	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista, Usuario usuarioActual);
+	
 }

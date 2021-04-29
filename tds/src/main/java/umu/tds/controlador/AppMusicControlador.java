@@ -17,6 +17,8 @@ import java.time.LocalDate;
 import java.util.*;
 
 import umu.tds.persistencia.AdaptadorCancionTDS;
+import umu.tds.persistencia.AdaptadorListaCancionesTDS;
+import umu.tds.persistencia.AdaptadorUsuarioTDS;
 import umu.tds.persistencia.DAOException;
 import umu.tds.persistencia.FactoriaDAO;
 import umu.tds.modelo.Cancion;
@@ -369,6 +371,7 @@ public class AppMusicControlador implements CancionesListener {
 	
 	public void eliminarPlayList(String nombre) {
 		usuarioActual.eliminarPlayList(nombre);
+		AdaptadorUsuarioTDS.getUnicaInstancia().modificarUsuario(usuarioActual);
 	}
 	
 }

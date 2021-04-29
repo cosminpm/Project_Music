@@ -8,7 +8,6 @@
     <fullyQualifiedTypeName name="umu.tds.modelo.CatalogoUsuarios"/>
     <fullyQualifiedTypeName name="umu.tds.modelo.CatalogoCanciones"/>
     <fullyQualifiedTypeName name="umu.tds.VentanaMisListas"/>
-    <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorUsuarioTDS"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="umu.tds.modelo.ListaCanciones"/>
     <fullyQualifiedTypeName name="javax.print.attribute.standard.ReferenceUriSchemesSupported"/>
@@ -23,6 +22,8 @@
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="umu.tds.GUILogin"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="umu.tds.controlador.AppMusicControlador"/>
     <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorListaCancionesTDS"/>
+    <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorUsuarioTDS"/>
 </qualifiedTypeNameHistroy>
