@@ -409,16 +409,16 @@ public class VentanaMasReproducida extends JDialog {
 				// Si es la primera, cambiar a la ultima
 				if (indiceSeleccionado == 0) {
 					int aux = listaCanciones.size() - 1;
-					cancionParaParar = listaCanciones.get(indiceSeleccionado);
+					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
 					AppMusicControlador.getInstancia().play(cancionParaParar);
 					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCanciones.get(aux);
+					cancionParaReproducir = listaCancionesSeleccionada.get(aux);
 					AppMusicControlador.getInstancia().play(cancionParaReproducir);
 				} else {
-					cancionParaParar = listaCanciones.get(indiceSeleccionado);
+					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
 					AppMusicControlador.getInstancia().play(cancionParaParar);
 					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCanciones.get(indiceSeleccionado - 1);
+					cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado - 1);
 					AppMusicControlador.getInstancia().play(cancionParaReproducir);
 				}
 			}

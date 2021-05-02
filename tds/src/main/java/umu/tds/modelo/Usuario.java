@@ -123,7 +123,6 @@ public class Usuario {
 
 	public void setEsPremium(boolean p) {
 		this.esPremium = p;
-
 	}
 
 	public boolean getEsPremium() {

@@ -305,7 +305,6 @@ public class VentanaMasReproducida extends JDialog {
 		btnPlay.setBorderPainted(false);
 
 		JButton btnBack = new JButton("");
-
 		GridBagConstraints gbc_btnBack = new GridBagConstraints();
 		gbc_btnBack.insets = new Insets(0, 0, 0, 5);
 		gbc_btnBack.gridx = 12;
@@ -372,55 +371,6 @@ public class VentanaMasReproducida extends JDialog {
 		
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				int indiceSeleccionado = tablaMasReproducidas.getSelectedRow();
-				Cancion cancionParaParar;
-				Cancion cancionParaReproducir;
-				// Comprobar si es el último, indiceSeleccionado == size - 1
-				// Si es la ultima cambiar a la primera
-				if (indiceSeleccionado == listaCanciones.size() - 1) {
-					int aux = 0;
-					cancionParaParar = listaCanciones.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCanciones.get(aux);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				}
-
-				else {
-					cancionParaParar = listaCanciones.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCanciones.get(indiceSeleccionado + 1);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				}
-			}
-		});
-		
-		
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				
-				int indiceSeleccionado = tablaMasReproducidas.getSelectedRow();
-				Cancion cancionParaParar;
-				Cancion cancionParaReproducir;
-				// Comprobar si es el primero, indiceSeleccionado == 0
-				// Si es la primera, cambiar a la ultima
-				if (indiceSeleccionado == 0) {
-					int aux = listaCanciones.size() - 1;
-					cancionParaParar = listaCanciones.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCanciones.get(aux);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				} else {
-					cancionParaParar = listaCanciones.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCanciones.get(indiceSeleccionado - 1);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				}
 			}
 		});
 	}
