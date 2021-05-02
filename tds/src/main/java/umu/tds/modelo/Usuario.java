@@ -3,8 +3,6 @@ package umu.tds.modelo;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
-import umu.tds.persistencia.AdaptadorListaCancionesTDS;
-import umu.tds.persistencia.AdaptadorUsuarioTDS;
 
 public class Usuario {
 

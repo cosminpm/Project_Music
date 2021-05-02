@@ -32,6 +32,7 @@ import javax.swing.UIManager;
 
 public class GUILogin {
 
+	
 	private JFrame frame;
 	private JTextField textUsuario;
 	private JPasswordField textContrasenia;
@@ -74,11 +75,6 @@ public class GUILogin {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JLabel lblNewLabel = new JLabel("Bienvenidos a AppMusic");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		frame.getContentPane().add(lblNewLabel, BorderLayout.NORTH);
-
 		JPanel panelCentro = new JPanel();
 		frame.getContentPane().add(panelCentro, BorderLayout.CENTER);
 		panelCentro.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
@@ -88,16 +84,26 @@ public class GUILogin {
 		panelCentro.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] { 20, 0, 0, 0, 20, 0 };
-		gbl_panel.rowHeights = new int[] { 20, 0, 0, 0, 0 };
-		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
-		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.rowHeights = new int[] { 60, 0, 0, 0, 0, 0 };
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panel.setLayout(gbl_panel);
+		
+				JLabel lblNewLabel = new JLabel("Bienvenidos a AppMusic");
+				GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+				gbc_lblNewLabel.anchor = GridBagConstraints.SOUTH;
+				gbc_lblNewLabel.gridwidth = 4;
+				gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+				gbc_lblNewLabel.gridx = 1;
+				gbc_lblNewLabel.gridy = 0;
+				panel.add(lblNewLabel, gbc_lblNewLabel);
+				lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
+				lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
 		JLabel label1 = new JLabel("Usuario");
 		label1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_label1 = new GridBagConstraints();
 		gbc_label1.insets = new Insets(0, 0, 5, 5);
-		gbc_label1.anchor = GridBagConstraints.EAST;
 		gbc_label1.gridx = 1;
 		gbc_label1.gridy = 1;
 		panel.add(label1, gbc_label1);
@@ -115,7 +121,6 @@ public class GUILogin {
 		JLabel label2 = new JLabel("Contrase\u00F1a");
 		label2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_label2 = new GridBagConstraints();
-		gbc_label2.anchor = GridBagConstraints.EAST;
 		gbc_label2.insets = new Insets(0, 0, 5, 5);
 		gbc_label2.gridx = 1;
 		gbc_label2.gridy = 2;
@@ -160,8 +165,9 @@ public class GUILogin {
 			}
 		});
 		GridBagConstraints gbc_botonLogin = new GridBagConstraints();
+		gbc_botonLogin.fill = GridBagConstraints.HORIZONTAL;
 		gbc_botonLogin.anchor = GridBagConstraints.BASELINE;
-		gbc_botonLogin.insets = new Insets(0, 0, 0, 5);
+		gbc_botonLogin.insets = new Insets(0, 0, 5, 5);
 		gbc_botonLogin.gridx = 2;
 		gbc_botonLogin.gridy = 3;
 		panel.add(botonLogin, gbc_botonLogin);
@@ -173,13 +179,14 @@ public class GUILogin {
 				VentanaRegistro ventanaRegistro = new VentanaRegistro(frame);
 				ventanaRegistro.setVisible(true);
 				frame.setVisible(false);
-
+				
 			}
 
 		});
+		
 		GridBagConstraints gbc_botonRegistro = new GridBagConstraints();
-		gbc_botonRegistro.anchor = GridBagConstraints.EAST;
-		gbc_botonRegistro.insets = new Insets(0, 0, 0, 5);
+		gbc_botonRegistro.fill = GridBagConstraints.HORIZONTAL;
+		gbc_botonRegistro.insets = new Insets(0, 0, 5, 5);
 		gbc_botonRegistro.gridx = 3;
 		gbc_botonRegistro.gridy = 3;
 		panel.add(botonRegistro, gbc_botonRegistro);

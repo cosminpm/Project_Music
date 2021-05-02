@@ -37,6 +37,7 @@ import umu.tds.persistencia.AdaptadorUsuarioTDS;
 
 import javax.swing.JScrollPane;
 import pulsador.Luz;
+import java.awt.Dimension;
 
 public class VentanaNuevaLista extends JDialog {
 	private JTextField txtNombreLista;
@@ -68,10 +69,9 @@ public class VentanaNuevaLista extends JDialog {
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 40, 189, 10, 10, 30, 30, 30, 30, 0, 0, 10, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 40, 189, 10, 10, 30, 30, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 10, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0,
-				0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		getContentPane().setLayout(gridBagLayout);
@@ -101,9 +101,17 @@ public class VentanaNuevaLista extends JDialog {
 		});
 		GridBagConstraints gbc_luz = new GridBagConstraints();
 		gbc_luz.insets = new Insets(0, 0, 5, 5);
-		gbc_luz.gridx = 6;
+		gbc_luz.gridx = 4;
 		gbc_luz.gridy = 1;
 		getContentPane().add(luz, gbc_luz);
+
+		JButton btnSALIR = new JButton("SALIR");
+		btnSALIR.setPreferredSize(new Dimension(123, 23));
+		btnSALIR.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
 
 		JButton btnMejorarCuenta = new JButton("MEJORAR CUENTA");
 		btnMejorarCuenta.addActionListener(new ActionListener() {
@@ -114,7 +122,6 @@ public class VentanaNuevaLista extends JDialog {
 					VentanaPremium ventanaPremium = new VentanaPremium();
 					ventanaPremium.setVisible(true);
 					dispose();
-					
 
 				}
 
@@ -127,26 +134,19 @@ public class VentanaNuevaLista extends JDialog {
 		btnMejorarCuenta.setForeground(Color.WHITE);
 		btnMejorarCuenta.setBackground(Color.BLACK);
 		GridBagConstraints gbc_btnMejorarCuenta = new GridBagConstraints();
-		gbc_btnMejorarCuenta.anchor = GridBagConstraints.EAST;
+		gbc_btnMejorarCuenta.anchor = GridBagConstraints.WEST;
 		gbc_btnMejorarCuenta.insets = new Insets(0, 0, 5, 5);
-		gbc_btnMejorarCuenta.gridx = 8;
+		gbc_btnMejorarCuenta.gridx = 5;
 		gbc_btnMejorarCuenta.gridy = 1;
 		getContentPane().add(btnMejorarCuenta, gbc_btnMejorarCuenta);
-
-		JButton btnSALIR = new JButton("SALIR");
-		btnSALIR.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
-			}
-		});
 
 		btnSALIR.setForeground(Color.WHITE);
 		btnSALIR.setBackground(Color.BLACK);
 		btnSALIR.setBorderPainted(false);
 		GridBagConstraints gbc_btnSALIR = new GridBagConstraints();
-		gbc_btnSALIR.anchor = GridBagConstraints.EAST;
+		gbc_btnSALIR.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnSALIR.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSALIR.gridx = 9;
+		gbc_btnSALIR.gridx = 7;
 		gbc_btnSALIR.gridy = 1;
 		getContentPane().add(btnSALIR, gbc_btnSALIR);
 
@@ -303,36 +303,15 @@ public class VentanaNuevaLista extends JDialog {
 		gbc_txtNombreLista.gridy = 3;
 		getContentPane().add(txtNombreLista, gbc_txtNombreLista);
 		txtNombreLista.setColumns(10);
-		/*
-		 * final JButton btnCrear = new JButton("CREAR");
-		 * btnCrear.setBackground(Color.GRAY); btnCrear.setForeground(Color.WHITE);
-		 * btnCrear.addActionListener(new ActionListener() { public void
-		 * actionPerformed(ActionEvent arg0) {
-		 * 
-		 * System.err.println("TODAS LISTAS"); //List<ListaCanciones> listaPlaylist =
-		 * AdaptadorListaCancionesTDS.getUnicaInstancia().recuperarTodasListasCanciones(
-		 * ); List<ListaCanciones> listaPlaylist =
-		 * AppMusicControlador.getInstancia().recuperarTodasListasCanciones(); for
-		 * (ListaCanciones listaCanciones : listaPlaylist) {
-		 * System.err.println(listaCanciones.getNombre()); }
-		 * System.err.println("LISTAS USUARIO"); List<ListaCanciones> listaPlaylist2 =
-		 * usuario.getListaPlayList(); for (ListaCanciones listaCanciones :
-		 * listaPlaylist2) { System.err.println(listaCanciones.getNombre()); }
-		 * //JOptionPane.showConfirmDialog(btnCrear, "¿Crear nueva Lista?");
-		 * 
-		 * } } )
-		 * 
-		 * GridBagConstraints gbc_btnCrear = new GridBagConstraints();
-		 * gbc_btnCrear.insets = new Insets(0, 0, 5, 5); gbc_btnCrear.gridx = 11;
-		 * gbc_btnCrear.gridy = 3; getContentPane().add(btnCrear, gbc_btnCrear);;
-		 */
+
 		JButton btnDefinitivo = new JButton("CREAR");
 		String nombrePlaylist = txtNombreLista.getText();
 		JButton btnEliminar = new JButton("ELIMINAR");
+		btnEliminar.setPreferredSize(new Dimension(123, 23));
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				AppMusicControlador.getInstancia().eliminarPlayList(nombrePlaylist);
-				JOptionPane.showMessageDialog(btnEliminar, "Playlist:" + nombrePlaylist+" eliminada con exito",
+				JOptionPane.showMessageDialog(btnEliminar, "Playlist:" + nombrePlaylist + " eliminada con exito",
 						"Error, Recientes", JOptionPane.ERROR_MESSAGE, null);
 				panelCrearLista.setVisible(false);
 				btnDefinitivo.setVisible(true);
@@ -341,6 +320,9 @@ public class VentanaNuevaLista extends JDialog {
 		// Boton exterior
 		// Boton que esta dentro del panel
 		JButton btnCrear = new JButton("CREAR");
+		btnCrear.setPreferredSize(new Dimension(123, 23));
+
+		btnDefinitivo.setPreferredSize(new Dimension(123, 23));
 		btnDefinitivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Opcion SI
@@ -350,11 +332,10 @@ public class VentanaNuevaLista extends JDialog {
 					JOptionPane.showMessageDialog(btnDefinitivo, "NO se puede editar ni eliminar Recientes!",
 							"Error, Recientes", JOptionPane.ERROR_MESSAGE, null);
 				}
-				
-				
+
 				else if (AppMusicControlador.getInstancia().comprobarListaYaExiste(nombrePlaylist)) {
 					btnDefinitivo.setVisible(false);
-					
+
 					// MENSAJE DE NOMBRE YA EXISTE
 					JOptionPane.showMessageDialog(btnDefinitivo, "Nombre ya existente, podras editar la PlayList",
 							"La lista con ese nombre ya existe!", JOptionPane.INFORMATION_MESSAGE, null);
@@ -363,11 +344,12 @@ public class VentanaNuevaLista extends JDialog {
 					txtNombreLista.setEditable(false);
 					// El nombre del boton se cambia a editar
 					btnCrear.setText("EDITAR");
-					
+
 					// Para rellenar la tabla de listas
 					String auxAutor = "";
 					// Obtiene la lista de listas
-					conjuntoCancionesAniadidas.addAll(AppMusicControlador.getInstancia().getListEnConcreto(nombrePlaylist));
+					conjuntoCancionesAniadidas
+							.addAll(AppMusicControlador.getInstancia().getListEnConcreto(nombrePlaylist));
 					for (Cancion c : AppMusicControlador.getInstancia().getListEnConcreto(nombrePlaylist)) {
 						auxAutor = AppMusicControlador.getInstancia().printAutoresNice(c.getListaInterpretes());
 						((DefaultTableModel) tableCancionesAniadidas.getModel())
@@ -383,34 +365,32 @@ public class VentanaNuevaLista extends JDialog {
 			}
 		});
 		GridBagConstraints gbc_btnDefinitivo = new GridBagConstraints();
+		gbc_btnDefinitivo.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnDefinitivo.insets = new Insets(0, 0, 5, 5);
-		gbc_btnDefinitivo.gridx = 8;
+		gbc_btnDefinitivo.gridx = 7;
 		gbc_btnDefinitivo.gridy = 3;
 		getContentPane().add(btnDefinitivo, gbc_btnDefinitivo);
 
 		panelCrearLista.setBackground(Color.WHITE);
 		GridBagConstraints gbc_panelCrearLista = new GridBagConstraints();
 		gbc_panelCrearLista.gridheight = 10;
-		gbc_panelCrearLista.gridwidth = 6;
+		gbc_panelCrearLista.gridwidth = 3;
 		gbc_panelCrearLista.insets = new Insets(0, 0, 0, 5);
 		gbc_panelCrearLista.fill = GridBagConstraints.BOTH;
 		gbc_panelCrearLista.gridx = 5;
 		gbc_panelCrearLista.gridy = 4;
 		getContentPane().add(panelCrearLista, gbc_panelCrearLista);
 		GridBagLayout gbl_panelCrearLista = new GridBagLayout();
-		gbl_panelCrearLista.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gbl_panelCrearLista.rowHeights = new int[] { 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gbl_panelCrearLista.columnWeights = new double[] { 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0,
-				Double.MIN_VALUE };
-		gbl_panelCrearLista.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_panelCrearLista.columnWidths = new int[] { 0, 0, 0, 0, 0, 0 };
+		gbl_panelCrearLista.rowHeights = new int[] { 0, 2, 0, 0, 0, 0, 40, 0 };
+		gbl_panelCrearLista.columnWeights = new double[] { 1.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
+		gbl_panelCrearLista.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
 		panelCrearLista.setLayout(gbl_panelCrearLista);
 
 		txtInterprete = new JTextField();
 		txtInterprete.setText("INTERPRETE");
 		GridBagConstraints gbc_txtInterprete = new GridBagConstraints();
 		gbc_txtInterprete.anchor = GridBagConstraints.NORTH;
-		gbc_txtInterprete.gridwidth = 3;
 		gbc_txtInterprete.insets = new Insets(0, 0, 5, 5);
 		gbc_txtInterprete.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtInterprete.gridx = 0;
@@ -428,10 +408,9 @@ public class VentanaNuevaLista extends JDialog {
 		txtTitulo.setText("TITULO");
 		GridBagConstraints gbc_txtTitulo = new GridBagConstraints();
 		gbc_txtTitulo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtTitulo.gridwidth = 2;
 		gbc_txtTitulo.anchor = GridBagConstraints.NORTH;
 		gbc_txtTitulo.insets = new Insets(0, 0, 5, 5);
-		gbc_txtTitulo.gridx = 4;
+		gbc_txtTitulo.gridx = 1;
 		gbc_txtTitulo.gridy = 0;
 		panelCrearLista.add(txtTitulo, gbc_txtTitulo);
 		txtTitulo.setColumns(10);
@@ -440,7 +419,7 @@ public class VentanaNuevaLista extends JDialog {
 		gbc_comboBoxEstilo.anchor = GridBagConstraints.NORTH;
 		gbc_comboBoxEstilo.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBoxEstilo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBoxEstilo.gridx = 6;
+		gbc_comboBoxEstilo.gridx = 2;
 		gbc_comboBoxEstilo.gridy = 0;
 		panelCrearLista.add(comboBoxEstilo, gbc_comboBoxEstilo);
 
@@ -488,18 +467,19 @@ public class VentanaNuevaLista extends JDialog {
 			}
 		});
 		GridBagConstraints gbc_btnBuscar = new GridBagConstraints();
+		gbc_btnBuscar.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnBuscar.anchor = GridBagConstraints.NORTH;
-		gbc_btnBuscar.gridwidth = 2;
 		gbc_btnBuscar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnBuscar.gridx = 7;
+		gbc_btnBuscar.gridx = 3;
 		gbc_btnBuscar.gridy = 0;
 		panelCrearLista.add(btnBuscar, gbc_btnBuscar);
 
 		JLabel lblPlaylist = new JLabel("PLAYLIST");
 		GridBagConstraints gbc_lblPlaylist = new GridBagConstraints();
+		gbc_lblPlaylist.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblPlaylist.anchor = GridBagConstraints.SOUTH;
 		gbc_lblPlaylist.insets = new Insets(0, 0, 5, 5);
-		gbc_lblPlaylist.gridx = 8;
+		gbc_lblPlaylist.gridx = 3;
 		gbc_lblPlaylist.gridy = 1;
 		panelCrearLista.add(lblPlaylist, gbc_lblPlaylist);
 
@@ -507,7 +487,7 @@ public class VentanaNuevaLista extends JDialog {
 		scrollPaneSinAniadir.setBackground(Color.WHITE);
 		GridBagConstraints gbc_scrollPaneSinAniadir = new GridBagConstraints();
 		gbc_scrollPaneSinAniadir.gridheight = 4;
-		gbc_scrollPaneSinAniadir.gridwidth = 5;
+		gbc_scrollPaneSinAniadir.gridwidth = 2;
 		gbc_scrollPaneSinAniadir.insets = new Insets(0, 0, 5, 5);
 		gbc_scrollPaneSinAniadir.fill = GridBagConstraints.BOTH;
 		gbc_scrollPaneSinAniadir.gridx = 0;
@@ -523,11 +503,10 @@ public class VentanaNuevaLista extends JDialog {
 
 		JScrollPane scrollPaneAniadidas = new JScrollPane();
 		GridBagConstraints gbc_scrollPaneAniadidas = new GridBagConstraints();
-		gbc_scrollPaneAniadidas.gridwidth = 3;
 		gbc_scrollPaneAniadidas.gridheight = 4;
 		gbc_scrollPaneAniadidas.insets = new Insets(0, 0, 5, 5);
 		gbc_scrollPaneAniadidas.fill = GridBagConstraints.BOTH;
-		gbc_scrollPaneAniadidas.gridx = 7;
+		gbc_scrollPaneAniadidas.gridx = 3;
 		gbc_scrollPaneAniadidas.gridy = 2;
 		panelCrearLista.add(scrollPaneAniadidas, gbc_scrollPaneAniadidas);
 
@@ -597,7 +576,7 @@ public class VentanaNuevaLista extends JDialog {
 					} else {
 						JOptionPane.showMessageDialog(btnDefinitivo, "Lista Modificada", "Se ha editado la lista",
 								JOptionPane.INFORMATION_MESSAGE, null);
-						//Hacer cambios en la lista
+						// Hacer cambios en la lista
 						List<Cancion> l = AppMusicControlador.getInstancia().setToList(conjuntoCancionesAniadidas);
 						AppMusicControlador.getInstancia().editarPlayList(nombrePlaylist, l);
 					}
@@ -615,25 +594,24 @@ public class VentanaNuevaLista extends JDialog {
 
 		});
 		GridBagConstraints gbc_btnCrear = new GridBagConstraints();
-		gbc_btnCrear.anchor = GridBagConstraints.EAST;
+		gbc_btnCrear.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnCrear.insets = new Insets(0, 0, 5, 0);
-		gbc_btnCrear.gridx = 10;
+		gbc_btnCrear.gridx = 4;
 		gbc_btnCrear.gridy = 2;
 		panelCrearLista.add(btnCrear, gbc_btnCrear);
 
 		GridBagConstraints gbc_btnEliminar = new GridBagConstraints();
-		gbc_btnEliminar.anchor = GridBagConstraints.EAST;
+		gbc_btnEliminar.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnEliminar.insets = new Insets(0, 0, 5, 0);
-		gbc_btnEliminar.gridx = 10;
+		gbc_btnEliminar.gridx = 4;
 		gbc_btnEliminar.gridy = 3;
 		panelCrearLista.add(btnEliminar, gbc_btnEliminar);
 		btnSendBack.setForeground(Color.WHITE);
 		btnSendBack.setBackground(Color.GRAY);
 		GridBagConstraints gbc_btnSendBack = new GridBagConstraints();
 		gbc_btnSendBack.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnSendBack.gridwidth = 2;
 		gbc_btnSendBack.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSendBack.gridx = 5;
+		gbc_btnSendBack.gridx = 2;
 		gbc_btnSendBack.gridy = 4;
 		panelCrearLista.add(btnSendBack, gbc_btnSendBack);
 
@@ -693,21 +671,16 @@ public class VentanaNuevaLista extends JDialog {
 		btnSendToList.setBackground(Color.GRAY);
 		GridBagConstraints gbc_btnSendToList = new GridBagConstraints();
 		gbc_btnSendToList.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnSendToList.gridwidth = 2;
 		gbc_btnSendToList.anchor = GridBagConstraints.NORTH;
 		gbc_btnSendToList.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSendToList.gridx = 5;
+		gbc_btnSendToList.gridx = 2;
 		gbc_btnSendToList.gridy = 5;
 		panelCrearLista.add(btnSendToList, gbc_btnSendToList);
-		
-		
-		// TODO Ver esto posible fallo
-		System.out.println(usuario.getEsPremium());
-		if(!usuario.getEsPremium()){
+
+		if (!usuario.getEsPremium()) {
 			btnMasReproducidas.setVisible(false);
 			lblMasReproducidas.setVisible(false);
-		}
-		else {
+		} else {
 			btnMasReproducidas.setVisible(true);
 			lblMasReproducidas.setVisible(true);
 		}

@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Eliminar"/>
+		<item key="selection" value="lista"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="lista"/>
+			<item value="lblmas"/>
+			<item value="btnmas"/>
+			<item value="setPr"/>
+			<item value="setEs"/>
+			<item value="setEs "/>
+			<item value="get"/>
+			<item value="usuarioActual"/>
+			<item value="usuario"/>
+			<item value="btnplay"/>
+			<item value="registrarPla"/>
+			<item value="registrar"/>
+			<item value="aniadirReci"/>
+			<item value="aniadir"/>
 			<item value="Eliminar"/>
-			<item value="getListaEn"/>
-			<item value="fechaRAW"/>
-			<item value="dateFecha"/>
-			<item value="tipoDe"/>
-			<item value="rmRepetidas"/>
-			<item value="recuperarUsuario"/>
-			<item value="listto"/>
-			<item value="getListaEnConcreto"/>
-			<item value="//adaptador"/>
-			<item value="btnPlay"/>
-			<item value="recientes"/>
-			<item value="editar"/>
-			<item value="cancionesAniadidas"/>
-			<item value="&gt;&gt;"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="848"/>
-		<item key="DIALOG_Y_ORIGIN" value="290"/>
+		<item key="DIALOG_X_ORIGIN" value="1006"/>
+		<item key="DIALOG_Y_ORIGIN" value="193"/>
 		<item key="DIALOG_WIDTH" value="755"/>
 		<item key="DIALOG_HEIGHT" value="595"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

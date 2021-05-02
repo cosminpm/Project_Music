@@ -35,8 +35,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.FileNotFoundException;
 
-
 import pulsador.Luz;
+import java.awt.Dimension;
 
 public class VentanaMisListas extends JDialog {
 	private JTable tablaCanciones;
@@ -61,12 +61,10 @@ public class VentanaMisListas extends JDialog {
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 10, 189, 10, 10, 30, 30, 30, 30, 0, 0, 10, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 10, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0,
-				Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gridBagLayout.columnWidths = new int[] { 40, 189, 10, 10, 30, 30, 0, 40, 0 };
+		gridBagLayout.rowHeights = new int[] { 10, 0, 20, 0, 0, 0, 0, 0, 0, 40, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
 		getContentPane().setLayout(gridBagLayout);
 
 		Usuario usuario = AppMusicControlador.getInstancia().getUsuarioActual();
@@ -93,43 +91,19 @@ public class VentanaMisListas extends JDialog {
 				}
 			}
 		});
-		
-		JButton btnGenerarPDF = new JButton("GENERAR PDF");
-		btnGenerarPDF.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				if(usuario.getEsPremium()) {
-					try {
-						try {
-							AppMusicControlador.getInstancia().generarPDF();
-						} catch (DocumentException e) {
-							e.printStackTrace();
-						}
-					} catch (FileNotFoundException e) {
-						e.printStackTrace();
-					}
-				}
-				else {
-					
-					JOptionPane.showMessageDialog(btnGenerarPDF, "No eres usuario premium",
-							"Funcionalidad no accesible", JOptionPane.ERROR_MESSAGE, null);
-					
-				}
-			}
-		});
-		btnGenerarPDF.setForeground(Color.WHITE);
-		btnGenerarPDF.setBorderPainted(false);
-		btnGenerarPDF.setBackground(Color.BLACK);
-		GridBagConstraints gbc_btnGenerarPDF = new GridBagConstraints();
-		gbc_btnGenerarPDF.insets = new Insets(0, 0, 5, 5);
-		gbc_btnGenerarPDF.gridx = 5;
-		gbc_btnGenerarPDF.gridy = 1;
-		getContentPane().add(btnGenerarPDF, gbc_btnGenerarPDF);
 		GridBagConstraints gbc_luz = new GridBagConstraints();
 		gbc_luz.insets = new Insets(0, 0, 5, 5);
-		gbc_luz.gridx = 7;
+		gbc_luz.gridx = 4;
 		gbc_luz.gridy = 1;
 		getContentPane().add(luz, gbc_luz);
+
+		JButton btnSALIR = new JButton("SALIR");
+		btnSALIR.setPreferredSize(new Dimension(123, 23));
+		btnSALIR.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
 
 		JButton btnMejorarCuenta = new JButton("MEJORAR CUENTA");
 		btnMejorarCuenta.addActionListener(new ActionListener() {
@@ -140,7 +114,6 @@ public class VentanaMisListas extends JDialog {
 					VentanaPremium ventanaPremium = new VentanaPremium();
 					ventanaPremium.setVisible(true);
 					dispose();
-					
 
 				}
 
@@ -153,25 +126,18 @@ public class VentanaMisListas extends JDialog {
 		btnMejorarCuenta.setForeground(Color.WHITE);
 		btnMejorarCuenta.setBackground(Color.BLACK);
 		GridBagConstraints gbc_btnMejorarCuenta = new GridBagConstraints();
-		gbc_btnMejorarCuenta.anchor = GridBagConstraints.EAST;
+		gbc_btnMejorarCuenta.anchor = GridBagConstraints.WEST;
 		gbc_btnMejorarCuenta.insets = new Insets(0, 0, 5, 5);
-		gbc_btnMejorarCuenta.gridx = 8;
+		gbc_btnMejorarCuenta.gridx = 5;
 		gbc_btnMejorarCuenta.gridy = 1;
 		getContentPane().add(btnMejorarCuenta, gbc_btnMejorarCuenta);
-
-		JButton btnSALIR = new JButton("SALIR");
-		btnSALIR.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
-			}
-		});
 		btnSALIR.setForeground(Color.WHITE);
 		btnSALIR.setBackground(Color.BLACK);
 		btnSALIR.setBorderPainted(false);
 		GridBagConstraints gbc_btnSALIR = new GridBagConstraints();
-		gbc_btnSALIR.anchor = GridBagConstraints.EAST;
+		gbc_btnSALIR.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnSALIR.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSALIR.gridx = 9;
+		gbc_btnSALIR.gridx = 6;
 		gbc_btnSALIR.gridy = 1;
 		getContentPane().add(btnSALIR, gbc_btnSALIR);
 
@@ -187,7 +153,7 @@ public class VentanaMisListas extends JDialog {
 		getContentPane().add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] { 10, 0, 0, 0 };
-		gbl_panel.rowHeights = new int[] { 30, 0, 30, 0, 30, 0, 30, 0, 30, 0, 0, 0, 0, 30, 0 };
+		gbl_panel.rowHeights = new int[] { 30, 0, 30, 0, 30, 0, 30, 0, 30, 0, 0, 0, 0, 40, 0 };
 		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 1.0, Double.MIN_VALUE };
 		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0,
 				Double.MIN_VALUE };
@@ -296,7 +262,7 @@ public class VentanaMisListas extends JDialog {
 		gbc_lblMisListas.gridx = 2;
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
-		
+
 		JButton btnMasReproducidas = new JButton("");
 		btnMasReproducidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -313,7 +279,7 @@ public class VentanaMisListas extends JDialog {
 		gbc_btnMasReproducidas.gridx = 1;
 		gbc_btnMasReproducidas.gridy = 9;
 		panel.add(btnMasReproducidas, gbc_btnMasReproducidas);
-		
+
 		JLabel lblMasReproducidas = new JLabel("MAS REPRODUCIDAS");
 		lblMasReproducidas.setForeground(Color.WHITE);
 		GridBagConstraints gbc_lblMasReproducidas = new GridBagConstraints();
@@ -352,7 +318,6 @@ public class VentanaMisListas extends JDialog {
 
 					}
 				}
-				System.out.println("HE CLICKAO");
 			}
 		});
 		listaPlayList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -386,7 +351,7 @@ public class VentanaMisListas extends JDialog {
 		panelCanciones.setBackground(Color.WHITE);
 		GridBagConstraints gbc_panelCanciones = new GridBagConstraints();
 		gbc_panelCanciones.gridheight = 5;
-		gbc_panelCanciones.gridwidth = 5;
+		gbc_panelCanciones.gridwidth = 2;
 		gbc_panelCanciones.insets = new Insets(0, 0, 5, 5);
 		gbc_panelCanciones.fill = GridBagConstraints.BOTH;
 		gbc_panelCanciones.gridx = 5;
@@ -419,16 +384,47 @@ public class VentanaMisListas extends JDialog {
 		JButton btnPlay = new JButton("");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/*
-				 * // TODO QUITAR try { Thread.sleep(5000); } catch (InterruptedException e) {
-				 * // TODO Auto-generated catch block e.printStackTrace(); }
-				 */
 
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
-				Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
-				AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				if (indiceSeleccionado != -1) {
+					Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
+					AppMusicControlador.getInstancia().play(cancionParaReproducir);
+				}
 			}
 		});
+
+		JButton btnGenerarPDF = new JButton("GENERAR PDF");
+		GridBagConstraints gbc_btnGenerarPDF = new GridBagConstraints();
+		gbc_btnGenerarPDF.gridwidth = 8;
+		gbc_btnGenerarPDF.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnGenerarPDF.insets = new Insets(0, 0, 5, 5);
+		gbc_btnGenerarPDF.gridx = 0;
+		gbc_btnGenerarPDF.gridy = 8;
+		panelCanciones.add(btnGenerarPDF, gbc_btnGenerarPDF);
+		btnGenerarPDF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				if (usuario.getEsPremium()) {
+					try {
+						try {
+							AppMusicControlador.getInstancia().generarPDF();
+						} catch (DocumentException e) {
+							e.printStackTrace();
+						}
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					}
+				} else {
+
+					JOptionPane.showMessageDialog(btnGenerarPDF, "No eres usuario premium",
+							"Funcionalidad no accesible", JOptionPane.ERROR_MESSAGE, null);
+
+				}
+			}
+		});
+		btnGenerarPDF.setForeground(Color.WHITE);
+		btnGenerarPDF.setBorderPainted(false);
+		btnGenerarPDF.setBackground(Color.BLACK);
 		btnPlay.setContentAreaFilled(false);
 		btnPlay.setBorderPainted(false);
 		btnPlay.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/PlayIcon.jpg")));
@@ -444,10 +440,6 @@ public class VentanaMisListas extends JDialog {
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
 				Cancion cancionParaParar;
 				Cancion cancionParaReproducir;
-				// Comprobar si es el primero, indiceSeleccionado == 0
-				// System.out.println(indiceSeleccionado);
-				// System.out.println(listaCancionesSeleccionada.size()-1);
-				// Si es la primera, cambiar a la ultima
 				if (indiceSeleccionado == 0) {
 
 					int aux = listaCancionesSeleccionada.size() - 1;
@@ -460,12 +452,13 @@ public class VentanaMisListas extends JDialog {
 				}
 
 				else {
-
-					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado - 1);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
+					if (indiceSeleccionado != -1) {
+						cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+						AppMusicControlador.getInstancia().play(cancionParaParar);
+						AppMusicControlador.getInstancia().stop(cancionParaParar);
+						cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado - 1);
+						AppMusicControlador.getInstancia().play(cancionParaReproducir);
+					}
 				}
 
 			}
@@ -483,8 +476,10 @@ public class VentanaMisListas extends JDialog {
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
-				Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
-				AppMusicControlador.getInstancia().stop(cancionParaReproducir);
+				if (indiceSeleccionado != -1) {
+					Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
+					AppMusicControlador.getInstancia().stop(cancionParaReproducir);
+				}
 			}
 		});
 		btnStop.setBorderPainted(false);
@@ -501,28 +496,30 @@ public class VentanaMisListas extends JDialog {
 			public void actionPerformed(ActionEvent arg0) {
 
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
-				Cancion cancionParaParar;
-				Cancion cancionParaReproducir;
-				// Comprobar si es el último, indiceSeleccionado == size - 1
-				// System.out.println(indiceSeleccionado);
-				// System.out.println(listaCancionesSeleccionada.size()-1);
-				// Si es la ultima cambiar a la primera
-				if (indiceSeleccionado == listaCancionesSeleccionada.size() - 1) {
+				if (indiceSeleccionado != -1) {
+					Cancion cancionParaParar;
+					Cancion cancionParaReproducir;
+					// Comprobar si es el último, indiceSeleccionado == size - 1
+					// Si es la ultima cambiar a la primera
+					if (indiceSeleccionado == listaCancionesSeleccionada.size() - 1) {
 
-					int aux = 0;
-					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCancionesSeleccionada.get(aux);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				}
+						int aux = 0;
+						cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+						AppMusicControlador.getInstancia().play(cancionParaParar);
+						AppMusicControlador.getInstancia().stop(cancionParaParar);
+						cancionParaReproducir = listaCancionesSeleccionada.get(aux);
+						AppMusicControlador.getInstancia().play(cancionParaReproducir);
+					}
 
-				else {
-					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado + 1);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
+					else {
+						if (indiceSeleccionado != -1) {
+							cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+							AppMusicControlador.getInstancia().play(cancionParaParar);
+							AppMusicControlador.getInstancia().stop(cancionParaParar);
+							cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado + 1);
+							AppMusicControlador.getInstancia().play(cancionParaReproducir);
+						}
+					}
 				}
 			}
 		});
@@ -534,19 +531,14 @@ public class VentanaMisListas extends JDialog {
 		gbc_btnNext.gridx = 6;
 		gbc_btnNext.gridy = 10;
 		panelCanciones.add(btnNext, gbc_btnNext);
-		
-		
-		// TODO Ver esto posible fallo
-		System.out.println(usuario.getEsPremium());
-		if(!usuario.getEsPremium()){
+		if (!usuario.getEsPremium()) {
 			btnMasReproducidas.setVisible(false);
 			lblMasReproducidas.setVisible(false);
-		}
-		else {
+		} else {
 			btnMasReproducidas.setVisible(true);
 			lblMasReproducidas.setVisible(true);
 		}
-		
+
 	}
 
 }
