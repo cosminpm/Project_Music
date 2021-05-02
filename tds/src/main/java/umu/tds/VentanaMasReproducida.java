@@ -17,24 +17,26 @@ import java.beans.PropertyChangeListener;
 //import java.math.BigInteger;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import umu.tds.controlador.AppMusicControlador;
 import umu.tds.modelo.Usuario;
 import umu.tds.modelo.Cancion;
-import umu.tds.modelo.ListaCanciones;
 
-import javax.swing.ListSelectionModel;
+
+
 import javax.swing.JScrollPane;
 import java.util.*;
 import pulsador.Luz;
 
 
 public class VentanaMasReproducida extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTable tablaMasReproducidas;
 
 	/**

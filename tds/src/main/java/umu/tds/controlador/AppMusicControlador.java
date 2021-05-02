@@ -205,11 +205,11 @@ public class AppMusicControlador implements CancionesListener {
 
 	// Metodos PlayList
 	public void registrarListaCanciones(ListaCanciones lista) {
-		usuarioActual.registrarListaCanciones(lista);
+		AdaptadorListaCancionesTDS.getUnicaInstancia().registrarListaCanciones(lista, usuarioActual);
 	}
 	/// Para registrar la playlist con varias canciones
 	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
-		usuarioActual.registrarPlayListConVariasCanciones(nombre, lista);
+		AdaptadorListaCancionesTDS.getUnicaInstancia().registrarPlayListConVariasCanciones(nombre, lista, usuarioActual);
 	}
 	// Para comprobar si el nombre de las playlist ya existe
 	public boolean comprobarNombreExiste(String nombre) {
@@ -222,10 +222,6 @@ public class AppMusicControlador implements CancionesListener {
 	// Para comprobar si el usuario ya tiene una lista con ese nombre
 	public boolean comprobarListaYaExiste(String nombre) {
 		return usuarioActual.comprobarListaYaExiste(nombre);
-	}
-	// Para modificar una lista
-	public void modificarPlayList(ListaCanciones lista) {
-		usuarioActual.modificarListaCanciones(lista);
 	}
 	// Metodo de reproduccion de canciones
 	public void play(Cancion cancion) {
@@ -293,11 +289,14 @@ public class AppMusicControlador implements CancionesListener {
 	// Para aniadir una cancion a recientes
 	public void aniadirRecientes(Cancion cancion) {
 		usuarioActual.aniadirRecientes(cancion);
+		ListaCanciones recientes = usuarioActual.obtenerRecientes();
+		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(recientes);
 	}
 
 	// Metodo que modifica si el usuario es premium tanto en el catalogo como en la persistencia
 	public void setPremium(boolean opcion) {
 		usuarioActual.setEsPremium(opcion);
+		AdaptadorUsuarioTDS.getUnicaInstancia().setPremium(usuarioActual, opcion);
 	}
 
 	// Para calcular el descuento Fijo
@@ -358,6 +357,8 @@ public class AppMusicControlador implements CancionesListener {
 	// Para editar una playlist en concreto, pasandole un nombre y una lista de canciones, esto se utiliza practicamente para editar las canciones en nuevaLista
 	public void editarPlayList(String nombre, List<Cancion> l) {
 		usuarioActual.editarPlayList(nombre, l);
+		ListaCanciones lista = usuarioActual.getListaEnConcreto(nombre);
+		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(lista);
 	}
 
 	// Para obtener una lista del usuario que nos interese
@@ -370,8 +371,12 @@ public class AppMusicControlador implements CancionesListener {
 	
 	
 	public void eliminarPlayList(String nombre) {
+		
+		ListaCanciones l = usuarioActual.getListaEnConcreto(nombre);
+		AdaptadorListaCancionesTDS.getUnicaInstancia().borrarListaCanciones(l);
 		usuarioActual.eliminarPlayList(nombre);
 		AdaptadorUsuarioTDS.getUnicaInstancia().modificarUsuario(usuarioActual);
+		
 	}
 	
 }

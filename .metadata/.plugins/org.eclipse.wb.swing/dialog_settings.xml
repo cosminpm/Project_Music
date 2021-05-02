@@ -12,4 +12,16 @@
 		<item key="width" value="504"/>
 		<item key="height" value="506"/>
 	</section>
+	<section name="org.eclipse.wb.internal.swing.model.layout.gbl.ui.ColumnEditDialog">
+		<item key="x" value="790"/>
+		<item key="y" value="376"/>
+		<item key="width" value="340"/>
+		<item key="height" value="367"/>
+	</section>
+	<section name="org.eclipse.wb.internal.swing.model.layout.gbl.ui.RowEditDialog">
+		<item key="x" value="790"/>
+		<item key="y" value="345"/>
+		<item key="width" value="340"/>
+		<item key="height" value="430"/>
+	</section>
 </section>

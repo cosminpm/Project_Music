@@ -117,16 +117,13 @@ public class Usuario {
 		return this.listaPlayList.get(0);
 	}
 
-
 	public void addListaCanciones(ListaCanciones c) {
 		listaPlayList.add(c);
 	}
 
 	public void setEsPremium(boolean p) {
-		if (this.getEsPremium() != p) {
-			this.esPremium = p;
-			AdaptadorUsuarioTDS.getUnicaInstancia().setPremium(this, p);
-		}
+		this.esPremium = p;
+
 	}
 
 	public boolean getEsPremium() {
@@ -138,29 +135,20 @@ public class Usuario {
 
 	}
 
-	public void registrarListaCanciones(ListaCanciones lista) {
-		AdaptadorListaCancionesTDS.getUnicaInstancia().registrarListaCanciones(lista, this);
-	}
-
-	public void registrarPlayListConVariasCanciones(String nombre, List<Cancion> lista) {
-		AdaptadorListaCancionesTDS.getUnicaInstancia().registrarPlayListConVariasCanciones(nombre, lista, this);
-
-	}
-
 	public ListaCanciones getListaEnConcreto(String nombre) {
 		for (ListaCanciones playlist : this.getListaPlayList()) {
 			if (playlist.getNombre().equals(nombre)) {
 				return playlist;
 			}
 		}
-		// Esto no deberia pasar nunca puesto
+		// Esto no deberia pasar nunca puesto que el nombre siempre deberia existir
 		return null;
 	}
-	
-	public List<Cancion> getListEnConcreto(String nombre){
+
+	public List<Cancion> getListEnConcreto(String nombre) {
 		return this.getListaEnConcreto(nombre).getCanciones();
 	}
-	
+
 	public boolean comprobarListaYaExiste(String nombre) {
 		for (ListaCanciones playlist : this.getListaPlayList()) {
 			if (playlist.getNombre().equals(nombre)) {
@@ -176,7 +164,6 @@ public class Usuario {
 		if (recientes.getCanciones().size() > 10) {
 			recientes = this.eliminarPrimera(recientes);
 		}
-		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(recientes);
 	}
 
 	public ListaCanciones eliminarPrimera(ListaCanciones lCanciones) {
@@ -184,10 +171,6 @@ public class Usuario {
 		aux.remove(0);
 		lCanciones.setCanciones(aux);
 		return lCanciones;
-	}
-
-	public void modificarListaCanciones(ListaCanciones lista) {
-		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(lista);
 	}
 
 	public boolean comprobarNombreExiste(String nombre) {
@@ -198,24 +181,16 @@ public class Usuario {
 		}
 		return false;
 	}
-	
+
 	// Modificar la lsita de canciones
 	public void editarPlayList(String nombre, List<Cancion> l) {
-		ListaCanciones lista = this.listaPlayList.stream().filter(aux -> aux.getNombre().equals(nombre)).findFirst().get();
+		ListaCanciones lista = this.listaPlayList.stream().filter(aux -> aux.getNombre().equals(nombre)).findFirst()
+				.get();
 		lista.aniadirCancionesSinRepetir(l);
-		AdaptadorListaCancionesTDS.getUnicaInstancia().modificarListaCanciones(lista);
 	}
-	
 
 	public void eliminarPlayList(String nombre) {
 		ListaCanciones l = this.getListaEnConcreto(nombre);
 		listaPlayList.remove(l);
-		// Eliminamos la lista de las listas del usuario
-		AdaptadorListaCancionesTDS.getUnicaInstancia().borrarListaCanciones(l);
-		
-				
 	}
-	
-	
-	
 }

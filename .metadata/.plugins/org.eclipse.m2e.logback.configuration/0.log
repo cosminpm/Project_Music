@@ -10231,3 +10231,399 @@ Caused by: java.io.FileNotFoundException: C:\Users\cosmi\Desktop\Folders\00 Info
 2021-04-29 10:48:21,732 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
 2021-04-29 10:48:21,733 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-04-29 10:48:21,733 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-04-29 11:40:41,561 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-04-29 11:40:44,109 [Worker-6: Repository registry initialization] ERROR o.e.m.c.i.i.nexus.NexusIndexManager - Error changing index details workspace://
+java.io.FileNotFoundException: C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_14.cfs (The system cannot find the file specified)
+	at java.base/java.io.RandomAccessFile.open0(Native Method)
+	at java.base/java.io.RandomAccessFile.open(RandomAccessFile.java:347)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:261)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:216)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:963)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:930)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:876)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:165)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:238)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:49)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2021-04-29 11:40:44,111 [Worker-6: Repository registry initialization] ERROR o.e.m.c.i.r.RepositoryRegistry - Could not add repository index
+org.eclipse.core.runtime.CoreException: Could not add repository index
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:943)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:876)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:165)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:238)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:49)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.FileNotFoundException: C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_14.cfs (The system cannot find the file specified)
+	at java.base/java.io.RandomAccessFile.open0(Native Method)
+	at java.base/java.io.RandomAccessFile.open(RandomAccessFile.java:347)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:261)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:216)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:963)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:930)
+	... 5 common frames omitted
+2021-04-30 12:22:10,870 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-04-30 12:22:17,158 [Worker-0: Repository registry initialization] ERROR o.e.m.c.i.i.nexus.NexusIndexManager - Error changing index details workspace://
+java.io.FileNotFoundException: C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_14.cfs (The system cannot find the file specified)
+	at java.base/java.io.RandomAccessFile.open0(Native Method)
+	at java.base/java.io.RandomAccessFile.open(RandomAccessFile.java:347)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:261)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:216)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:963)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:930)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:876)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:165)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:238)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:49)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2021-04-30 12:22:17,162 [Worker-0: Repository registry initialization] ERROR o.e.m.c.i.r.RepositoryRegistry - Could not add repository index
+org.eclipse.core.runtime.CoreException: Could not add repository index
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:943)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:876)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:165)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:238)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:49)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.FileNotFoundException: C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_14.cfs (The system cannot find the file specified)
+	at java.base/java.io.RandomAccessFile.open0(Native Method)
+	at java.base/java.io.RandomAccessFile.open(RandomAccessFile.java:347)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:261)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:216)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:963)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:930)
+	... 5 common frames omitted
+2021-04-30 12:34:52,657 [Worker-31: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-04-30 12:34:52,657 [Worker-31: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-04-30 12:34:52,658 [Worker-31: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-04-30 12:34:52,659 [Worker-31: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-04-30 12:41:48,325 [Worker-38: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-04-30 12:41:48,326 [Worker-38: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-04-30 12:41:48,328 [Worker-38: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-04-30 12:41:48,329 [Worker-38: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-04-30 13:04:12,631 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-04-30 13:04:12,631 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-04-30 13:04:12,633 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-04-30 13:04:12,633 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:06:40,589 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-05-02 12:06:40,835 [Worker-2: Repository registry initialization] ERROR o.e.m.c.i.i.nexus.NexusIndexManager - Error changing index details workspace://
+java.io.FileNotFoundException: C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_14.cfs (The system cannot find the file specified)
+	at java.base/java.io.RandomAccessFile.open0(Native Method)
+	at java.base/java.io.RandomAccessFile.open(RandomAccessFile.java:347)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:261)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:216)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:963)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:930)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:876)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:165)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:238)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:49)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2021-05-02 12:06:40,838 [Worker-2: Repository registry initialization] ERROR o.e.m.c.i.r.RepositoryRegistry - Could not add repository index
+org.eclipse.core.runtime.CoreException: Could not add repository index
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:943)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:876)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:165)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:238)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:49)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.FileNotFoundException: C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_14.cfs (The system cannot find the file specified)
+	at java.base/java.io.RandomAccessFile.open0(Native Method)
+	at java.base/java.io.RandomAccessFile.open(RandomAccessFile.java:347)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:261)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:216)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:963)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:930)
+	... 5 common frames omitted
+2021-05-02 12:08:47,820 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:08:47,820 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:08:47,822 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:08:47,822 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:09:13,432 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:09:13,432 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:09:13,433 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:09:13,433 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:09:27,512 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:09:27,512 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:09:27,513 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:09:27,513 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:09:30,661 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:09:30,661 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:09:30,662 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:09:30,662 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:12:33,720 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:12:33,720 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:12:33,721 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:12:33,721 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:13:13,768 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:13:13,769 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:13:13,769 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:13:13,769 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:13:23,712 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:13:23,712 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:13:23,713 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:13:23,713 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:14:43,873 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:14:43,874 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:14:43,875 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:14:43,875 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:15:20,824 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:15:20,824 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:15:20,825 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:15:20,825 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:16:45,766 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:16:45,766 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:16:45,766 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:16:45,766 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:16:58,513 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:16:58,513 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:16:58,514 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:16:58,514 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:21:14,146 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:21:14,147 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:21:14,147 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:21:14,147 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:21:21,247 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:21:21,248 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:21:21,248 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:21:21,248 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:22:28,118 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:22:28,118 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:22:28,119 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:22:28,119 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:22:41,241 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:22:41,242 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:22:41,242 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:22:41,242 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:22:53,292 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:22:53,292 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:22:53,293 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:22:53,293 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:22:59,414 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:22:59,415 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:22:59,415 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:22:59,415 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:23:28,571 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:23:28,571 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:23:28,572 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:23:28,572 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:24:01,903 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:01,903 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:24:01,903 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:01,903 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:24:05,876 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:05,876 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:24:05,876 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:05,876 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:24:22,397 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:22,398 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:24:22,398 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:22,398 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:24:24,647 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:24,648 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:24:24,648 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:24,648 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:24:53,377 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:53,377 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:24:53,378 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:53,378 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:24:57,467 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:57,467 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:24:57,467 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:24:57,467 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:25:13,918 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:25:13,918 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:25:13,919 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:25:13,919 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:25:34,878 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:25:34,878 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:25:34,878 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:25:34,878 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:26:08,389 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:08,389 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:26:08,389 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:08,389 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:26:20,936 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:20,936 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:26:20,936 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:20,936 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:26:27,023 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:27,023 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:26:27,024 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:27,024 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:26:36,101 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:36,101 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:26:36,102 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:36,102 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:26:52,759 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:52,759 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:26:52,760 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:52,760 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:26:58,382 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:58,383 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:26:58,383 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:26:58,383 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:27:24,463 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:27:24,464 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:27:24,464 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:27:24,464 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:27:47,438 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:27:47,438 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:27:47,439 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:27:47,439 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:27:57,418 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:27:57,418 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:27:57,419 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:27:57,419 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:28:00,728 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:28:00,728 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:28:00,728 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:28:00,729 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:28:05,278 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:28:05,278 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:28:05,278 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:28:05,278 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:28:09,839 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:28:09,839 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:28:09,847 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:28:09,847 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:28:18,307 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:28:18,307 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:28:18,307 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:28:18,307 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:29:02,134 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:29:02,134 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:29:02,134 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:29:02,134 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:29:04,992 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:29:04,992 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:29:04,993 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:29:04,993 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:29:23,074 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:29:23,074 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:29:23,074 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:29:23,075 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:30:13,492 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:30:13,492 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:30:13,492 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:30:13,492 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:30:20,569 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:30:20,569 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:30:20,570 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:30:20,570 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources
+2021-05-02 12:31:02,572 [Worker-41: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:31:02,573 [Worker-41: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\main\resources
+2021-05-02 12:31:02,573 [Worker-41: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-02 12:31:02,573 [Worker-41: Launching GUILogin] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cosmi\Desktop\Folders\00 Info\01 Acutal\04 TDS\02 Practicas\02 Practicas actual\tds\src\test\resources

@@ -24,6 +24,6 @@
     <fullyQualifiedTypeName name="umu.tds.GUILogin"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="umu.tds.controlador.AppMusicControlador"/>
-    <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorListaCancionesTDS"/>
     <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorUsuarioTDS"/>
+    <fullyQualifiedTypeName name="umu.tds.persistencia.AdaptadorListaCancionesTDS"/>
 </qualifiedTypeNameHistroy>

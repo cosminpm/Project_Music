@@ -2,7 +2,7 @@
 - Al explorar que no diferencie entre lower y upper case
 - Añadir opción mediante click y mediante boton en nueva lista QUITAR BOTON DEFINITIVO
 - Tests --> JUnit 
-- Añadir canciones y eliminar de playlist en cualquier momento
+
 - Se implementarán test unitarios para, al menos, una clase del modelo
 
 
@@ -65,3 +65,4 @@ usuario (canción, interprete y número de veces reproducida).
 
 - Una vez registrado un usuario podrá, en cualquier momento, activar su cuenta como “Premium”, generar un archivo PDF con las playlists y reproducir las 10 canciones más escuchadas en toda la aplicación.
 - NO SE PUEDE ELIMINAR NI EDITAR RECIENTES
+- Añadir canciones y eliminar de playlist en cualquier momento
