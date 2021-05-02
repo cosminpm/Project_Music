@@ -12,7 +12,6 @@ import javax.swing.SwingConstants;
 //import beans.Entidad;
 //import tds.driver.ServicioPersistencia;
 import umu.tds.controlador.AppMusicControlador;
-import umu.tds.modelo.ListaCanciones;
 import umu.tds.modelo.Usuario;
 
 import java.awt.Font;
@@ -26,7 +25,6 @@ import java.awt.Insets;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 

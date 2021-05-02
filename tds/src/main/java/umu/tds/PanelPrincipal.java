@@ -28,7 +28,6 @@ import java.beans.PropertyChangeListener;
 //import java.io.File;
 import java.beans.PropertyChangeEvent;
 import java.awt.Dimension;
-import java.awt.Component;
 
 public class PanelPrincipal {
 	private String nombre = "";

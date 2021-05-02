@@ -30,6 +30,7 @@ import java.text.DecimalFormat;
 
 public class VentanaPremium extends JDialog {
 	private JTable tablaPrecios;
+	private JTable table;
 
 	/**
 	 * Launch the application.

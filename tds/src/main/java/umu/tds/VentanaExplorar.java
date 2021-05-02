@@ -84,8 +84,6 @@ public class VentanaExplorar extends JDialog {
 				if (JOptionPane.showConfirmDialog(btnMejorarCuenta, "Confirmación", "¿Quieres ser usuario premium?",
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
-					VentanaPremium ventanaPremium = new VentanaPremium();
-
 					dispose();
 
 				}
@@ -368,7 +366,7 @@ public class VentanaExplorar extends JDialog {
 					if (estilo == "Cualquiera") {
 						estilo = null;
 					}
-				
+
 					List<Cancion> canciones = AppMusicControlador.getInstancia().filtrarCanciones(interprete, titulo,
 							estilo);
 
@@ -543,7 +541,7 @@ public class VentanaExplorar extends JDialog {
 		panelBuscar.add(btnNextSong, gbc_btnNextSong);
 
 		// TODO Ver esto posible fallo
-	
+
 		if (!usuario.getEsPremium()) {
 			btnMasReproducidas.setVisible(false);
 			lblMasReproducidas.setVisible(false);
