@@ -29,6 +29,10 @@ import pulsador.Luz;
 import java.awt.Dimension;
 
 public class VentanaRecientes extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTable tablaCancionesRecientes;
 
 	/**

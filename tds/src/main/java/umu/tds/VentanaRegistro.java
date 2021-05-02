@@ -32,6 +32,10 @@ import com.toedter.calendar.JDateChooser;
 
 public class VentanaRegistro extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textNombre;
 	private JTextField textApellidos;
@@ -249,14 +253,22 @@ public class VentanaRegistro extends JFrame {
 				// Metodo sacado de internet, date ---> localDate
 				LocalDate fechaNacimiento = fechaRAW.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-			
 				if (clave1.equals(clave2)) {
 					// EXTRA Comprobacion de que la fecha actual es posterior a la fecha de
 					// Nacimiento
 
 					if (fechaNacimiento.isAfter(LocalDate.now())) {
-						JOptionPane.showMessageDialog(botonRegistrar, "La fecha actual no puede ser en el futuro!!", "Registro usuario",
-								JOptionPane.INFORMATION_MESSAGE, null);
+						JOptionPane.showMessageDialog(botonRegistrar, "La fecha actual no puede ser en el futuro!!",
+								"Registro usuario", JOptionPane.INFORMATION_MESSAGE, null);
+					}
+					else if (!email.endsWith(".com") && !email.endsWith(".es") && !email.endsWith(".org")) {
+						JOptionPane.showMessageDialog(botonRegistrar, "El correo no es correcto, solo se acepta .org, .com o .es", "Registro usuario",
+								JOptionPane.ERROR_MESSAGE, null);
+					}
+					
+					else if (!email.contains("@")){
+						JOptionPane.showMessageDialog(botonRegistrar, "El formato del correo no es correcto", "Registro usuario",
+								JOptionPane.ERROR_MESSAGE, null);
 					}
 					// En caso de que la fecha este bien puesta...
 					else {
@@ -269,7 +281,11 @@ public class VentanaRegistro extends JFrame {
 							AppMusicControlador.getInstancia().setUsuarioActual(usu);
 							vaciarCampos();
 
-						} else {
+						} 
+						
+						
+
+						else {
 							JOptionPane.showMessageDialog(botonRegistrar, "Usuario ya registrado", "Registro usuario",
 									JOptionPane.ERROR_MESSAGE, null);
 						}

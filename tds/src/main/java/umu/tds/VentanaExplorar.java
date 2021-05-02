@@ -35,6 +35,10 @@ import java.awt.Dimension;
 
 public class VentanaExplorar extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField textTitulo;
 	private JTable tablaCanciones;
 	private JTextField textInterprete;
@@ -60,9 +64,9 @@ public class VentanaExplorar extends JDialog {
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 40, 189, 10, 10, 0, 30, 30, 30, 0, 0, 40, 0 };
+		gridBagLayout.columnWidths = new int[] { 40, 189, 0, 30, 30, 30, 0, 0, 40, 0 };
 		gridBagLayout.rowHeights = new int[] { 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0,
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
@@ -106,7 +110,7 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_luz = new GridBagConstraints();
 		gbc_luz.anchor = GridBagConstraints.EAST;
 		gbc_luz.insets = new Insets(0, 0, 5, 5);
-		gbc_luz.gridx = 4;
+		gbc_luz.gridx = 2;
 		gbc_luz.gridy = 1;
 		getContentPane().add(luz, gbc_luz);
 		btnMejorarCuenta.setBorderPainted(false);
@@ -115,7 +119,7 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_btnMejorarCuenta = new GridBagConstraints();
 		gbc_btnMejorarCuenta.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnMejorarCuenta.insets = new Insets(0, 0, 5, 5);
-		gbc_btnMejorarCuenta.gridx = 5;
+		gbc_btnMejorarCuenta.gridx = 3;
 		gbc_btnMejorarCuenta.gridy = 1;
 		getContentPane().add(btnMejorarCuenta, gbc_btnMejorarCuenta);
 
@@ -132,21 +136,21 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_btnSALIR = new GridBagConstraints();
 		gbc_btnSALIR.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnSALIR.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSALIR.gridx = 9;
+		gbc_btnSALIR.gridx = 7;
 		gbc_btnSALIR.gridy = 1;
 		getContentPane().add(btnSALIR, gbc_btnSALIR);
 
 		JLabel InterpreteShow = new JLabel("INTERPRETE");
 		GridBagConstraints gbc_InterpreteShow = new GridBagConstraints();
 		gbc_InterpreteShow.insets = new Insets(0, 0, 5, 5);
-		gbc_InterpreteShow.gridx = 5;
+		gbc_InterpreteShow.gridx = 3;
 		gbc_InterpreteShow.gridy = 2;
 		getContentPane().add(InterpreteShow, gbc_InterpreteShow);
 
 		JLabel tituloShow = new JLabel("TITULO");
 		GridBagConstraints gbc_tituloShow = new GridBagConstraints();
 		gbc_tituloShow.insets = new Insets(0, 0, 5, 5);
-		gbc_tituloShow.gridx = 8;
+		gbc_tituloShow.gridx = 6;
 		gbc_tituloShow.gridy = 2;
 		getContentPane().add(tituloShow, gbc_tituloShow);
 
@@ -154,7 +158,6 @@ public class VentanaExplorar extends JDialog {
 		panel.setBackground(new Color(153, 0, 51));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.gridheight = 10;
-		gbc_panel.gridwidth = 3;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 1;
@@ -294,7 +297,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_textInterprete.gridwidth = 3;
 		gbc_textInterprete.insets = new Insets(0, 0, 5, 5);
 		gbc_textInterprete.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textInterprete.gridx = 5;
+		gbc_textInterprete.gridx = 3;
 		gbc_textInterprete.gridy = 3;
 		getContentPane().add(textInterprete, gbc_textInterprete);
 
@@ -306,7 +309,7 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_textTitulo = new GridBagConstraints();
 		gbc_textTitulo.insets = new Insets(0, 0, 5, 5);
 		gbc_textTitulo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textTitulo.gridx = 8;
+		gbc_textTitulo.gridx = 6;
 		gbc_textTitulo.gridy = 3;
 		getContentPane().add(textTitulo, gbc_textTitulo);
 		textTitulo.setColumns(10);
@@ -321,7 +324,7 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_comboBoxEstilo = new GridBagConstraints();
 		gbc_comboBoxEstilo.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBoxEstilo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBoxEstilo.gridx = 9;
+		gbc_comboBoxEstilo.gridx = 7;
 		gbc_comboBoxEstilo.gridy = 3;
 		getContentPane().add(comboBoxEstilo, gbc_comboBoxEstilo);
 
@@ -333,7 +336,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_btnBuscar.fill = GridBagConstraints.BOTH;
 		gbc_btnBuscar.gridwidth = 3;
 		gbc_btnBuscar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnBuscar.gridx = 5;
+		gbc_btnBuscar.gridx = 3;
 		gbc_btnBuscar.gridy = 4;
 		getContentPane().add(btnBuscar, gbc_btnBuscar);
 		btnBuscar.setBackground(Color.GRAY);
@@ -383,10 +386,16 @@ public class VentanaExplorar extends JDialog {
 		});
 
 		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textInterprete.setText("INTERPRETE");
+				textTitulo.setText("TITULO");
+			}
+		});
 		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 		gbc_btnCancelar.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnCancelar.gridx = 8;
+		gbc_btnCancelar.gridx = 6;
 		gbc_btnCancelar.gridy = 4;
 		getContentPane().add(btnCancelar, gbc_btnCancelar);
 		btnCancelar.setForeground(Color.WHITE);
@@ -398,7 +407,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_panelBuscar.gridwidth = 5;
 		gbc_panelBuscar.insets = new Insets(0, 0, 5, 5);
 		gbc_panelBuscar.fill = GridBagConstraints.BOTH;
-		gbc_panelBuscar.gridx = 5;
+		gbc_panelBuscar.gridx = 3;
 		gbc_panelBuscar.gridy = 6;
 		getContentPane().add(panelBuscar, gbc_panelBuscar);
 		GridBagLayout gbl_panelBuscar = new GridBagLayout();

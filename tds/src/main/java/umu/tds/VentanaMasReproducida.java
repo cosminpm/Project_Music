@@ -58,9 +58,9 @@ public class VentanaMasReproducida extends JDialog {
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 40, 189, 10, 30, 0, 0, 0, 40, 0 };
+		gridBagLayout.columnWidths = new int[] { 40, 189, 30, 0, 0, 0, 40, 0 };
 		gridBagLayout.rowHeights = new int[] { 10, 0, 20, 0, 0, 30, 40, 40, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		getContentPane().setLayout(gridBagLayout);
 
@@ -89,7 +89,7 @@ public class VentanaMasReproducida extends JDialog {
 		});
 		GridBagConstraints gbc_luz = new GridBagConstraints();
 		gbc_luz.insets = new Insets(0, 0, 5, 5);
-		gbc_luz.gridx = 3;
+		gbc_luz.gridx = 2;
 		gbc_luz.gridy = 1;
 		getContentPane().add(luz, gbc_luz);
 
@@ -125,7 +125,7 @@ public class VentanaMasReproducida extends JDialog {
 		gbc_btnMejorarCuenta.gridwidth = 2;
 		gbc_btnMejorarCuenta.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnMejorarCuenta.insets = new Insets(0, 0, 5, 5);
-		gbc_btnMejorarCuenta.gridx = 4;
+		gbc_btnMejorarCuenta.gridx = 3;
 		gbc_btnMejorarCuenta.gridy = 1;
 		getContentPane().add(btnMejorarCuenta, gbc_btnMejorarCuenta);
 		btnSALIR.setForeground(Color.WHITE);
@@ -134,7 +134,7 @@ public class VentanaMasReproducida extends JDialog {
 		GridBagConstraints gbc_btnSALIR = new GridBagConstraints();
 		gbc_btnSALIR.anchor = GridBagConstraints.EAST;
 		gbc_btnSALIR.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSALIR.gridx = 6;
+		gbc_btnSALIR.gridx = 5;
 		gbc_btnSALIR.gridy = 1;
 		getContentPane().add(btnSALIR, gbc_btnSALIR);
 
@@ -142,7 +142,6 @@ public class VentanaMasReproducida extends JDialog {
 		panel.setBackground(new Color(153, 0, 51));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.gridheight = 4;
-		gbc_panel.gridwidth = 2;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 1;
@@ -279,7 +278,7 @@ public class VentanaMasReproducida extends JDialog {
 		gbc_panel_1.gridwidth = 3;
 		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_panel_1.fill = GridBagConstraints.BOTH;
-		gbc_panel_1.gridx = 4;
+		gbc_panel_1.gridx = 3;
 		gbc_panel_1.gridy = 3;
 		getContentPane().add(panel_1, gbc_panel_1);
 
@@ -297,7 +296,7 @@ public class VentanaMasReproducida extends JDialog {
 		GridBagConstraints gbc_btnPlay = new GridBagConstraints();
 		gbc_btnPlay.anchor = GridBagConstraints.SOUTH;
 		gbc_btnPlay.insets = new Insets(0, 0, 5, 5);
-		gbc_btnPlay.gridx = 5;
+		gbc_btnPlay.gridx = 4;
 		gbc_btnPlay.gridy = 5;
 		getContentPane().add(btnPlay, gbc_btnPlay);
 		btnPlay.setIcon(new ImageIcon(VentanaMasReproducida.class.getResource("/umu/tds/imagenes/PlayIcon.jpg")));
@@ -310,6 +309,17 @@ public class VentanaMasReproducida extends JDialog {
 				if (indiceSeleccionado != -1) {
 					Cancion cancionParaReproducir = listaCanciones.get(indiceSeleccionado);
 					AppMusicControlador.getInstancia().play(cancionParaReproducir);
+					panel.revalidate();
+					panel_1.revalidate();
+					scrollPane.revalidate();
+					tablaMasReproducidas.revalidate();
+					panel.repaint();
+					panel_1.repaint();
+					scrollPane.repaint();
+					tablaMasReproducidas.repaint();
+					
+
+					VentanaMasReproducida.this.validate();
 				}
 
 			}
@@ -320,7 +330,7 @@ public class VentanaMasReproducida extends JDialog {
 		GridBagConstraints gbc_btnBack = new GridBagConstraints();
 		gbc_btnBack.anchor = GridBagConstraints.NORTHEAST;
 		gbc_btnBack.insets = new Insets(0, 0, 5, 5);
-		gbc_btnBack.gridx = 4;
+		gbc_btnBack.gridx = 3;
 		gbc_btnBack.gridy = 6;
 		getContentPane().add(btnBack, gbc_btnBack);
 		btnBack.setIcon(new ImageIcon(VentanaMasReproducida.class.getResource("/umu/tds/imagenes/BackSongIcon.jpg")));
@@ -351,6 +361,18 @@ public class VentanaMasReproducida extends JDialog {
 						AppMusicControlador.getInstancia().play(cancionParaReproducir);
 					}
 				}
+
+				panel.revalidate();
+				panel_1.revalidate();
+				scrollPane.revalidate();
+				tablaMasReproducidas.revalidate();
+				panel.repaint();
+				panel_1.repaint();
+				scrollPane.repaint();
+				tablaMasReproducidas.repaint();
+
+				VentanaMasReproducida.this.validate();
+
 			}
 		});
 
@@ -360,7 +382,7 @@ public class VentanaMasReproducida extends JDialog {
 		gbc_btnStop.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnStop.anchor = GridBagConstraints.NORTH;
 		gbc_btnStop.insets = new Insets(0, 0, 5, 5);
-		gbc_btnStop.gridx = 5;
+		gbc_btnStop.gridx = 4;
 		gbc_btnStop.gridy = 6;
 		getContentPane().add(btnStop, gbc_btnStop);
 		btnStop.setIcon(new ImageIcon(VentanaMasReproducida.class.getResource("/umu/tds/imagenes/PauseIcon.jpg")));
@@ -383,7 +405,7 @@ public class VentanaMasReproducida extends JDialog {
 		GridBagConstraints gbc_btnNext = new GridBagConstraints();
 		gbc_btnNext.anchor = GridBagConstraints.NORTHWEST;
 		gbc_btnNext.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNext.gridx = 6;
+		gbc_btnNext.gridx = 5;
 		gbc_btnNext.gridy = 6;
 		getContentPane().add(btnNext, gbc_btnNext);
 		btnNext.setIcon(new ImageIcon(VentanaMasReproducida.class.getResource("/umu/tds/imagenes/NextSongIcon.jpg")));
@@ -415,11 +437,21 @@ public class VentanaMasReproducida extends JDialog {
 						cancionParaReproducir = listaCanciones.get(indiceSeleccionado + 1);
 						AppMusicControlador.getInstancia().play(cancionParaReproducir);
 					}
+					panel.revalidate();
+					panel_1.revalidate();
+					scrollPane.revalidate();
+					tablaMasReproducidas.revalidate();
+					panel.repaint();
+					panel_1.repaint();
+					scrollPane.repaint();
+					tablaMasReproducidas.repaint();
+
+					VentanaMasReproducida.this.validate();
+
 				}
 			}
 		});
 
-		
 		// Rellenar tabla
 
 		for (Cancion c : listaCanciones) {

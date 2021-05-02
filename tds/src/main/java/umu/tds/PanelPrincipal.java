@@ -76,18 +76,18 @@ public class PanelPrincipal {
 		frame.setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 30, 30, 10, 30, 10, 10, 10, 10, 10, 0, 40, 0 };
-		gridBagLayout.rowHeights = new int[] { 10, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+		gridBagLayout.columnWidths = new int[] { 40, 30, 30, 10, 10, 0, 40, 0 };
+		gridBagLayout.rowHeights = new int[] { 10, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0,
 				Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0,
 				0.0, Double.MIN_VALUE };
 		frame.getContentPane().setLayout(gridBagLayout);
 
 		JLabel nombreUsuario = new JLabel(nombre);
 		nombreUsuario.setForeground(Color.BLACK);
-		nombreUsuario.setBackground(new Color(255, 0, 102));
-		nombreUsuario.setFont(new Font("Segoe UI Historic", Font.PLAIN, 14));
+		nombreUsuario.setBackground(Color.WHITE);
+		nombreUsuario.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		GridBagConstraints gbc_nombreUsuario = new GridBagConstraints();
 		gbc_nombreUsuario.insets = new Insets(0, 0, 5, 5);
 		gbc_nombreUsuario.gridx = 1;
@@ -111,7 +111,7 @@ public class PanelPrincipal {
 		});
 		GridBagConstraints gbc_luz = new GridBagConstraints();
 		gbc_luz.insets = new Insets(0, 0, 5, 5);
-		gbc_luz.gridx = 4;
+		gbc_luz.gridx = 3;
 		gbc_luz.gridy = 2;
 		frame.getContentPane().add(luz, gbc_luz);
 
@@ -141,22 +141,22 @@ public class PanelPrincipal {
 		btnPremium.setForeground(Color.WHITE);
 		btnPremium.setBackground(Color.BLACK);
 		GridBagConstraints gbc_btnPremium = new GridBagConstraints();
-		gbc_btnPremium.anchor = GridBagConstraints.EAST;
+		gbc_btnPremium.anchor = GridBagConstraints.WEST;
 		gbc_btnPremium.insets = new Insets(0, 0, 5, 5);
-		gbc_btnPremium.gridx = 5;
+		gbc_btnPremium.gridx = 4;
 		gbc_btnPremium.gridy = 2;
 		frame.getContentPane().add(btnPremium, gbc_btnPremium);
 		GridBagConstraints gbc_btnLogout = new GridBagConstraints();
 		gbc_btnLogout.anchor = GridBagConstraints.EAST;
 		gbc_btnLogout.insets = new Insets(0, 0, 5, 5);
-		gbc_btnLogout.gridx = 9;
+		gbc_btnLogout.gridx = 5;
 		gbc_btnLogout.gridy = 2;
 		frame.getContentPane().add(btnLogout, gbc_btnLogout);
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(153, 0, 51));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
-		gbc_panel.gridwidth = 3;
+		gbc_panel.gridwidth = 2;
 		gbc_panel.gridheight = 10;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;

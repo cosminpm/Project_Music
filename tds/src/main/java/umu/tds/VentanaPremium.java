@@ -29,6 +29,10 @@ import java.awt.Color;
 import java.text.DecimalFormat;
 
 public class VentanaPremium extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTable tablaPrecios;
 
 	/**

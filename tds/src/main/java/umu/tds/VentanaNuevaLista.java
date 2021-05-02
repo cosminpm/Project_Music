@@ -34,6 +34,10 @@ import pulsador.Luz;
 import java.awt.Dimension;
 
 public class VentanaNuevaLista extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField txtNombreLista;
 	private JTextField txtInterprete;
 	private JTextField txtTitulo;

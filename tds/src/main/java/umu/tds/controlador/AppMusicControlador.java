@@ -85,6 +85,10 @@ public class AppMusicControlador implements CancionesListener {
 		if (catalogoUsuarios.comprobarCorreosRegistrados(email)) {
 			return false;
 		}
+		
+
+		
+		
 		Usuario usuario = new Usuario(nombre, apellidos, email, login, password, fechaNacimiento);
 		adaptadorUsuario.registrarUsuario(usuario);
 		catalogoUsuarios.addUsuario(usuario);
@@ -249,7 +253,7 @@ public class AppMusicControlador implements CancionesListener {
 
 			Media media = new Media(mp3.toFile().toURI().toString());
 			mediaPlayer = new MediaPlayer(media);
-
+			
 			mediaPlayer.play();
 			cancion.aumentarNumReproducciones();
 
