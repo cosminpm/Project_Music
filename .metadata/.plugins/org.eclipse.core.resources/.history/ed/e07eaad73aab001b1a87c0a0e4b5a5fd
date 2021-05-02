@@ -120,11 +120,10 @@ public class VentanaPremium extends JDialog {
 		getContentPane().add(btnCalcularDescuento, gbc_btnCalcularDescuento);
 		JButton btnMasReproducidas = new JButton("");
 		JButton btnPagar = new JButton("PAGAR");
-		
+		System.err.println("AAAA:"+usuario.getEsPremium());
 		btnPagar.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
-				System.err.println("AAAA:"+usuario.getEsPremium());
 				if (usuario.getEsPremium()) {
 					JOptionPane.showMessageDialog(btnPagar,
 							"¡¡¡Ya eras premium!!!, No hace falta que vuelvas a sucribirte", "InfoPremium",
@@ -132,10 +131,10 @@ public class VentanaPremium extends JDialog {
 				} else {
 					JOptionPane.showMessageDialog(btnPagar, "Bienvenido a la familia, ¡¡Ya eres premium!!",
 							"InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
+					AppMusicControlador.getInstancia().setPremium(true);
+					btnMasReproducidas.setVisible(true);
+					lblMasReproducidas.setVisible(true);
 				}
-				AppMusicControlador.getInstancia().setPremium(true);
-				btnMasReproducidas.setVisible(true);
-				lblMasReproducidas.setVisible(true);
 				
 			}
 		});
@@ -163,6 +162,7 @@ public class VentanaPremium extends JDialog {
 				VentanaExplorar ventanaExplorar = new VentanaExplorar();
 				ventanaExplorar.setVisible(true);
 				dispose();
+
 			}
 		});
 		btnExplorar.setContentAreaFilled(false);

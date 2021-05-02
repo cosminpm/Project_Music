@@ -103,9 +103,9 @@ public class VentanaExplorar extends JDialog {
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
 					VentanaPremium ventanaPremium = new VentanaPremium();
-					ventanaPremium.setVisible(true);
+		
 					dispose();
-					AppMusicControlador.getInstancia().setPremium(true);
+			
 				}
 			}
 		});

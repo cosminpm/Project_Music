@@ -140,7 +140,7 @@ public class VentanaMisListas extends JDialog {
 					VentanaPremium ventanaPremium = new VentanaPremium();
 					ventanaPremium.setVisible(true);
 					dispose();
-					AppMusicControlador.getInstancia().setPremium(true);
+					
 
 				}
 

@@ -123,7 +123,7 @@ public class PanelPrincipal {
 					VentanaPremium ventanaPremium = new VentanaPremium();
 					ventanaPremium.setVisible(true);
 					frame.setVisible(false);
-					AppMusicControlador.getInstancia().setPremium(true);
+				
 				}
 
 				else {

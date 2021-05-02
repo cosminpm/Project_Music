@@ -163,6 +163,7 @@ public class VentanaPremium extends JDialog {
 				VentanaExplorar ventanaExplorar = new VentanaExplorar();
 				ventanaExplorar.setVisible(true);
 				dispose();
+
 			}
 		});
 		btnExplorar.setContentAreaFilled(false);

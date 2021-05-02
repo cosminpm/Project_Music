@@ -114,7 +114,7 @@ public class VentanaNuevaLista extends JDialog {
 					VentanaPremium ventanaPremium = new VentanaPremium();
 					ventanaPremium.setVisible(true);
 					dispose();
-					AppMusicControlador.getInstancia().setPremium(true);
+					
 
 				}
 
