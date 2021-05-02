@@ -227,9 +227,6 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 	}
 	
 	public void setPremium (Usuario usuario, boolean opcion) {
-		if(usuario.getEsPremium() == opcion) {
-			return;
-		}
 		usuario.setEsPremium(opcion);
 		this.modificarUsuario(usuario);
 	}

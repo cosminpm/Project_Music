@@ -309,13 +309,13 @@ public class VentanaMisListas extends JDialog {
 		gbc_btnMasReproducidas.gridy = 9;
 		panel.add(btnMasReproducidas, gbc_btnMasReproducidas);
 		
-		JLabel lblNewLabel = new JLabel("MAS REPRODUCIDAS");
-		lblNewLabel.setForeground(Color.WHITE);
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.gridx = 3;
-		gbc_lblNewLabel.gridy = 9;
-		panel.add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblMasReproducidas = new JLabel("MAS REPRODUCIDAS");
+		lblMasReproducidas.setForeground(Color.WHITE);
+		GridBagConstraints gbc_lblMasReproducidas = new GridBagConstraints();
+		gbc_lblMasReproducidas.insets = new Insets(0, 0, 5, 0);
+		gbc_lblMasReproducidas.gridx = 3;
+		gbc_lblMasReproducidas.gridy = 9;
+		panel.add(lblMasReproducidas, gbc_lblMasReproducidas);
 
 		JScrollPane scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
@@ -529,6 +529,19 @@ public class VentanaMisListas extends JDialog {
 		gbc_btnNext.gridx = 6;
 		gbc_btnNext.gridy = 10;
 		panelCanciones.add(btnNext, gbc_btnNext);
+		
+		
+		// TODO Ver esto posible fallo
+		System.out.println(usuario.getEsPremium());
+		if(!usuario.getEsPremium()){
+			btnMasReproducidas.setVisible(false);
+			lblMasReproducidas.setVisible(false);
+		}
+		else {
+			btnMasReproducidas.setVisible(true);
+			lblMasReproducidas.setVisible(true);
+		}
+		
 	}
 
 }

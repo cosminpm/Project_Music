@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 import umu.tds.controlador.AppMusicControlador;
+import umu.tds.modelo.Usuario;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -49,6 +50,7 @@ public class VentanaPremium extends JDialog {
 	 * Create the dialog.
 	 */
 	public VentanaPremium() {
+		Usuario usuario = AppMusicControlador.getInstancia().getUsuarioActual();
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 10, 10, 10, 10, 10, 10, 0, 0, 0, 0, 10, 10, 0, 10, 10, 0, 10, 10, 10,
@@ -109,26 +111,30 @@ public class VentanaPremium extends JDialog {
 				}
 			}
 		});
+		JLabel lblMasReproducidas = new JLabel("MAS REPRODUCIDAS");
 		btnCalcularDescuento.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		GridBagConstraints gbc_btnCalcularDescuento = new GridBagConstraints();
 		gbc_btnCalcularDescuento.insets = new Insets(0, 0, 5, 5);
 		gbc_btnCalcularDescuento.gridx = 15;
 		gbc_btnCalcularDescuento.gridy = 3;
 		getContentPane().add(btnCalcularDescuento, gbc_btnCalcularDescuento);
-
+		JButton btnMasReproducidas = new JButton("");
 		JButton btnPagar = new JButton("PAGAR");
 		btnPagar.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
-
-				if (AppMusicControlador.getInstancia().getUsuarioActual().getEsPremium()) {
+				if (usuario.getEsPremium()) {
 					JOptionPane.showMessageDialog(btnPagar,
 							"¡¡¡Ya eras premium!!!, No hace falta que vuelvas a sucribirte", "InfoPremium",
 							JOptionPane.INFORMATION_MESSAGE, null);
 				} else {
 					JOptionPane.showMessageDialog(btnPagar, "Bienvenido a la familia, ¡¡Ya eres premium!!",
 							"InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
+					AppMusicControlador.getInstancia().setPremium(true);
+					btnMasReproducidas.setVisible(true);
+					lblMasReproducidas.setVisible(true);
 				}
-				AppMusicControlador.getInstancia().setPremium(true);
+				
 			}
 		});
 
@@ -255,28 +261,28 @@ public class VentanaPremium extends JDialog {
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
 
-		JButton btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
+		
+		btnMasReproducidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaMasReproducida ventanaMasReproducida = new VentanaMasReproducida();
 				ventanaMasReproducida.setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.setIcon(new ImageIcon(VentanaPremium.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton.gridx = 0;
-		gbc_btnNewButton.gridy = 9;
-		panel.add(btnNewButton, gbc_btnNewButton);
+		btnMasReproducidas.setContentAreaFilled(false);
+		btnMasReproducidas.setIcon(new ImageIcon(VentanaPremium.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
+		GridBagConstraints gbc_btnMasReproducidas = new GridBagConstraints();
+		gbc_btnMasReproducidas.insets = new Insets(0, 0, 0, 5);
+		gbc_btnMasReproducidas.gridx = 0;
+		gbc_btnMasReproducidas.gridy = 9;
+		panel.add(btnMasReproducidas, gbc_btnMasReproducidas);
 
-		JLabel lblNewLabel = new JLabel("MAS REPRODUCIDAS");
-		lblNewLabel.setForeground(Color.WHITE);
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.gridx = 2;
-		gbc_lblNewLabel.gridy = 9;
-		panel.add(lblNewLabel, gbc_lblNewLabel);
+		
+		lblMasReproducidas.setForeground(Color.WHITE);
+		GridBagConstraints gbc_lblMasReproducidas = new GridBagConstraints();
+		gbc_lblMasReproducidas.gridx = 2;
+		gbc_lblMasReproducidas.gridy = 9;
+		panel.add(lblMasReproducidas, gbc_lblMasReproducidas);
 
 		JPanel panel_1 = new JPanel();
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
@@ -325,11 +331,14 @@ public class VentanaPremium extends JDialog {
 				if (AppMusicControlador.getInstancia().getUsuarioActual().getEsPremium()) {
 					JOptionPane.showMessageDialog(btnCancelar, "Has cancelado tu suscripcion :(", "InfoPremium",
 							JOptionPane.INFORMATION_MESSAGE, null);
+					AppMusicControlador.getInstancia().setPremium(false);
+					btnMasReproducidas.setVisible(false);
+					lblMasReproducidas.setVisible(false);
 				} else {
 					JOptionPane.showMessageDialog(btnCancelar, "No puedes cancelar tu suscripion si ya estas suscrito",
 							"InfoPremium", JOptionPane.INFORMATION_MESSAGE, null);
 				}
-				AppMusicControlador.getInstancia().setPremium(false);
+				
 			}
 		});
 
@@ -338,8 +347,17 @@ public class VentanaPremium extends JDialog {
 		gbc_btnCancelar.gridx = 12;
 		gbc_btnCancelar.gridy = 9;
 		getContentPane().add(btnCancelar, gbc_btnCancelar);
-		{
-
+		
+		
+		// TODO Ver esto posible fallo
+		System.out.println(usuario.getEsPremium());
+		if(!usuario.getEsPremium()){
+			btnMasReproducidas.setVisible(false);
+			lblMasReproducidas.setVisible(false);
+		}
+		else {
+			btnMasReproducidas.setVisible(true);
+			lblMasReproducidas.setVisible(true);
 		}
 
 	}

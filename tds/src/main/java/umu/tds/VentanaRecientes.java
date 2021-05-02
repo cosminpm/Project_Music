@@ -245,29 +245,29 @@ public class VentanaRecientes extends JDialog {
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
 		
-		JButton btnNewButton = new JButton((String) null);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnMasReproducidas = new JButton((String) null);
+		btnMasReproducidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaMasReproducida ventanaMasReproducida= new VentanaMasReproducida();
 				ventanaMasReproducida.setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.setIcon(new ImageIcon(VentanaRecientes.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 9;
-		panel.add(btnNewButton, gbc_btnNewButton);
+		btnMasReproducidas.setContentAreaFilled(false);
+		btnMasReproducidas.setIcon(new ImageIcon(VentanaRecientes.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
+		GridBagConstraints gbc_btnMasReproducidas = new GridBagConstraints();
+		gbc_btnMasReproducidas.insets = new Insets(0, 0, 5, 5);
+		gbc_btnMasReproducidas.gridx = 1;
+		gbc_btnMasReproducidas.gridy = 9;
+		panel.add(btnMasReproducidas, gbc_btnMasReproducidas);
 		
-		JLabel lblNewLabel = new JLabel("MAS REPRODUCIDAS");
-		lblNewLabel.setForeground(Color.WHITE);
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.gridx = 3;
-		gbc_lblNewLabel.gridy = 9;
-		panel.add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblMasReproducidas = new JLabel("MAS REPRODUCIDAS");
+		lblMasReproducidas.setForeground(Color.WHITE);
+		GridBagConstraints gbc_lblMasReproducidas = new GridBagConstraints();
+		gbc_lblMasReproducidas.insets = new Insets(0, 0, 5, 0);
+		gbc_lblMasReproducidas.gridx = 3;
+		gbc_lblMasReproducidas.gridy = 9;
+		panel.add(lblMasReproducidas, gbc_lblMasReproducidas);
 		
 		JPanel panelCanciones = new JPanel();
 		panelCanciones.setBackground(Color.WHITE);
@@ -424,6 +424,20 @@ public class VentanaRecientes extends JDialog {
 		gbc_btnNext.gridx = 6;
 		gbc_btnNext.gridy = 10;
 		panelCanciones.add(btnNext, gbc_btnNext);
+		
+		
+		// TODO Ver esto posible fallo
+		System.out.println(usuario.getEsPremium());
+		if(!usuario.getEsPremium()){
+			btnMasReproducidas.setVisible(false);
+			lblMasReproducidas.setVisible(false);
+		}
+		else {
+			btnMasReproducidas.setVisible(true);
+			lblMasReproducidas.setVisible(true);
+		}
+		
+		
 	}
 
 }

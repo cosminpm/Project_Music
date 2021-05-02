@@ -267,28 +267,28 @@ public class VentanaNuevaLista extends JDialog {
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
 
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnMasReproducidas = new JButton("");
+		btnMasReproducidas.setContentAreaFilled(false);
+		btnMasReproducidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaMasReproducida ventanaMasReproducida = new VentanaMasReproducida();
 				ventanaMasReproducida.setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(VentanaNuevaLista.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton.gridx = 0;
-		gbc_btnNewButton.gridy = 9;
-		panel.add(btnNewButton, gbc_btnNewButton);
+		btnMasReproducidas.setIcon(new ImageIcon(VentanaNuevaLista.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
+		GridBagConstraints gbc_btnMasReproducidas = new GridBagConstraints();
+		gbc_btnMasReproducidas.insets = new Insets(0, 0, 0, 5);
+		gbc_btnMasReproducidas.gridx = 0;
+		gbc_btnMasReproducidas.gridy = 9;
+		panel.add(btnMasReproducidas, gbc_btnMasReproducidas);
 
-		JLabel lblNewLabel = new JLabel("MAS REPRODUCIDAS");
-		lblNewLabel.setForeground(Color.WHITE);
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.gridx = 2;
-		gbc_lblNewLabel.gridy = 9;
-		panel.add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblMasReproducidas = new JLabel("MAS REPRODUCIDAS");
+		lblMasReproducidas.setForeground(Color.WHITE);
+		GridBagConstraints gbc_lblMasReproducidas = new GridBagConstraints();
+		gbc_lblMasReproducidas.gridx = 2;
+		gbc_lblMasReproducidas.gridy = 9;
+		panel.add(lblMasReproducidas, gbc_lblMasReproducidas);
 
 		final JPanel panelCrearLista = new JPanel();
 		panelCrearLista.setVisible(false);
@@ -699,6 +699,18 @@ public class VentanaNuevaLista extends JDialog {
 		gbc_btnSendToList.gridx = 5;
 		gbc_btnSendToList.gridy = 5;
 		panelCrearLista.add(btnSendToList, gbc_btnSendToList);
+		
+		
+		// TODO Ver esto posible fallo
+		System.out.println(usuario.getEsPremium());
+		if(!usuario.getEsPremium()){
+			btnMasReproducidas.setVisible(false);
+			lblMasReproducidas.setVisible(false);
+		}
+		else {
+			btnMasReproducidas.setVisible(true);
+			lblMasReproducidas.setVisible(true);
+		}
 	}
 
 }

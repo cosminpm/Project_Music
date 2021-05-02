@@ -66,6 +66,7 @@ public class PanelPrincipal {
 	}
 
 	private void initialize() {
+		
 		Usuario usuario = AppMusicControlador.getInstancia().getUsuarioActual();
 		nombre = usuario.getNombre() + " " + usuario.getApellidos();
 		frame = new JFrame();
@@ -285,29 +286,46 @@ public class PanelPrincipal {
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
 
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnMasReproducidas = new JButton("");
+		btnMasReproducidas.setContentAreaFilled(false);
+		btnMasReproducidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaMasReproducida ventanaMasReproducida = new VentanaMasReproducida();
 				ventanaMasReproducida.setVisible(true);
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 9;
-		panel.add(btnNewButton, gbc_btnNewButton);
+		btnMasReproducidas.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
+		GridBagConstraints gbc_btnMasReproducidas = new GridBagConstraints();
+		gbc_btnMasReproducidas.insets = new Insets(0, 0, 5, 5);
+		gbc_btnMasReproducidas.gridx = 1;
+		gbc_btnMasReproducidas.gridy = 9;
+		panel.add(btnMasReproducidas, gbc_btnMasReproducidas);
 
-		JLabel lblNewLabel = new JLabel("MAS REPRODUCIDAS");
-		lblNewLabel.setForeground(Color.WHITE);
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.gridx = 4;
-		gbc_lblNewLabel.gridy = 9;
-		panel.add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblMasReproducidas = new JLabel("MAS REPRODUCIDAS");
+		lblMasReproducidas.setForeground(Color.WHITE);
+		GridBagConstraints gbc_lblMasReproducidas = new GridBagConstraints();
+		gbc_lblMasReproducidas.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMasReproducidas.gridx = 4;
+		gbc_lblMasReproducidas.gridy = 9;
+		panel.add(lblMasReproducidas, gbc_lblMasReproducidas);
+		
+		
+		// TODO Ver esto posible fallo
+		System.out.println(usuario.getEsPremium());
+		if(!usuario.getEsPremium()){
+			btnMasReproducidas.setVisible(false);
+			lblMasReproducidas.setVisible(false);
+		}
+		else {
+			btnMasReproducidas.setVisible(true);
+			lblMasReproducidas.setVisible(true);
+		}
+		
+		
+		
+		
+		
 	}
 
 }
