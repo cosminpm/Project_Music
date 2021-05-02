@@ -75,11 +75,11 @@ public class PanelPrincipal {
 		frame.setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 10, 10, 10, 10, 0, 10, 10, 10, 10, 10, 10, 10, 0, 10, 0 };
-		gridBagLayout.rowHeights = new int[] { 10, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0,
+		gridBagLayout.columnWidths = new int[] { 30, 30, 10, 30, 10, 10, 10, 10, 10, 0, 10, 0 };
+		gridBagLayout.rowHeights = new int[] { 10, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0,
 				0.0, Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		frame.getContentPane().setLayout(gridBagLayout);
 
@@ -89,7 +89,7 @@ public class PanelPrincipal {
 		nombreUsuario.setFont(new Font("Segoe UI Historic", Font.PLAIN, 14));
 		GridBagConstraints gbc_nombreUsuario = new GridBagConstraints();
 		gbc_nombreUsuario.insets = new Insets(0, 0, 5, 5);
-		gbc_nombreUsuario.gridx = 4;
+		gbc_nombreUsuario.gridx = 1;
 		gbc_nombreUsuario.gridy = 1;
 		frame.getContentPane().add(nombreUsuario, gbc_nombreUsuario);
 
@@ -110,7 +110,7 @@ public class PanelPrincipal {
 		});
 		GridBagConstraints gbc_luz = new GridBagConstraints();
 		gbc_luz.insets = new Insets(0, 0, 5, 5);
-		gbc_luz.gridx = 8;
+		gbc_luz.gridx = 5;
 		gbc_luz.gridy = 1;
 		frame.getContentPane().add(luz, gbc_luz);
 
@@ -136,7 +136,7 @@ public class PanelPrincipal {
 		GridBagConstraints gbc_btnPremium = new GridBagConstraints();
 		gbc_btnPremium.anchor = GridBagConstraints.EAST;
 		gbc_btnPremium.insets = new Insets(0, 0, 5, 5);
-		gbc_btnPremium.gridx = 11;
+		gbc_btnPremium.gridx = 8;
 		gbc_btnPremium.gridy = 1;
 		frame.getContentPane().add(btnPremium, gbc_btnPremium);
 
@@ -151,7 +151,7 @@ public class PanelPrincipal {
 		GridBagConstraints gbc_btnLogout = new GridBagConstraints();
 		gbc_btnLogout.anchor = GridBagConstraints.EAST;
 		gbc_btnLogout.insets = new Insets(0, 0, 5, 5);
-		gbc_btnLogout.gridx = 12;
+		gbc_btnLogout.gridx = 9;
 		gbc_btnLogout.gridy = 1;
 		frame.getContentPane().add(btnLogout, gbc_btnLogout);
 
@@ -160,15 +160,15 @@ public class PanelPrincipal {
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.gridwidth = 3;
 		gbc_panel.gridheight = 10;
-		gbc_panel.insets = new Insets(0, 0, 0, 5);
+		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
-		gbc_panel.gridx = 4;
+		gbc_panel.gridx = 1;
 		gbc_panel.gridy = 3;
 		frame.getContentPane().add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] { 10, 10, 0, 0, 10, 5, 0 };
+		gbl_panel.columnWidths = new int[] { 10, 10, 0, 0 };
 		gbl_panel.rowHeights = new int[] { 30, 0, 30, 0, 30, 0, 30, 0, 30, 30, 0, 0 };
-		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 1.0, Double.MIN_VALUE };
 		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panel.setLayout(gbl_panel);
 
@@ -190,18 +190,17 @@ public class PanelPrincipal {
 		gbc_btnExplorar.gridx = 1;
 		gbc_btnExplorar.gridy = 1;
 		panel.add(btnExplorar, gbc_btnExplorar);
-
-		JLabel lbExplorar = new JLabel("EXPLORAR");
-		lbExplorar.setBackground(Color.WHITE);
-		lbExplorar.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lbExplorar.setHorizontalAlignment(SwingConstants.LEFT);
-		lbExplorar.setForeground(new Color(255, 255, 255));
-		GridBagConstraints gbc_lbExplorar = new GridBagConstraints();
-		gbc_lbExplorar.insets = new Insets(0, 0, 5, 5);
-		gbc_lbExplorar.anchor = GridBagConstraints.WEST;
-		gbc_lbExplorar.gridx = 4;
-		gbc_lbExplorar.gridy = 1;
-		panel.add(lbExplorar, gbc_lbExplorar);
+		
+				JLabel lbExplorar = new JLabel("EXPLORAR");
+				lbExplorar.setBackground(Color.WHITE);
+				lbExplorar.setFont(new Font("Tahoma", Font.PLAIN, 13));
+				lbExplorar.setHorizontalAlignment(SwingConstants.LEFT);
+				lbExplorar.setForeground(new Color(255, 255, 255));
+				GridBagConstraints gbc_lbExplorar = new GridBagConstraints();
+				gbc_lbExplorar.insets = new Insets(0, 0, 5, 0);
+				gbc_lbExplorar.gridx = 2;
+				gbc_lbExplorar.gridy = 1;
+				panel.add(lbExplorar, gbc_lbExplorar);
 
 		JButton btnNuevaLista = new JButton("");
 		btnNuevaLista.setContentAreaFilled(false);
@@ -213,16 +212,6 @@ public class PanelPrincipal {
 		gbc_btnNuevaLista.gridy = 3;
 		panel.add(btnNuevaLista, gbc_btnNuevaLista);
 
-		JLabel lblNuevaLista = new JLabel("NUEVA LISTA");
-		lblNuevaLista.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNuevaLista.setForeground(Color.WHITE);
-		GridBagConstraints gbc_lblNuevaLista = new GridBagConstraints();
-		gbc_lblNuevaLista.anchor = GridBagConstraints.WEST;
-		gbc_lblNuevaLista.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNuevaLista.gridx = 4;
-		gbc_lblNuevaLista.gridy = 3;
-		panel.add(lblNuevaLista, gbc_lblNuevaLista);
-
 		btnNuevaLista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaNuevaLista ventanaNuevaLista = new VentanaNuevaLista();
@@ -230,6 +219,15 @@ public class PanelPrincipal {
 				frame.setVisible(false);
 			}
 		});
+		
+				JLabel lblNuevaLista = new JLabel("NUEVA LISTA");
+				lblNuevaLista.setFont(new Font("Tahoma", Font.PLAIN, 13));
+				lblNuevaLista.setForeground(Color.WHITE);
+				GridBagConstraints gbc_lblNuevaLista = new GridBagConstraints();
+				gbc_lblNuevaLista.insets = new Insets(0, 0, 5, 0);
+				gbc_lblNuevaLista.gridx = 2;
+				gbc_lblNuevaLista.gridy = 3;
+				panel.add(lblNuevaLista, gbc_lblNuevaLista);
 
 		JButton btnReciente = new JButton("");
 		btnReciente.setContentAreaFilled(false);
@@ -249,17 +247,16 @@ public class PanelPrincipal {
 				frame.setVisible(false);
 			}
 		});
-
-		JLabel lbReciente = new JLabel("RECIENTE");
-		lbReciente.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lbReciente.setIcon(null);
-		lbReciente.setForeground(Color.WHITE);
-		GridBagConstraints gbc_lbReciente = new GridBagConstraints();
-		gbc_lbReciente.anchor = GridBagConstraints.WEST;
-		gbc_lbReciente.insets = new Insets(0, 0, 5, 5);
-		gbc_lbReciente.gridx = 4;
-		gbc_lbReciente.gridy = 5;
-		panel.add(lbReciente, gbc_lbReciente);
+		
+				JLabel lbReciente = new JLabel("RECIENTE");
+				lbReciente.setFont(new Font("Tahoma", Font.PLAIN, 13));
+				lbReciente.setIcon(null);
+				lbReciente.setForeground(Color.WHITE);
+				GridBagConstraints gbc_lbReciente = new GridBagConstraints();
+				gbc_lbReciente.insets = new Insets(0, 0, 5, 0);
+				gbc_lbReciente.gridx = 2;
+				gbc_lbReciente.gridy = 5;
+				panel.add(lbReciente, gbc_lbReciente);
 
 		JButton btnMisListas = new JButton("");
 		btnMisListas.setContentAreaFilled(false);
@@ -277,14 +274,6 @@ public class PanelPrincipal {
 				frame.setVisible(false);
 			}
 		});
-		JLabel lblMisListas = new JLabel("MIS LISTAS");
-		lblMisListas.setForeground(Color.WHITE);
-		GridBagConstraints gbc_lblMisListas = new GridBagConstraints();
-		gbc_lblMisListas.anchor = GridBagConstraints.WEST;
-		gbc_lblMisListas.insets = new Insets(0, 0, 5, 5);
-		gbc_lblMisListas.gridx = 4;
-		gbc_lblMisListas.gridy = 7;
-		panel.add(lblMisListas, gbc_lblMisListas);
 
 		JButton btnMasReproducidas = new JButton("");
 		btnMasReproducidas.setContentAreaFilled(false);
@@ -295,20 +284,27 @@ public class PanelPrincipal {
 				frame.setVisible(false);
 			}
 		});
+		JLabel lblMisListas = new JLabel("MIS LISTAS");
+		lblMisListas.setForeground(Color.WHITE);
+		GridBagConstraints gbc_lblMisListas = new GridBagConstraints();
+		gbc_lblMisListas.insets = new Insets(0, 0, 5, 0);
+		gbc_lblMisListas.gridx = 2;
+		gbc_lblMisListas.gridy = 7;
+		panel.add(lblMisListas, gbc_lblMisListas);
 		btnMasReproducidas.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
 		GridBagConstraints gbc_btnMasReproducidas = new GridBagConstraints();
 		gbc_btnMasReproducidas.insets = new Insets(0, 0, 5, 5);
 		gbc_btnMasReproducidas.gridx = 1;
 		gbc_btnMasReproducidas.gridy = 9;
 		panel.add(btnMasReproducidas, gbc_btnMasReproducidas);
-
-		JLabel lblMasReproducidas = new JLabel("MAS REPRODUCIDAS");
-		lblMasReproducidas.setForeground(Color.WHITE);
-		GridBagConstraints gbc_lblMasReproducidas = new GridBagConstraints();
-		gbc_lblMasReproducidas.insets = new Insets(0, 0, 5, 5);
-		gbc_lblMasReproducidas.gridx = 4;
-		gbc_lblMasReproducidas.gridy = 9;
-		panel.add(lblMasReproducidas, gbc_lblMasReproducidas);
+		
+				JLabel lblMasReproducidas = new JLabel("MAS REPRODUCIDAS");
+				lblMasReproducidas.setForeground(Color.WHITE);
+				GridBagConstraints gbc_lblMasReproducidas = new GridBagConstraints();
+				gbc_lblMasReproducidas.insets = new Insets(0, 0, 5, 0);
+				gbc_lblMasReproducidas.gridx = 2;
+				gbc_lblMasReproducidas.gridy = 9;
+				panel.add(lblMasReproducidas, gbc_lblMasReproducidas);
 		
 		
 		// TODO Ver esto posible fallo

@@ -61,9 +61,9 @@ public class VentanaMisListas extends JDialog {
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 10, 10, 10, 10, 189, 10, 10, 30, 30, 30, 30, 0, 0, 10, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 10, 189, 10, 10, 30, 30, 30, 30, 0, 0, 10, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 10, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0,
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
@@ -75,7 +75,7 @@ public class VentanaMisListas extends JDialog {
 		JLabel lbnombreUsuario = new JLabel(nombre);
 		GridBagConstraints gbc_lbnombreUsuario = new GridBagConstraints();
 		gbc_lbnombreUsuario.insets = new Insets(0, 0, 5, 5);
-		gbc_lbnombreUsuario.gridx = 4;
+		gbc_lbnombreUsuario.gridx = 1;
 		gbc_lbnombreUsuario.gridy = 1;
 		getContentPane().add(lbnombreUsuario, gbc_lbnombreUsuario);
 
@@ -122,12 +122,12 @@ public class VentanaMisListas extends JDialog {
 		btnGenerarPDF.setBackground(Color.BLACK);
 		GridBagConstraints gbc_btnGenerarPDF = new GridBagConstraints();
 		gbc_btnGenerarPDF.insets = new Insets(0, 0, 5, 5);
-		gbc_btnGenerarPDF.gridx = 8;
+		gbc_btnGenerarPDF.gridx = 5;
 		gbc_btnGenerarPDF.gridy = 1;
 		getContentPane().add(btnGenerarPDF, gbc_btnGenerarPDF);
 		GridBagConstraints gbc_luz = new GridBagConstraints();
 		gbc_luz.insets = new Insets(0, 0, 5, 5);
-		gbc_luz.gridx = 10;
+		gbc_luz.gridx = 7;
 		gbc_luz.gridy = 1;
 		getContentPane().add(luz, gbc_luz);
 
@@ -155,7 +155,7 @@ public class VentanaMisListas extends JDialog {
 		GridBagConstraints gbc_btnMejorarCuenta = new GridBagConstraints();
 		gbc_btnMejorarCuenta.anchor = GridBagConstraints.EAST;
 		gbc_btnMejorarCuenta.insets = new Insets(0, 0, 5, 5);
-		gbc_btnMejorarCuenta.gridx = 11;
+		gbc_btnMejorarCuenta.gridx = 8;
 		gbc_btnMejorarCuenta.gridy = 1;
 		getContentPane().add(btnMejorarCuenta, gbc_btnMejorarCuenta);
 
@@ -171,7 +171,7 @@ public class VentanaMisListas extends JDialog {
 		GridBagConstraints gbc_btnSALIR = new GridBagConstraints();
 		gbc_btnSALIR.anchor = GridBagConstraints.EAST;
 		gbc_btnSALIR.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSALIR.gridx = 12;
+		gbc_btnSALIR.gridx = 9;
 		gbc_btnSALIR.gridy = 1;
 		getContentPane().add(btnSALIR, gbc_btnSALIR);
 
@@ -182,13 +182,13 @@ public class VentanaMisListas extends JDialog {
 		gbc_panel.gridwidth = 3;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
-		gbc_panel.gridx = 4;
+		gbc_panel.gridx = 1;
 		gbc_panel.gridy = 3;
 		getContentPane().add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] { 5, 0, 0, 0, 0 };
+		gbl_panel.columnWidths = new int[] { 10, 0, 0, 0 };
 		gbl_panel.rowHeights = new int[] { 30, 0, 30, 0, 30, 0, 30, 0, 30, 0, 0, 0, 0, 30, 0 };
-		gbl_panel.columnWeights = new double[] { 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 1.0, Double.MIN_VALUE };
 		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0,
 				Double.MIN_VALUE };
 		panel.setLayout(gbl_panel);
@@ -207,6 +207,7 @@ public class VentanaMisListas extends JDialog {
 		btnExplorar.setBorderPainted(false);
 		btnExplorar.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/LupaIcon.jpg")));
 		GridBagConstraints gbc_btnExplorar = new GridBagConstraints();
+		gbc_btnExplorar.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnExplorar.insets = new Insets(0, 0, 5, 5);
 		gbc_btnExplorar.gridx = 1;
 		gbc_btnExplorar.gridy = 1;
@@ -216,7 +217,7 @@ public class VentanaMisListas extends JDialog {
 		lblExplorar.setForeground(new Color(255, 255, 255));
 		GridBagConstraints gbc_lblExplorar = new GridBagConstraints();
 		gbc_lblExplorar.insets = new Insets(0, 0, 5, 0);
-		gbc_lblExplorar.gridx = 3;
+		gbc_lblExplorar.gridx = 2;
 		gbc_lblExplorar.gridy = 1;
 		panel.add(lblExplorar, gbc_lblExplorar);
 
@@ -234,6 +235,7 @@ public class VentanaMisListas extends JDialog {
 		btnNuevaLista.setBorderPainted(false);
 		btnNuevaLista.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/NuevaListaIcon.jpg")));
 		GridBagConstraints gbc_btnNuevaLista = new GridBagConstraints();
+		gbc_btnNuevaLista.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnNuevaLista.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNuevaLista.gridx = 1;
 		gbc_btnNuevaLista.gridy = 3;
@@ -243,7 +245,7 @@ public class VentanaMisListas extends JDialog {
 		lblNuevaLista.setForeground(new Color(255, 255, 255));
 		GridBagConstraints gbc_lblNuevaLista = new GridBagConstraints();
 		gbc_lblNuevaLista.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNuevaLista.gridx = 3;
+		gbc_lblNuevaLista.gridx = 2;
 		gbc_lblNuevaLista.gridy = 3;
 		panel.add(lblNuevaLista, gbc_lblNuevaLista);
 
@@ -261,6 +263,7 @@ public class VentanaMisListas extends JDialog {
 		btnReciente.setContentAreaFilled(false);
 		btnReciente.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/RecentIcon.jpg")));
 		GridBagConstraints gbc_btnReciente = new GridBagConstraints();
+		gbc_btnReciente.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnReciente.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReciente.gridx = 1;
 		gbc_btnReciente.gridy = 5;
@@ -270,7 +273,7 @@ public class VentanaMisListas extends JDialog {
 		lblReciente.setForeground(new Color(255, 255, 255));
 		GridBagConstraints gbc_lblReciente = new GridBagConstraints();
 		gbc_lblReciente.insets = new Insets(0, 0, 5, 0);
-		gbc_lblReciente.gridx = 3;
+		gbc_lblReciente.gridx = 2;
 		gbc_lblReciente.gridy = 5;
 		panel.add(lblReciente, gbc_lblReciente);
 
@@ -280,6 +283,7 @@ public class VentanaMisListas extends JDialog {
 		btnNewButton.setContentAreaFilled(false);
 		btnNewButton.setBorderPainted(false);
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton.gridx = 1;
 		gbc_btnNewButton.gridy = 7;
@@ -289,7 +293,7 @@ public class VentanaMisListas extends JDialog {
 		lblMisListas.setForeground(new Color(255, 255, 255));
 		GridBagConstraints gbc_lblMisListas = new GridBagConstraints();
 		gbc_lblMisListas.insets = new Insets(0, 0, 5, 0);
-		gbc_lblMisListas.gridx = 3;
+		gbc_lblMisListas.gridx = 2;
 		gbc_lblMisListas.gridy = 7;
 		panel.add(lblMisListas, gbc_lblMisListas);
 		
@@ -304,6 +308,7 @@ public class VentanaMisListas extends JDialog {
 		btnMasReproducidas.setContentAreaFilled(false);
 		btnMasReproducidas.setIcon(new ImageIcon(VentanaMisListas.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
 		GridBagConstraints gbc_btnMasReproducidas = new GridBagConstraints();
+		gbc_btnMasReproducidas.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnMasReproducidas.insets = new Insets(0, 0, 5, 5);
 		gbc_btnMasReproducidas.gridx = 1;
 		gbc_btnMasReproducidas.gridy = 9;
@@ -313,14 +318,14 @@ public class VentanaMisListas extends JDialog {
 		lblMasReproducidas.setForeground(Color.WHITE);
 		GridBagConstraints gbc_lblMasReproducidas = new GridBagConstraints();
 		gbc_lblMasReproducidas.insets = new Insets(0, 0, 5, 0);
-		gbc_lblMasReproducidas.gridx = 3;
+		gbc_lblMasReproducidas.gridx = 2;
 		gbc_lblMasReproducidas.gridy = 9;
 		panel.add(lblMasReproducidas, gbc_lblMasReproducidas);
 
 		JScrollPane scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.gridheight = 4;
-		gbc_scrollPane.gridwidth = 3;
+		gbc_scrollPane.gridwidth = 2;
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
 		gbc_scrollPane.gridx = 1;
 		gbc_scrollPane.gridy = 10;
@@ -384,7 +389,7 @@ public class VentanaMisListas extends JDialog {
 		gbc_panelCanciones.gridwidth = 5;
 		gbc_panelCanciones.insets = new Insets(0, 0, 5, 5);
 		gbc_panelCanciones.fill = GridBagConstraints.BOTH;
-		gbc_panelCanciones.gridx = 8;
+		gbc_panelCanciones.gridx = 5;
 		gbc_panelCanciones.gridy = 3;
 		getContentPane().add(panelCanciones, gbc_panelCanciones);
 		GridBagLayout gbl_panelCanciones = new GridBagLayout();

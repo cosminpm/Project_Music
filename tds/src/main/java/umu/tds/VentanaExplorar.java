@@ -59,9 +59,9 @@ public class VentanaExplorar extends JDialog {
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(Constantes.ventana_x_size, Constantes.ventana_y_size, Constantes.x_size, Constantes.y_size);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 10, 10, 10, 10, 189, 10, 10, 30, 30, 30, 30, 0, 0, 10, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 10, 189, 10, 10, 30, 30, 30, 30, 0, 0, 10, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 10, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0,
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0,
 				0.0, 0.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, Double.MIN_VALUE };
@@ -73,7 +73,7 @@ public class VentanaExplorar extends JDialog {
 		JLabel lbnombreUsuario = new JLabel(nombre);
 		GridBagConstraints gbc_lbnombreUsuario = new GridBagConstraints();
 		gbc_lbnombreUsuario.insets = new Insets(0, 0, 5, 5);
-		gbc_lbnombreUsuario.gridx = 4;
+		gbc_lbnombreUsuario.gridx = 1;
 		gbc_lbnombreUsuario.gridy = 1;
 		getContentPane().add(lbnombreUsuario, gbc_lbnombreUsuario);
 
@@ -92,7 +92,7 @@ public class VentanaExplorar extends JDialog {
 		});
 		GridBagConstraints gbc_luz = new GridBagConstraints();
 		gbc_luz.insets = new Insets(0, 0, 5, 5);
-		gbc_luz.gridx = 10;
+		gbc_luz.gridx = 7;
 		gbc_luz.gridy = 1;
 		getContentPane().add(luz, gbc_luz);
 
@@ -115,7 +115,7 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_btnMejorarCuenta = new GridBagConstraints();
 		gbc_btnMejorarCuenta.anchor = GridBagConstraints.EAST;
 		gbc_btnMejorarCuenta.insets = new Insets(0, 0, 5, 5);
-		gbc_btnMejorarCuenta.gridx = 11;
+		gbc_btnMejorarCuenta.gridx = 8;
 		gbc_btnMejorarCuenta.gridy = 1;
 		getContentPane().add(btnMejorarCuenta, gbc_btnMejorarCuenta);
 
@@ -131,21 +131,21 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_btnSALIR = new GridBagConstraints();
 		gbc_btnSALIR.anchor = GridBagConstraints.EAST;
 		gbc_btnSALIR.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSALIR.gridx = 12;
+		gbc_btnSALIR.gridx = 9;
 		gbc_btnSALIR.gridy = 1;
 		getContentPane().add(btnSALIR, gbc_btnSALIR);
 
 		JLabel InterpreteShow = new JLabel("INTERPRETE");
 		GridBagConstraints gbc_InterpreteShow = new GridBagConstraints();
 		gbc_InterpreteShow.insets = new Insets(0, 0, 5, 5);
-		gbc_InterpreteShow.gridx = 8;
+		gbc_InterpreteShow.gridx = 5;
 		gbc_InterpreteShow.gridy = 3;
 		getContentPane().add(InterpreteShow, gbc_InterpreteShow);
 
 		JLabel tituloShow = new JLabel("TITULO");
 		GridBagConstraints gbc_tituloShow = new GridBagConstraints();
 		gbc_tituloShow.insets = new Insets(0, 0, 5, 5);
-		gbc_tituloShow.gridx = 11;
+		gbc_tituloShow.gridx = 8;
 		gbc_tituloShow.gridy = 3;
 		getContentPane().add(tituloShow, gbc_tituloShow);
 
@@ -156,13 +156,13 @@ public class VentanaExplorar extends JDialog {
 		gbc_panel.gridwidth = 3;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
-		gbc_panel.gridx = 4;
+		gbc_panel.gridx = 1;
 		gbc_panel.gridy = 4;
 		getContentPane().add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] { 0, 0, 0, 0 };
+		gbl_panel.columnWidths = new int[] { 10, 0, 0, 0 };
 		gbl_panel.rowHeights = new int[] { 30, 0, 30, 0, 30, 0, 30, 0, 30, 0, 0 };
-		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 1.0, Double.MIN_VALUE };
 		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panel.setLayout(gbl_panel);
 
@@ -173,7 +173,7 @@ public class VentanaExplorar extends JDialog {
 				.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/LupaIconrReversed.jpg")));
 		GridBagConstraints gbc_btnExplorar = new GridBagConstraints();
 		gbc_btnExplorar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnExplorar.gridx = 0;
+		gbc_btnExplorar.gridx = 1;
 		gbc_btnExplorar.gridy = 1;
 		panel.add(btnExplorar, gbc_btnExplorar);
 
@@ -198,7 +198,7 @@ public class VentanaExplorar extends JDialog {
 		btnNuevaLista.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/NuevaListaIcon.jpg")));
 		GridBagConstraints gbc_btnNuevaLista = new GridBagConstraints();
 		gbc_btnNuevaLista.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNuevaLista.gridx = 0;
+		gbc_btnNuevaLista.gridx = 1;
 		gbc_btnNuevaLista.gridy = 3;
 		panel.add(btnNuevaLista, gbc_btnNuevaLista);
 
@@ -223,7 +223,7 @@ public class VentanaExplorar extends JDialog {
 		btnReciente.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/RecentIcon.jpg")));
 		GridBagConstraints gbc_btnReciente = new GridBagConstraints();
 		gbc_btnReciente.insets = new Insets(0, 0, 5, 5);
-		gbc_btnReciente.gridx = 0;
+		gbc_btnReciente.gridx = 1;
 		gbc_btnReciente.gridy = 5;
 		panel.add(btnReciente, gbc_btnReciente);
 
@@ -248,7 +248,7 @@ public class VentanaExplorar extends JDialog {
 		btnMisListas.setBorderPainted(false);
 		GridBagConstraints gbc_btnMisListas = new GridBagConstraints();
 		gbc_btnMisListas.insets = new Insets(0, 0, 5, 5);
-		gbc_btnMisListas.gridx = 0;
+		gbc_btnMisListas.gridx = 1;
 		gbc_btnMisListas.gridy = 7;
 		panel.add(btnMisListas, gbc_btnMisListas);
 
@@ -272,7 +272,7 @@ public class VentanaExplorar extends JDialog {
 		btnMasReproducidas.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/TopIcon.jpg")));
 		GridBagConstraints gbc_btnMasReproducidas = new GridBagConstraints();
 		gbc_btnMasReproducidas.insets = new Insets(0, 0, 0, 5);
-		gbc_btnMasReproducidas.gridx = 0;
+		gbc_btnMasReproducidas.gridx = 1;
 		gbc_btnMasReproducidas.gridy = 9;
 		panel.add(btnMasReproducidas, gbc_btnMasReproducidas);
 
@@ -293,7 +293,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_textInterprete.gridwidth = 4;
 		gbc_textInterprete.insets = new Insets(0, 0, 5, 5);
 		gbc_textInterprete.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textInterprete.gridx = 7;
+		gbc_textInterprete.gridx = 4;
 		gbc_textInterprete.gridy = 4;
 		getContentPane().add(textInterprete, gbc_textInterprete);
 
@@ -305,7 +305,7 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_textTitulo = new GridBagConstraints();
 		gbc_textTitulo.insets = new Insets(0, 0, 5, 5);
 		gbc_textTitulo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textTitulo.gridx = 11;
+		gbc_textTitulo.gridx = 8;
 		gbc_textTitulo.gridy = 4;
 		getContentPane().add(textTitulo, gbc_textTitulo);
 		textTitulo.setColumns(10);
@@ -320,7 +320,7 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_comboBoxEstilo = new GridBagConstraints();
 		gbc_comboBoxEstilo.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBoxEstilo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBoxEstilo.gridx = 12;
+		gbc_comboBoxEstilo.gridx = 9;
 		gbc_comboBoxEstilo.gridy = 4;
 		getContentPane().add(comboBoxEstilo, gbc_comboBoxEstilo);
 
@@ -328,7 +328,7 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_btnBuscar = new GridBagConstraints();
 		gbc_btnBuscar.anchor = GridBagConstraints.EAST;
 		gbc_btnBuscar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnBuscar.gridx = 9;
+		gbc_btnBuscar.gridx = 6;
 		gbc_btnBuscar.gridy = 5;
 		getContentPane().add(btnBuscar, gbc_btnBuscar);
 		btnBuscar.setBackground(Color.GRAY);
@@ -341,7 +341,7 @@ public class VentanaExplorar extends JDialog {
 		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 		gbc_btnCancelar.anchor = GridBagConstraints.EAST;
 		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnCancelar.gridx = 11;
+		gbc_btnCancelar.gridx = 8;
 		gbc_btnCancelar.gridy = 5;
 		getContentPane().add(btnCancelar, gbc_btnCancelar);
 		btnCancelar.setForeground(Color.WHITE);
@@ -353,7 +353,7 @@ public class VentanaExplorar extends JDialog {
 		gbc_panelBuscar.gridwidth = 5;
 		gbc_panelBuscar.insets = new Insets(0, 0, 5, 5);
 		gbc_panelBuscar.fill = GridBagConstraints.BOTH;
-		gbc_panelBuscar.gridx = 8;
+		gbc_panelBuscar.gridx = 5;
 		gbc_panelBuscar.gridy = 7;
 		getContentPane().add(panelBuscar, gbc_panelBuscar);
 		GridBagLayout gbl_panelBuscar = new GridBagLayout();
@@ -427,111 +427,113 @@ public class VentanaExplorar extends JDialog {
 
 			}
 		});
+		
+				JButton btnBackSong = new JButton("");
+				btnBackSong.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						int indiceSeleccionado = tablaCanciones.getSelectedRow();
+						Cancion cancionParaParar;
+						Cancion cancionParaReproducir;
+						// Comprobar si es el primero, indiceSeleccionado == 0
+						// Si es la primera, cambiar a la ultima
+						if (indiceSeleccionado == 0) {
+							int aux = listaCancionesSeleccionada.size() - 1;
+							cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+							AppMusicControlador.getInstancia().play(cancionParaParar);
+							AppMusicControlador.getInstancia().stop(cancionParaParar);
+							cancionParaReproducir = listaCancionesSeleccionada.get(aux);
+							AppMusicControlador.getInstancia().play(cancionParaReproducir);
+						} else {
+							cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+							AppMusicControlador.getInstancia().play(cancionParaParar);
+							AppMusicControlador.getInstancia().stop(cancionParaParar);
+							cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado - 1);
+							AppMusicControlador.getInstancia().play(cancionParaReproducir);
+						}
+					}
+				});
+				
+						JButton btnPlay = new JButton("");
+						btnPlay.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent arg0) {
+								int indiceSeleccionado = tablaCanciones.getSelectedRow();
+								if (indiceSeleccionado != -1) {
+									Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
+									AppMusicControlador.getInstancia().play(cancionParaReproducir);	
+								}
+							}
+						});
+						btnPlay.setContentAreaFilled(false);
+						btnPlay.setBorderPainted(false);
+						btnPlay.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/PlayIcon.jpg")));
+						GridBagConstraints gbc_btnPlay = new GridBagConstraints();
+						gbc_btnPlay.insets = new Insets(0, 0, 5, 5);
+						gbc_btnPlay.gridx = 3;
+						gbc_btnPlay.gridy = 5;
+						panelBuscar.add(btnPlay, gbc_btnPlay);
+				btnBackSong.setContentAreaFilled(false);
+				btnBackSong.setBorderPainted(false);
+				btnBackSong.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/BackSongIcon.jpg")));
+				GridBagConstraints gbc_btnBackSong = new GridBagConstraints();
+				gbc_btnBackSong.anchor = GridBagConstraints.EAST;
+				gbc_btnBackSong.insets = new Insets(0, 0, 0, 5);
+				gbc_btnBackSong.gridx = 2;
+				gbc_btnBackSong.gridy = 6;
+				panelBuscar.add(btnBackSong, gbc_btnBackSong);
+		
+				JButton btnStop = new JButton("");
+				btnStop.setContentAreaFilled(false);
+				btnStop.setBorderPainted(false);
+				btnStop.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/PauseIcon.jpg")));
+				btnStop.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						int indiceSeleccionado = tablaCanciones.getSelectedRow();
+						Cancion cancionPausa = listaCancionesSeleccionada.get(indiceSeleccionado);
+						AppMusicControlador.getInstancia().stop(cancionPausa);
+					}
+				});
+				GridBagConstraints gbc_btnStop = new GridBagConstraints();
+				gbc_btnStop.insets = new Insets(0, 0, 0, 5);
+				gbc_btnStop.gridx = 3;
+				gbc_btnStop.gridy = 6;
+				panelBuscar.add(btnStop, gbc_btnStop);
+		
+				JButton btnNextSong = new JButton("");
+				btnNextSong.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
 
-		JButton btnPlay = new JButton("");
-		btnPlay.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				int indiceSeleccionado = tablaCanciones.getSelectedRow();
-				if (indiceSeleccionado != -1) {
-					Cancion cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);	
-				}
-			}
-		});
-		btnPlay.setContentAreaFilled(false);
-		btnPlay.setBorderPainted(false);
-		btnPlay.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/PlayIcon.jpg")));
-		GridBagConstraints gbc_btnPlay = new GridBagConstraints();
-		gbc_btnPlay.insets = new Insets(0, 0, 5, 5);
-		gbc_btnPlay.gridx = 4;
-		gbc_btnPlay.gridy = 5;
-		panelBuscar.add(btnPlay, gbc_btnPlay);
+						int indiceSeleccionado = tablaCanciones.getSelectedRow();
+						Cancion cancionParaParar;
+						Cancion cancionParaReproducir;
+						// Comprobar si es el último, indiceSeleccionado == size - 1
+						// Si es la ultima cambiar a la primera
+						if (indiceSeleccionado == listaCancionesSeleccionada.size() - 1) {
+							int aux = 0;
+							cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+							AppMusicControlador.getInstancia().play(cancionParaParar);
+							AppMusicControlador.getInstancia().stop(cancionParaParar);
+							cancionParaReproducir = listaCancionesSeleccionada.get(aux);
+							AppMusicControlador.getInstancia().play(cancionParaReproducir);
+						}
 
-		JButton btnBackSong = new JButton("");
-		btnBackSong.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				int indiceSeleccionado = tablaCanciones.getSelectedRow();
-				Cancion cancionParaParar;
-				Cancion cancionParaReproducir;
-				// Comprobar si es el primero, indiceSeleccionado == 0
-				// Si es la primera, cambiar a la ultima
-				if (indiceSeleccionado == 0) {
-					int aux = listaCancionesSeleccionada.size() - 1;
-					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCancionesSeleccionada.get(aux);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				} else {
-					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado - 1);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				}
-			}
-		});
-		btnBackSong.setContentAreaFilled(false);
-		btnBackSong.setBorderPainted(false);
-		btnBackSong.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/BackSongIcon.jpg")));
-		GridBagConstraints gbc_btnBackSong = new GridBagConstraints();
-		gbc_btnBackSong.insets = new Insets(0, 0, 0, 5);
-		gbc_btnBackSong.gridx = 3;
-		gbc_btnBackSong.gridy = 6;
-		panelBuscar.add(btnBackSong, gbc_btnBackSong);
-
-		JButton btnStop = new JButton("");
-		btnStop.setContentAreaFilled(false);
-		btnStop.setBorderPainted(false);
-		btnStop.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/PauseIcon.jpg")));
-		btnStop.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				int indiceSeleccionado = tablaCanciones.getSelectedRow();
-				Cancion cancionPausa = listaCancionesSeleccionada.get(indiceSeleccionado);
-				AppMusicControlador.getInstancia().stop(cancionPausa);
-			}
-		});
-		GridBagConstraints gbc_btnStop = new GridBagConstraints();
-		gbc_btnStop.insets = new Insets(0, 0, 0, 5);
-		gbc_btnStop.gridx = 4;
-		gbc_btnStop.gridy = 6;
-		panelBuscar.add(btnStop, gbc_btnStop);
-
-		JButton btnNextSong = new JButton("");
-		btnNextSong.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
-				int indiceSeleccionado = tablaCanciones.getSelectedRow();
-				Cancion cancionParaParar;
-				Cancion cancionParaReproducir;
-				// Comprobar si es el último, indiceSeleccionado == size - 1
-				// Si es la ultima cambiar a la primera
-				if (indiceSeleccionado == listaCancionesSeleccionada.size() - 1) {
-					int aux = 0;
-					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCancionesSeleccionada.get(aux);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				}
-
-				else {
-					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
-					AppMusicControlador.getInstancia().play(cancionParaParar);
-					AppMusicControlador.getInstancia().stop(cancionParaParar);
-					cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado + 1);
-					AppMusicControlador.getInstancia().play(cancionParaReproducir);
-				}
-			}
-		});
-		btnNextSong.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/NextSongIcon.jpg")));
-		btnNextSong.setContentAreaFilled(false);
-		btnNextSong.setBorderPainted(false);
-		GridBagConstraints gbc_btnNextSong = new GridBagConstraints();
-		gbc_btnNextSong.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNextSong.gridx = 5;
-		gbc_btnNextSong.gridy = 6;
-		panelBuscar.add(btnNextSong, gbc_btnNextSong);
+						else {
+							cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
+							AppMusicControlador.getInstancia().play(cancionParaParar);
+							AppMusicControlador.getInstancia().stop(cancionParaParar);
+							cancionParaReproducir = listaCancionesSeleccionada.get(indiceSeleccionado + 1);
+							AppMusicControlador.getInstancia().play(cancionParaReproducir);
+						}
+					}
+				});
+				btnNextSong.setIcon(new ImageIcon(VentanaExplorar.class.getResource("/umu/tds/imagenes/NextSongIcon.jpg")));
+				btnNextSong.setContentAreaFilled(false);
+				btnNextSong.setBorderPainted(false);
+				GridBagConstraints gbc_btnNextSong = new GridBagConstraints();
+				gbc_btnNextSong.anchor = GridBagConstraints.WEST;
+				gbc_btnNextSong.insets = new Insets(0, 0, 0, 5);
+				gbc_btnNextSong.gridx = 4;
+				gbc_btnNextSong.gridy = 6;
+				panelBuscar.add(btnNextSong, gbc_btnNextSong);
 		
 		
 		// TODO Ver esto posible fallo
