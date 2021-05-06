@@ -14,7 +14,6 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-//import java.math.BigInteger;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -440,8 +439,8 @@ public class VentanaExplorar extends JDialog {
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
 				Cancion cancionParaParar;
 				Cancion cancionParaReproducir;
-				// Comprobar si es el primero, indiceSeleccionado == 0
-				// Si es la primera, cambiar a la ultima
+				// Comprobar si es el primero con indiceSeleccionado == 0
+				// Si es la primera cancion, cambiar a la ultima cancion
 				if (indiceSeleccionado == 0) {
 					int aux = listaCancionesSeleccionada.size() - 1;
 					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);
@@ -517,8 +516,8 @@ public class VentanaExplorar extends JDialog {
 				int indiceSeleccionado = tablaCanciones.getSelectedRow();
 				Cancion cancionParaParar;
 				Cancion cancionParaReproducir;
-				// Comprobar si es el último, indiceSeleccionado == size - 1
-				// Si es la ultima cambiar a la primera
+				// Comprobar si es el último con indiceSeleccionado == size - 1
+				// Si es la ultima cancion, cambiar a la primera cancion
 				if (indiceSeleccionado == listaCancionesSeleccionada.size() - 1) {
 					int aux = 0;
 					cancionParaParar = listaCancionesSeleccionada.get(indiceSeleccionado);

@@ -503,8 +503,8 @@ public class VentanaMisListas extends JDialog {
 				if (indiceSeleccionado != -1) {
 					Cancion cancionParaParar;
 					Cancion cancionParaReproducir;
-					// Comprobar si es el último, indiceSeleccionado == size - 1
-					// Si es la ultima cambiar a la primera
+					// Comprobar si es el último con indiceSeleccionado == size - 1
+					// Si es la ultima cancion cambiar a la primera
 					if (indiceSeleccionado == listaCancionesSeleccionada.size() - 1) {
 
 						int aux = 0;

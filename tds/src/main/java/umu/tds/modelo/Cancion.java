@@ -61,7 +61,8 @@ public class Cancion {
 	public void aumentarNumReproducciones() {
 		this.numReproducciones += 1;
 	}
-
+	
+	//Método para pasar cancion tipo componente a nuestra cancion del modelo
 	public static Cancion componenteCanciontoCancion (umu.tds.componente.Cancion cancion) {
 		String rutaFichero = cancion.getURL();
 		String estilo = cancion.getEstilo();

@@ -14,7 +14,6 @@ import umu.tds.modelo.Usuario;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-//import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
@@ -25,7 +24,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import pulsador.Luz;
 import java.beans.PropertyChangeListener;
-//import java.io.File;
 import java.beans.PropertyChangeEvent;
 import java.awt.Dimension;
 
