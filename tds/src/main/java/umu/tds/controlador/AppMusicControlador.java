@@ -160,9 +160,7 @@ public class AppMusicControlador implements CancionesListener {
 	public void enteradoCambioCanciones(EventObject ev) {
 		if (ev instanceof CancionesEvent) {
 			CancionesEvent event = (CancionesEvent) ev;
-			System.out.println("Nuevo archivo" + event.getFicheroNuevo());
 			if (event.getFicheroAntiguo() != null) {
-				System.out.println("Viejo Archivo " + event.getFicheroAntiguo());
 			}
 		}
 	}
@@ -245,11 +243,10 @@ public class AppMusicControlador implements CancionesListener {
 			System.setProperty("java.io.tmpdir", tempPath);
 			Path mp3 = Files.createTempFile("now-playing", ".mp3");
 
-			System.out.println(mp3.getFileName());
+	
 			try (InputStream stream = uri.openStream()) {
 				Files.copy(stream, mp3, StandardCopyOption.REPLACE_EXISTING);
 			}
-			System.out.println("finished-copy: " + mp3.getFileName());
 
 			Media media = new Media(mp3.toFile().toURI().toString());
 			mediaPlayer = new MediaPlayer(media);
@@ -333,11 +330,9 @@ public class AppMusicControlador implements CancionesListener {
 		String usuario = this.usuarioActual.getLogin() + "DocumentoPDF";
 		binPath = AppMusicControlador.class.getClassLoader().getResource(".").getPath();
 		binPath = binPath.replaceFirst("/", "");
-		// System.out.println(binPath);
 		// quitar "/" añadida al inicio del path en plataforma Windows
 		tempPath = binPath.replace("/bin", "/temp");
 		tempPath = tempPath.replace("%20", " ");
-		System.out.println(tempPath);
 		FileOutputStream archivo = new FileOutputStream(tempPath + usuario + ".pdf");
 		Document documento = new Document();
 		PdfWriter.getInstance(documento, archivo);

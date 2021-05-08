@@ -119,7 +119,6 @@ public class CatalogoCanciones {
 
 			aux = c.getTitulo();
 
-			System.out.println("1.0:" + auxAutores + " 1.1:" + autoresToSet);
 			if (auxAutores.equals(autoresToSet) && aux.equals(Titulo))
 				return true;
 		}

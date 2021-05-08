@@ -217,7 +217,6 @@ public class AdaptadorUsuarioTDS implements IAdaptadorUsuarioDAO {
 	
 	public boolean comprobarListaYaExiste(String nombre, Usuario usuario) {
 		List<ListaCanciones> lista = usuario.getListaPlayList();
-		System.err.println("Imprimiendo numero de playlsit de usuario: "+lista.size());
 		for (ListaCanciones playlist : lista) {
 			if(playlist.getNombre().equals(nombre)) {
 				return true;

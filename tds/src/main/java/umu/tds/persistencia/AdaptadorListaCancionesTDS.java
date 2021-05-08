@@ -46,7 +46,6 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		// crear entidad Lista
 		eLista = new Entidad();
 
-		System.err.println("ESTOY EN Registrar Lista Canciones y el nombre de la lista es: " + lista.getNombre());
 
 		eLista.setNombre("listaCanciones");
 		eLista.setPropiedades(new ArrayList<Propiedad>(Arrays.asList(new Propiedad("nombre", lista.getNombre()),
@@ -57,28 +56,11 @@ public class AdaptadorListaCancionesTDS implements IAdaptadorListaCancionesDAO {
 		// asignar identificador unico
 		// Se aprovecha el que genera el servicio de persistencia
 		lista.setCodigo(eLista.getId());
-
-		System.out.println("LOGIN: " + usuarioActual.getLogin());
-
 		LinkedList<ListaCanciones> l = (LinkedList<ListaCanciones>) usuarioActual.getListaPlayList();
 		l.addLast(lista);
-
-		System.out.println("SET: " + l.size());
-
 		usuarioActual.setListaCanciones(l);
-
-		System.out.println("SET1: " + l.size());
-		System.out.println("REGISTRAR LISTA0: " + usuarioActual.getListaPlayList().size());
-
 		AdaptadorUsuarioTDS.getUnicaInstancia().modificarUsuario(usuarioActual);
 
-		System.out.println("REGISTRAR LISTA1: " + usuarioActual.getListaPlayList().size());
-		System.err.println("Print: registrarListaCancion FINAL");
-
-		System.err.println(l.size());
-		for (ListaCanciones listaCanciones : l) {
-			System.err.println(listaCanciones.getNombre());
-		}
 	}
 
 	public void borrarListaCanciones(ListaCanciones lista) {
