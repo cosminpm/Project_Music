@@ -412,6 +412,8 @@ public class VentanaMisListas extends JDialog {
 					try {
 						try {
 							AppMusicControlador.getInstancia().generarPDF();
+							JOptionPane.showMessageDialog(btnGenerarPDF, "Se ha generado correctamente",
+									"Informacion", JOptionPane.INFORMATION_MESSAGE, null);
 						} catch (DocumentException e) {
 							e.printStackTrace();
 						}

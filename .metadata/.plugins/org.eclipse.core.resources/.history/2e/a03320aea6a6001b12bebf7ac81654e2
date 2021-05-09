@@ -1,9 +1,0 @@
-package inicializador;
-import umu.tds.GUILogin;
-
-public class Inicializador {
-
-	public static void main(String[] args) {
-		System.out.println("Hello World!");
-	}
-}
